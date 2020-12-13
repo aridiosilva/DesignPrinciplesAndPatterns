@@ -122,7 +122,9 @@ In normalized systems separation of concerns is one of the four guiding principl
 
 Separation of concerns can be implemented and enforced via partial classes.[9]
 
-SoC via partial classes in Ruby
+- SoC via partial classes in Ruby
+
+```Ruby
 bear_hunting.rb
 class Bear
   def hunt
@@ -146,6 +148,7 @@ class Bear
     end
   end
 end
+```
 
 ## Implementation
 
