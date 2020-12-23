@@ -124,6 +124,9 @@ Separation of concerns can be implemented and enforced via partial classes.[9]
 
 - SoC via partial classes in Ruby
 
+## Gang of Four - Design Patterns 
+
+
 ```Ruby
 bear_hunting.rb
 class Bear
@@ -265,3 +268,10 @@ The Factory Method pattern is a design pattern used to define a runtime interfac
 - When a class doesn't know what sub-classes will be required to create
 - When a class wants that its sub-classes specify the objects to be created.
 - When the parent classes choose the creation of objects to its sub-classes.
+
+# Gang of Four - 23 Design Patterns to hekp Fix Design Object-Oriented Problems
+
+## Diagram of the Design Patterns Relationships
+
+{design pattern relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
+
