@@ -273,5 +273,5 @@ The Factory Method pattern is a design pattern used to define a runtime interfac
 
 ## Diagram of the Design Patterns Relationships
 
-[design pattern relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
+(https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
 
