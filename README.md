@@ -289,8 +289,14 @@ A) The first criterion, called purpose, reflects what a pattern does. Patterns c
    
 B) The second criterion, called scope, specifies whether the pattern applies primarily to classes or to objects.
 
-    - **Class patterns** deal with relationships between classes and their subclasses. These relationships are established through inheritance, so they are static—fixed at compile-time. 
-    - **Object patterns** deal with object relationships, which can be changed at run-time and are more dynamic. 
+    - **Class patterns** 
     
-    Almost all patterns use inheritance to some extent. So the only patterns labeled "class patterns" are those that focus on class relationships. Note
+       - deal with relationships between classes and their subclasses. T
+       - these relationships are established through inheritance, so they are static—fixed at compile-time. 
+       
+    - **Object patterns** 
+      
+       - deal with object relationships, which can be changed at run-time and are more dynamic. 
+    
+    - Almost all patterns use inheritance to some extent. So the only patterns labeled "class patterns" are those that focus on class relationships. Note
 that most patterns are in the Object scope.
