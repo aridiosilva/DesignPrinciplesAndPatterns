@@ -13,6 +13,17 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ![umlassocation](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-association2.png)
 
+Association is the weakest relationship between the three (Association, Generalization and Composition). It isn't a “has-a” relationship, none of the objects are parts or members of another.
+
+Association only means that the objects “know” each other. For example, a mother and her child.
+
+In UML, we can mark an association with an arrow:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/association_symbol.png)
+
+If the association is bidirectional, we can use two arrows, an arrow with an arrowhead on both ends, or a line without any arrowheads:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/association_symbols2.png)
 
 ### Constraints of Associations
 
