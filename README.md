@@ -9,8 +9,8 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 - **Association** - "is part of association" relationship
 - **Generalization (inheritance)** - “is-a” relationship
-- **Dependency (Composition)** - one element is dependent on another element -“has-a” relationship 
-- **Dependency (Aggregation)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Composition (Dependency)** - one element is dependent on another element -“has-a” relationship 
+- **Aggregation (Dependency)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 
 ## UM Association
 
@@ -103,7 +103,7 @@ Since it connects the object of one class to the object of another class, it is 
 - **{addOnly}**: It specifies that any new connection can be added from an object located at the other end in an association.
 - **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
 
-## UML Generalization (or Inheritance)
+# UML Generalization (or Inheritance)
 
 In UML modeling, a generalization relationship is a relationship that implements the concept of object orientation called inheritance. The generalization relationship occurs between two entities or objects, such that one entity is the parent, and the other one is the child. The child inherits the functionality of its parent and can access as well as update it.
 
@@ -179,6 +179,58 @@ In the generalization stereotype, there are two types of constraints that are **
 Example: As we know, the bank account can be of two types; Savings Account and Credit Card Account. Both the savings and the credit card account inherits the generalized properties from the Bank Account, which is Account Number, Account Balance, etc.
 
 ![umlgeneratization_or_inheritance2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization2.png)
+
+## Inheritance in Design Patterns
+
+While the consensus is that we should favor composition over inheritance whenever possible, there are a few typical use cases where inheritance has its place.
+
+### A) The Layer Supertype Pattern
+
+In this case, we use inheritance to move common code to a base class (the supertype), on a per-layer basis. Here's a basic implementation of this pattern in the domain layer:
+
+```java
+public class Entity {
+    
+    protected long id;
+    
+    // setters
+}
+public class User extends Entity {
+    
+    // additional fields and methods   
+}
+```
+We can apply the same approach to the other layers in the system, such as the service and persistence layers.
+
+### B) The Template Method Pattern
+
+In the template method pattern, we can use a base class to define the invariant parts of an algorithm, and then implement the variant parts in the subclasses:
+
+```java
+public abstract class ComputerBuilder {
+    
+    public final Computer buildComputer() {
+        addProcessor();
+        addMemory();
+    }
+    
+    public abstract void addProcessor();
+    
+    public abstract void addMemory();
+}
+public class StandardComputerBuilder extends ComputerBuilder {
+
+    @Override
+    public void addProcessor() {
+        // method implementation
+    }
+    
+    @Override
+    public void addMemory() {
+        // method implementation
+    }
+}
+```
 
 ## UML Dependency (Composition)
 
