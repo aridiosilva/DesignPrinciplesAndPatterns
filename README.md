@@ -46,6 +46,47 @@ class Mother {
     List<Child> children;
 }
 ```
+For the sake of clarity, sometimes we want to define the cardinality of a relationship on a UML diagram. We can do this by writing it to the ends of the arrow:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/cardinality-1.png)
+
+Note, that it doesn't make sense to write zero as cardinality, because it means there's no relationship. The only exception is when we want to use a range to indicate an optional relationship:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/cardinality-2.png)
+
+Also note, that since in composition there's precisely one owner we don't indicate it on the diagrams.
+
+Let's see a (little) more complex example!
+
+We'll model a university, which has its departments. Professors work in each department, who also has friends among each other.
+
+Will the departments exist after we close the university? Of course not, therefore it's a composition.
+
+But the professors will still exist (hopefully). We have to decide which is more logical: if we consider professors as parts of the departments or not. Alternatively: are they members of the departments or not? Yes, they are. Hence it's an aggregation. On top of that, a professor can work in multiple departments.
+
+The relationship between professors is association because it doesn't make any sense to say that a professor is part of another one.
+
+As a result, we can model this example with the following UML diagram:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/complex-example_association.png)
+
+And the Java code looks like this:
+
+```java
+class University {
+    List<Department> department;   
+}
+
+class Department {
+    List<Professor> professors;
+}
+
+class Professor {
+    List<Department> department;
+    List<Professor> friends;
+}
+```
+Note, that if we rely on the terms **“has-a”**, **“belongs-to”**, **“member-of”**, **“part-of”**, and so on, we can more easily identify the relationships between our objects.
 
 ### Constraints of Associations
 
