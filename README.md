@@ -361,11 +361,11 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 
 - **Decorator (175)** - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
 
-- **Facade (185)** - Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. describes how to represent complete subsystems as objects.
+- **Facade (185)** - Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. It describes how to represent complete subsystems as objects.
 
 - **Factory Method (107)** - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
-- **Flyweight (195)** - Use sharing to support large numbers of fine-grained objects efficiently. Describes how to support huge numbers of objects at the finest granularities
+- **Flyweight (195)** - Use sharing to support large numbers of fine-grained objects efficiently. It describes how to support huge numbers of objects at the finest granularities.
 
 - **Interpreter (243)** - Given a language, define a represention for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
 
