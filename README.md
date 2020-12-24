@@ -124,9 +124,6 @@ Separation of concerns can be implemented and enforced via partial classes.[9]
 
 - SoC via partial classes in Ruby
 
-## Gang of Four - Design Patterns 
-
-
 ```Ruby
 bear_hunting.rb
 class Bear
