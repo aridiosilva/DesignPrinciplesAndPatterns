@@ -7,11 +7,52 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
-- Association
-- Inheritance
-- Dependency (Composition)
+### UM Association
 
-## COHESION
+**Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
+
+![umlassocation](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-association2.png)
+
+Since it connects the object of one class to the object of another class, it is categorized as a structural relationship. Following are the constraints applied to the association relationship are enlisted below:
+
+- **{implicit}**: As the name suggests, the implicit constraints define that the relationship is not visible, but it is based on a concept.
+- **{ordered}**: It describes that the set of entities is in a particular way at one end in an association.
+- **{changeable}**: The changeable constraint ensures that the connections between several objects within a system are added, improved, and detached, as and when required.
+- **{addOnly}**: It specifies that any new connection can be added from an object located at the other end in an association.
+- **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
+
+## UML Inheritance
+
+## UML Dependency (Composition)
+
+Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
+
+![umldepedency](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-dependency.png)
+
+### Types of Dependency Relationship
+
+Following are the type of dependency relationships, keywords, or stereotypes given below:
+
+- **<<derive>>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
+- **<<derive>>** -It represents that the source object's location can be evaluated from the target object.
+- **<<friend>>** -It states the uniqueness of the source in the target object.
+- **<<instanceOf>>** -It states that an instance of a target classifier is the source object.
+- **<<instantiate>>** -It defines the capability of the source object, creating instances of a target object.
+- **<<refine>>** -It states that the source object comprises of exceptional abstraction than that of the target object.
+- **<<use>>**v -When the packages are created in UML, the use of stereotype is used as it describes that the elements of the source package can also exist in the target package. It specifies that the source package uses some of the elements of the target package.
+- **<<substitute>>** -The substitute stereotype state that the client can be substituted at the runtime for the supplier.
+- **<<access>>** -It is also called as private merging in which the source package accesses the element of the target package.
+- **<<import>>** -It specifies that target imports the source package's element as they are defined within the target. It is also known as public merging.
+- **<<permit>>** -It describes that the source element can access the supplier element or whatever visibility is provided by the supplier.
+- **<<extend>>** -It states that the behavior of the source element can be extended by the target.
+- **<<include>>** -It describes the source element, which can include the behavior of another element at a specific location, just like a function call in C/C++.
+- **<<become>>** -It states that target is similar to the source with distinct roles and values.
+- **<<call>>** -It specifies that the target object can be invoked by the source.
+- **<<copy>>** -It states that the target is an independent replica of a source object.
+- **<<parameter>>** -It describes that the supplier is a parameter of the client's actions.
+- **<<send>>** -The client act as an operation, which sends some unspecified targets to the supplier.
+
+# COHESION
 
 - Is the force thad binds together the code responsible to a single actor.
 - Is a measure of how related the functions within a single module are.
@@ -20,7 +61,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 - High Cohesion is the goal in design of classes, modules and other software artifacts.
 - Low Cohesion is bad practice in design of classes, modules and other software artifacts.
 
-## COUPLING or DEPENDENCY
+# COUPLING or DEPENDENCY
 
 - Refers to the interdependencies between software artifacts
 - Is the degree to which each module relies on each one of the the modules.
