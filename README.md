@@ -426,9 +426,7 @@ Design patterns solve many of the day-to-day problems object-oriented designers 
 
 Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client. **Requests** are the only way to get an object to execute an operation. **Operations** are the only way to change an object's internal data (state). Because of these restrictions, the **object's internal state** is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.  
 
-The hard part about object-oriented design is **decomposing a system into objects**. The task is difficult because many factors come into play: *encapsulation,  granularity, dependency, flexibility, performance, evolution, reusability, and  on and on*. They all influence the **decomposition**, often in conflicting ways.  
-
-Object-oriented design methodologies favor many different approaches:
+The hard part about object-oriented design is **decomposing a system into objects**. The task is difficult because many factors come into play: *encapsulation,  granularity, dependency, flexibility, performance, evolution, reusability, and  on and on*. They all influence the **decomposition**, often in conflicting ways. Object-oriented design methodologies favor many different approaches:
 
 - *You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations, or*
 - *You can focus on the collaborations and responsibilities in your system, or*
@@ -436,7 +434,7 @@ Object-oriented design methodologies favor many different approaches:
 
 There will always be disagreement on which approach is best. 
 
-Many objects in a design come from the **analysis model**. But object-oriented designs often end up with *classes* that have no counterparts in the real world. Some of these are **low-level classes** like arrays. Others are much **higher-level**. For example, the **Composite (163) pattern** introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's. The **abstractions** that emerge during design are key to making a design flexible.
+Many objects in a design come from the **analysis model**. But object-oriented designs often end up with *classes* that have no counterparts in the real world. Some of these are **low-level classes** like arrays. Others are much **higher-level**. For example, the **Composite (163) pattern** introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. *Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's*. The **abstractions** that emerge during design are key to making a design flexible.
 
 Design patterns help you identify **less-obvious abstractions** and the objects that can capture them. For example, objects that represent a **process** or **algorithm** don't occur in nature, yet they are a crucial part of flexible designs. 
 
