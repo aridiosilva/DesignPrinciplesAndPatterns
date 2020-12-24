@@ -7,10 +7,10 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
-- ** Association** - "is part of association" relationship
-- ** Generalization (inheritance)** - “is-a” relationship
-- ** Dependency (Composition)** - one element is dependent on another element -“has-a” relationship 
-- ** Dependency (Aggregation)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Association** - "is part of association" relationship
+- **Generalization (inheritance)** - “is-a” relationship
+- **Dependency (Composition)** - one element is dependent on another element -“has-a” relationship 
+- **Dependency (Aggregation)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 
 ## UM Association
 
