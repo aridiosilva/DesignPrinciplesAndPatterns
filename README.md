@@ -232,9 +232,6 @@ Which classes belong in which components? This is an important decision, and req
 - CCP - Common Closure Principle
 - CRP - Common Reuse Principle
 
-
-
-
 # Classification of Programming Languages
 
 ![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
@@ -255,6 +252,14 @@ The Factory Method pattern is useful when you need to abstract the creation of a
 
 The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
 
+Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
+
+A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
+
+- when it applies, 
+- whether it can be applied in view of other design constraints, and 
+- the consequences and trade-offs of its use. 
+
 ## Advantage of Factory Design Pattern
 
 - Factory Method Pattern allows the sub-classes to choose the type of objects to create.
@@ -266,7 +271,71 @@ The Factory Method pattern is a design pattern used to define a runtime interfac
 - When a class wants that its sub-classes specify the objects to be created.
 - When the parent classes choose the creation of objects to its sub-classes.
 
-# Gang of Four - 23 Design Patterns to hekp Fix Design Object-Oriented Problems
+# Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
+
+## What is a Design Pattern?
+
+"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice"  - Christopher Alexander
+
+## Elements of a Pattern
+
+In general, a pattern has four essential elements:
+
+1. The **pattern name** is a handle we can use to describe a design problem, its solutions, and
+consequences in a word or two. Naming a pattern immediately increases our design vocabulary. It
+lets us design at a higher level of abstraction. Having a vocabulary for patterns lets us talk about them
+with our colleagues, in our documentation, and even to ourselves. It makes it easier to think about
+designs and to communicate them and their trade-offs to others. Finding good names has been one of
+the hardest parts of developing our catalog.
+
+1. The **problem** describes when to apply the pattern. It explains the problem and its context. It might
+describe specific design problems such as how to represent algorithms as objects. It might describe
+class or object structures that are symptomatic of an inflexible design. Sometimes the problem will
+include a list of conditions that must be met before it makes sense to apply the pattern.
+
+1. The **solution** describes the elements that make up the design, their relationships, responsibilities, and
+collaborations. The solution doesn't describe a particular concrete design or implementation, because
+a pattern is like a template that can be applied in many different situations. Instead, the pattern
+provides an abstract description of a design problem and how a general arrangement of elements
+(classes and objects in our case) solves it.
+
+1. The **consequences** are the results and trade-offs of applying the pattern. Though consequences are
+often unvoiced when we describe design decisions, they are critical for evaluating design alternatives
+and for understanding the costs and benefits of applying the pattern. The consequences for software
+often concern space and time trade-offs. They may address language and implementation issues as
+well. Since reuse is often a factor in object-oriented design, the consequences of a pattern include its
+impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
+helps you understand and evaluate them.
+
+## Describing Design Patterns
+
+How do we describe design patterns? Graphical notations, while important and useful, aren't sufficient. They simply capture the end product of the design process as relationships between classes and objects. To reuse the design, we must also record the decisions, alternatives, and trade-offs that led to it. Concrete examples are important too, because they help you see the design in action. The Gang of Four describe design patterns using a consistent format. Each pattern is divided into sections according to the following template. The template lends a uniform structure to the information, making design patterns easier to learn, compare, and use.
+
+- **Pattern Name and Classification**  -  The pattern's name conveys the essence of the pattern succinctly. A good name is vital, because it will become part of your design vocabulary. The pattern's classification reflects the scheme we introduce in Section 1.5.
+
+- **Intent ** - A short statement that answers the following questions: What does the design pattern do? What is its rationale and intent? What particular design issue or problem does it address?
+
+- **Also Known As** - Other well-known names for the pattern, if any.
+
+- **Motivation** - A scenario that illustrates a design problem and how the class and object structures in the pattern solve the problem. The scenario will help you understand the more abstract description of the pattern that follows.
+
+- **Applicability** - What are the situations in which the design pattern can be applied? What are examples of poor designs that the pattern can address? How can you recognize these situations?
+
+- **Structure** - A graphical representation of the classes in the pattern using a notation based on the Object Modeling Technique (OMT) [RBP+91]. We also use interaction diagrams [JCJO92, Boo94] to illustrate sequences of requests and collaborations between objects. Appendix B describes these notations in detail.
+
+- **Participants** - The classes and/or objects participating in the design pattern and their responsibilities.
+
+- **Collaborations** - How the participants collaborate to carry out their responsibilities.
+
+- **Consequences** - How does the pattern support its objectives? What are the trade-offs and results of using the pattern? What aspect of system structure does it let you vary independently?
+
+- **Implementation** - What pitfalls, hints, or techniques should you be aware of when implementing the pattern? Are there language-specific issues?
+
+- **Sample Code** - Code fragments that illustrate how you might implement the pattern in C++ or Smalltalk.
+
+- **Known Uses** - Examples of the pattern found in real systems. We include at least two examples from different domains.
+
+- **Related Patterns** - What design patterns are closely related to this one? What are the important differences? With which other patterns should this one be used?
 
 ## Diagram of the Design Patterns Relationships
 
