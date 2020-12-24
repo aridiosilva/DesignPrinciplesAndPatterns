@@ -25,6 +25,28 @@ If the **association is bidirectional**, we can use two arrows, an arrow with an
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/association_symbols2.png)
 
+In Java, we can model association the same way as aggregation:
+
+```java
+class Child {}
+
+class Mother {
+    List<Child> children;
+}
+```
+
+But wait, how can we tell if a reference means aggregation or association?  Well, we can't. The difference is only logical: whether one of the objects is part of the other or not. Also, we have to maintain the references manually on both ends as we did with aggregation:
+
+```java
+class Child {
+    Mother mother;
+}
+
+class Mother {
+    List<Child> children;
+}
+```
+
 ### Constraints of Associations
 
 Since it connects the object of one class to the object of another class, it is categorized as a structural relationship. Following are the constraints applied to the association relationship are enlisted below:
