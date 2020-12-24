@@ -7,7 +7,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
-### UM Association
+## UM Association
 
 **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
@@ -29,9 +29,7 @@ Dependency depicts how various things within a system are dependent on each othe
 
 ![umldepedency](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-dependency.png)
 
-### Types of Dependency Relationship
-
-Following are the type of dependency relationships, keywords, or stereotypes given below:
+Types of Dependency Relationship - Following are the type of dependency relationships, keywords, or stereotypes given below:
 
 - **<< derive >>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
 - **<< derive >>** -It represents that the source object's location can be evaluated from the target object.
