@@ -33,8 +33,8 @@ Dependency depicts how various things within a system are dependent on each othe
 
 Following are the type of dependency relationships, keywords, or stereotypes given below:
 
-- **<<derive>>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
-- **<<derive>>** -It represents that the source object's location can be evaluated from the target object.
+- **<< derive>>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
+- **<< derive>>** -It represents that the source object's location can be evaluated from the target object.
 - **<<friend>>** -It states the uniqueness of the source in the target object.
 - **<<instanceOf>>** -It states that an instance of a target classifier is the source object.
 - **<<instantiate>>** -It defines the capability of the source object, creating instances of a target object.
