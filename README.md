@@ -469,8 +469,10 @@ Objects can vary tremendously in size and number. They can represent everything 
 Design patterns address this issue as well. 
 
 - The **Facade (185) pattern** describes how to represent complete subsystems as objects, and 
-- the **Flyweight (195) pattern** describes how to support huge numbers of objects at the finest granularities. 
-- Other design patterns describe specific ways of decomposing an object into smaller objects. 
+- the **Flyweight (195) pattern** describes how to support huge numbers of objects at the finest granularities.
+
+Other design patterns describe specific ways of decomposing an object into smaller objects. 
+
 - **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
 - **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
