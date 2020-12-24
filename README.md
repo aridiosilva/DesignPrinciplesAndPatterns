@@ -7,10 +7,10 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
-- ** Association**
-- ** Generalization (inheritance)**
-- ** Dependency (Composition)**
-- ** Dependency (Aggregation)**
+- ** Association** - "is part of association" relationship
+- ** Generalization (inheritance)** - “is-a” relationship
+- ** Dependency (Composition)** - one element is dependent on another element -“has-a” relationship 
+- ** Dependency (Aggregation)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 
 ## UM Association
 
@@ -116,6 +116,59 @@ The generalization relationship is incorporated to record attributes, operations
 The parent model element can have as many children, and also, the child can have one or more parents. But most commonly, it can be seen that there is one parent model element and multiple child model elements. The generalization relationship does not consist of names. The generalization relationship is represented by a solid line with a hollow arrowhead pointing towards the parent model element from the child model element.
 
 ![umlgeneralization_or_inheritance](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization.png)
+
+Let's create a naive example: a base class Person that defines the common fields and methods for a person, while the subclasses Waitress and Actress provide additional, fine-grained method implementations.
+
+Here's the Person class:
+
+```java
+public class Person {
+    private final String name;
+
+    // other fields, standard constructors, getters
+}
+```
+And these are the subclasses:
+
+```java
+public class Waitress extends Person {
+
+    public String serveStarter(String starter) {
+        return "Serving a " + starter;
+    }
+    
+    // additional methods/constructors
+}
+public class Actress extends Person {
+    
+    public String readScript(String movie) {
+        return "Reading the script of " + movie;
+    } 
+    
+    // additional methods/constructors
+}
+```
+In addition, let's create a unit test to verify that instances of the Waitress and Actress classes are also instances of Person, thus showing that the “is-a” condition is met at the type level:
+
+```java
+@Test
+public void givenWaitressInstance_whenCheckedType_thenIsInstanceOfPerson() {
+    assertThat(new Waitress("Mary", "mary@domain.com", 22))
+      .isInstanceOf(Person.class);
+}
+    
+@Test
+public void givenActressInstance_whenCheckedType_thenIsInstanceOfPerson() {
+    assertThat(new Actress("Susan", "susan@domain.com", 30))
+      .isInstanceOf(Person.class);
+}
+```
+
+It's important to stress here the semantic facet of inheritance. Aside from reusing the implementation of the Person class, we've created a well-defined “is-a” relationship between the base type Person and the subtypes Waitress and Actress. Waitresses and actresses are, effectively, persons.
+
+This may cause us to ask: in which use cases is inheritance the right approach to take?
+
+If subtypes fulfill the *“is-a”* condition and mainly provide additive functionality further down the classes hierarchy, then inheritance is the way to go.
 
 ### Stereotypes and their constraints
 
