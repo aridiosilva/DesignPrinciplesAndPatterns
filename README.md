@@ -11,6 +11,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 - **Generalization (inheritance)** - “is-a” relationship
 - **Composition (Dependency)** - one element is dependent on another element -“has-a” relationship 
 - **Aggregation (Dependency)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Realization** - one model element **implements** the responsibility specified by another model element
 
 ## UM Association
 
@@ -377,6 +378,53 @@ class Car {
     List<Wheel> wheels;
 }
 ```
+
+# UML Realization
+
+In UML modeling, the realization is a relationship between two objects, where the client (one model element) implements the responsibility specified by the supplier (another model element). The realization relationship can be employed in class diagrams and components diagrams.  The realization relationship does not have names. It is mostly found in the interfaces. It is represented by a dashed line with a hollow arrowhead at one end that points from the client to the server.
+
+## Interface Realization
+
+Interface realization is a kind of specialized relation between the classifier and the interface. In interface realization relationship, realizing classifiers conforms to the contract defined by the interface.
+
+A classifier implementing an interface identifies the objects that conform to the interface and any of its ancestors. A classifier can execute one or more interfaces. The set of interfaces that are implemented by the classifier are its given interfaces. The given interfaces are the set of services offered by the classifiers to its clients.
+
+The interface realization relationship does not contain names, and if you name it, then the name will appear beside the connector in the diagram.
+
+The interface realization relationship is represented by a dashed line with a hollow arrowhead, which points from the classifier to the given interface.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization.png)
+
+## 
+next →← prev
+UML-Realization
+In UML modeling, the realization is a relationship between two objects, where the client (one model element) implements the responsibility specified by the supplier (another model element). The realization relationship can be employed in class diagrams and components diagrams.
+
+The realization relationship does not have names. It is mostly found in the interfaces. It is represented by a dashed line with a hollow arrowhead at one end that points from the client to the server.
+
+Interface Realization
+Interface realization is a kind of specialized relation between the classifier and the interface. In interface realization relationship, realizing classifiers conforms to the contract defined by the interface.
+
+
+A classifier implementing an interface identifies the objects that conform to the interface and any of its ancestors. A classifier can execute one or more interfaces. The set of interfaces that are implemented by the classifier are its given interfaces. The given interfaces are the set of services offered by the classifiers to its clients.
+
+The interface realization relationship does not contain names, and if you name it, then the name will appear beside the connector in the diagram.
+
+The interface realization relationship is represented by a dashed line with a hollow arrowhead, which points from the classifier to the given interface.
+
+## Types of Realization
+
+1. **Canonical form**: In UML, the canonical form realizes the interfaces across the system. An interface stereotype is used for creating an interface, and a realization relationship is employed to realize (implement) a specific interface. In this, the realization relationship is represented by a dashed line with a hollow arrowhead, and the interface is implemented using an object.
+
+From the diagram given below, it can be seen that the object Account Business Rules realizes the interface Iruleagent.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization2.png)
+
+1. **Elided form**: It is that kind of realization relationship in which the interface is represented by a circle, also known as a lollipop notation. When an interface is realized employing anything present in the system, then an elided structure is created.
+
+Here the interface Iruleagent is denoted by an elided form, which is realized by acctrule.dll.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization3.png)
 
 # COHESION
 
