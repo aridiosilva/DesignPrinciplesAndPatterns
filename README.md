@@ -220,6 +220,54 @@ Following are the type of dependency relationships, keywords, or stereotypes giv
 - **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
 - **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
+# UML Agregation 
+
+Aggregation is also a **“has-a” relationship**. What distinguishes it from **composition**, that **it doesn't involve owning**. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
+
+For example, a car and its wheels. We can take off the wheels, and they'll still exist. We can mount other (preexisting) wheels, or install these to another car and everything will work just fine.
+
+Of course, a car without wheels or a detached wheel won't be as useful as a car with its wheels on. But that's why this relationship existed in the first place: to assemble the parts to a bigger construct, which is capable of more things than its parts.
+
+Since aggregation doesn't involve owning, a member doesn't need to be tied to only one container. For example, a triangle is made of segments. But triangles can share segments as their sides.
+
+Aggregation is very similar to composition. The only logical difference is aggregation is a weaker relationship.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/aggregation_symbol1.png)
+
+For cars and wheels, then, we'd do:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/aggregation_symbol2.png)
+
+In Java, we can model aggregation with a plain old reference:
+
+```java
+class Wheel {}
+
+class Car {
+    List<Wheel> wheels;
+}
+```
+    
+The member can be any type of class, except a non-static inner class.  
+
+In the code snippet above both classes have their separate source file. However, we can also use a static inner class:
+
+class Car {
+    List<Wheel> wheels;
+    static class Wheel {}
+}
+Note that Java will create an implicit reference only in non-static inner classes. Because of that, we have to maintain the relationship manually where we need it:
+
+```java
+class Wheel {
+    Car car;
+}
+
+class Car {
+    List<Wheel> wheels;
+}
+```
+
 # COHESION
 
 - Is the force thad binds together the code responsible to a single actor.
