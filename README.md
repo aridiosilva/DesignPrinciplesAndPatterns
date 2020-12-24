@@ -33,24 +33,24 @@ Dependency depicts how various things within a system are dependent on each othe
 
 Following are the type of dependency relationships, keywords, or stereotypes given below:
 
-- **<< derive>>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
-- **<< derive>>** -It represents that the source object's location can be evaluated from the target object.
-- **<<friend>>** -It states the uniqueness of the source in the target object.
-- **<<instanceOf>>** -It states that an instance of a target classifier is the source object.
-- **<<instantiate>>** -It defines the capability of the source object, creating instances of a target object.
-- **<<refine>>** -It states that the source object comprises of exceptional abstraction than that of the target object.
-- **<<use>>**v -When the packages are created in UML, the use of stereotype is used as it describes that the elements of the source package can also exist in the target package. It specifies that the source package uses some of the elements of the target package.
-- **<<substitute>>** -The substitute stereotype state that the client can be substituted at the runtime for the supplier.
-- **<<access>>** -It is also called as private merging in which the source package accesses the element of the target package.
-- **<<import>>** -It specifies that target imports the source package's element as they are defined within the target. It is also known as public merging.
-- **<<permit>>** -It describes that the source element can access the supplier element or whatever visibility is provided by the supplier.
-- **<<extend>>** -It states that the behavior of the source element can be extended by the target.
-- **<<include>>** -It describes the source element, which can include the behavior of another element at a specific location, just like a function call in C/C++.
-- **<<become>>** -It states that target is similar to the source with distinct roles and values.
-- **<<call>>** -It specifies that the target object can be invoked by the source.
-- **<<copy>>** -It states that the target is an independent replica of a source object.
-- **<<parameter>>** -It describes that the supplier is a parameter of the client's actions.
-- **<<send>>** -The client act as an operation, which sends some unspecified targets to the supplier.
+- **<< derive >>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
+- **<< derive >>** -It represents that the source object's location can be evaluated from the target object.
+- **<< friend >>** -It states the uniqueness of the source in the target object.
+- **<< instanceOf >>** -It states that an instance of a target classifier is the source object.
+- **<< instantiate >>** -It defines the capability of the source object, creating instances of a target object.
+- **<< refine >>** -It states that the source object comprises of exceptional abstraction than that of the target object.
+- **<< use >>**v -When the packages are created in UML, the use of stereotype is used as it describes that the elements of the source package can also exist in the target package. It specifies that the source package uses some of the elements of the target package.
+- **<< substitute >>** -The substitute stereotype state that the client can be substituted at the runtime for the supplier.
+- **<< access >>** -It is also called as private merging in which the source package accesses the element of the target package.
+- **<< import >>** -It specifies that target imports the source package's element as they are defined within the target. It is also known as public merging.
+- **<< permit >>** -It describes that the source element can access the supplier element or whatever visibility is provided by the supplier.
+- **<< extend >>** -It states that the behavior of the source element can be extended by the target.
+- **<< include >>** -It describes the source element, which can include the behavior of another element at a specific location, just like a function call in C/C++.
+- **<< become >>** -It states that target is similar to the source with distinct roles and values.
+- **<< call >>** -It specifies that the target object can be invoked by the source.
+- **<< copy >>** -It states that the target is an independent replica of a source object.
+- **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
+- **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
 # COHESION
 
