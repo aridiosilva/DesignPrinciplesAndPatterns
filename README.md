@@ -54,6 +54,72 @@ Dependency depicts how various things within a system are dependent on each othe
 
 ![umldepedency](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-dependency.png)
 
+In UML, we indicate composition with the following symbol:
+
+![composition symbol](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/symbolOf_composition.png)
+
+Note, that the diamond is at the containing object and is the base of the line, not an arrowhead. For the sake of clarity, we often draw the arrowhead too:
+
+![composition_symbol2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/symbolOf_composition2.png)
+
+In Java, we can model this with a non-static inner class:
+
+```java
+class Building {
+    class Room {}   
+}
+```
+
+Alternatively, we can declare that class in a method body as well. It doesn't matter if it's a named class, an anonymous class or a lambda:
+
+```java
+class Building {
+    Room createAnonymousRoom() {
+        return new Room() {
+            @Override
+            void doInRoom() {}
+        };
+    }
+
+    Room createInlineRoom() {
+        class InlineRoom implements Room {
+            @Override
+            void doInRoom() {}
+        }
+        return new InlineRoom();
+    }
+    
+    Room createLambdaRoom() {
+        return () -> {};
+    }
+
+    interface Room {
+        void doInRoom();
+    }
+}
+```
+
+Note, that it's essential, that our inner class should be non-static since it binds all of its instances to the containing class.
+
+Usually, the containing object wants to access its members. Therefore, we should store their references:
+
+```java
+class Building {
+    List<Room> rooms;
+    class Room {}   
+}
+Note, that all inner class objects store an implicit reference to their containing object. As a result, we don't need to store it manually to access it:
+
+class Building {
+    String address;
+    
+    class Room {
+        String getBuildingAddress() {
+            return Building.this.address;
+        }   
+    }   
+}
+```
 ### Types of Dependency Relationship
 
 Following are the type of dependency relationships, keywords, or stereotypes given below:
