@@ -463,7 +463,7 @@ Which classes belong in which components? This is an important decision, and req
 
 "The Source Code is the Design" (Uncle Bob C. Martin)
 
-## = SOLID PRINCIPLES
+## = SOLID PRINCIPLES - Principles of Class Design
 
 - ***SRP - Single Responsability Principle***  -  A class should have only one reason to change
 - ***OCP - Open-Closed Principle*** - Classes should be open for extension, but closed for modification
@@ -471,13 +471,13 @@ Which classes belong in which components? This is an important decision, and req
 - ***ISP - Interface Segregation Principle*** - Clients should not be forced to depend upon methods that they do no use. Interfaces belong to clients, not do hierarchies.
 - ***DIP - Depedency Inversion Principle*** - Abstractions should not depend upon details. Details should depend upon abstractions.
 
-## = COMPONENT COHESION PRINCIPLES
+## = COMPONENT COHESION PRINCIPLES (Package Cohesion Principles)
 
 - ***REP - Release - Reuse Equivalency Principle*** - The granule of reuse is the granule of release
 - ***CCP - Common Closure Principle*** - The classes in a package should be closed together against the same kinds of changes. A change that affects a closed package affects all the classes in that package no other packages.
 - ***CRP - Common Reuse Principle*** - The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.
 
-## = COMPONENT COUPLINP PRINCIPLES
+## = COMPONENT COUPLINP PRINCIPLES  (Coupling Between Packages Principles)
 
 - ***ADP - Acyclic Deependencies Principle*** - Allow no cycles in the package dependency graph.
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
