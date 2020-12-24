@@ -445,6 +445,8 @@ These objects are seldom found during analysis or even the early stages of desig
 
 ## (GoF) P2 - Determining Object Granularity
 
+-  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
+
 Objects can vary tremendously in size and number. They can represent everything down to the hardware or all the way up to entire applications. How do we decide what should be an object?
 
 Design patterns address this issue as well. 
