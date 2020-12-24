@@ -13,6 +13,9 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ![umlassocation](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-association2.png)
 
+
+### Constraints of Associations
+
 Since it connects the object of one class to the object of another class, it is categorized as a structural relationship. Following are the constraints applied to the association relationship are enlisted below:
 
 - **{implicit}**: As the name suggests, the implicit constraints define that the relationship is not visible, but it is based on a concept.
@@ -35,13 +38,27 @@ The parent model element can have as many children, and also, the child can have
 
 ![umlgeneralization_or_inheritance](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization.png)
 
+### Stereotypes and their constraints
+
+<<implementation>> - It is used to show that the child is implemented by its parent, such that the child object inherits the structure and behavior of its parent object without disobeying the rules. The implementation of stereotype is mostly used in single inheritance.
+
+In the generalization stereotype, there are two types of constraints that are complete and incomplete to check if all the child objects are involved or not in the relationship.
+
+Example:
+
+As we know, the bank account can be of two types; Savings Account and Credit Card Account. Both the savings and the credit card account inherits the generalized properties from the Bank Account, which is Account Number, Account Balance, etc.
+
+![umlgeneratization_or_inheritance2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization2.png)
+
 ## UML Dependency (Composition)
 
 Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
 
 ![umldepedency](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-dependency.png)
 
-Types of Dependency Relationship - Following are the type of dependency relationships, keywords, or stereotypes given below:
+### Types of Dependency Relationship
+
+Following are the type of dependency relationships, keywords, or stereotypes given below:
 
 - **<< derive >>** -It is a constraint that specifies the template can be initialized by the source at the target location utilizing given parameters.
 - **<< derive >>** -It represents that the source object's location can be evaluated from the target object.
