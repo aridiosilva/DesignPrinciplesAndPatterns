@@ -7,10 +7,10 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
-- ** Association
-- ** Generalization (inheritance)
-- ** Dependency (Composition)
-- ** Dependency (Agregation)
+- ** Association**
+- ** Generalization (inheritance)**
+- ** Dependency (Composition)**
+- ** Dependency (Aggregation)**
 
 ## UM Association
 
@@ -225,7 +225,7 @@ Following are the type of dependency relationships, keywords, or stereotypes giv
 - **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
 - **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
-# UML Agregation 
+# UML Aggregation (Dependency) 
 
 Aggregation is also a **“has-a” relationship**. What distinguishes it from **composition**, that **it doesn't involve owning**. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
 
