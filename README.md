@@ -108,8 +108,11 @@ class Building {
     List<Room> rooms;
     class Room {}   
 }
+```
+
 Note, that all inner class objects store an implicit reference to their containing object. As a result, we don't need to store it manually to access it:
 
+```java
 class Building {
     String address;
     
