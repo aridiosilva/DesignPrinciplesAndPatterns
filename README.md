@@ -7,6 +7,11 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 ## UML Relationships among Classes
 
+- ** Association
+- ** Generalization (inheritance)
+- ** Dependency (Composition)
+- ** Dependency (Agregation)
+
 ## UM Association
 
 **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
