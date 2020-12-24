@@ -37,7 +37,7 @@ Types of Dependency Relationship - Following are the type of dependency relation
 - **<< instanceOf >>** -It states that an instance of a target classifier is the source object.
 - **<< instantiate >>** -It defines the capability of the source object, creating instances of a target object.
 - **<< refine >>** -It states that the source object comprises of exceptional abstraction than that of the target object.
-- **<< use >>**v -When the packages are created in UML, the use of stereotype is used as it describes that the elements of the source package can also exist in the target package. It specifies that the source package uses some of the elements of the target package.
+- **<< use >>** -When the packages are created in UML, the use of stereotype is used as it describes that the elements of the source package can also exist in the target package. It specifies that the source package uses some of the elements of the target package.
 - **<< substitute >>** -The substitute stereotype state that the client can be substituted at the runtime for the supplier.
 - **<< access >>** -It is also called as private merging in which the source package accesses the element of the target package.
 - **<< import >>** -It specifies that target imports the source package's element as they are defined within the target. It is also known as public merging.
