@@ -446,9 +446,9 @@ They all influence the **decomposition**, often in conflicting ways.
 
 Object-oriented design methodologies favor many different approaches:
 
-- *You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations, or 
-- *You can focus on the collaborations and responsibilities in your system, or
-- *You can model the real world and translate the objects found during analysis into design. 
+- *You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations, or*
+- *You can focus on the collaborations and responsibilities in your system, or*
+- *You can model the real world and translate the objects found during analysis into design.*
 
 There will always be disagreement on which approach is best. 
 
