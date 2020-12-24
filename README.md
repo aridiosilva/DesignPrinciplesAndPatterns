@@ -373,7 +373,8 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 
 - **Mediator (273)** - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
 
-- **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later.
+- **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two
+interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
 
 - **Observer (293)** - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
