@@ -444,18 +444,18 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 
 ## Summary of Good Practices of Design
 
-- SoC - Separation of Concerns
-- KISS - Keep it Simple
-- DRY - Don´t Repeat Yourself
-- TDA - Tell Don´t Ask
-- LoD - Law of Demeter - Each Unit Should have only limited knowledge about other units 
-- YAGNI - You aren´t gonna need it
+- **SoC**   - Separation of Concerns
+- **KISS**  - Keep it Simple
+- **DRY**   - Don´t Repeat Yourself
+- **TDA**   - Tell Don´t Ask
+- **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
+- **YAGNI** - You aren´t gonna need it
 
 ## Summary of the Principles of Object-Oriented Design
 
 "The Source Code is the Design" (Uncle Bob C. Martin)
 
-= SOLID PRINCIPLES
+## = SOLID PRINCIPLES
 
 - ***SRP - Single Responsability Principle***  -  A class should have only one reason to change
 - ***OCP - Open-Closed Principle*** - Classes should be open for extension, but closed for modification
@@ -463,13 +463,13 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 - ***ISP - Interface Segregation Principle*** - Clients should not be forced to depend upon methods that they do no use. Interfaces belong to clients, not do hierarchies.
 - ***DIP - Depedency Inversion Principle*** - Abstractions should not depend upon details. Details should depend upon abstractions.
 
-= COMPONENT COHESION PRINCIPLES
+## = COMPONENT COHESION PRINCIPLES
 
 - ***REP - Release - Reuse Equivalency Principle*** - The granule of reuse is the granule of release
 - ***CCP - Common Closure Principle*** - The classes in a package should be closed together against the same kinds of changes. A change that affects a closed package affects all the classes in that package no other packages.
 - ***CRP - Common Reuse Principle*** - The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.
 
-= COMPONENT COUPLINP PRINCIPLES
+## = COMPONENT COUPLINP PRINCIPLES
 
 - ***ADP - Acyclic Deependencies Principle*** - Allow no cycles in the package dependency graph.
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
@@ -495,9 +495,9 @@ Fifteen years later, it was evident the term Separation of Concerns was becoming
 
 The programmer is having to do several things at the same time, namely,
 
- - describe what is to be computed;
- - organise the computation sequencing into small steps;
- - organise memory management during the computation.
+ - *describe what is to be computed;*
+ - *organise the computation sequencing into small steps;*
+ - *organise memory management during the computation.*
  
  Reade continues to say,
 
