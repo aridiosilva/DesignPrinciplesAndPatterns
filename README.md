@@ -273,11 +273,11 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 
 # Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
 
-## What is a Design Pattern?
+## (GoF) What is a Design Pattern?
 
 "Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice"  - Christopher Alexander
 
-## Elements of a Pattern
+## (GoF) Elements of a Pattern
 
 In general, a pattern has four essential elements:
 
@@ -307,7 +307,7 @@ well. Since reuse is often a factor in object-oriented design, the consequences 
 impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
 helps you understand and evaluate them.
 
-## Describing Design Patterns
+## (GoF) Describing Design Patterns
 
 How do we describe design patterns? Graphical notations, while important and useful, aren't sufficient. They simply capture the end product of the design process as relationships between classes and objects. To reuse the design, we must also record the decisions, alternatives, and trade-offs that led to it. Concrete examples are important too, because they help you see the design in action. The Gang of Four describe design patterns using a consistent format. Each pattern is divided into sections according to the following template. The template lends a uniform structure to the information, making design patterns easier to learn, compare, and use.
 
@@ -337,11 +337,11 @@ How do we describe design patterns? Graphical notations, while important and use
 
 - **Related Patterns** - What design patterns are closely related to this one? What are the important differences? With which other patterns should this one be used?
 
-## Diagram of the Design Patterns Relationships
+## (GoF) Diagram of the Design Patterns Relationships
 
 ![design patterns relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
 
-## The Catalog of  Gang of Four 23 Design Patterns
+## (GoF) The Catalog of  Gang of Four 23 Design Patterns
 
 The catalog beginning on page 79 contains 23 design patterns. Their names and intents are listed next to give you an overview. The number in parentheses after each pattern name gives the page number for the pattern (a convention we follow throughout the book).
 
@@ -417,3 +417,54 @@ B) The second criterion, called scope, specifies whether the pattern applies pri
 - Almost all patterns use inheritance to some extent. 
 - So the only patterns labeled "class patterns" are those that focus on class relationships. 
 - Note that most patterns are in the Object scope.
+
+# (GoF) How Design Patterns Solve Design Problems
+
+Design patterns solve many of the day-to-day problems object-oriented designers face, and in many different ways. Here are several of these problems and how design patterns solve them. 
+
+# (GoF) P1 - Finding Appropriate Objects
+
+Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client.
+
+Requests are the only way to get an object to execute an operation. Operations are the only way to change an object's internal data. Because of these restrictions, the object's internal state is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.
+
+The hard part about object-oriented design is decomposing a system into objects. The task is difficult because many factors come into play: encapsulation, granularity, dependency, flexibility, performance, evolution, reusability, and on and on. They all influence the decomposition, often in conflicting ways. Object-oriented design methodologies favor many different approaches. You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations. Or you can focus on the collaborations and responsibilities in your system. Or you can model the real world and translate the objects found during analysis into design. There will always be disagreement on which approach is best. 
+
+Many objects in a design come from the analysis model. But object-oriented designs often end up with classes that have no counterparts in the real world. Some of these are low-level classes like arrays. Others are much higher-level. For example, the **Composite (163) pattern** introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's. The abstractions that emerge during design are key to making a design flexible.
+
+Design patterns help you identify less-obvious abstractions and the objects that can capture them. For example, objects that represent a process or algorithm don't occur in nature, yet they are a crucial part of flexible designs. 
+
+- The **Strategy (315) pattern** describes how to implement interchangeable families of algorithms. 
+- The **State (305) pattern** represents each state of an entity as an object. 
+
+These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
+
+## (GoF) P2 - Determining Object Granularity
+
+Objects can vary tremendously in size and number. They can represent everything down to the hardware or all the way up to entire applications. How do we decide what should be an object?
+
+Design patterns address this issue as well. 
+
+- The **Facade (185) pattern** describes how to represent complete subsystems as objects, and 
+- the **Flyweight (195) pattern** describes how to support huge numbers of objects at the finest granularities. 
+- Other design patterns describe specific ways of decomposing an object into smaller objects. 
+- **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
+- **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
+
+## (GoF) P3 - Specifying Object Interfaces
+
+Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
+
+A *type* is a name used to denote a particular interface. We speak of an object as having the type "Window" if it accepts all requests for the operations defined in the interface named "Window." An object may have many types, and widely different objects can share a type. Part of an object's interface may be characterized by one type, and other parts by other types. Two objects of the same type need only share parts of their interfaces. Interfaces can contain other interfaces as subsets. We say that a **type** is a *subtype* of another if its interface contains the interface of its supertype. Often we speak of a subtype inheriting the interface of its *supertype**.
+
+**Interfaces** are fundamental in object-oriented systems. Objects are known only through their interfaces. There is no way to know anything about an object or to ask it to do anything without going through its interface. An object's interface says nothing about its implementation—different objects are free to implement requests differently. That means two objects having completely different implementations can have identical interfaces.
+
+When a request is sent to an object, the particular operation that's performed depends on both the request and the receiving object. Different objects that support identical requests may have different implementations of the operations that fulfill these requests. The run-time association of a request to an object and one of its operations is known as **dynamic binding**.
+
+Dynamic binding means that issuing a request doesn't commit you to a particular implementation until runtime. Consequently, you can write programs that expect an object with a particular interface, knowing that any object that has the correct interface will accept the request. Moreover, dynamic binding lets you substitute objects that have identical interfaces for each other at run-time. This substitutability is known as **polymorphism**, and it's a key concept in object-oriented systems. It lets a client object make fewassumptions about other objects beyond supporting a particular interface. Polymorphism simplifies the definitions of clients, decouples objects from each other, and lets them vary their relationships to each other at run-time.
+
+Design patterns help you define interfaces by identifying their key elements and the kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface. 
+
+- The **Memento (283) pattern** is a good example. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
+
+Design patterns also specify relationships between interfaces. In particular, they often require some classes to have similar interfaces, or they place constraints on the interfaces of some classes. For example, both Decorator (175) and Proxy (207) require the interfaces of Decorator and Proxy objects to be identical to the decorated and proxied objects. In Visitor (331), the Visitor interface must reflect all classes of objects that visitors can visit.
