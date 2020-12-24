@@ -435,6 +435,14 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 - High Cohesion is the goal in design of classes, modules and other software artifacts.
 - Low Cohesion is bad practice in design of classes, modules and other software artifacts.
 
+## Component Cohesion Principles
+
+Which classes belong in which components? This is an important decision, and requires guidamce from good software engineering principles. So, the three principle that helps this decision are:
+
+- **REP** - Reuse/Release Equivalence Principle
+- **CCP** - Common Closure Principle
+- **CRP** - Common Reuse Principle
+
 # COUPLING or DEPENDENCY
 
 - Refers to the interdependencies between software artifacts
@@ -639,13 +647,7 @@ The code that implement high-level policy should not depend on the code that imp
 
 - Depend on abstraction, not on concretion.
 
-# Component Cohesion Principles
 
-Which classes belong in which components? This is an important decision, and requires guidamce from good software engineering principles. So, the three principle that helps this decision are:
-
-- REP - Reuse/Release Equivalence Principle
-- CCP - Common Closure Principle
-- CRP - Common Reuse Principle
 
 # Classification of Programming Languages
 
