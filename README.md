@@ -1056,7 +1056,7 @@ To design the system so that it's robust to such changes, you must consider how 
 Design patterns help you avoid this by ensuring that a system can change in specific ways. Each design pattern lets some aspect of system structure vary independently of other aspects, thereby making a system more robust to a particular kind of change.
 
 Here are some common causes of redesign along with the design pattern(s) that address them:
-
+***
 1. Creating an object by specifying a class explicitly. Specifying a class name when you create an object commits you to a particular implementation instead of a particular interface. This commitment can complicate future changes. To avoid it, create objects indirectly.
 
 * Design patterns: Abstract Factory (87), Factory Method (107), Prototype (117).
