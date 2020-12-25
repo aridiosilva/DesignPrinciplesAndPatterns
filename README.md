@@ -989,3 +989,5 @@ rectangular), the Window class might reuse the behavior of Rectangle by keeping 
 
 The following diagram depicts the Window class delegating its Area operation to a Rectangle instance.
 
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Windows_Class_Delegation_001.jpg)
+
