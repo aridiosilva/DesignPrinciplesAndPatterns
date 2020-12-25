@@ -1056,7 +1056,7 @@ To design the system so that it's robust to such changes, you must consider how 
 Design patterns help you avoid this by ensuring that a system can change in specific ways. Each design pattern lets some aspect of system structure vary independently of other aspects, thereby making a system more robust to a particular kind of change.
 
 Here are some common causes of redesign along with the design pattern(s) that address them:
-***
+##
 1. **Creating an object by specifying a class explicitly**. 
 
 >*Specifying a class name when you create an object commits you to a particular implementation instead of a particular interface. This commitment can complicate future changes. To avoid it, create objects indirectly.*
@@ -1106,7 +1106,7 @@ Here are some common causes of redesign along with the design pattern(s) that ad
 >*Sometimes you have to modify a class that can't be modified conveniently. Perhaps you need the source code and don't have it (as may be the case with a commercial class  library). Or maybe any change would require modifying lots of existing subclasses. Design patterns offer ways to modify classes in such circumstances.*
 >
 >* Design patterns: Adapter (139), Decorator (175), Visitor (331).
-***
+##
 
 These examples reflect the flexibility that design patterns can help you build into your software. How crucial such flexibility is depends on the kind of software you're building. Let's look at the role design patterns play in the development of three broad classes of software: application programs, toolkits, and frameworks.
 
