@@ -979,6 +979,10 @@ Ideally, you shouldn't have to create new components to achieve reuse. You shoul
 
 Nevertheless, our experience is that designers overuse inheritance as a reuse technique, and designs are often made more reusable (and simpler) by depending more on object composition. You'll see object composition applied again and again in the design patterns. 
 
+![composition_idea](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition_image.PNG)
+
+![composition_has_a_relationship](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition%20_has-a%20relationship%20image.png)
+
 ## (GoF) Delegation
 
 Delegation is a way of making composition as powerful for reuse as inheritance [Lie86, JZ91]. In
