@@ -667,8 +667,6 @@ None of the patterns in this book concerns parameterized types, though we use th
 Example of Use of Generic Class or Parameterized Classes in Java 8:
 
 ```java
-
-```java
 public class Pair<K, V> {	
 	private K key;
 	private V value;
