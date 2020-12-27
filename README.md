@@ -276,7 +276,7 @@ Despite of the fact that in many languages both strings and integers can make us
 
 When a program is considered not to be type-safe, there is no single standard course of action that happens upon encountering a type error. Many Programming languages throw type errors which halts the run-time or compilation of the program, depending on the language type — static or dynamically typed.
 
-## Static typed languages
+## Statically typed languages
 
 A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. Common examples of statically-typed languages include Java, C, C++, FORTRAN, Pascal and Scala.  In Statically typed languages, once a variable has been declared with a type, it cannot ever be assigned to some other variable of different type and doing so will raise a type error at compile-time(some IDE’s generally shows a Red Cross mark denoting the error).
 
@@ -285,7 +285,7 @@ A language is statically-typed if the type of a variable is known at compile-tim
 - A large class of errors are caught in the early stage of development process.
 - Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
 
-## Dynamic typed languages
+## Dynamically typed languages
 
 A language is dynamically-typed if the type of a variable is checked during run-time. Common examples of dynamically-typed languages includes JavaScript, Objective-C, PHP, Python, Ruby, Lisp, and Tcl.
 
@@ -301,6 +301,8 @@ Dynamic type checking typically results in less optimized code than static type 
 ## Strongly typed languages
 
 A strongly-typed language is one in which variables are bound to specific data types, and will result in type errors if types do not match up as expected in the expression — regardless of when type checking occurs. Python is strong-typed, and so is Java.
+
+## Weakly typed languages
 
 A weakly-typed language on the other hand is a language in which variables are not bound to a specific data type; they still have a type, but type safety constraints are lower compared to strongly-typed languages.  PHP is weakly-typed, and so is C.
 
