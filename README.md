@@ -280,10 +280,17 @@ When a program is considered not to be type-safe, there is no single standard co
 
 A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. Common examples of statically-typed languages include Java, C, C++, FORTRAN, Pascal and Scala.  In Statically typed languages, once a variable has been declared with a type, it cannot ever be assigned to some other variable of different type and doing so will raise a type error at compile-time(some IDE’s generally shows a Red Cross mark denoting the error).
 
-### Advantages od Static Type Languages
+### Advantages od Statically Type Languages
 
 - A large class of errors are caught in the early stage of development process.
 - Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
+- Better code completion.- 
+- Better performance (type constraints offer more opportunities for compiler optimizations).
+- You can get hints and documentation inside your IDE while you code. This reduces the likelihood of making incorrect assumptions about the behavior of specific functions/methods.
+- It’s easier to find things. For any variable or function, you can easily jump to its class definition without leaving the IDE and without having to know anything about the directory structure of the project. Conversely, for any class or function definition, you can easily and unambiguously
+- see where that class or function is used in your code and jump to it without leaving the IDE. (Statically typed languages make it easier for IDEs to do this).
+- Static typing makes it easier to work with relational databases and other systems which also rely on static types — It helps you catch type mismatches sooner at compile-time.
+- It can help reduce the likelihood of some kinds of errors. For example, in dynamically typed languages, if you’re not careful with sanitising user input, you can end up doing weird stuff like (for example) trying to add a number 10 with the string “8” and you would get the string “108” as a result instead of the number 18 that you were expecting.
 
 ## Dynamically typed languages
 
@@ -297,6 +304,10 @@ Dynamic type checking typically results in less optimized code than static type 
 
 - Implementations of dynamically type-checked languages generally associate each run time object with a type tag (i.e., a reference to a type) containing its type information. This run-time type information (RTTI) can also be used to implement dynamic dispatch, late binding, down-casting, reflection, and similar features.
 - The absence of a separate compilation step means that you don’t have to wait for the compiler to finish before you can test your code changes. This makes the debug cycle much shorter and less cumbersome.
+- More succinct/less verbose.
+- The absence of a separate compilation step (which is much more common) means that you don’t have to wait for the compiler to finish before you can test changes that you’ve made to your code. This makes the debug cycle much shorter and less cumbersome. The delay introduced by the compile step can be distracting and break your train of thought. Even a 10-second compile step tends to add up over time. Pretty much every statically-typed language will claim to have “instant”, “partial” or “incremental” compilation, but in practice on any decent-sized project, it’s rare to see compilation take less than 10 seconds on an average machine.
+- You spend less time debugging syntax and semantic errors — Instead, almost all of your debugging time is spent purely on logic errors (which are more interesting). A semantic error could be as simple as having a variable myVariable of type ClassA and trying to assign to it an instance of ClassB (type mismatch; even if they have the exact same interface)— These kinds of errors are often easy to resolve but cumulatively, they still take up a fair amount of developer time. Semantic errors are the obvious, silly kinds of errors that make you blame yourself for not adhering to the compiler’s stringent needs. For example in a dynamically-typed language something like if (1) { ... } is usually OK, but the compiler of some statically typed languages will throw an error because 1 is not a Boolean.
+- More tolerant to change; code refactors tend to be more localized (they have a smaller area of effect). For example, with statically-typed languages, if you rename a class, you have to rename references in more different places in your code (though many IDEs can automate this to some extent)… A better example is if you have two or more different classes and you decide that they should share a single interface and refer to them by that interface, it takes more time to update them. Also with statically typed languages, because each object has more rigid relationships with other objects, the system can become a complex, inflexible puzzle; if a new piece doesn’t fit exactly into the existing structure, you may have to redesign the entire puzzle sooner rather than later.
 
 ## Strongly typed languages
 
