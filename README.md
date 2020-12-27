@@ -5,9 +5,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
-
-
-# COHESION
+# Cohesion
 
 - Is the force thad binds together the code responsible to a single actor.
 - Is a measure of how related the functions within a single module are.
@@ -24,7 +22,7 @@ Which classes belong in which components? This is an important decision, and req
 - **CCP** - Common Closure Principle
 - **CRP** - Common Reuse Principle
 
-# COUPLING or DEPENDENCY
+# Coupling or Dependency
 
 - Refers to the interdependencies between software artifacts
 - Is the degree to which each module relies on each one of the the modules.
