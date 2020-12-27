@@ -664,7 +664,7 @@ Which approach is best depends on your design and implementation constraints.
 
 None of the patterns in this book concerns parameterized types, though we use them on occasion to customize a pattern's C++ implementation. Parameterized types aren't needed at all in a language like Smalltalk that doesn't have compile-time type checking.
 
-Example of Use of Generic Class or Parameterized Classes in Java 8:
+Example: Use of Generic or Parameterized Classes in Java 8:
 
 ```java
 public class Pair<K, V> {	
