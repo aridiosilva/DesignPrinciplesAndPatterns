@@ -714,13 +714,11 @@ class UtilTest {
 
 		Pair<Integer, String> p1 = new Pair<>(1, "apple");
 		Pair<Integer, String> p2 = new Pair<>(2, "pear");
-		boolean same = Util.<Integer, String>compare(p1, p2);
-		assertEquals (false, same);
+		assertEquals (false, Util.<Integer, String>compare(p1, p2));
 		
 		Pair<Integer, String> p3 = new Pair<>(1, "orange");
 		Pair<Integer, String> p4 = new Pair<>(2, "melon");
-		boolean same1 = Util.compare(p3, p4);
-		assertEquals (false, same1);	
+		assertEquals (false, Util.compare(p3, p4));	
 	}
 }
 ```
