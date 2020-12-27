@@ -654,10 +654,78 @@ Parameterized types give us a third way (in addition to class inheritance and ob
 1. an argument of a C++ template, or Generic Class in Java, or Ada generic that specifies the name of the function to call to
 compare the elements.
 
-There are important differences between these techniques. Object composition lets you change the behavior being composed at run-time, but it also requires indirection and can be less efficient. Inheritance lets you provide default implementations for operations and lets subclasses override them. Parameterized types let you change the types that a class can use. But neither inheritance nor parameterized types can change at runtime. Which approach is best depends on your design and implementation constraints.
+There are important differences between these techniques:
 
-None of the patterns in this book concerns parameterized types, though we use them on occasion to
-customize a pattern's C++ implementation. Parameterized types aren't needed at all in a language like Smalltalk that doesn't have compile-time type checking.
+>1. **Object composition** lets you change the behavior being composed at run-time, but it also requires indirection and can be less efficient. 
+>1. **Inheritance** lets you provide default implementations for operations and lets subclasses override them. 
+>1. **Parameterized types** let you change the types that a class can use. But neither inheritance nor parameterized types can change at runtime. 
+
+Which approach is best depends on your design and implementation constraints.
+
+None of the patterns in this book concerns parameterized types, though we use them on occasion to customize a pattern's C++ implementation. Parameterized types aren't needed at all in a language like Smalltalk that doesn't have compile-time type checking.
+
+Example of Use of Generic Class or Parameterized Classes in Java 8:
+
+```java
+
+```java
+public class Pair<K, V> {	
+	private K key;
+	private V value;
+	
+	public Pair(K key, V value) {
+		this.key = key;
+		this.value = value;
+	}
+	public void setKey(K key) { 
+		this.key = key; 
+	}
+	public void setValue(V value) { 
+		this.value = value; 
+	}
+	public K getKey() {
+		return key; 
+	}
+	public V getValue() { 
+		return value; 
+	}
+}
+```
+
+```java
+public class Util {
+	
+	public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2) {	 	
+		    return p1.getKey().equals(p2.getKey()) &&
+   			       p1.getValue().equals(p2.getValue());	
+	}
+}
+```
+
+```java
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class UtilTest {
+	@Test
+	void test() {
+
+		Pair<Integer, String> p1 = new Pair<>(1, "apple");
+		Pair<Integer, String> p2 = new Pair<>(2, "pear");
+		boolean same = Util.<Integer, String>compare(p1, p2);
+		assertEquals (false, same);
+		
+		Pair<Integer, String> p3 = new Pair<>(1, "orange");
+		Pair<Integer, String> p4 = new Pair<>(2, "melon");
+		boolean same1 = Util.compare(p3, p4);
+		assertEquals (false, same1);	
+	}
+}
+```
 
 # (GoF) P8 - Relating Run-Time and Compile-Time Structures
 
