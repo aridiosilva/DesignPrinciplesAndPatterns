@@ -285,7 +285,7 @@ A language is statically-typed if the type of a variable is known at compile-tim
 - A large class of errors are caught in the early stage of development process.
 - Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
 
-## Dynamically typed languages
+## Dynamic typed languages
 
 A language is dynamically-typed if the type of a variable is checked during run-time. Common examples of dynamically-typed languages includes JavaScript, Objective-C, PHP, Python, Ruby, Lisp, and Tcl.
 
