@@ -266,6 +266,44 @@ The code that implement high-level policy should not depend on the code that imp
 
 ![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
 
+## Type Checking 
+
+The process of verifying and enforcing the constraints of types . Type Checking may occur either at compile-time (a static check) or at run-time (dynamic check).
+
+Type checking is all about ensuring that the program is **type-safe**, minimizing the possibility of **type errors**. For example — type error could be a situation where an operation is performed on a data of type integer with the intent that it is a float, or even something such as adding a string and an integer together.
+
+Despite of the fact that in many languages both strings and integers can make use of the + operator, this would often result in a type error because this expression is usually not meant to handle multiple data types.
+
+When a program is considered not to be type-safe, there is no single standard course of action that happens upon encountering a type error. Many Programming languages throw type errors which halts the run-time or compilation of the program, depending on the language type — static or dynamically typed.
+
+## Static typed languages
+
+A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. Common examples of statically-typed languages include Java, C, C++, FORTRAN, Pascal and Scala.  In Statically typed languages, once a variable has been declared with a type, it cannot ever be assigned to some other variable of different type and doing so will raise a type error at compile-time(some IDE’s generally shows a Red Cross mark denoting the error).
+
+### Advantages od Static Type Languages
+
+- A large class of errors are caught in the early stage of development process.
+- Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
+
+## Dynamically typed languages
+
+A language is dynamically-typed if the type of a variable is checked during run-time. Common examples of dynamically-typed languages includes JavaScript, Objective-C, PHP, Python, Ruby, Lisp, and Tcl.
+
+In Dynamically typed languages, variables are bound to objects at run-time by means of assignment statements, and it is possible to bind the same variables to objects of different types during the execution of the program.
+
+Dynamic type checking typically results in less optimized code than static type checking. It also includes the possibility of run time type errors and forces run time checks to occur for every execution of the program (instead of just at compile-time).
+
+### Advantages of Dynamic Type Languages
+
+- Implementations of dynamically type-checked languages generally associate each run time object with a type tag (i.e., a reference to a type) containing its type information. This run-time type information (RTTI) can also be used to implement dynamic dispatch, late binding, down-casting, reflection, and similar features.
+- The absence of a separate compilation step means that you don’t have to wait for the compiler to finish before you can test your code changes. This makes the debug cycle much shorter and less cumbersome.
+
+## Strongly typed languages
+
+A strongly-typed language is one in which variables are bound to specific data types, and will result in type errors if types do not match up as expected in the expression — regardless of when type checking occurs. Python is strong-typed, and so is Java.
+
+A weakly-typed language on the other hand is a language in which variables are not bound to a specific data type; they still have a type, but type safety constraints are lower compared to strongly-typed languages.  PHP is weakly-typed, and so is C.
+
 # Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
 
 ## (GoF) What is a Design Pattern?
