@@ -5,6 +5,737 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
+
+
+# COHESION
+
+- Is the force thad binds together the code responsible to a single actor.
+- Is a measure of how related the functions within a single module are.
+- Refers to the degree to which the elements of a module belong together.
+- Is a measure of how strongly-related or focused the responsabilities of a single module are.
+- High Cohesion is the goal in design of classes, modules and other software artifacts.
+- Low Cohesion is bad practice in design of classes, modules and other software artifacts.
+
+## Component Cohesion Principles
+
+Which classes belong in which components? This is an important decision, and requires guidamce from good software engineering principles. So, the three principle that helps this decision are:
+
+- **REP** - Reuse/Release Equivalence Principle
+- **CCP** - Common Closure Principle
+- **CRP** - Common Reuse Principle
+
+# COUPLING or DEPENDENCY
+
+- Refers to the interdependencies between software artifacts
+- Is the degree to which each module relies on each one of the the modules.
+- High coupling means several dependencies between software artifacts and it is a ba practice of design
+- Low Coupling means small dependencies and this is the goal in the design of software artifacts
+
+## Summary of Good Practices of Design
+
+- **SoC**   - Separation of Concerns
+- **KISS**  - Keep it Simple
+- **DRY**   - Don´t Repeat Yourself
+- **TDA**   - Tell Don´t Ask
+- **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
+- **YAGNI** - You aren´t gonna need it
+
+## Summary of the Principles of Object-Oriented Design
+
+"The Source Code is the Design" (Uncle Bob C. Martin)
+
+## = SOLID PRINCIPLES - Principles of Class Design
+
+- ***SRP - Single Responsability Principle***  -  A class should have only one reason to change
+- ***OCP - Open-Closed Principle*** - Classes should be open for extension, but closed for modification
+- ***LSP - Liskov Substitution Principle*** - Subtypes must be substitutable for their base types
+- ***ISP - Interface Segregation Principle*** - Clients should not be forced to depend upon methods that they do no use. Interfaces belong to clients, not do hierarchies.
+- ***DIP - Depedency Inversion Principle*** - Abstractions should not depend upon details. Details should depend upon abstractions.
+
+## = COMPONENT COHESION PRINCIPLES (Package Cohesion Principles)
+
+- ***REP - Release - Reuse Equivalency Principle*** - The granule of reuse is the granule of release
+- ***CCP - Common Closure Principle*** - The classes in a package should be closed together against the same kinds of changes. A change that affects a closed package affects all the classes in that package no other packages.
+- ***CRP - Common Reuse Principle*** - The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.
+
+## = COMPONENT COUPLINP PRINCIPLES  (Coupling Between Packages Principles)
+
+- ***ADP - Acyclic Deependencies Principle*** - Allow no cycles in the package dependency graph.
+- ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
+- ***SAP - Stable Abstraction Principle*** - A package should be as abstract as it is stable.
+
+# SoC - Separation of Concerns
+
+## What is SoC?
+
+In Software Engineering, Sseparation of concerns (SoC) is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program. A concern can be as general as "the details of the hardware for an application", or as specific as "the name of which class to instantiate". A program that embodies SoC well is called a modular[1] program. Modularity, and hence separation of concerns, is achieved by encapsulating information inside a section of code that has a well-defined interface. Encapsulation is a means of information hiding.[2] Layered designs in information systems are another embodiment of separation of concerns (e.g., presentation layer, business logic layer, data access layer, persistence layer).[3]
+
+Separation of concerns results in more degrees of freedom for some aspect of the program's design, deployment, or usage. Common among these is increased freedom for simplification and maintenance of code. When concerns are well-separated, there are more opportunities for module upgrade, reuse, and independent development. Hiding the implementation details of modules behind an interface enables improving or modifying a single concern's section of code without having to know the details of other sections and without having to make corresponding changes to those other sections. Modules can also expose different versions of an interface, which increases the freedom to upgrade a complex system in piecemeal fashion without interim loss of functionality.[citation needed]
+
+Separation of concerns is a form of abstraction. As with most abstractions, separating concerns means adding additional code interfaces, generally creating more code to be executed. So despite the many benefits of well-separated concerns, there is often an associated execution penalty.[citation 
+
+# Origin of The Separation of Concerns Concept
+
+The term separation of concerns was probably coined by Edsger W. Dijkstra in his 1974 paper "On the role of scientific thought".[6]
+
+ - Let me try to explain to you, what to my taste is characteristic for all intelligent thinking. It is, that one is willing to study in depth an aspect of one's subject matter in isolation for the sake of its own consistency, all the time knowing that one is occupying oneself only with one of the aspects. We know that a program must be correct and we can study it from that viewpoint only; we also know that it should be efficient and we can study its efficiency on another day, so to speak. In another mood we may ask ourselves whether, and if so: why, the program is desirable. But nothing is gained —on the contrary!— by tackling these various aspects simultaneously. It is what I sometimes have called "the separation of concerns", which, even if not perfectly possible, is yet the only available technique for effective ordering of one's thoughts, that I know of. This is what I mean by "focusing one's attention upon some aspect": it does not mean ignoring the other aspects, it is just doing justice to the fact that from this aspect's point of view, the other is irrelevant. It is being one- and multiple-track minded simultaneously.
+
+Fifteen years later, it was evident the term Separation of Concerns was becoming an accepted idea. In 1989, Chris Reade wrote a book titled "Elements of Functional Programming"[7] that describes separation of concerns:
+
+The programmer is having to do several things at the same time, namely,
+
+ - *describe what is to be computed;*
+ - *organise the computation sequencing into small steps;*
+ - *organise memory management during the computation.*
+ 
+ Reade continues to say,
+
+- Ideally, the programmer should be able to concentrate on the first of the three tasks (describing what is to be computed) without being distracted by the other two, more administrative, tasks. Clearly, administration is important, but by separating it from the main task we are likely to get more reliable results and we can ease the programming problem by automating much of the administration.
+
+- The separation of concerns has other advantages as well. For example, program proving becomes much more feasible when details of sequencing and memory management are absent from the program. Furthermore, descriptions of what is to be computed should be free of such detailed step-by-step descriptions of how to do it, if they are to be evaluated with different machine architectures. Sequences of small changes to a data object held in a store may be an inappropriate description of how to compute something when a highly parallel machine is being used with thousands of processors distributed throughout the machine and local rather than global storage facilities.
+
+- Automating the administrative aspects means that the language implementor has to deal with them, but he/she has far more opportunity to make use of very different computation mechanisms with different machine architectures.
+ 
+## Examples of Separation of Concerns (Soc)
+
+### Internet protocol stack
+
+Separation of concerns is crucial to the design of the Internet. In the Internet Protocol Suite, great efforts have been made to separate concerns into well-defined layers. This allows protocol designers to focus on the concerns in one layer, and ignore the other layers. The Application Layer protocol SMTP, for example, is concerned about all the details of conducting an email session over a reliable transport service (usually TCP), but not in the least concerned about how the transport service makes that service reliable. Similarly, TCP is not concerned about the routing of data packets, which is handled at the Internet Layer.
+
+### HTML, CSS, JavaScript
+
+HyperText Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript (JS) are complementary languages used in the development of web pages and websites. HTML is mainly used for organization of webpage content, CSS is used for definition of content presentation style, and JS defines how the content interacts and behaves with the user. Historically, this was not the case: prior to the introduction of CSS, HTML performed both duties of defining semantics and style.
+
+### Subject-oriented programming
+
+Subject-oriented programming allows separate concerns to be addressed as separate software constructs, each on an equal footing with the others. Each concern provides its own class-structure into which the objects in common are organized, and contributes state and methods to the composite result where they cut across one another. Correspondence rules describe how the classes and methods in the various concerns are related to each other at points where they interact, allowing composite behavior for a method to be derived from several concerns. Multi-dimensional Separation of Concerns allows the analysis and composition of concerns to be manipulated as a multi-dimensional "matrix" in which each concern provides a dimension in which different points of choice are enumerated, with the cells of the matrix occupied by the appropriate software artifacts.
+
+### Aspect-oriented programming
+
+Aspect-oriented programming allows cross-cutting concerns to be addressed as primary concerns. For example, most programs require some form of security and logging. Security and logging are often secondary concerns, whereas the primary concern is often on accomplishing business goals. However, when designing a program, its security must be built into the design from the beginning instead of being treated as a secondary concern. Applying security afterwards often results in an insufficient security model that leaves too many gaps for future attacks. This may be solved with aspect-oriented programming. For example, an aspect may be written to enforce that calls to a certain API are always logged, or that errors are always logged when an exception is thrown, regardless of whether the program's procedural code handles the exception or propagates it.[8]
+
+### Levels of analysis in artificial intelligence
+
+In cognitive science and artificial intelligence, it is common to refer to David Marr's levels of analysis. At any given time, a researcher may be focusing on (1) what some aspect of intelligence needs to compute, (2) what algorithm it employs, or (3) how that algorithm is implemented in hardware. This separation of concerns is similar to the interface/implementation distinction in software and hardware engineering.
+
+### Normalized systems
+
+In normalized systems separation of concerns is one of the four guiding principles. Adhering to this principle is one of the tools that helps reduce the combinatorial effects that, over time, get introduced in software that is being maintained. In Normalized Systems separation of concerns is actively supported by the tools.
+
+### SoC via partial classes
+
+Separation of concerns can be implemented and enforced via partial classes.[9]
+
+- SoC via partial classes in Ruby
+
+```Ruby
+bear_hunting.rb
+class Bear
+  def hunt
+    forest.select(&:food?)
+  end
+end
+bear_eating.rb
+class Bear
+  def eat(food)
+    raise "#{food} is not edible!" unless food.respond_to? :nutrition_value
+    food.nutrition_value
+  end
+end
+bear_hunger.rb
+class Bear
+  attr_accessor :hunger
+  def monitor_hunger
+    if hunger > 50
+      food = hunt
+      hunger -= eat(food)
+    end
+  end
+end
+```
+
+## Implementation
+
+The mechanisms for modular or object-oriented programming that are provided by a programming language are mechanisms that allow developers to provide SoC.[4] For example, object-oriented programming languages such as C#, C++, Delphi, and Java can separate concerns into objects, and architectural design patterns like MVC or MVP can separate content from presentation and the data-processing (model) from content. Service-oriented design can separate concerns into services. Procedural programming languages such as C and Pascal can separate concerns into procedures or functions. Aspect-oriented programming languages can separate concerns into aspects and objects.
+
+Separation of concerns is an important design principle in many other areas as well, such as urban planning, architecture and information design.[5] The goal is to more effectively understand, design, and manage complex interdependent systems, so that functions can be reused, optimized independently of other functions, and insulated from the potential failure of other functions.
+
+Common examples include separating a space into rooms, so that activity in one room does not affect people in other rooms, and keeping the stove on one circuit and the lights on another, so that overload by the stove does not turn the lights off. The example with rooms shows encapsulation, where information inside one room, such as how messy it is, is not available to the other rooms, except through the interface, which is the door. The example with circuits demonstrates that activity inside one module, which is a circuit with consumers of electricity attached, does not affect activity in a different module, so each module is not concerned with what happens in the other.
+
+# SOLID Principles
+
+The text in this Wiki is writeen based on the following Books:
+
+- Book Agile Software Development: Principles, Patterns, and Practices by Uncle Bob C. Martin and published in 2002
+- Book Clean Architecture - A Handbook of Agile Software Craftsmanship by Uncle Bob C. Marting and published in 2017
+
+## SRP - Single Responsability Principle
+
+A classe should have one, and only one, reason to change. In the context of the SRP, a responsability is "a reason to change". If there are more than one motive for changing a class, then that class has more than one responsability, in this case is violating the SRP Principle.
+
+- One class shoudl have one and only one responsability over the application´s functionality;
+- We should write, change and maintain a class only for one purpose;
+- A module should have one, and only one, reason to change;
+- A module should be responsible to one, only one, user or stakeholder;
+- A module should be responsible to one, and only one, actor;
+- Considre Module as just a source file in the above definitions;
+- The best way to understand this principle is by looking at the symptoms of vilating it;
+- Cohesion is the force thar binds together the code responsible to a single actor;
+- Single Responsability is about methods and classes. At the component level it becomes the COMMON CLOSURE PATTERN;
+- We should design each class to attend just only one actor - this way we can be sure that we are not violating the SRP Principle;
+
+## OCP - Open-Closed Principle
+
+Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
+
+- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin)
+- If a component A should be protected from changes in component B, then component B should depend on component A (
+- A software artifact should be open extension but closed for modification;
+- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change
+- This goal is accomplished by partitioning the system into compoenents, and arranging thos components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
+
+## LSP - Liskov Substitution Principle
+
+To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
+
+- Derived classes must be substitutable for their base classes.
+- Subtypers must be substitutable for their base types.
+- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
+
+ -  Don’t change the behavior of the parent or base class in derived classes
+
+The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
+
+In dynamic languages like Ruby, the Liskov principle (LSP) works slightly differently because Ruby less rigidly enforces how types work (so-called “Duck Typing”) as opposed to a language like Java, where type safety is enforced by the compiler. This means that LSP winds up applying more to the messages an object responds to rather than its type.
+
+We should remember that inheritance should be used for specialization. Specialization means creating new subclasses from an existing class so the subclasses can share some behaviour. 
+
+The first consequence of not using LSP is that class hierarchies become a mess. If the class hierarchy grows, it will become more and more complicated to know about the behaviour of the child classes. Secondly, unit tests for the superclass would never succeed for the subclass. The code that uses your type will have to have explicit knowledge of the internal workings of derived types to treat them differently. This tightly couples your code and generally makes the implementation harder to use consistently, and also more difficult to change. In the worst case scenario, LSP violations will introduce bugs in your system because you can’t rely anymore in derived classes. LSP is very easy to break if we don’t pay attention to our derived classes, and this can cause a lot of trouble in the feature. As we can see, there are plenty of things that can go wrong when breaking the LSP, so pay attention to your derived classes and try to avoid breaking the LSP.
+
+
+### ISP - Interface Segregation Principle
+
+The ISP states that no cliente should be forced to depend on methods it does not use.
+
+- Avoid depending on things that you don´t use.
+- Make fine-grained interfaces that are client specific.
+
+- The ISP guides us to create many small interfaces with coherent functionalities instead of a few big interfaces with lots of different methods. When we apply the ISP, class and their dependencies communicate using focused interfaces, minimizing dependencies. Smaller interfaces are easier to implement, improving flexibility and the possibility of reuse.
+
+### DIP - Dependency Inversion Principle
+
+The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
+
+- Depend on abstraction, not on concretion.
+
+
+
+# Classification of Programming Languages
+
+![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
+
+# FACTORY DESIGN PATTERN
+
+The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
+
+## What is Factory Design Pattern ?
+
+A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
+
+The Factory Method Pattern is also known as Virtual Constructor.
+
+The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
+
+## What is the Factory Pattern used for?
+
+The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
+
+Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
+
+A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
+
+- when it applies, 
+- whether it can be applied in view of other design constraints, and 
+- the consequences and trade-offs of its use. 
+
+## Advantage of Factory Design Pattern
+
+- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+## Usage of Factory Design Pattern
+
+- When a class doesn't know what sub-classes will be required to create
+- When a class wants that its sub-classes specify the objects to be created.
+- When the parent classes choose the creation of objects to its sub-classes.
+
+# Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
+
+## (GoF) What is a Design Pattern?
+
+"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice"  - Christopher Alexander
+
+## (GoF) Elements of a Pattern
+
+In general, a pattern has four essential elements:
+
+1. The **pattern name** is a handle we can use to describe a design problem, its solutions, and
+consequences in a word or two. Naming a pattern immediately increases our design vocabulary. It
+lets us design at a higher level of abstraction. Having a vocabulary for patterns lets us talk about them
+with our colleagues, in our documentation, and even to ourselves. It makes it easier to think about
+designs and to communicate them and their trade-offs to others. Finding good names has been one of
+the hardest parts of developing our catalog.
+
+1. The **problem** describes when to apply the pattern. It explains the problem and its context. It might
+describe specific design problems such as how to represent algorithms as objects. It might describe
+class or object structures that are symptomatic of an inflexible design. Sometimes the problem will
+include a list of conditions that must be met before it makes sense to apply the pattern.
+
+1. The **solution** describes the elements that make up the design, their relationships, responsibilities, and
+collaborations. The solution doesn't describe a particular concrete design or implementation, because
+a pattern is like a template that can be applied in many different situations. Instead, the pattern
+provides an abstract description of a design problem and how a general arrangement of elements
+(classes and objects in our case) solves it.
+
+1. The **consequences** are the results and trade-offs of applying the pattern. Though consequences are
+often unvoiced when we describe design decisions, they are critical for evaluating design alternatives
+and for understanding the costs and benefits of applying the pattern. The consequences for software
+often concern space and time trade-offs. They may address language and implementation issues as
+well. Since reuse is often a factor in object-oriented design, the consequences of a pattern include its
+impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
+helps you understand and evaluate them.
+
+## (GoF) Describing Design Patterns
+
+How do we describe design patterns? Graphical notations, while important and useful, aren't sufficient. They simply capture the end product of the design process as relationships between classes and objects. To reuse the design, we must also record the decisions, alternatives, and trade-offs that led to it. Concrete examples are important too, because they help you see the design in action. The Gang of Four describe design patterns using a consistent format. Each pattern is divided into sections according to the following template. The template lends a uniform structure to the information, making design patterns easier to learn, compare, and use.
+
+- **Pattern Name and Classification**  -  The pattern's name conveys the essence of the pattern succinctly. A good name is vital, because it will become part of your design vocabulary. The pattern's classification reflects the scheme we introduce in Section 1.5.
+
+- **Intent ** - A short statement that answers the following questions: What does the design pattern do? What is its rationale and intent? What particular design issue or problem does it address?
+
+- **Also Known As** - Other well-known names for the pattern, if any.
+
+- **Motivation** - A scenario that illustrates a design problem and how the class and object structures in the pattern solve the problem. The scenario will help you understand the more abstract description of the pattern that follows.
+
+- **Applicability** - What are the situations in which the design pattern can be applied? What are examples of poor designs that the pattern can address? How can you recognize these situations?
+
+- **Structure** - A graphical representation of the classes in the pattern using a notation based on the Object Modeling Technique (OMT) [RBP+91]. We also use interaction diagrams [JCJO92, Boo94] to illustrate sequences of requests and collaborations between objects. Appendix B describes these notations in detail.
+
+- **Participants** - The classes and/or objects participating in the design pattern and their responsibilities.
+
+- **Collaborations** - How the participants collaborate to carry out their responsibilities.
+
+- **Consequences** - How does the pattern support its objectives? What are the trade-offs and results of using the pattern? What aspect of system structure does it let you vary independently?
+
+- **Implementation** - What pitfalls, hints, or techniques should you be aware of when implementing the pattern? Are there language-specific issues?
+
+- **Sample Code** - Code fragments that illustrate how you might implement the pattern in C++ or Smalltalk.
+
+- **Known Uses** - Examples of the pattern found in real systems. We include at least two examples from different domains.
+
+- **Related Patterns** - What design patterns are closely related to this one? What are the important differences? With which other patterns should this one be used?
+
+## (GoF) Diagram of the Design Patterns Relationships
+
+![design patterns relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
+
+## (GoF) The Catalog of  Gang of Four 23 Design Patterns
+
+The catalog beginning on page 79 contains 23 design patterns. Their names and intents are listed next to give you an overview. The number in parentheses after each pattern name gives the page number for the pattern (a convention we follow throughout the book).
+
+- **Abstract Factory (87)** - Provide an interface for creating families of related or dependent objects without specifying their concrete classes. Yield objects whose only responsibilities are creating other objects.
+
+- **Adapter (139)** - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+- **Bridge (151)** - Decouple an abstraction from its implementation so that the two can vary independently. Yield objects whose only responsibilities are creating other objects.
+
+- **Builder (97)** - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+
+- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
+
+- **Command (233)** - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.  Yield objects whose only responsibilities are to implement a request on another object or group of objects.
+
+- **Composite (163)**- Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly. introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart.
+
+- **Decorator (175)** - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+- **Facade (185)** - Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. It describes how to represent complete subsystems as objects.
+
+- **Factory Method (107)** - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+- **Flyweight (195)** - Use sharing to support large numbers of fine-grained objects efficiently. It describes how to support huge numbers of objects at the finest granularities.
+
+- **Interpreter (243)** - Given a language, define a represention for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
+
+- **Iterator (257)** - Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+
+- **Mediator (273)** - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+
+- **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two
+interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
+
+- **Observer (293)** - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+- **Prototype (117)** - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+
+- **Proxy (207)** - Provide a surrogate or placeholder for another object to control access to it.
+
+- **Singleton (127)** - Ensure a class only has one instance, and provide a global point of access to it.
+
+- **State (305)** - Allow an object to alter its behavior when its internal state changes. The object will appear to change its class. In the State pattern, an object delegates requests to a State object that represents its current state. In the State pattern, an object delegates requests to a State object that represents its current state. States uses delegation in its implementation.
+
+- **Strategy (315)** - Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it. Describes how to implement interchangeable families of algorithms. In the Strategy pattern, an object delegates a specific request to an object that represents a strategy for carrying out the request. An object will only have one state, but it can have many strategies for different requests. The purpose of both patterns is to change the behavior of an object by changing the objects to which it delegates requests. Strategy uses delegation in its implementation.
+
+- **Template Method (325)** - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+- **Visitor (331)** - Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.  Yield objects whose only responsibilities are to implement a request on another object or group of objects. In Visitor, the operation that gets performed on each element of an object structure is always delegated to the Visitor object. Visitor uses delegation in its implementation.
+
+## Gang of Four - Design Patterns Space
+
+![design pattern space](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/table-1-1-GOF_DesignPatternsSpace.jpg)
+
+the Gang of Four classify design patterns by two criteria shown in Table 1.1 above.
+
+A) The first criterion, called purpose, reflects what a pattern does. Patterns can have either creational, structural, or behavioral purpose. 
+
+   - **Creational patterns** concern the process of object creation. 
+   - **Structural patterns** deal with the composition of classes or objects. 
+   - **Behavioral patterns** characterize the ways in which classes or objects interact and distribute responsibility.
+   
+B) The second criterion, called scope, specifies whether the pattern applies primarily to classes or to objects.
+
+- **Class patterns** 
+    
+   - deal with relationships between classes and their subclasses. T
+   - these relationships are established through inheritance, so they are static—fixed at compile-time. 
+       
+- **Object patterns** 
+      
+    - deal with object relationships, which can be changed at run-time and are more dynamic. 
+    
+- Almost all patterns use inheritance to some extent. 
+- So the only patterns labeled "class patterns" are those that focus on class relationships. 
+- Note that most patterns are in the Object scope.
+
+# (GoF) How Design Patterns Solve Design Problems
+
+Design patterns solve many of the day-to-day problems object-oriented designers face, and in many different ways. Here are several of these problems and how design patterns solve them. 
+
+# (GoF) P1 - Finding Appropriate Objects
+
+Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client. **Requests** are the only way to get an object to execute an operation. **Operations** are the only way to change an object's internal data (state). Because of these restrictions, the **object's internal state** is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.  
+
+The hard part about object-oriented design is **decomposing a system into objects**. The task is difficult because many factors come into play: *encapsulation,  granularity, dependency, flexibility, performance, evolution, reusability, and  on and on*. They all influence the **decomposition**, often in conflicting ways. Object-oriented design methodologies favor many different approaches:
+
+- *You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations, or*
+- *You can focus on the collaborations and responsibilities in your system, or*
+- *You can model the real world and translate the objects found during analysis into design.*
+
+There will always be disagreement on which approach is best. 
+
+Many objects in a design come from the **analysis model**. But object-oriented designs often end up with *classes* that have no counterparts in the real world. Some of these are **low-level classes** like arrays. Others are much **higher-level**. For example, the **Composite (163) pattern** introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. *Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's*. The **abstractions** that emerge during design are key to making a design flexible.
+
+Design patterns help you identify **less-obvious abstractions** and the objects that can capture them. For example, objects that represent a **process** or **algorithm** don't occur in nature, yet they are a crucial part of flexible designs. 
+
+- The **Strategy (315) pattern** describes how to implement interchangeable families of algorithms. 
+- The **State (305) pattern** represents each state of an entity as an object. 
+
+These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
+
+## (GoF) P2 - Determining Object Granularity
+
+-  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
+
+Objects can vary tremendously in size and number. They can represent everything down to the hardware or all the way up to entire applications. How do we decide what should be an object?
+
+Design patterns address this issue as well. 
+
+- The **Facade (185) pattern** describes how to represent complete subsystems as objects, and 
+- the **Flyweight (195) pattern** describes how to support huge numbers of objects at the finest granularities.
+
+Other design patterns describe specific ways of decomposing an object into smaller objects. 
+
+- **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
+- **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
+
+## (GoF) P3 - Specifying Object Interfaces
+
+Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
+
+A *type* is a name used to denote a particular interface. We speak of an object as having the type "Window" if it accepts all requests for the operations defined in the interface named "Window." An object may have many types, and widely different objects can share a type. Part of an object's interface may be characterized by one type, and other parts by other types. Two objects of the same type need only share parts of their interfaces. Interfaces can contain other interfaces as subsets. We say that a **type** is a *subtype* of another if its interface contains the interface of its supertype. Often we speak of a subtype inheriting the interface of its *supertype**.
+
+**Interfaces** are fundamental in object-oriented systems. Objects are known only through their interfaces. There is no way to know anything about an object or to ask it to do anything without going through its interface. An object's interface says nothing about its implementation—different objects are free to implement requests differently. That means two objects having completely different implementations can have identical interfaces.
+
+When a request is sent to an object, the particular operation that's performed depends on both the request and the receiving object. Different objects that support identical requests may have different implementations of the operations that fulfill these requests. The run-time association of a request to an object and one of its operations is known as **dynamic binding**.
+
+Dynamic binding means that issuing a request doesn't commit you to a particular implementation until runtime. Consequently, you can write programs that expect an object with a particular interface, knowing that any object that has the correct interface will accept the request. Moreover, dynamic binding lets you substitute objects that have identical interfaces for each other at run-time. This substitutability is known as **polymorphism**, and it's a key concept in object-oriented systems. It lets a client object make fewassumptions about other objects beyond supporting a particular interface. Polymorphism simplifies the definitions of clients, decouples objects from each other, and lets them vary their relationships to each other at run-time.
+
+- The **Memento (283) pattern** is a good example. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
+
+Design patterns also specify **relationships between interfaces**. In particular, they often require some classes to have similar interfaces, or they place constraints on the interfaces of some classes. For example, both **Decorator (175)** and **Proxy (207)** require the interfaces of Decorator and Proxy objects to be identical to the decorated and proxied objects. In **Visitor (331)**, the Visitor interface must reflect all classes of objects that visitors can visit.
+
+Design patterns help you define interfaces by identifying their key elements and the kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface. 
+
+# (GoF) P4 - Specifying Object Implementations
+
+So far we've said little about how we actually define an object. An object's implementation is defined by its **class**. The class specifies the object's internal data and representation and defines the operations the object can perform.
+
+Objects are created by instantiating a class. The object is said to be an instance of the class. The process of instantiating a class allocates storage for the object's internal data (made up of **instance variables**) and associates the operations with these data. Many similar instances of an object can be created by instantiating a class.
+
+New classes can be defined in terms of existing classes using **class inheritance**. When a **subclass** inherits from a **parent class**, it includes the definitions of all the data and operations that the parent class defines. Objects that are instances of the subclass will contain all data defined by the subclass and its parent classes, and they'll be able to perform all operations defined by this subclass and its parents.
+
+An **abstract class** is one whose main purpose is to define a common interface for its subclasses. An abstract class will defer some or all of its implementation to operations defined in subclasses; hence an abstract class cannot be instantiated. The operations that an abstract class declares but doesn't implement are called **abstract operations**. Classes that aren't abstract are called **concrete classes**.
+
+Subclasses can refine and redefine behaviors of their parent classes. More specifically, a class may **override** an operation defined by its parent class. Overriding gives subclasses a chance to handle requests instead of their parent classes. Class inheritance lets you define classes simply by extending other classes, making it easy to define families of objects having related functionality.
+
+A **mixin class** is a class that's intended to provide an optional interface or functionality to other classes. It's similar to an abstract class in that it's not intended to be instantiated. Mixin classes require **multiple inheritance**.
+
+# (GoF) P5 - Class versus Interface Inheritance
+
+It's important to understand the difference between an object's **class** and its **type**.
+
+An object's class defines how the object is implemented. The class defines the object's internal state and the implementation of its operations. In contrast, an object's type only refers to its interface—the set of requests to which it can respond. An object can have many types, and objects of different classes can have the same type.
+
+Of course, there's a close relationship between class and type. Because a class defines the operations an object can perform, it also defines the object's type. When we say that an object is an instance of a class, we imply that the object supports the interface defined by the class.
+
+Languages like C++ and Eiffel use classes to specify both an object's type and its implementation. Smalltalk programs do not declare the types of variables; consequently, the compiler does not check that the types of objects assigned to a variable are subtypes of the variable's type. Sending a message requires checking that the class of the receiver implements the message, but it doesn't require checking that the receiver is an instance of a particular class.
+
+It's also important to understand the difference between class inheritance and interface inheritance (or subtyping). Class inheritance defines an object's implementation in terms of another object's implementation. In short, it's a mechanism for code and representation sharing. In contrast, interface inheritance (or subtyping) describes when an object can be used in place of another. 
+
+It's easy to confuse these two concepts, because many languages don't make the distinction explicit. In languages like C++ and Eiffel, inheritance means both interface and implementation inheritance. The standard way to inherit an interface in C++ is to inherit publicly from a class that has (pure) virtual member functions. Pure interface inheritance can be approximated in C++ by inheriting publicly from pure abstract classes. Pure implementation or class inheritance can be approximated with private inheritance. In Smalltalk, inheritance means just implementation inheritance. You can assign instances of any class to a variable as long as those instances support the operation performed on the value of the variable. 
+
+Although most programming languages don't support the distinction between interface and implementation inheritance, people make the distinction in practice. Smalltalk programmers usually act as if subclasses were subtypes (though there are some well-known exceptions [Coo92]); C++ programmers manipulate objects through types defined by abstract classes.
+
+  - [Cpp02] William R. Cook. Interfaces and specifications for the Smalltalk-80 collection classes. In Object-Oriented Programming Systems, Languages, and Applications Conference Proceedings, pages 1–15, Vancouver, British Columbia, Canada, October 1992. ACM Press.
+
+Many of the design patterns depend on this distinction. For example, objects in a Chain of Responsibility (223) must have a common type, but usually they don't share a common implementation. In the Composite (163) pattern, Component defines a common interface, but Composite often defines a common implementation. **Command (233)**, **Observer (293)**, **State (305)**, and **Strategy (315)** are often implemented with abstract classes that are pure interfaces.
+
+# (GoF) P5 - Programming to an Interface, not an Implementation
+
+Class inheritance is basically just a mechanism for extending an application's functionality by reusing functionality in parent classes. It lets you define a new kind of object rapidly in terms of an old one. It lets you get new implementations almost for free, inheriting most of what you need from existing classes.
+
+However, implementation reuse is only half the story. Inheritance's ability to define families of objects with identical interfaces (usually by inheriting from an abstract class) is also important. Why? Because polymorphism depends on it.
+
+When inheritance is used carefully (some will say properly), all classes derived from an abstract class will share its interface. This implies that a subclass merely adds or overrides operations and does not hide operations of the parent class. All subclasses can then respond to the requests in the interface of this abstract class, making them all subtypes of the abstract class.
+
+There are two benefits to manipulating objects solely in terms of the interface defined by abstract classes:
+
+1. Clients remain unaware of the specific types of objects they use, as long as the objects adhere to the interface that clients expect.
+1. Clients remain unaware of the classes that implement these objects. Clients only know about the
+abstract class(es) defining the interface. 
+
+This so greatly reduces implementation dependencies between subsystems that it leads to the following principle of reusable object-oriented design: 
+
+ - *Program to an interface, not an implementation*.
+
+Don't declare variables to be instances of particular concrete classes. Instead, commit only to an interface defined by an abstract class. You will find this to be a common theme of the design patterns in the book´s Gang of Four.
+
+You have to instantiate concrete classes (that is, specify a particular implementation) somewhere in your system, of course, and the creational patterns (**Abstract Factory (87)**, **Builder (97)**, **Factory Method (107)**, **Prototype (117)**, and **Singleton (127)** let you do just that. By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation. Creational patterns ensure that your system is written in terms of interfaces, not implementations.
+
+# (GoF) P6 - Putting Reuse Mechanisms to Work
+
+Most people can understand concepts like objects, interfaces, classes, and inheritance. The challenge lies in applying them to build flexible, reusable software, and design patterns can show you how.
+
+## (GoF) Inheritance versus Composition
+
+The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition. As we've explained, class inheritance lets you define the implementation of one class in terms of another's. Reuse by subclassing is often referred to as white-box reuse. The term "whitebox" refers to visibility: With inheritance, the internals of parent classes are often visible to subclasses.
+
+Object composition is an alternative to class inheritance. Here, new functionality is obtained by assembling or composing objects to get more complex functionality. Object composition requires that the objects being composed have well-defined interfaces. This style of reuse is called black-box reuse, because no internal details of objects are visible. Objects appear only as "black boxes."
+
+Inheritance and composition each have their advantages and disadvantages. Class inheritance is defined statically at compile-time and is straightforward to use, since it's supported directly by the programming language. Class inheritance also makes it easier to modify the implementation being reused. When a subclass overrides some but not all operations, it can affect the operations it inherits as well, assuming they call the overridden operations.
+
+But class inheritance has some disadvantages, too. First, you can't change the implementations inherited from parent classes at run-time, because inheritance is defined at compile-time. Second, and generally worse, parent classes often define at least part of their subclasses' physical representation. Because inheritance exposes a subclass to details of its parent's implementation, it's often said that "inheritance breaks encapsulation" [Sny86]. The implementation of a subclass becomes so bound up with the implementation of its parent class that any change in the parent's implementation will force the subclass to change.
+
+Implementation dependencies can cause problems when you're trying to reuse a subclass. Should any aspect of the inherited implementation not be appropriate for new problem domains, the parent class must be rewritten or replaced by something more appropriate. This dependency limits flexibility and ultimately reusability. One cure for this is to inherit only from abstract classes, since they usually provide little or no implementation.
+
+Object composition is defined dynamically at run-time through objects acquiring references to other objects. Composition requires objects to respect each others' interfaces, which in turn requires carefully designed interfaces that don't stop you from using one object with many others. But there is a payoff. Because objects are accessed solely through their interfaces, we don't break encapsulation. Any object can be replaced at runtime by another as long as it has the same type. Moreover, because an object's implementation will be written in terms of object interfaces, there are substantially fewer implementation dependencies.
+
+Object composition has another effect on system design. Favoring object composition over class inheritance helps you keep each class encapsulated and focused on one task. Your classes and class hierarchies will remain small and will be less likely to grow into unmanageable monsters. On the other hand, a design based on object composition will have more objects (if fewer classes), and the system's behavior will depend on their interrelationships instead of being defined in one class.
+
+That leads us to our second principle of object-oriented design: 
+
+ - *Favor object composition over class inheritance.*
+
+Ideally, you shouldn't have to create new components to achieve reuse. You should be able to get all the functionality you need just by assembling existing components through object composition. But this is rarely the case, because the set of available components is never quite rich enough in practice. Reuse by inheritance makes it easier to make new components that can be composed with old ones. Inheritance and object composition thus work together. 
+
+Nevertheless, our experience is that designers overuse inheritance as a reuse technique, and designs are often made more reusable (and simpler) by depending more on object composition. You'll see object composition applied again and again in the design patterns. 
+
+![composition_idea](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition_image.PNG)
+
+![composition_has_a_relationship](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition%20_has-a%20relationship%20image.png)
+
+## (GoF) Delegation
+
+Delegation is a way of making composition as powerful for reuse as inheritance [Lie86, JZ91]. In
+delegation, two objects are involved in handling a request: a receiving object delegates operations to its delegate. This is analogous to subclasses deferring requests to parent classes. But with inheritance, an inherited operation can always refer to the receiving object through the this member variable in C++ and self in Smalltalk. To achieve the same effect with delegation, the receiver passes itself to the delegate to let the delegated operation refer to the receiver.
+
+For example, instead of making class Window a subclass of Rectangle (because windows happen to be
+rectangular), the Window class might reuse the behavior of Rectangle by keeping a Rectangle instance variable and delegating Rectangle-specific behavior to it. In other words, instead of a Window being a Rectangle, it would have a Rectangle. Window must now forward requests to its Rectangle instance explicitly, whereas before it would have inherited those operations.
+
+The following diagram depicts the Window class delegating its Area operation to a Rectangle instance.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Windows_Class_Delegation_001.jpg)
+
+A plain arrowhead line indicates that a class keeps a reference to an instance of another class. The reference has an optional name, "rectangle" in this case.
+
+The main advantage of delegation is that it makes it easy to compose behaviors at run-time and to change the way they're composed. Our window can become circular at run-time simply by replacing its Rectangle instance with a Circle instance, assuming Rectangle and Circle have the same type.
+
+Delegation has a disadvantage it shares with other techniques that make software more flexible through object composition: Dynamic, highly parameterized software is harder to understand than more static software. There are also run-time inefficiencies, but the human inefficiencies are more important in the long run. Delegation is a good design choice only when it simplifies more than it complicates. It isn't easy to give rules that tell you exactly when to use delegation, because how effective it will be depends on the context and on how much experience you have with it. Delegation works best when it's used in highly stylized ways—that is, in standard patterns.
+
+Several design patterns use delegation. The State (305), Strategy (315), and Visitor (331) patterns depend on it. In the State pattern, an object delegates requests to a State object that represents its current state. In the Strategy pattern, an object delegates a specific request to an object that represents a strategy for carrying out the request. An object will only have one state, but it can have many strategies for different requests. The purpose of both patterns is to change the behavior of an object by changing the objects to which it delegates requests. In Visitor, the operation that gets performed on each element of an object structure is always
+delegated to the Visitor object.
+
+Other patterns use delegation less heavily:
+
+- **Mediator (273)** introduces an object to mediate communication between other objects. Sometimes the Mediator object implements operations simply by forwarding them to the other objects; other times it passes along a reference to itself and thus uses true delegation.
+ - **Chain of Responsibility (223)** handles requests by forwarding them from one object to another along a chain of objects. Sometimes this request carries with it a reference to the original object receiving the request, in which case the pattern is using delegation. 
+ - **Bridge (151)** decouples an abstraction from its implementation. If the abstraction and a particular implementation are closely matched, then the abstraction may simply delegate operations to that implementation.
+ 
+ Delegation is an extreme example of object composition. It shows that you can always replace inheritance with object composition as a mechanism for code reuse.
+ 
+# (GoF) P7 - Inheritance versus Parameterized Types
+
+Another (not strictly object-oriented) technique for reusing functionality is through parameterized types, also known as generics (Ada, Eiffel) and templates (C++). This technique lets you define a type without specifying all the other types it uses. The unspecified types are supplied as parameters at the point of use. For example, a List class can be parameterized by the type of elements it contains. To declare a list of integers, you supply the type "integer" as a parameter to the List parameterized type. To declare a list of String objects, you supply the "String" type as a parameter. The language implementation will create a customized version of the List class template for each type of element.
+
+Parameterized types give us a third way (in addition to class inheritance and object composition) to compose behavior in object-oriented systems. Many designs can be implemented using any of these three techniques. To parameterize a sorting routine by the operation it uses to compare elements, we could make the comparison:
+
+1. an operation implemented by subclasses (an application of **Template Method (325)**,
+
+1. the responsibility of an object that's passed to the sorting routine (**Strategy (315)**, or
+
+1. an argument of a C++ template or Ada generic that specifies the name of the function to call to
+compare the elements.
+
+There are important differences between these techniques. Object composition lets you change the behavior being composed at run-time, but it also requires indirection and can be less efficient. Inheritance lets you provide default implementations for operations and lets subclasses override them. Parameterized types let you change the types that a class can use. But neither inheritance nor parameterized types can change at runtime. Which approach is best depends on your design and implementation constraints.
+
+None of the patterns in this book concerns parameterized types, though we use them on occasion to
+customize a pattern's C++ implementation. Parameterized types aren't needed at all in a language like Smalltalk that doesn't have compile-time type checking.
+
+# (GoF) P8 - Relating Run-Time and Compile-Time Structures
+
+An object-oriented program's run-time structure often bears little resemblance to its code structure. The code structure is frozen at compile-time; it consists of classes in fixed inheritance relationships. A program's runtime structure consists of rapidly changing networks of communicating objects. In fact, the two structures are largely independent. Trying to understand one from the other is like trying to understand the dynamism of living ecosystems from the static taxonomy of plants and animals, and vice versa.
+
+Consider the distinction between object **aggregation** and **acquaintance** and how differently they manifest themselves at compile- and run-times. Aggregation implies that one object owns or is responsible for another object. Generally we speak of an object having or being part of another object. Aggregation implies that an aggregate object and its owner have identical lifetimes.
+
+**Acquaintance** implies that an object merely knows of another object. Sometimes acquaintance is called "association" or the "using" relationship. Acquainted objects may request operations of each other, but they aren't responsible for each other. Acquaintance is a weaker relationship than aggregation and suggests much looser coupling between objects.
+
+In our diagrams, a plain arrowhead line denotes acquaintance. An arrowhead line with a diamond at its base denotes aggregation:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Aggreggator_Aggregatee_001.jpg)
+
+It's easy to confuse aggregation and acquaintance, because they are often implemented in the same way. In Smalltalk, all variables are references to other objects. There's no distinction in the programming language between aggregation and acquaintance. In C++, aggregation can be implemented by defining member variables that are real instances, but it's more common to define them as pointers or references to instances. Acquaintance is implemented with pointers and references as well.
+
+Ultimately, acquaintance and aggregation are determined more by intent than by explicit language
+mechanisms. The distinction may be hard to see in the compile-time structure, but it's significant. Aggregation relationships tend to be fewer and more permanent than acquaintance. Acquaintances, in contrast, are made and remade more frequently, sometimes existing only for the duration of an operation. Acquaintances are more dynamic as well, making them more difficult to discern in the source code.
+
+With such disparity between a program's run-time and compile-time structures, it's clear that code won't reveal everything about how a system will work. The system's run-time structure must be imposed more by the designer than the language. The relationships between objects and their types must be designed with great care, because they determine how good or bad the run-time structure is.
+
+Many design patterns (in particular those that have object scope) capture the distinction between compiletime and run-time structures explicitly. Composite (163) and Decorator (175) are especially useful for building complex run-time structures. Observer (293) involves run-time structures that are often hard to understand unless you know the pattern. Chain of Responsibility (223) also results in communication patterns that inheritance doesn't reveal. In general, the run-time structures aren't clear from the code until you understand the patterns.
+
+# (GoF) P9 - Designing for Change
+
+The key to maximizing reuse lies in anticipating new requirements and changes to existing requirements, and in designing your systems so that they can evolve accordingly.
+
+To design the system so that it's robust to such changes, you must consider how the system might need to change over its lifetime. A design that doesn't take change into account risks major redesign in the future. Those changes might involve class redefinition and reimplementation, client modification, and retesting. Redesign affects many parts of the software system, and unanticipated changes are invariably expensive.
+
+Design patterns help you avoid this by ensuring that a system can change in specific ways. Each design pattern lets some aspect of system structure vary independently of other aspects, thereby making a system more robust to a particular kind of change.
+
+Here are some common causes of redesign along with the design pattern(s) that address them:
+
+1. **Creating an object by specifying a class explicitly**. 
+
+>*Specifying a class name when you create an object commits you to a particular implementation instead of a particular interface. This commitment can complicate future changes. To avoid it, create objects indirectly.*
+>
+>* Design patterns: **Abstract Factory (87), Factory Method (107), Prototype (117).**
+
+2. **Dependence on specific operations**. 
+
+>*When you specify a particular operation, you commit to one way of satisfying a request. By avoiding hard-coded requests, you make it easier to change the way a request gets satisfied both at compile-time and at run-time.*
+>
+>* Design patterns: **Chain of Responsibility (223), Command (233).**
+
+3. **Dependence on hardware and software platform**. 
+
+>*External operating system interfaces and application programming interfaces (APIs) are different on different hardware and software platforms. Software that depends on a particular platform will be harder to port to other platforms. It may even be difficult to keep it up to date on its native platform. It's important therefore to design your system to limit its platform dependencies.*
+>
+>* Design patterns: **Abstract Factory (87), Bridge (151).**
+
+4. **Dependence on object representations or implementations**. 
+
+>*Clients that know how an object is  represented, stored, located, or implemented might need to be changed when the object changes. Hiding this information from clients keeps changes from cascading.*
+
+>* Design patterns: **Abstract Factory (87), Bridge (151), Memento (283), Proxy (207).**
+
+5. **Algorithmic dependencies**. 
+
+>*Algorithms are often extended, optimized, and replaced during development and reuse. Objects that depend on an algorithm will have to change when the algorithm changes. Therefore algorithms that are likely to change should be isolated.*
+>
+>* Design patterns: **Builder (97), Iterator (257), Strategy (315), Template Method (325), Visitor (331).**
+
+6. **Tight coupling**. 
+
+>*Classes that are tightly coupled are hard to reuse in isolation, since they depend on each other. Tight coupling leads to monolithic systems, where you can't change or remove a class without understanding and changing many other classes. The system becomes a dense mass that's hard to learn, port, and maintain. Loose coupling increases the probability that a class can be reused by itself and that a system can be learned, ported, modified, and extended more easily. Design patterns use techniques such as abstract coupling and layering to promote loosely coupled systems.*
+>
+>* Design patterns: **Abstract Factory (87), Bridge (151), Chain of Responsibility (223), Command (233), Facade (185), Mediator (273), Observer (293).**
+
+7. **Extending functionality by subclassing**. 
+
+>*Customizing an object by subclassing often isn't easy. Every new class has a fixed implementation overhead (initialization, finalization, etc.). Defining a subclass also requires an in-depth understanding of the parent class. For example, overriding one operation might require overriding another. An overridden operation might be required to call an inherited operation. And subclassing can lead to an explosion of classes, because you might have to introduce many new subclasses for even a simple extension.*  
+>
+>*Object composition in general and delegation in particular provide flexible alternatives to inheritance for combining behavior. New functionality can be added to an application by composing existing objects in new ways rather than by defining new subclasses of existing classes. On the other hand, heavy use of object composition can make designs harder to understand. Many design patterns produce designs in which you can introduce customized functionality just by defining one subclass and composing its instances with existing ones.*
+>
+>*  Design patterns: **Bridge (151), Chain of Responsibility (223), Composite (163), Decorator (175), Observer (293), Strategy (315).**
+
+8. **Inability to alter classes conveniently**. 
+
+>*Sometimes you have to modify a class that can't be modified conveniently. Perhaps you need the source code and don't have it (as may be the case with a commercial class  library). Or maybe any change would require modifying lots of existing subclasses. Design patterns offer ways to modify classes in such circumstances.*
+>
+>* Design patterns: **Adapter (139), Decorator (175), Visitor (331)**.
+
+These examples reflect the flexibility that design patterns can help you build into your software. How crucial such flexibility is depends on the kind of software you're building. Let's look at the role design patterns play in the development of three broad classes of software: application programs, toolkits, and frameworks.
+
+# (GoF) P10 - Application Programs
+
+If you're building an application program such as a document editor or spreadsheet, then internal reuse, maintainability, and extension are high priorities. Internal reuse ensures that you don't design and implement any more than you have to. Design patterns that reduce dependencies can increase internal reuse. Looser coupling boosts the likelihood that one class of object can cooperate with several others. For example, when you eliminate dependencies on specific operations by isolating and encapsulating each operation, you make it easier to reuse an operation in different contexts. The same thing can happen when you remove algorithmic and representational dependencies too.
+
+Design patterns also make an application more maintainable when they're used to limit platform dependencies and to layer a system. They enhance extensibility by showing you how to extend class hierarchies and how to exploit object composition. Reduced coupling also enhances extensibility. Extending a class in isolation is easier if the class doesn't depend on lots of other classes.
+
+# (GoF) P11 - Toolkits
+
+Often an application will incorporate classes from one or more libraries of predefined classes called toolkits. A toolkit is a set of related and reusable classes designed to provide useful, general-purpose functionality. An example of a toolkit is a set of collection classes for lists, associative tables, stacks, and the like. The C++ I/O stream library is another example. Toolkits don't impose a particular design on your application; they just provide functionality that can help your application do its job. They let you as an implementer avoid recoding common functionality. Toolkits emphasize code reuse. They are the object-oriented equivalent of subroutine libraries.
+
+Toolkit design is arguably harder than application design, because toolkits have to work in many applications to be useful. Moreover, the toolkit writer isn't in a position to know what those applications will be or their special needs. That makes it all the more important to avoid assumptions and dependencies that can limit the toolkit's flexibility and consequently its applicability and effectiveness.
+
+# (GoF) P12 - Frameworks
+
+A framework is a set of cooperating classes that make up a reusable design for a specific class of software [Deu89, JF88]. For example, a framework can be geared toward building graphical editors for different domains like artistic drawing, music composition, and mechanical CAD [VL90, Joh92]. Another framework can help you build compilers for different programming languages and target machines [JML92]. Yet another might help you build financial modeling applications [BE93]. You customize a framework to a
+particular application by creating application-specific subclasses of abstract classes from the framework.
+
+The framework dictates the architecture of your application. It will define the overall structure, its partitioning into classes and objects, the key responsibilities thereof, how the classes and objects collaborate, and the thread of control. A framework predefines these design parameters so that you, the application designer/implementer, can concentrate on the specifics of your application. The framework captures the design decisions that are common to its application domain. Frameworks thus emphasize design reuse over code reuse, though a framework will usually include concrete subclasses you can put to work immediately.
+
+Reuse on this level leads to an inversion of control between the application and the software on which it's based. When you use a toolkit (or a conventional subroutine library for that matter), you write the main body of the application and call the code you want to reuse. When you use a framework, you reuse the main body and write the code it calls. You'll have to write operations with particular names and calling conventions, but that reduces the design decisions you have to make.
+
+Not only can you build applications faster as a result, but the applications have similar structures. They are easier to maintain, and they seem more consistent to their users. On the other hand, you lose some creative freedom, since many design decisions have been made for you.
+
+If applications are hard to design, and toolkits are harder, then frameworks are hardest of all. A framework designer gambles that one architecture will work for all applications in the domain. Any substantive change to the framework's design would reduce its benefits considerably, since the framework's main contribution to an application is the architecture it defines. Therefore it's imperative to design the framework to be as flexible and extensible as possible.
+
+Furthermore, because applications are so dependent on the framework for their design, they are particularly sensitive to changes in framework interfaces. As a framework evolves, applications have to evolve with it. That makes loose coupling all the more important; otherwise even a minor change to the framework will have major repercussions.
+
+The design issues just discussed are most critical to framework design. A framework that addresses them using design patterns is far more likely to achieve high levels of design and code reuse than one that doesn't. Mature frameworks usually incorporate several design patterns. The patterns help make the framework's architecture suitable to many different applications without redesign.
+
+An added benefit comes when the framework is documented with the design patterns it uses [BJ94]. People who know the patterns gain insight into the framework faster. Even people who don't know the patterns can benefit from the structure they lend to the framework's documentation. Enhancing documentation is important for all types of software, but it's particularly important for frameworks. Frameworks often pose a steep learning curve that must be overcome before they're useful. While design patterns might not flatten the learning curve entirely, they can make it less steep by making key elements of the framework's design more explicit.
+
+Because patterns and frameworks have some similarities, people often wonder how or even if they differ. They are different in three major ways:
+
+1. Design patterns are more abstract than frameworks. Frameworks can be embodied in code, but only examples of patterns can be embodied in code. A strength of frameworks is that they can be written down in programming languages and not only studied but executed and reused directly. In contrast, the design patterns in this book have to be implemented each time they're used. Design patterns also explain the intent, trade-offs, and consequences of a design.
+
+2. Design patterns are smaller architectural elements than frameworks. A typical framework contains several design patterns, but the reverse is never true.
+
+3. Design patterns are less specialized than frameworks. Frameworks always have a particular application domain. A graphical editor framework might be used in a factory simulation, but it won't be mistaken for a simulation framework. In contrast, the design patterns in this catalog can be used in nearly any kind of application. While more specialized design patterns than ours are certainly possible (say, design patterns for distributed systems or concurrent programming), even these wouldn't dictate an application architecture like a framework would.
+
+Frameworks are becoming increasingly common and important. They are the way that object-oriented systems achieve the most reuse. Larger object-oriented applications will end up consisting of layers of frameworks that cooperate with each other. Most of the design and code in the application will come from or be influenced by the frameworks it uses.
+
+
 ## UML Relationships among Classes
 
 - **Association** - "is part of association" relationship
@@ -426,731 +1157,16 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization3.png)
 
-# COHESION
 
-- Is the force thad binds together the code responsible to a single actor.
-- Is a measure of how related the functions within a single module are.
-- Refers to the degree to which the elements of a module belong together.
-- Is a measure of how strongly-related or focused the responsabilities of a single module are.
-- High Cohesion is the goal in design of classes, modules and other software artifacts.
-- Low Cohesion is bad practice in design of classes, modules and other software artifacts.
 
-## Component Cohesion Principles
 
-Which classes belong in which components? This is an important decision, and requires guidamce from good software engineering principles. So, the three principle that helps this decision are:
 
-- **REP** - Reuse/Release Equivalence Principle
-- **CCP** - Common Closure Principle
-- **CRP** - Common Reuse Principle
 
-# COUPLING or DEPENDENCY
 
-- Refers to the interdependencies between software artifacts
-- Is the degree to which each module relies on each one of the the modules.
-- High coupling means several dependencies between software artifacts and it is a ba practice of design
-- Low Coupling means small dependencies and this is the goal in the design of software artifacts
 
-## Summary of Good Practices of Design
 
-- **SoC**   - Separation of Concerns
-- **KISS**  - Keep it Simple
-- **DRY**   - Don´t Repeat Yourself
-- **TDA**   - Tell Don´t Ask
-- **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
-- **YAGNI** - You aren´t gonna need it
 
-## Summary of the Principles of Object-Oriented Design
 
-"The Source Code is the Design" (Uncle Bob C. Martin)
 
-## = SOLID PRINCIPLES - Principles of Class Design
 
-- ***SRP - Single Responsability Principle***  -  A class should have only one reason to change
-- ***OCP - Open-Closed Principle*** - Classes should be open for extension, but closed for modification
-- ***LSP - Liskov Substitution Principle*** - Subtypes must be substitutable for their base types
-- ***ISP - Interface Segregation Principle*** - Clients should not be forced to depend upon methods that they do no use. Interfaces belong to clients, not do hierarchies.
-- ***DIP - Depedency Inversion Principle*** - Abstractions should not depend upon details. Details should depend upon abstractions.
-
-## = COMPONENT COHESION PRINCIPLES (Package Cohesion Principles)
-
-- ***REP - Release - Reuse Equivalency Principle*** - The granule of reuse is the granule of release
-- ***CCP - Common Closure Principle*** - The classes in a package should be closed together against the same kinds of changes. A change that affects a closed package affects all the classes in that package no other packages.
-- ***CRP - Common Reuse Principle*** - The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.
-
-## = COMPONENT COUPLINP PRINCIPLES  (Coupling Between Packages Principles)
-
-- ***ADP - Acyclic Deependencies Principle*** - Allow no cycles in the package dependency graph.
-- ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
-- ***SAP - Stable Abstraction Principle*** - A package should be as abstract as it is stable.
-
-# SoC - Separation of Concerns
-
-## What is SoC?
-
-In Software Engineering, Sseparation of concerns (SoC) is a design principle for separating a computer program into distinct sections such that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program. A concern can be as general as "the details of the hardware for an application", or as specific as "the name of which class to instantiate". A program that embodies SoC well is called a modular[1] program. Modularity, and hence separation of concerns, is achieved by encapsulating information inside a section of code that has a well-defined interface. Encapsulation is a means of information hiding.[2] Layered designs in information systems are another embodiment of separation of concerns (e.g., presentation layer, business logic layer, data access layer, persistence layer).[3]
-
-Separation of concerns results in more degrees of freedom for some aspect of the program's design, deployment, or usage. Common among these is increased freedom for simplification and maintenance of code. When concerns are well-separated, there are more opportunities for module upgrade, reuse, and independent development. Hiding the implementation details of modules behind an interface enables improving or modifying a single concern's section of code without having to know the details of other sections and without having to make corresponding changes to those other sections. Modules can also expose different versions of an interface, which increases the freedom to upgrade a complex system in piecemeal fashion without interim loss of functionality.[citation needed]
-
-Separation of concerns is a form of abstraction. As with most abstractions, separating concerns means adding additional code interfaces, generally creating more code to be executed. So despite the many benefits of well-separated concerns, there is often an associated execution penalty.[citation 
-
-# Origin of The Separation of Concerns Concept
-
-The term separation of concerns was probably coined by Edsger W. Dijkstra in his 1974 paper "On the role of scientific thought".[6]
-
- - Let me try to explain to you, what to my taste is characteristic for all intelligent thinking. It is, that one is willing to study in depth an aspect of one's subject matter in isolation for the sake of its own consistency, all the time knowing that one is occupying oneself only with one of the aspects. We know that a program must be correct and we can study it from that viewpoint only; we also know that it should be efficient and we can study its efficiency on another day, so to speak. In another mood we may ask ourselves whether, and if so: why, the program is desirable. But nothing is gained —on the contrary!— by tackling these various aspects simultaneously. It is what I sometimes have called "the separation of concerns", which, even if not perfectly possible, is yet the only available technique for effective ordering of one's thoughts, that I know of. This is what I mean by "focusing one's attention upon some aspect": it does not mean ignoring the other aspects, it is just doing justice to the fact that from this aspect's point of view, the other is irrelevant. It is being one- and multiple-track minded simultaneously.
-
-Fifteen years later, it was evident the term Separation of Concerns was becoming an accepted idea. In 1989, Chris Reade wrote a book titled "Elements of Functional Programming"[7] that describes separation of concerns:
-
-The programmer is having to do several things at the same time, namely,
-
- - *describe what is to be computed;*
- - *organise the computation sequencing into small steps;*
- - *organise memory management during the computation.*
- 
- Reade continues to say,
-
-- Ideally, the programmer should be able to concentrate on the first of the three tasks (describing what is to be computed) without being distracted by the other two, more administrative, tasks. Clearly, administration is important, but by separating it from the main task we are likely to get more reliable results and we can ease the programming problem by automating much of the administration.
-
-- The separation of concerns has other advantages as well. For example, program proving becomes much more feasible when details of sequencing and memory management are absent from the program. Furthermore, descriptions of what is to be computed should be free of such detailed step-by-step descriptions of how to do it, if they are to be evaluated with different machine architectures. Sequences of small changes to a data object held in a store may be an inappropriate description of how to compute something when a highly parallel machine is being used with thousands of processors distributed throughout the machine and local rather than global storage facilities.
-
-- Automating the administrative aspects means that the language implementor has to deal with them, but he/she has far more opportunity to make use of very different computation mechanisms with different machine architectures.
- 
-## Examples of Separation of Concerns (Soc)
-
-### Internet protocol stack
-
-Separation of concerns is crucial to the design of the Internet. In the Internet Protocol Suite, great efforts have been made to separate concerns into well-defined layers. This allows protocol designers to focus on the concerns in one layer, and ignore the other layers. The Application Layer protocol SMTP, for example, is concerned about all the details of conducting an email session over a reliable transport service (usually TCP), but not in the least concerned about how the transport service makes that service reliable. Similarly, TCP is not concerned about the routing of data packets, which is handled at the Internet Layer.
-
-### HTML, CSS, JavaScript
-
-HyperText Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript (JS) are complementary languages used in the development of web pages and websites. HTML is mainly used for organization of webpage content, CSS is used for definition of content presentation style, and JS defines how the content interacts and behaves with the user. Historically, this was not the case: prior to the introduction of CSS, HTML performed both duties of defining semantics and style.
-
-### Subject-oriented programming
-
-Subject-oriented programming allows separate concerns to be addressed as separate software constructs, each on an equal footing with the others. Each concern provides its own class-structure into which the objects in common are organized, and contributes state and methods to the composite result where they cut across one another. Correspondence rules describe how the classes and methods in the various concerns are related to each other at points where they interact, allowing composite behavior for a method to be derived from several concerns. Multi-dimensional Separation of Concerns allows the analysis and composition of concerns to be manipulated as a multi-dimensional "matrix" in which each concern provides a dimension in which different points of choice are enumerated, with the cells of the matrix occupied by the appropriate software artifacts.
-
-### Aspect-oriented programming
-
-Aspect-oriented programming allows cross-cutting concerns to be addressed as primary concerns. For example, most programs require some form of security and logging. Security and logging are often secondary concerns, whereas the primary concern is often on accomplishing business goals. However, when designing a program, its security must be built into the design from the beginning instead of being treated as a secondary concern. Applying security afterwards often results in an insufficient security model that leaves too many gaps for future attacks. This may be solved with aspect-oriented programming. For example, an aspect may be written to enforce that calls to a certain API are always logged, or that errors are always logged when an exception is thrown, regardless of whether the program's procedural code handles the exception or propagates it.[8]
-
-### Levels of analysis in artificial intelligence
-
-In cognitive science and artificial intelligence, it is common to refer to David Marr's levels of analysis. At any given time, a researcher may be focusing on (1) what some aspect of intelligence needs to compute, (2) what algorithm it employs, or (3) how that algorithm is implemented in hardware. This separation of concerns is similar to the interface/implementation distinction in software and hardware engineering.
-
-### Normalized systems
-
-In normalized systems separation of concerns is one of the four guiding principles. Adhering to this principle is one of the tools that helps reduce the combinatorial effects that, over time, get introduced in software that is being maintained. In Normalized Systems separation of concerns is actively supported by the tools.
-
-### SoC via partial classes
-
-Separation of concerns can be implemented and enforced via partial classes.[9]
-
-- SoC via partial classes in Ruby
-
-```Ruby
-bear_hunting.rb
-class Bear
-  def hunt
-    forest.select(&:food?)
-  end
-end
-bear_eating.rb
-class Bear
-  def eat(food)
-    raise "#{food} is not edible!" unless food.respond_to? :nutrition_value
-    food.nutrition_value
-  end
-end
-bear_hunger.rb
-class Bear
-  attr_accessor :hunger
-  def monitor_hunger
-    if hunger > 50
-      food = hunt
-      hunger -= eat(food)
-    end
-  end
-end
-```
-
-## Implementation
-
-The mechanisms for modular or object-oriented programming that are provided by a programming language are mechanisms that allow developers to provide SoC.[4] For example, object-oriented programming languages such as C#, C++, Delphi, and Java can separate concerns into objects, and architectural design patterns like MVC or MVP can separate content from presentation and the data-processing (model) from content. Service-oriented design can separate concerns into services. Procedural programming languages such as C and Pascal can separate concerns into procedures or functions. Aspect-oriented programming languages can separate concerns into aspects and objects.
-
-Separation of concerns is an important design principle in many other areas as well, such as urban planning, architecture and information design.[5] The goal is to more effectively understand, design, and manage complex interdependent systems, so that functions can be reused, optimized independently of other functions, and insulated from the potential failure of other functions.
-
-Common examples include separating a space into rooms, so that activity in one room does not affect people in other rooms, and keeping the stove on one circuit and the lights on another, so that overload by the stove does not turn the lights off. The example with rooms shows encapsulation, where information inside one room, such as how messy it is, is not available to the other rooms, except through the interface, which is the door. The example with circuits demonstrates that activity inside one module, which is a circuit with consumers of electricity attached, does not affect activity in a different module, so each module is not concerned with what happens in the other.
-
-# SOLID Principles
-
-The text in this Wiki is writeen based on the following Books:
-
-- Book Agile Software Development: Principles, Patterns, and Practices by Uncle Bob C. Martin and published in 2002
-- Book Clean Architecture - A Handbook of Agile Software Craftsmanship by Uncle Bob C. Marting and published in 2017
-
-## SRP - Single Responsability Principle
-
-A classe should have one, and only one, reason to change. In the context of the SRP, a responsability is "a reason to change". If there are more than one motive for changing a class, then that class has more than one responsability, in this case is violating the SRP Principle.
-
-- One class shoudl have one and only one responsability over the application´s functionality;
-- We should write, change and maintain a class only for one purpose;
-- A module should have one, and only one, reason to change;
-- A module should be responsible to one, only one, user or stakeholder;
-- A module should be responsible to one, and only one, actor;
-- Considre Module as just a source file in the above definitions;
-- The best way to understand this principle is by looking at the symptoms of vilating it;
-- Cohesion is the force thar binds together the code responsible to a single actor;
-- Single Responsability is about methods and classes. At the component level it becomes the COMMON CLOSURE PATTERN;
-- We should design each class to attend just only one actor - this way we can be sure that we are not violating the SRP Principle;
-
-## OCP - Open-Closed Principle
-
-Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
-
-- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin)
-- If a component A should be protected from changes in component B, then component B should depend on component A (
-- A software artifact should be open extension but closed for modification;
-- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change
-- This goal is accomplished by partitioning the system into compoenents, and arranging thos components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
-
-## LSP - Liskov Substitution Principle
-
-To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
-
-- Derived classes must be substitutable for their base classes.
-- Subtypers must be substitutable for their base types.
-- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
-
- -  Don’t change the behavior of the parent or base class in derived classes
-
-The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
-
-In dynamic languages like Ruby, the Liskov principle (LSP) works slightly differently because Ruby less rigidly enforces how types work (so-called “Duck Typing”) as opposed to a language like Java, where type safety is enforced by the compiler. This means that LSP winds up applying more to the messages an object responds to rather than its type.
-
-We should remember that inheritance should be used for specialization. Specialization means creating new subclasses from an existing class so the subclasses can share some behaviour. 
-
-The first consequence of not using LSP is that class hierarchies become a mess. If the class hierarchy grows, it will become more and more complicated to know about the behaviour of the child classes. Secondly, unit tests for the superclass would never succeed for the subclass. The code that uses your type will have to have explicit knowledge of the internal workings of derived types to treat them differently. This tightly couples your code and generally makes the implementation harder to use consistently, and also more difficult to change. In the worst case scenario, LSP violations will introduce bugs in your system because you can’t rely anymore in derived classes. LSP is very easy to break if we don’t pay attention to our derived classes, and this can cause a lot of trouble in the feature. As we can see, there are plenty of things that can go wrong when breaking the LSP, so pay attention to your derived classes and try to avoid breaking the LSP.
-
-
-### ISP - Interface Segregation Principle
-
-The ISP states that no cliente should be forced to depend on methods it does not use.
-
-- Avoid depending on things that you don´t use.
-- Make fine-grained interfaces that are client specific.
-
-- The ISP guides us to create many small interfaces with coherent functionalities instead of a few big interfaces with lots of different methods. When we apply the ISP, class and their dependencies communicate using focused interfaces, minimizing dependencies. Smaller interfaces are easier to implement, improving flexibility and the possibility of reuse.
-
-### DIP - Dependency Inversion Principle
-
-The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
-
-- Depend on abstraction, not on concretion.
-
-
-
-# Classification of Programming Languages
-
-![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
-
-# FACTORY DESIGN PATTERN
-
-The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
-
-## What is Factory Design Pattern ?
-
-A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
-
-The Factory Method Pattern is also known as Virtual Constructor.
-
-The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
-
-## What is the Factory Pattern used for?
-
-The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
-
-Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
-
-A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
-
-- when it applies, 
-- whether it can be applied in view of other design constraints, and 
-- the consequences and trade-offs of its use. 
-
-## Advantage of Factory Design Pattern
-
-- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
-- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
-
-## Usage of Factory Design Pattern
-
-- When a class doesn't know what sub-classes will be required to create
-- When a class wants that its sub-classes specify the objects to be created.
-- When the parent classes choose the creation of objects to its sub-classes.
-
-# Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
-
-## (GoF) What is a Design Pattern?
-
-"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice"  - Christopher Alexander
-
-## (GoF) Elements of a Pattern
-
-In general, a pattern has four essential elements:
-
-1. The **pattern name** is a handle we can use to describe a design problem, its solutions, and
-consequences in a word or two. Naming a pattern immediately increases our design vocabulary. It
-lets us design at a higher level of abstraction. Having a vocabulary for patterns lets us talk about them
-with our colleagues, in our documentation, and even to ourselves. It makes it easier to think about
-designs and to communicate them and their trade-offs to others. Finding good names has been one of
-the hardest parts of developing our catalog.
-
-1. The **problem** describes when to apply the pattern. It explains the problem and its context. It might
-describe specific design problems such as how to represent algorithms as objects. It might describe
-class or object structures that are symptomatic of an inflexible design. Sometimes the problem will
-include a list of conditions that must be met before it makes sense to apply the pattern.
-
-1. The **solution** describes the elements that make up the design, their relationships, responsibilities, and
-collaborations. The solution doesn't describe a particular concrete design or implementation, because
-a pattern is like a template that can be applied in many different situations. Instead, the pattern
-provides an abstract description of a design problem and how a general arrangement of elements
-(classes and objects in our case) solves it.
-
-1. The **consequences** are the results and trade-offs of applying the pattern. Though consequences are
-often unvoiced when we describe design decisions, they are critical for evaluating design alternatives
-and for understanding the costs and benefits of applying the pattern. The consequences for software
-often concern space and time trade-offs. They may address language and implementation issues as
-well. Since reuse is often a factor in object-oriented design, the consequences of a pattern include its
-impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
-helps you understand and evaluate them.
-
-## (GoF) Describing Design Patterns
-
-How do we describe design patterns? Graphical notations, while important and useful, aren't sufficient. They simply capture the end product of the design process as relationships between classes and objects. To reuse the design, we must also record the decisions, alternatives, and trade-offs that led to it. Concrete examples are important too, because they help you see the design in action. The Gang of Four describe design patterns using a consistent format. Each pattern is divided into sections according to the following template. The template lends a uniform structure to the information, making design patterns easier to learn, compare, and use.
-
-- **Pattern Name and Classification**  -  The pattern's name conveys the essence of the pattern succinctly. A good name is vital, because it will become part of your design vocabulary. The pattern's classification reflects the scheme we introduce in Section 1.5.
-
-- **Intent ** - A short statement that answers the following questions: What does the design pattern do? What is its rationale and intent? What particular design issue or problem does it address?
-
-- **Also Known As** - Other well-known names for the pattern, if any.
-
-- **Motivation** - A scenario that illustrates a design problem and how the class and object structures in the pattern solve the problem. The scenario will help you understand the more abstract description of the pattern that follows.
-
-- **Applicability** - What are the situations in which the design pattern can be applied? What are examples of poor designs that the pattern can address? How can you recognize these situations?
-
-- **Structure** - A graphical representation of the classes in the pattern using a notation based on the Object Modeling Technique (OMT) [RBP+91]. We also use interaction diagrams [JCJO92, Boo94] to illustrate sequences of requests and collaborations between objects. Appendix B describes these notations in detail.
-
-- **Participants** - The classes and/or objects participating in the design pattern and their responsibilities.
-
-- **Collaborations** - How the participants collaborate to carry out their responsibilities.
-
-- **Consequences** - How does the pattern support its objectives? What are the trade-offs and results of using the pattern? What aspect of system structure does it let you vary independently?
-
-- **Implementation** - What pitfalls, hints, or techniques should you be aware of when implementing the pattern? Are there language-specific issues?
-
-- **Sample Code** - Code fragments that illustrate how you might implement the pattern in C++ or Smalltalk.
-
-- **Known Uses** - Examples of the pattern found in real systems. We include at least two examples from different domains.
-
-- **Related Patterns** - What design patterns are closely related to this one? What are the important differences? With which other patterns should this one be used?
-
-## (GoF) Diagram of the Design Patterns Relationships
-
-![design patterns relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
-
-## (GoF) The Catalog of  Gang of Four 23 Design Patterns
-
-The catalog beginning on page 79 contains 23 design patterns. Their names and intents are listed next to give you an overview. The number in parentheses after each pattern name gives the page number for the pattern (a convention we follow throughout the book).
-
-- **Abstract Factory (87)** - Provide an interface for creating families of related or dependent objects without specifying their concrete classes. Yield objects whose only responsibilities are creating other objects.
-
-- **Adapter (139)** - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
-
-- **Bridge (151)** - Decouple an abstraction from its implementation so that the two can vary independently. Yield objects whose only responsibilities are creating other objects.
-
-- **Builder (97)** - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
-
-- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
-
-- **Command (233)** - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.  Yield objects whose only responsibilities are to implement a request on another object or group of objects.
-
-- **Composite (163)**- Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly. introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart.
-
-- **Decorator (175)** - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
-
-- **Facade (185)** - Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. It describes how to represent complete subsystems as objects.
-
-- **Factory Method (107)** - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
-
-- **Flyweight (195)** - Use sharing to support large numbers of fine-grained objects efficiently. It describes how to support huge numbers of objects at the finest granularities.
-
-- **Interpreter (243)** - Given a language, define a represention for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
-
-- **Iterator (257)** - Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
-
-- **Mediator (273)** - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
-
-- **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two
-interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
-
-- **Observer (293)** - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
-
-- **Prototype (117)** - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
-
-- **Proxy (207)** - Provide a surrogate or placeholder for another object to control access to it.
-
-- **Singleton (127)** - Ensure a class only has one instance, and provide a global point of access to it.
-
-- **State (305)** - Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
-
-- **Strategy (315)** - Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it. Describes how to implement interchangeable families of algorithms.
-
-- **Template Method (325)** - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
-
-- **Visitor (331)** - Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.  Yield objects whose only responsibilities are to implement a request on another object or group of objects.
-
-## Gang of Four - Design Patterns Space
-
-![design pattern space](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/table-1-1-GOF_DesignPatternsSpace.jpg)
-
-the Gang of Four classify design patterns by two criteria shown in Table 1.1 above.
-
-A) The first criterion, called purpose, reflects what a pattern does. Patterns can have either creational, structural, or behavioral purpose. 
-
-   - **Creational patterns** concern the process of object creation. 
-   - **Structural patterns** deal with the composition of classes or objects. 
-   - **Behavioral patterns** characterize the ways in which classes or objects interact and distribute responsibility.
-   
-B) The second criterion, called scope, specifies whether the pattern applies primarily to classes or to objects.
-
-- **Class patterns** 
-    
-   - deal with relationships between classes and their subclasses. T
-   - these relationships are established through inheritance, so they are static—fixed at compile-time. 
-       
-- **Object patterns** 
-      
-    - deal with object relationships, which can be changed at run-time and are more dynamic. 
-    
-- Almost all patterns use inheritance to some extent. 
-- So the only patterns labeled "class patterns" are those that focus on class relationships. 
-- Note that most patterns are in the Object scope.
-
-# (GoF) How Design Patterns Solve Design Problems
-
-Design patterns solve many of the day-to-day problems object-oriented designers face, and in many different ways. Here are several of these problems and how design patterns solve them. 
-
-# (GoF) P1 - Finding Appropriate Objects
-
-Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client. **Requests** are the only way to get an object to execute an operation. **Operations** are the only way to change an object's internal data (state). Because of these restrictions, the **object's internal state** is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.  
-
-The hard part about object-oriented design is **decomposing a system into objects**. The task is difficult because many factors come into play: *encapsulation,  granularity, dependency, flexibility, performance, evolution, reusability, and  on and on*. They all influence the **decomposition**, often in conflicting ways. Object-oriented design methodologies favor many different approaches:
-
-- *You can write a problem statement, single out the nouns and verbs, and create corresponding classes and operations, or*
-- *You can focus on the collaborations and responsibilities in your system, or*
-- *You can model the real world and translate the objects found during analysis into design.*
-
-There will always be disagreement on which approach is best. 
-
-Many objects in a design come from the **analysis model**. But object-oriented designs often end up with *classes* that have no counterparts in the real world. Some of these are **low-level classes** like arrays. Others are much **higher-level**. For example, the **Composite (163) pattern** introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. *Strict modeling of the real world leads to a system that reflects today's realities but not necessarily tomorrow's*. The **abstractions** that emerge during design are key to making a design flexible.
-
-Design patterns help you identify **less-obvious abstractions** and the objects that can capture them. For example, objects that represent a **process** or **algorithm** don't occur in nature, yet they are a crucial part of flexible designs. 
-
-- The **Strategy (315) pattern** describes how to implement interchangeable families of algorithms. 
-- The **State (305) pattern** represents each state of an entity as an object. 
-
-These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
-
-## (GoF) P2 - Determining Object Granularity
-
--  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
-
-Objects can vary tremendously in size and number. They can represent everything down to the hardware or all the way up to entire applications. How do we decide what should be an object?
-
-Design patterns address this issue as well. 
-
-- The **Facade (185) pattern** describes how to represent complete subsystems as objects, and 
-- the **Flyweight (195) pattern** describes how to support huge numbers of objects at the finest granularities.
-
-Other design patterns describe specific ways of decomposing an object into smaller objects. 
-
-- **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
-- **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
-
-## (GoF) P3 - Specifying Object Interfaces
-
-Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
-
-A *type* is a name used to denote a particular interface. We speak of an object as having the type "Window" if it accepts all requests for the operations defined in the interface named "Window." An object may have many types, and widely different objects can share a type. Part of an object's interface may be characterized by one type, and other parts by other types. Two objects of the same type need only share parts of their interfaces. Interfaces can contain other interfaces as subsets. We say that a **type** is a *subtype* of another if its interface contains the interface of its supertype. Often we speak of a subtype inheriting the interface of its *supertype**.
-
-**Interfaces** are fundamental in object-oriented systems. Objects are known only through their interfaces. There is no way to know anything about an object or to ask it to do anything without going through its interface. An object's interface says nothing about its implementation—different objects are free to implement requests differently. That means two objects having completely different implementations can have identical interfaces.
-
-When a request is sent to an object, the particular operation that's performed depends on both the request and the receiving object. Different objects that support identical requests may have different implementations of the operations that fulfill these requests. The run-time association of a request to an object and one of its operations is known as **dynamic binding**.
-
-Dynamic binding means that issuing a request doesn't commit you to a particular implementation until runtime. Consequently, you can write programs that expect an object with a particular interface, knowing that any object that has the correct interface will accept the request. Moreover, dynamic binding lets you substitute objects that have identical interfaces for each other at run-time. This substitutability is known as **polymorphism**, and it's a key concept in object-oriented systems. It lets a client object make fewassumptions about other objects beyond supporting a particular interface. Polymorphism simplifies the definitions of clients, decouples objects from each other, and lets them vary their relationships to each other at run-time.
-
-- The **Memento (283) pattern** is a good example. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
-
-Design patterns also specify **relationships between interfaces**. In particular, they often require some classes to have similar interfaces, or they place constraints on the interfaces of some classes. For example, both **Decorator (175)** and **Proxy (207)** require the interfaces of Decorator and Proxy objects to be identical to the decorated and proxied objects. In **Visitor (331)**, the Visitor interface must reflect all classes of objects that visitors can visit.
-
-Design patterns help you define interfaces by identifying their key elements and the kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface. 
-
-# (GoF) P4 - Specifying Object Implementations
-
-So far we've said little about how we actually define an object. An object's implementation is defined by its **class**. The class specifies the object's internal data and representation and defines the operations the object can perform.
-
-Objects are created by instantiating a class. The object is said to be an instance of the class. The process of instantiating a class allocates storage for the object's internal data (made up of **instance variables**) and associates the operations with these data. Many similar instances of an object can be created by instantiating a class.
-
-New classes can be defined in terms of existing classes using **class inheritance**. When a **subclass** inherits from a **parent class**, it includes the definitions of all the data and operations that the parent class defines. Objects that are instances of the subclass will contain all data defined by the subclass and its parent classes, and they'll be able to perform all operations defined by this subclass and its parents.
-
-An **abstract class** is one whose main purpose is to define a common interface for its subclasses. An abstract class will defer some or all of its implementation to operations defined in subclasses; hence an abstract class cannot be instantiated. The operations that an abstract class declares but doesn't implement are called **abstract operations**. Classes that aren't abstract are called **concrete classes**.
-
-Subclasses can refine and redefine behaviors of their parent classes. More specifically, a class may **override** an operation defined by its parent class. Overriding gives subclasses a chance to handle requests instead of their parent classes. Class inheritance lets you define classes simply by extending other classes, making it easy to define families of objects having related functionality.
-
-A **mixin class** is a class that's intended to provide an optional interface or functionality to other classes. It's similar to an abstract class in that it's not intended to be instantiated. Mixin classes require **multiple inheritance**.
-
-# (GoF) P5 - Class versus Interface Inheritance
-
-It's important to understand the difference between an object's **class** and its **type**.
-
-An object's class defines how the object is implemented. The class defines the object's internal state and the implementation of its operations. In contrast, an object's type only refers to its interface—the set of requests to which it can respond. An object can have many types, and objects of different classes can have the same type.
-
-Of course, there's a close relationship between class and type. Because a class defines the operations an object can perform, it also defines the object's type. When we say that an object is an instance of a class, we imply that the object supports the interface defined by the class.
-
-Languages like C++ and Eiffel use classes to specify both an object's type and its implementation. Smalltalk programs do not declare the types of variables; consequently, the compiler does not check that the types of objects assigned to a variable are subtypes of the variable's type. Sending a message requires checking that the class of the receiver implements the message, but it doesn't require checking that the receiver is an instance of a particular class.
-
-It's also important to understand the difference between class inheritance and interface inheritance (or subtyping). Class inheritance defines an object's implementation in terms of another object's implementation. In short, it's a mechanism for code and representation sharing. In contrast, interface inheritance (or subtyping) describes when an object can be used in place of another. 
-
-It's easy to confuse these two concepts, because many languages don't make the distinction explicit. In languages like C++ and Eiffel, inheritance means both interface and implementation inheritance. The standard way to inherit an interface in C++ is to inherit publicly from a class that has (pure) virtual member functions. Pure interface inheritance can be approximated in C++ by inheriting publicly from pure abstract classes. Pure implementation or class inheritance can be approximated with private inheritance. In Smalltalk, inheritance means just implementation inheritance. You can assign instances of any class to a variable as long as those instances support the operation performed on the value of the variable. 
-
-Although most programming languages don't support the distinction between interface and implementation inheritance, people make the distinction in practice. Smalltalk programmers usually act as if subclasses were subtypes (though there are some well-known exceptions [Coo92]); C++ programmers manipulate objects through types defined by abstract classes.
-
-  - [Cpp02] William R. Cook. Interfaces and specifications for the Smalltalk-80 collection classes. In Object-Oriented Programming Systems, Languages, and Applications Conference Proceedings, pages 1–15, Vancouver, British Columbia, Canada, October 1992. ACM Press.
-
-Many of the design patterns depend on this distinction. For example, objects in a Chain of Responsibility (223) must have a common type, but usually they don't share a common implementation. In the Composite (163) pattern, Component defines a common interface, but Composite often defines a common implementation. **Command (233)**, **Observer (293)**, **State (305)**, and **Strategy (315)** are often implemented with abstract classes that are pure interfaces.
-
-# (GoF) P5 - Programming to an Interface, not an Implementation
-
-Class inheritance is basically just a mechanism for extending an application's functionality by reusing functionality in parent classes. It lets you define a new kind of object rapidly in terms of an old one. It lets you get new implementations almost for free, inheriting most of what you need from existing classes.
-
-However, implementation reuse is only half the story. Inheritance's ability to define families of objects with identical interfaces (usually by inheriting from an abstract class) is also important. Why? Because polymorphism depends on it.
-
-When inheritance is used carefully (some will say properly), all classes derived from an abstract class will share its interface. This implies that a subclass merely adds or overrides operations and does not hide operations of the parent class. All subclasses can then respond to the requests in the interface of this abstract class, making them all subtypes of the abstract class.
-
-There are two benefits to manipulating objects solely in terms of the interface defined by abstract classes:
-
-1. Clients remain unaware of the specific types of objects they use, as long as the objects adhere to the interface that clients expect.
-1. Clients remain unaware of the classes that implement these objects. Clients only know about the
-abstract class(es) defining the interface. 
-
-This so greatly reduces implementation dependencies between subsystems that it leads to the following principle of reusable object-oriented design: 
-
- - *Program to an interface, not an implementation*.
-
-Don't declare variables to be instances of particular concrete classes. Instead, commit only to an interface defined by an abstract class. You will find this to be a common theme of the design patterns in the book´s Gang of Four.
-
-You have to instantiate concrete classes (that is, specify a particular implementation) somewhere in your system, of course, and the creational patterns (**Abstract Factory (87)**, **Builder (97)**, **Factory Method (107)**, **Prototype (117)**, and **Singleton (127)** let you do just that. By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation. Creational patterns ensure that your system is written in terms of interfaces, not implementations.
-
-# (GoF) P6 - Putting Reuse Mechanisms to Work
-
-Most people can understand concepts like objects, interfaces, classes, and inheritance. The challenge lies in applying them to build flexible, reusable software, and design patterns can show you how.
-
-## (GoF) Inheritance versus Composition
-
-The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition. As we've explained, class inheritance lets you define the implementation of one class in terms of another's. Reuse by subclassing is often referred to as white-box reuse. The term "whitebox" refers to visibility: With inheritance, the internals of parent classes are often visible to subclasses.
-
-Object composition is an alternative to class inheritance. Here, new functionality is obtained by assembling or composing objects to get more complex functionality. Object composition requires that the objects being composed have well-defined interfaces. This style of reuse is called black-box reuse, because no internal details of objects are visible. Objects appear only as "black boxes."
-
-Inheritance and composition each have their advantages and disadvantages. Class inheritance is defined statically at compile-time and is straightforward to use, since it's supported directly by the programming language. Class inheritance also makes it easier to modify the implementation being reused. When a subclass overrides some but not all operations, it can affect the operations it inherits as well, assuming they call the overridden operations.
-
-But class inheritance has some disadvantages, too. First, you can't change the implementations inherited from parent classes at run-time, because inheritance is defined at compile-time. Second, and generally worse, parent classes often define at least part of their subclasses' physical representation. Because inheritance exposes a subclass to details of its parent's implementation, it's often said that "inheritance breaks encapsulation" [Sny86]. The implementation of a subclass becomes so bound up with the implementation of its parent class that any change in the parent's implementation will force the subclass to change.
-
-Implementation dependencies can cause problems when you're trying to reuse a subclass. Should any aspect of the inherited implementation not be appropriate for new problem domains, the parent class must be rewritten or replaced by something more appropriate. This dependency limits flexibility and ultimately reusability. One cure for this is to inherit only from abstract classes, since they usually provide little or no implementation.
-
-Object composition is defined dynamically at run-time through objects acquiring references to other objects. Composition requires objects to respect each others' interfaces, which in turn requires carefully designed interfaces that don't stop you from using one object with many others. But there is a payoff. Because objects are accessed solely through their interfaces, we don't break encapsulation. Any object can be replaced at runtime by another as long as it has the same type. Moreover, because an object's implementation will be written in terms of object interfaces, there are substantially fewer implementation dependencies.
-
-Object composition has another effect on system design. Favoring object composition over class inheritance helps you keep each class encapsulated and focused on one task. Your classes and class hierarchies will remain small and will be less likely to grow into unmanageable monsters. On the other hand, a design based on object composition will have more objects (if fewer classes), and the system's behavior will depend on their interrelationships instead of being defined in one class.
-
-That leads us to our second principle of object-oriented design: 
-
- - *Favor object composition over class inheritance.*
-
-Ideally, you shouldn't have to create new components to achieve reuse. You should be able to get all the functionality you need just by assembling existing components through object composition. But this is rarely the case, because the set of available components is never quite rich enough in practice. Reuse by inheritance makes it easier to make new components that can be composed with old ones. Inheritance and object composition thus work together. 
-
-Nevertheless, our experience is that designers overuse inheritance as a reuse technique, and designs are often made more reusable (and simpler) by depending more on object composition. You'll see object composition applied again and again in the design patterns. 
-
-![composition_idea](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition_image.PNG)
-
-![composition_has_a_relationship](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition%20_has-a%20relationship%20image.png)
-
-## (GoF) Delegation
-
-Delegation is a way of making composition as powerful for reuse as inheritance [Lie86, JZ91]. In
-delegation, two objects are involved in handling a request: a receiving object delegates operations to its delegate. This is analogous to subclasses deferring requests to parent classes. But with inheritance, an inherited operation can always refer to the receiving object through the this member variable in C++ and self in Smalltalk. To achieve the same effect with delegation, the receiver passes itself to the delegate to let the delegated operation refer to the receiver.
-
-For example, instead of making class Window a subclass of Rectangle (because windows happen to be
-rectangular), the Window class might reuse the behavior of Rectangle by keeping a Rectangle instance variable and delegating Rectangle-specific behavior to it. In other words, instead of a Window being a Rectangle, it would have a Rectangle. Window must now forward requests to its Rectangle instance explicitly, whereas before it would have inherited those operations.
-
-The following diagram depicts the Window class delegating its Area operation to a Rectangle instance.
-
-![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Windows_Class_Delegation_001.jpg)
-
-A plain arrowhead line indicates that a class keeps a reference to an instance of another class. The reference has an optional name, "rectangle" in this case.
-
-The main advantage of delegation is that it makes it easy to compose behaviors at run-time and to change the way they're composed. Our window can become circular at run-time simply by replacing its Rectangle instance with a Circle instance, assuming Rectangle and Circle have the same type.
-
-Delegation has a disadvantage it shares with other techniques that make software more flexible through object composition: Dynamic, highly parameterized software is harder to understand than more static software. There are also run-time inefficiencies, but the human inefficiencies are more important in the long run. Delegation is a good design choice only when it simplifies more than it complicates. It isn't easy to give rules that tell you exactly when to use delegation, because how effective it will be depends on the context and on how much experience you have with it. Delegation works best when it's used in highly stylized ways—that is, in standard patterns.
-
-Several design patterns use delegation. The State (305), Strategy (315), and Visitor (331) patterns depend on it. In the State pattern, an object delegates requests to a State object that represents its current state. In the Strategy pattern, an object delegates a specific request to an object that represents a strategy for carrying out the request. An object will only have one state, but it can have many strategies for different requests. The purpose of both patterns is to change the behavior of an object by changing the objects to which it delegates requests. In Visitor, the operation that gets performed on each element of an object structure is always
-delegated to the Visitor object.
-
-Other patterns use delegation less heavily:
-
-- **Mediator (273)** introduces an object to mediate communication between other objects. Sometimes the Mediator object implements operations simply by forwarding them to the other objects; other times it passes along a reference to itself and thus uses true delegation.
- - **Chain of Responsibility (223)** handles requests by forwarding them from one object to another along a chain of objects. Sometimes this request carries with it a reference to the original object receiving the request, in which case the pattern is using delegation. 
- - **Bridge (151)** decouples an abstraction from its implementation. If the abstraction and a particular implementation are closely matched, then the abstraction may simply delegate operations to that implementation.
- 
- Delegation is an extreme example of object composition. It shows that you can always replace inheritance with object composition as a mechanism for code reuse.
- 
-# (GoF) P7 - Inheritance versus Parameterized Types
-
-Another (not strictly object-oriented) technique for reusing functionality is through parameterized types, also known as generics (Ada, Eiffel) and templates (C++). This technique lets you define a type without specifying all the other types it uses. The unspecified types are supplied as parameters at the point of use. For example, a List class can be parameterized by the type of elements it contains. To declare a list of integers, you supply the type "integer" as a parameter to the List parameterized type. To declare a list of String objects, you supply the "String" type as a parameter. The language implementation will create a customized version of the List class template for each type of element.
-
-Parameterized types give us a third way (in addition to class inheritance and object composition) to compose behavior in object-oriented systems. Many designs can be implemented using any of these three techniques. To parameterize a sorting routine by the operation it uses to compare elements, we could make the comparison:
-
-1. an operation implemented by subclasses (an application of **Template Method (325)**,
-
-1. the responsibility of an object that's passed to the sorting routine (**Strategy (315)**, or
-
-1. an argument of a C++ template or Ada generic that specifies the name of the function to call to
-compare the elements.
-
-There are important differences between these techniques. Object composition lets you change the behavior being composed at run-time, but it also requires indirection and can be less efficient. Inheritance lets you provide default implementations for operations and lets subclasses override them. Parameterized types let you change the types that a class can use. But neither inheritance nor parameterized types can change at runtime. Which approach is best depends on your design and implementation constraints.
-
-None of the patterns in this book concerns parameterized types, though we use them on occasion to
-customize a pattern's C++ implementation. Parameterized types aren't needed at all in a language like Smalltalk that doesn't have compile-time type checking.
-
-# (GoF) P8 - Relating Run-Time and Compile-Time Structures
-
-An object-oriented program's run-time structure often bears little resemblance to its code structure. The code structure is frozen at compile-time; it consists of classes in fixed inheritance relationships. A program's runtime structure consists of rapidly changing networks of communicating objects. In fact, the two structures are largely independent. Trying to understand one from the other is like trying to understand the dynamism of living ecosystems from the static taxonomy of plants and animals, and vice versa.
-
-Consider the distinction between object **aggregation** and **acquaintance** and how differently they manifest themselves at compile- and run-times. Aggregation implies that one object owns or is responsible for another object. Generally we speak of an object having or being part of another object. Aggregation implies that an aggregate object and its owner have identical lifetimes.
-
-**Acquaintance** implies that an object merely knows of another object. Sometimes acquaintance is called "association" or the "using" relationship. Acquainted objects may request operations of each other, but they aren't responsible for each other. Acquaintance is a weaker relationship than aggregation and suggests much looser coupling between objects.
-
-In our diagrams, a plain arrowhead line denotes acquaintance. An arrowhead line with a diamond at its base denotes aggregation:
-
-![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Aggreggator_Aggregatee_001.jpg)
-
-It's easy to confuse aggregation and acquaintance, because they are often implemented in the same way. In Smalltalk, all variables are references to other objects. There's no distinction in the programming language between aggregation and acquaintance. In C++, aggregation can be implemented by defining member variables that are real instances, but it's more common to define them as pointers or references to instances. Acquaintance is implemented with pointers and references as well.
-
-Ultimately, acquaintance and aggregation are determined more by intent than by explicit language
-mechanisms. The distinction may be hard to see in the compile-time structure, but it's significant. Aggregation relationships tend to be fewer and more permanent than acquaintance. Acquaintances, in contrast, are made and remade more frequently, sometimes existing only for the duration of an operation. Acquaintances are more dynamic as well, making them more difficult to discern in the source code.
-
-With such disparity between a program's run-time and compile-time structures, it's clear that code won't reveal everything about how a system will work. The system's run-time structure must be imposed more by the designer than the language. The relationships between objects and their types must be designed with great care, because they determine how good or bad the run-time structure is.
-
-Many design patterns (in particular those that have object scope) capture the distinction between compiletime and run-time structures explicitly. Composite (163) and Decorator (175) are especially useful for building complex run-time structures. Observer (293) involves run-time structures that are often hard to understand unless you know the pattern. Chain of Responsibility (223) also results in communication patterns that inheritance doesn't reveal. In general, the run-time structures aren't clear from the code until you understand the patterns.
-
-# (GoF) P9 - Designing for Change
-
-The key to maximizing reuse lies in anticipating new requirements and changes to existing requirements, and in designing your systems so that they can evolve accordingly.
-
-To design the system so that it's robust to such changes, you must consider how the system might need to change over its lifetime. A design that doesn't take change into account risks major redesign in the future. Those changes might involve class redefinition and reimplementation, client modification, and retesting. Redesign affects many parts of the software system, and unanticipated changes are invariably expensive.
-
-Design patterns help you avoid this by ensuring that a system can change in specific ways. Each design pattern lets some aspect of system structure vary independently of other aspects, thereby making a system more robust to a particular kind of change.
-
-Here are some common causes of redesign along with the design pattern(s) that address them:
-
-1. **Creating an object by specifying a class explicitly**. 
-
->*Specifying a class name when you create an object commits you to a particular implementation instead of a particular interface. This commitment can complicate future changes. To avoid it, create objects indirectly.*
->
->* Design patterns: **Abstract Factory (87), Factory Method (107), Prototype (117).**
-
-2. **Dependence on specific operations**. 
-
->*When you specify a particular operation, you commit to one way of satisfying a request. By avoiding hard-coded requests, you make it easier to change the way a request gets satisfied both at compile-time and at run-time.*
->
->* Design patterns: **Chain of Responsibility (223), Command (233).**
-
-3. **Dependence on hardware and software platform**. 
-
->*External operating system interfaces and application programming interfaces (APIs) are different on different hardware and software platforms. Software that depends on a particular platform will be harder to port to other platforms. It may even be difficult to keep it up to date on its native platform. It's important therefore to design your system to limit its platform dependencies.*
->
->* Design patterns: **Abstract Factory (87), Bridge (151).**
-
-4. **Dependence on object representations or implementations**. 
-
->*Clients that know how an object is  represented, stored, located, or implemented might need to be changed when the object changes. Hiding this information from clients keeps changes from cascading.*
-
->* Design patterns: **Abstract Factory (87), Bridge (151), Memento (283), Proxy (207).**
-
-5. **Algorithmic dependencies**. 
-
->*Algorithms are often extended, optimized, and replaced during development and reuse. Objects that depend on an algorithm will have to change when the algorithm changes. Therefore algorithms that are likely to change should be isolated.*
->
->* Design patterns: **Builder (97), Iterator (257), Strategy (315), Template Method (325), Visitor (331).**
-
-6. **Tight coupling**. 
-
->*Classes that are tightly coupled are hard to reuse in isolation, since they depend on each other. Tight coupling leads to monolithic systems, where you can't change or remove a class without understanding and changing many other classes. The system becomes a dense mass that's hard to learn, port, and maintain. Loose coupling increases the probability that a class can be reused by itself and that a system can be learned, ported, modified, and extended more easily. Design patterns use techniques such as abstract coupling and layering to promote loosely coupled systems.*
->
->* Design patterns: **Abstract Factory (87), Bridge (151), Chain of Responsibility (223), Command (233), Facade (185), Mediator (273), Observer (293).**
-
-7. **Extending functionality by subclassing**. 
-
->*Customizing an object by subclassing often isn't easy. Every new class has a fixed implementation overhead (initialization, finalization, etc.). Defining a subclass also requires an in-depth understanding of the parent class. For example, overriding one operation might require overriding another. An overridden operation might be required to call an inherited operation. And subclassing can lead to an explosion of classes, because you might have to introduce many new subclasses for even a simple extension.*  
->
->*Object composition in general and delegation in particular provide flexible alternatives to inheritance for combining behavior. New functionality can be added to an application by composing existing objects in new ways rather than by defining new subclasses of existing classes. On the other hand, heavy use of object composition can make designs harder to understand. Many design patterns produce designs in which you can introduce customized functionality just by defining one subclass and composing its instances with existing ones.*
->
->*  Design patterns: **Bridge (151), Chain of Responsibility (223), Composite (163), Decorator (175), Observer (293), Strategy (315).**
-
-8. **Inability to alter classes conveniently**. 
-
->*Sometimes you have to modify a class that can't be modified conveniently. Perhaps you need the source code and don't have it (as may be the case with a commercial class  library). Or maybe any change would require modifying lots of existing subclasses. Design patterns offer ways to modify classes in such circumstances.*
->
->* Design patterns: **Adapter (139), Decorator (175), Visitor (331)**.
-
-These examples reflect the flexibility that design patterns can help you build into your software. How crucial such flexibility is depends on the kind of software you're building. Let's look at the role design patterns play in the development of three broad classes of software: application programs, toolkits, and frameworks.
-
-# (GoF) P10 - Application Programs
-
-If you're building an application program such as a document editor or spreadsheet, then internal reuse, maintainability, and extension are high priorities. Internal reuse ensures that you don't design and implement any more than you have to. Design patterns that reduce dependencies can increase internal reuse. Looser coupling boosts the likelihood that one class of object can cooperate with several others. For example, when you eliminate dependencies on specific operations by isolating and encapsulating each operation, you make it easier to reuse an operation in different contexts. The same thing can happen when you remove algorithmic and representational dependencies too.
-
-Design patterns also make an application more maintainable when they're used to limit platform dependencies and to layer a system. They enhance extensibility by showing you how to extend class hierarchies and how to exploit object composition. Reduced coupling also enhances extensibility. Extending a class in isolation is easier if the class doesn't depend on lots of other classes.
-
-# (GoF) P11 - Toolkits
-
-Often an application will incorporate classes from one or more libraries of predefined classes called toolkits. A toolkit is a set of related and reusable classes designed to provide useful, general-purpose functionality. An example of a toolkit is a set of collection classes for lists, associative tables, stacks, and the like. The C++ I/O stream library is another example. Toolkits don't impose a particular design on your application; they just provide functionality that can help your application do its job. They let you as an implementer avoid recoding common functionality. Toolkits emphasize code reuse. They are the object-oriented equivalent of subroutine libraries.
-
-Toolkit design is arguably harder than application design, because toolkits have to work in many applications to be useful. Moreover, the toolkit writer isn't in a position to know what those applications will be or their special needs. That makes it all the more important to avoid assumptions and dependencies that can limit the toolkit's flexibility and consequently its applicability and effectiveness.
-
-# (GoF) P12 - Frameworks
-
-A framework is a set of cooperating classes that make up a reusable design for a specific class of software [Deu89, JF88]. For example, a framework can be geared toward building graphical editors for different domains like artistic drawing, music composition, and mechanical CAD [VL90, Joh92]. Another framework can help you build compilers for different programming languages and target machines [JML92]. Yet another might help you build financial modeling applications [BE93]. You customize a framework to a
-particular application by creating application-specific subclasses of abstract classes from the framework.
-
-The framework dictates the architecture of your application. It will define the overall structure, its partitioning into classes and objects, the key responsibilities thereof, how the classes and objects collaborate, and the thread of control. A framework predefines these design parameters so that you, the application designer/implementer, can concentrate on the specifics of your application. The framework captures the design decisions that are common to its application domain. Frameworks thus emphasize design reuse over code reuse, though a framework will usually include concrete subclasses you can put to work immediately.
-
-Reuse on this level leads to an inversion of control between the application and the software on which it's based. When you use a toolkit (or a conventional subroutine library for that matter), you write the main body of the application and call the code you want to reuse. When you use a framework, you reuse the main body and write the code it calls. You'll have to write operations with particular names and calling conventions, but that reduces the design decisions you have to make.
-
-Not only can you build applications faster as a result, but the applications have similar structures. They are easier to maintain, and they seem more consistent to their users. On the other hand, you lose some creative freedom, since many design decisions have been made for you.
-
-If applications are hard to design, and toolkits are harder, then frameworks are hardest of all. A framework designer gambles that one architecture will work for all applications in the domain. Any substantive change to the framework's design would reduce its benefits considerably, since the framework's main contribution to an application is the architecture it defines. Therefore it's imperative to design the framework to be as flexible and extensible as possible.
-
-Furthermore, because applications are so dependent on the framework for their design, they are particularly sensitive to changes in framework interfaces. As a framework evolves, applications have to evolve with it. That makes loose coupling all the more important; otherwise even a minor change to the framework will have major repercussions.
-
-The design issues just discussed are most critical to framework design. A framework that addresses them using design patterns is far more likely to achieve high levels of design and code reuse than one that doesn't. Mature frameworks usually incorporate several design patterns. The patterns help make the framework's architecture suitable to many different applications without redesign.
-
-An added benefit comes when the framework is documented with the design patterns it uses [BJ94]. People who know the patterns gain insight into the framework faster. Even people who don't know the patterns can benefit from the structure they lend to the framework's documentation. Enhancing documentation is important for all types of software, but it's particularly important for frameworks. Frameworks often pose a steep learning curve that must be overcome before they're useful. While design patterns might not flatten the learning curve entirely, they can make it less steep by making key elements of the framework's design more explicit.
-
-Because patterns and frameworks have some similarities, people often wonder how or even if they differ. They are different in three major ways:
-
-1. Design patterns are more abstract than frameworks. Frameworks can be embodied in code, but only examples of patterns can be embodied in code. A strength of frameworks is that they can be written down in programming languages and not only studied but executed and reused directly. In contrast, the design patterns in this book have to be implemented each time they're used. Design patterns also explain the intent, trade-offs, and consequences of a design.
-
-2. Design patterns are smaller architectural elements than frameworks. A typical framework contains several design patterns, but the reverse is never true.
-
-3. Design patterns are less specialized than frameworks. Frameworks always have a particular application domain. A graphical editor framework might be used in a factory simulation, but it won't be mistaken for a simulation framework. In contrast, the design patterns in this catalog can be used in nearly any kind of application. While more specialized design patterns than ours are certainly possible (say, design patterns for distributed systems or concurrent programming), even these wouldn't dictate an application architecture like a framework would.
-
-Frameworks are becoming increasingly common and important. They are the way that object-oriented systems achieve the most reuse. Larger object-oriented applications will end up consisting of layers of frameworks that cooperate with each other. Most of the design and code in the application will come from or be influenced by the frameworks it uses.
 
