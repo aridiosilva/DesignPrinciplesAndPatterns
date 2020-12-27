@@ -15,11 +15,11 @@ Extracted from Timothy Budd's An Introduction to Object-Oriented Programming
 
 * **Internal data coupling** - one module modifying the internals of another;
 * **Global data coupling** -modules sharing global data;
-* **Control or sequence coupling* - one module controlling the sequence of events in another;
+* **Control or sequence coupling** - one module controlling the sequence of events in another;
 * **Parameter coupling** - one module passing information to another through parameters;
 * **Subclass coupling** - one module inheriting from another;
 
-As with **coupling**, **cohesion** can be ranked on a scale of the [weakest (least desirable)] to the [strongest (most desirable)] as follows:
+As with **coupling**, **cohesion** can be ranked on a scale of the **weakest (least desirable)** to the **strongest (most desirable)* as follows:
 
 * **Coincidental cohesion** -elements are in the same module for no particular reason;
 * **Logical cohesion** - elements perform logically related tasks;
