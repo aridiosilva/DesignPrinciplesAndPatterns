@@ -76,7 +76,7 @@ Which classes belong in which components? This is an important decision, and req
 
 "The Source Code is the Design" (Uncle Bob C. Martin)
 
-## = SOLID PRINCIPLES - Principles of Class Design
+## A- SOLID PRINCIPLES - Principles of Class Design
 
 - ***SRP - Single Responsability Principle***  -  A class should have only one reason to change
 - ***OCP - Open-Closed Principle*** - Classes should be open for extension, but closed for modification
@@ -84,13 +84,13 @@ Which classes belong in which components? This is an important decision, and req
 - ***ISP - Interface Segregation Principle*** - Clients should not be forced to depend upon methods that they do no use. Interfaces belong to clients, not do hierarchies.
 - ***DIP - Depedency Inversion Principle*** - Abstractions should not depend upon details. Details should depend upon abstractions.
 
-## = COMPONENT COHESION PRINCIPLES (Package Cohesion Principles)
+## B - Component Cohesion Principles (Package Cohesion Principles)
 
 - ***REP - Release - Reuse Equivalency Principle*** - The granule of reuse is the granule of release
 - ***CCP - Common Closure Principle*** - The classes in a package should be closed together against the same kinds of changes. A change that affects a closed package affects all the classes in that package no other packages.
 - ***CRP - Common Reuse Principle*** - The classes in a package are reused together. If you reuse one of the classes in a package, you reuse them all.
 
-## = COMPONENT COUPLINP PRINCIPLES  (Coupling Between Packages Principles)
+## C - Component Coupling Principles (Coupling Between Packages Principles)
 
 - ***ADP - Acyclic Deependencies Principle*** - Allow no cycles in the package dependency graph.
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
@@ -265,41 +265,6 @@ The code that implement high-level policy should not depend on the code that imp
 # Classification of Programming Languages
 
 ![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
-
-# FACTORY DESIGN PATTERN
-
-The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
-
-## What is Factory Design Pattern ?
-
-A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
-
-The Factory Method Pattern is also known as Virtual Constructor.
-
-The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
-
-## What is the Factory Pattern used for?
-
-The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
-
-Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
-
-A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
-
-- when it applies, 
-- whether it can be applied in view of other design constraints, and 
-- the consequences and trade-offs of its use. 
-
-## Advantage of Factory Design Pattern
-
-- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
-- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
-
-## Usage of Factory Design Pattern
-
-- When a class doesn't know what sub-classes will be required to create
-- When a class wants that its sub-classes specify the objects to be created.
-- When the parent classes choose the creation of objects to its sub-classes.
 
 # Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
 
@@ -766,6 +731,42 @@ Because patterns and frameworks have some similarities, people often wonder how 
 3. Design patterns are less specialized than frameworks. Frameworks always have a particular application domain. A graphical editor framework might be used in a factory simulation, but it won't be mistaken for a simulation framework. In contrast, the design patterns in this catalog can be used in nearly any kind of application. While more specialized design patterns than ours are certainly possible (say, design patterns for distributed systems or concurrent programming), even these wouldn't dictate an application architecture like a framework would.
 
 Frameworks are becoming increasingly common and important. They are the way that object-oriented systems achieve the most reuse. Larger object-oriented applications will end up consisting of layers of frameworks that cooperate with each other. Most of the design and code in the application will come from or be influenced by the frameworks it uses.
+
+# FACTORY DESIGN PATTERN
+
+The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
+
+## What is Factory Design Pattern ?
+
+A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
+
+The Factory Method Pattern is also known as Virtual Constructor.
+
+The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
+
+## What is the Factory Pattern used for?
+
+The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
+
+Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
+
+A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
+
+- when it applies, 
+- whether it can be applied in view of other design constraints, and 
+- the consequences and trade-offs of its use. 
+
+## Advantage of Factory Design Pattern
+
+- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+## Usage of Factory Design Pattern
+
+- When a class doesn't know what sub-classes will be required to create
+- When a class wants that its sub-classes specify the objects to be created.
+- When the parent classes choose the creation of objects to its sub-classes.
+
 
 
 ## UML Relationships among Classes
