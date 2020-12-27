@@ -379,11 +379,11 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 
 - **Adapter (139)** - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
 
-- **Bridge (151)** - Decouple an abstraction from its implementation so that the two can vary independently. Yield objects whose only responsibilities are creating other objects. This pattern use delegation less heavily.
+- **Bridge (151)** - Decouple an abstraction from its implementation so that the two can vary independently. Yield objects whose only responsibilities are creating other objects. This pattern use delegation less heavily. Bridges decouples an abstraction from its implementation. If the abstraction and a particular implementation are closely matched, then the abstraction may simply delegate operations to that implementation.
 
 - **Builder (97)** - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 
-- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it. This pattern use delegation less heavily.
+- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it. This pattern use delegation less heavily. This pattern handles requests by forwarding them from one object to another along a chain of objects. Sometimes this request carries with it a reference to the original object receiving the request, in which case the pattern is using delegation.
 
 - **Command (233)** - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.  Yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
@@ -401,7 +401,7 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 
 - **Iterator (257)** - Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
 
-- **Mediator (273)** - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently. This pattern use delegation less heavily.
+- **Mediator (273)** - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently. This pattern use delegation less heavily. It introduces an object to mediate communication between other objects. Sometimes the Mediator object implements operations simply by forwarding them to the other objects; other times it passes along a reference to itself and thus uses true delegation.
 
 - **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two
 interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
