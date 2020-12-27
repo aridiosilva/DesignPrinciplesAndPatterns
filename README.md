@@ -651,7 +651,7 @@ Parameterized types give us a third way (in addition to class inheritance and ob
 
 1. the responsibility of an object that's passed to the sorting routine (**Strategy (315)**, or
 
-1. an argument of a C++ template or Ada generic that specifies the name of the function to call to
+1. an argument of a C++ template, or Generic Class in Java, or Ada generic that specifies the name of the function to call to
 compare the elements.
 
 There are important differences between these techniques. Object composition lets you change the behavior being composed at run-time, but it also requires indirection and can be less efficient. Inheritance lets you provide default implementations for operations and lets subclasses override them. Parameterized types let you change the types that a class can use. But neither inheritance nor parameterized types can change at runtime. Which approach is best depends on your design and implementation constraints.
