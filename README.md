@@ -31,13 +31,13 @@ As with **coupling**, **cohesion** can be ranked on a scale of the [weakest (lea
 
 One can often estimate the **degree of cohesion** within a module by writing a brief statement of the module's purpose.... The following tests are suggested by Constantine:
 
-1. If the sentence that describes the purpose of the module is a compound sentence containing a comma or more than one verb, the module is probably performing more than one function; therefore, it probably has sequential or communicational binding [or even less: temporal, logical, or coincidental]
-
-1. If the sentence contains words relating to time, such as "first," "next," "then," "after," "when," or "start," the module probably has sequential or temporal binding. An example is "Wait for the instant teller customer to insert a card, then prompt for the personal identification number."
-
-1. If the predicate of the sentence does not contain a single, specific object following the verb, the module is probably logically bound. For example, "Edit all data" has logical binding; Edit source data may have functional binding.
-
-1. If the sentence contains words such as "Initialize" or "Clean up," the module probably has temporal binding.
+>1. If the sentence that describes the purpose of the module is a compound sentence containing a comma or more than one verb, the module is probably performing more than one function; therefore, it probably has sequential or communicational binding [or even less: temporal, logical, or coincidental]
+>
+>1. If the sentence contains words relating to time, such as "first," "next," "then," "after," "when," or "start," the module probably has sequential or temporal binding. An example is "Wait for the instant teller customer to insert a card, then prompt for the personal identification number."
+>
+>1. If the predicate of the sentence does not contain a single, specific object following the verb, the module is probably logically bound. For example, "Edit all data" has logical binding; Edit source data may have functional binding.
+>
+>1. If the sentence contains words such as "Initialize" or "Clean up," the module probably has temporal binding.
 
 # Cohesion
 
