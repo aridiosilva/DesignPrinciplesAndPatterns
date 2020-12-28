@@ -8,11 +8,13 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [Coupling and Cohesion](#coupling-and-cohesion )
 >* [Coupling or Dependency](#coupling-or-dependency)
 >* [Cohesion](#cohesion)
+***
 >* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
 >* [Hide Implementation Details](#hide-implementation-details)
 >* [Encapsulate What Changes](#encapsulate-what-changes)
 >* [Code For The Maintainer](#code-for-the-maintainer)
 >* [Component Cohesion Principles](#component-cohesion-principles)
+***
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 >* [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
 >* [SOLID Principles](#solid-principles)
@@ -20,6 +22,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [OCP Open-Closed Principle](#ocp-open-closed-principle)
 >* [LSP Liskov Substitution Principle](#lsp-liskov-substitution-principle)
 >* [ISP Interface Segregation Principle](#isp-interface-segregation-principle)
+***
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
 >* [SoC Separation of Concerns](#soc-separation-of-concerns)
 >* [KISS Keep It Simple Principle](#kiss-keep-it-simple-principle)
@@ -27,35 +30,39 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [YAGNI Principle](#yagni-principle)
 >* [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
 >* [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
+***
 >* [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
 >* [Orthogonality Principle](#orthogonality-principle)
 >* [Robustness Principle](#robustness-principle)
 >* [IC Inversion of Control](#ic-inversion-of-control)
 >* [Command Query Separation Principle](#Command-query-separation-principle)
+***
 >* [Classification of Programming Languages](#classification-of-programming-languages)
+***
 >* [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
 >* [GoF What is a Design Pattern](#gof-what-is-a-design-pattern)
 >* [GoF Elements of a Pattern](#gof-elements-of-a-pattern)
 >* [GoF Describing Design Patterns](#gof-describing-design-patterns)
 >* [GoF Diagram of the Design Patterns Relationships](#gof-diagram-of-the-design-patterns-relationships)
 >* [GoF The Catalog of Gang of Four 23 Design Patterns](#gof-the-catalog-of-gang-of-four-23-design-patterns)
->* [GoF How Design Patterns Solve Design Problems]
->* [GoF P1 - Finding Appropriate Objects]
->* [GoF P2 - Determining Object Granularity]
->* [GoF P3 - Specifying Object Interfaces]
->* [GoF P4 - Specifying Object Implementations]
->* [GoF P5 - Class versus Interface Inheritance]
->* [GoF P5 - Programming to an Interface, not an Implementation]
->* [GoF P6 - Putting Reuse Mechanisms to Work]
+>* [GoF How Design Patterns Solve Design Problems](#gof-how-design-patterns-solve-design-problems)
+>* [GoF P1 Finding Appropriate Objects](#gof-p1-finding-appropriate-objects)
+>* [GoF P2 Determining Object Granularity](#gof-p2-determining-object-granularity)
+>* [GoF P3 Specifying Object Interfaces](gof-p3-specifying-object-interfaces)
+>* [GoF P4 Specifying Object Implementations](#gof-p4-specifying-object-implementations)
+>* [GoF P5 Class versus Interface Inheritance](#gof-p5-class-versus-interface-inheritance)
+>* [GoF P5 Programming to an Interface, not an Implementation](#gof-p5-programming-to-an-interface,-not-an-implementation)
+>* [GoF P6 Putting Reuse Mechanisms to Work]
 >* [GoF Inheritance versus Composition]
 >* [GoF Delegation]
->* [GoF P7 - Inheritance versus Parameterized (or Generic) Types]
->* [GoF P8 - Relating Run-Time and Compile-Time Structures]
->* [GoF P9 - Designing for Change]
->* [GoF P10 - Application Programs]
->* [GoF P11 - Toolkits]
->* [GoF P12 - Frameworks]
+>* [GoF P7 Inheritance versus Parameterized (or Generic) Types]
+>* [GoF P8 Relating Run-Time and Compile-Time Structures]
+>* [GoF P9 Designing for Change]
+>* [GoF P10 Application Programs]
+>* [GoF P11 Toolkits]
+>* [GoF P12 Frameworks]
 >* [FACTORY DESIGN PATTERN]
+***
 >* [UML Relationships among Classes]
 >* [UM Association]
 >* [UML Generalization (or Inheritance)]
@@ -64,6 +71,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [UML Aggregation (Dependency)]
 >* [UML Realization]
 >* [Interface Realization]
+***
 
 # Coupling and Cohesion 
 
