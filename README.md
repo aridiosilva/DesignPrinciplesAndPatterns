@@ -5,21 +5,66 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
->* [Coupling and Cohesion](#coupling_and_Cohesion )
->* [ - Coupling or Dependency (Coupling or Dependency)](#coupling-or-dependency)
->* [ - Cohesion (Cohesion)](#cohesion)
->* [ - Maximize Cohesion (Maximize Cohesion)](#maximize-cohesion)
->* [ - Minimize Coupling (Minimize Coupling)](#minimize-coupling)
+>* [ - Coupling and Cohesion](#coupling_and_Cohesion )
+>* [     - Coupling or Dependency (Coupling or Dependency)](#coupling-or-dependency)
+>* [     - Cohesion (Cohesion)](#cohesion)
+>* [ - The Simplest Thing That Could Possibly Work (o The Simplest Thing That Could Possibly Work)](#the-simplest-thing-that-could-possibly-work)
 >* [ - Hide Implementation Details (Hide Implementation Details)](#hide-implementation-details)
 >* [ - Encapsulate What Changes (Encapsulate What Changes)](#encapsulate-what-changes)
 >* [ - Code For The Maintainer (Code For The Maintainer)](#code-for-the-maintainer)
->* [ - ]()
->* [ - ]()
->* [ - ]()
->* [ - ]()
->* [ - ]()
->* [ - ]()
->* [ - ]()
+>* [ - Component Cohesion Principles (Component Cohesion Principles)](#component-cohesion-principles)
+>* [ - Summary of Good Practices of Design (Summary of Good Practices of Design)](#summary-of-good-practices-of-design) 
+>* [ - Summary of the Principles of Object-Oriented Design (Summary of the Principles of Object-Oriented Design)](#summary-of- the-principles-of-object-oriented-design)
+>* [ - SOLID Principles (SOLID Principles)](#solid-principles)
+>* [    - SRP - Single Responsability Principle (SRP - Single Responsability Principle)](#srp-single-responsability-principle)
+>* [    - OCP - Open-Closed Principle (OCP - Open-Closed Principle)](#ocp---open-closed-principle)
+>* [    - LSP - Liskov Substitution Principle
+>* [    - ISP - Interface Segregation Principle
+>* [ - Summary of Good Practices of Design
+>* [    - SoC - Separation of Concerns
+>* [    - KISS - Keep It Simple Principle
+>* [    - Keep things DRY
+>* [    - YAGNI Princple
+>* [    -  (Lod) Law of Demeter Principle
+>* [ - DIP - Dependency Inversion Principle
+>* [ - Composition Over Inheritance Principle
+>* [ - Orthogonality Principle
+>* [ - Robustness Principle
+>* [ - Inversion of Control (IC)
+>* [ - Command Query Separation Principle
+>* [ - Classification of Programming Languages
+>* [ - Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
+>* [     - (GoF) What is a Design Pattern?
+>* [     - (GoF) Elements of a Pattern
+>* [     - (GoF) Describing Design Patterns
+>* [     - (GoF) Diagram of the Design Patterns Relationships
+>* [     - (GoF) The Catalog of  Gang of Four 23 Design Patterns
+>* [     - Gang of Four - Design Patterns Space
+>* [     - (GoF) How Design Patterns Solve Design Problems
+>* [     - (GoF) P1 - Finding Appropriate Objects
+>* [     - (GoF) P2 - Determining Object Granularity
+>* [     - (GoF) P3 - Specifying Object Interfaces
+>* [     - (GoF) P4 - Specifying Object Implementations
+>* [     - (GoF) P5 - Class versus Interface Inheritance
+>* [     - (GoF) P5 - Programming to an Interface, not an Implementation
+>* [     - (GoF) P6 - Putting Reuse Mechanisms to Work
+>* [          - (GoF) Inheritance versus Composition
+>* [          - (GoF) Delegation
+>* [     - (GoF) P7 - Inheritance versus Parameterized (or Generic) Types
+>* [     - (GoF) P8 - Relating Run-Time and Compile-Time Structures
+>* [     - (GoF) P9 - Designing for Change
+>* [     - (GoF) P10 - Application Programs
+>* [     - (GoF) P11 - Toolkits
+>* [     - (GoF) P12 - Frameworks
+>* [     - FACTORY DESIGN PATTERN
+>* [ - UML Relationships among Classes
+>* [      - UM Association
+>* [      - UML Generalization (or Inheritance)
+>* [           - Inheritance in Design Patterns
+>* [      - UML Dependency (Composition)
+>* [      - UML Aggregation (Dependency) 
+>* [      - UML Realization
+>* [           - Interface Realization
 
 # Coupling and Cohesion 
 
