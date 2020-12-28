@@ -55,7 +55,7 @@ One can often estimate the **degree of cohesion** within a module by writing a b
 - High Cohesion is the goal in design of classes, modules and other software artifacts.
 - Low Cohesion is bad practice in design of classes, modules and other software artifacts.
 
-## Maximize Cohesion
+# Maximize Cohesion
 
 Cohesion of a single module/component is the degree to which its responsibilities form a meaningful unit; higher cohesion is better.
 
@@ -69,7 +69,7 @@ Increased difficulty in reusing a module because most applications won’t need 
 
 * Group related functionalities sharing a single responsibility (e.g. in a class).
 
-## Minimise Coupling
+# Minimise Coupling
 
 Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit "B" will "break" after an unknown change to code unit "A".
 
