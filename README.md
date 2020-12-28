@@ -211,62 +211,14 @@ Reduce fat interfaces into multiple smaller and more specific client specific in
 
 >* [linto to Interface segregation principle in Wikipedia](https://en.wikipedia.org/wiki/Interface_segregation_principle)
 
+# Summary of Good Practices of Design
 
-### DIP - Dependency Inversion Principle
-
-The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
-
-- Depend on abstraction, not on concretion.
-
-#  (Lod) Law of Demeter Principle
-
-Don't talk to strangers.
-
-### Why Apply the LoD
-
-* It usually tightens coupling
-* It might reveal too much implementation details
-
-### How to Apply LoD
-
-A method of an object may only call methods of:
-
->* The object itself.
->* An argument of the method.
->* Any object created within the method.
->* Any direct properties/fields of the object.
-
-### Resources abiut LoD
-
-* [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
-* [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
-
-
-# Inversion of Control (IC)
-
-Inversion of Control is also known as the Hollywood Principle, "Don't call us, we'll call you". It is a design principle in which custom-written portions of a computer program receive the flow of control from a generic framework. Inversion of control carries the strong connotation that the reusable code and the problem-specific code are developed independently even though they operate together in an application.
-
-### Why Apply Inversion of Control (IC)
-
-Inversion of control is used to increase modularity of the program and make it extensible.
-To decouple the execution of a task from implementation.
-To focus a module on the task it is designed for.
-To free modules from assumptions about how other systems do what they do and instead rely on contracts.
-To prevent side effects when replacing a module.
-
-### How to Apply Inversion of Control (IC)
-
-* Using Factory pattern
-* Using Service Locator pattern
-* Using Dependency Injection
-* Using contextualized lookup
-* Using Template Method pattern
-* Using Strategy pattern
-
-### Sources About Inversion of Control (IC)
-
->* [link to Inversion of Control in Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
->* [link to Article of Martin Fowler about Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
+- **SoC**   - Separation of Concerns
+- **KISS**  - Keep it Simple
+- **DRY**   - Don´t Repeat Yourself
+- **TDA**   - Tell Don´t Ask
+- **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
+- **YAGNI** - You aren´t gonna need it
 
 
 # SoC - Separation of Concerns
@@ -335,7 +287,96 @@ Separation of concerns is an important design principle in many other areas as w
 
 Common examples include separating a space into rooms, so that activity in one room does not affect people in other rooms, and keeping the stove on one circuit and the lights on another, so that overload by the stove does not turn the lights off. The example with rooms shows encapsulation, where information inside one room, such as how messy it is, is not available to the other rooms, except through the interface, which is the door. The example with circuits demonstrates that activity inside one module, which is a circuit with consumers of electricity attached, does not affect activity in a different module, so each module is not concerned with what happens in the other.
 
+# KISS - Keep It Simple Principle
 
+Most systems work best if they are kept simple rather than made complex.
+
+### Why Apply KISS
+
+* Less code takes less time to write, has less bugs, and is easier to modify.
+* Simplicity is the ultimate sophistication.
+* It seems that perfection is reached not when there is nothing left to add, but when there is nothing left to take away.
+
+### Resources about KISS
+
+>* [KISS principle](https://en.wikipedia.org/wiki/KISS_principle)
+>* [Keep It Simple Stupid (KISS)](http://principles-wiki.net/principles:keep_it_simple_stupid)
+
+# YAGNI Princple
+
+YAGNI stands for "you aren't gonna need it": don't implement something until it is necessary.
+
+### Why Apply YAGNI 
+
+Any work that's only used for a feature that's needed tomorrow, means losing effort from features that need to be done for the current iteration.
+It leads to code bloat; the software becomes larger and more complicated.
+
+### How to Apply YAGNI
+
+Always implement things when you actually need them, never when you just foresee that you need them.
+
+### Resources About YAGNI
+
+>* [You Arent Gonna Need It](http://c2.com/xp/YouArentGonnaNeedIt.html)
+>* [You’re NOT gonna need it!](https://ronjeffries.com/xprog/articles/practices/pracnotneed/)(
+>* [You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
+
+#  (Lod) Law of Demeter Principle
+
+Don't talk to strangers.
+
+### Why Apply the LoD
+
+* It usually tightens coupling
+* It might reveal too much implementation details
+
+### How to Apply LoD
+
+A method of an object may only call methods of:
+
+>* The object itself.
+>* An argument of the method.
+>* Any object created within the method.
+>* Any direct properties/fields of the object.
+
+### Resources abiut LoD
+
+* [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
+* [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
+
+
+
+# DIP - Dependency Inversion Principle
+
+The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
+
+- Depend on abstraction, not on concretion.
+
+# Inversion of Control (IC)
+
+Inversion of Control is also known as the Hollywood Principle, "Don't call us, we'll call you". It is a design principle in which custom-written portions of a computer program receive the flow of control from a generic framework. Inversion of control carries the strong connotation that the reusable code and the problem-specific code are developed independently even though they operate together in an application.
+
+### Why Apply Inversion of Control (IC)
+
+Inversion of control is used to increase modularity of the program and make it extensible.
+To decouple the execution of a task from implementation.
+To focus a module on the task it is designed for.
+To free modules from assumptions about how other systems do what they do and instead rely on contracts.
+To prevent side effects when replacing a module.
+
+### How to Apply Inversion of Control (IC)
+
+* Using Factory pattern
+* Using Service Locator pattern
+* Using Dependency Injection
+* Using contextualized lookup
+* Using Template Method pattern
+* Using Strategy pattern
+
+### Sources About Inversion of Control (IC)
+
+>* [link to Inversion of Control in Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
+>* [link to Article of Martin Fowler about Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
 
 # Classification of Programming Languages
 
