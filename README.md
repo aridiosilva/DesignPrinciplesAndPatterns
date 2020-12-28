@@ -5,9 +5,16 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
-# Coupling 
+# Coupling anh Cohesion 
 
 Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
+
+# Coupling or Dependency
+
+- Refers to the interdependencies between software artifacts
+- Is the degree to which each module relies on each one of the the modules.
+- High coupling means several dependencies between software artifacts and it is a ba practice of design
+- Low Coupling means small dependencies and this is the goal in the design of software artifacts
 
 "**Coupling**" describes the relationships between modules, and "**cohesion**" describes the relationships within them. A reduction in interconnectedness between modules (or classes) is therefore achieved via a reduction in coupling. On the other hand, well-designed modules (or classes) should have some purpose; all the elements should be associated with a single task. This means that in a good design, the elements within a module (or class) should have internal cohesion.
 
@@ -122,12 +129,7 @@ Which classes belong in which components? This is an important decision, and req
 - **CCP** - Common Closure Principle
 - **CRP** - Common Reuse Principle
 
-# Coupling or Dependency
 
-- Refers to the interdependencies between software artifacts
-- Is the degree to which each module relies on each one of the the modules.
-- High coupling means several dependencies between software artifacts and it is a ba practice of design
-- Low Coupling means small dependencies and this is the goal in the design of software artifacts
 
 ## Summary of Good Practices of Design
 
