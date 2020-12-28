@@ -120,7 +120,7 @@ To prevent side effects when replacing a module.
 ## Sources About Inversion of Conrole
 
 * [link to Inversion of Control in Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
-* [link to Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
+* [link to Article of Martin Fowler about Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
 
 
 # SoC - Separation of Concerns
