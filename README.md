@@ -154,38 +154,6 @@ In cognitive science and artificial intelligence, it is common to refer to David
 
 In normalized systems separation of concerns is one of the four guiding principles. Adhering to this principle is one of the tools that helps reduce the combinatorial effects that, over time, get introduced in software that is being maintained. In Normalized Systems separation of concerns is actively supported by the tools.
 
-### g) SoC via partial classes
-
-Separation of concerns can be implemented and enforced via partial classes.[9]
-
-- SoC via partial classes in Ruby
-
-```Ruby
-bear_hunting.rb
-class Bear
-  def hunt
-    forest.select(&:food?)
-  end
-end
-bear_eating.rb
-class Bear
-  def eat(food)
-    raise "#{food} is not edible!" unless food.respond_to? :nutrition_value
-    food.nutrition_value
-  end
-end
-bear_hunger.rb
-class Bear
-  attr_accessor :hunger
-  def monitor_hunger
-    if hunger > 50
-      food = hunt
-      hunger -= eat(food)
-    end
-  end
-end
-```
-
 ## Implementation
 
 The mechanisms for modular or object-oriented programming that are provided by a programming language are mechanisms that allow developers to provide SoC.[4] For example, object-oriented programming languages such as C#, C++, Delphi, and Java can separate concerns into objects, and architectural design patterns like MVC or MVP can separate content from presentation and the data-processing (model) from content. Service-oriented design can separate concerns into services. Procedural programming languages such as C and Pascal can separate concerns into procedures or functions. Aspect-oriented programming languages can separate concerns into aspects and objects.
