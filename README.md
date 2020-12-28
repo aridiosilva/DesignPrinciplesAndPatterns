@@ -106,10 +106,10 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 ### How to Apply OCP Principle
 
->* Write classes that can be extended (as opposed to classes that can be modified).
->* Expose only the moving parts that need to change, hide everything else.
+* Write classes that can be extended (as opposed to classes that can be modified).
+* Expose only the moving parts that need to change, hide everything else.
 
-##$ Resources Aboiut OCP Principle
+### Resources Aboiut OCP Principle
 
 >* [link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
 >* [Link to Article Explaining The Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
