@@ -218,6 +218,29 @@ The code that implement high-level policy should not depend on the code that imp
 
 - Depend on abstraction, not on concretion.
 
+#  (Lod) Law of Demeter Principle
+
+Don't talk to strangers.
+
+### Why Apply the LoD
+
+* It usually tightens coupling
+* It might reveal too much implementation details
+
+### How to Apply LoD
+
+A method of an object may only call methods of:
+
+>* The object itself.
+>* An argument of the method.
+>* Any object created within the method.
+>* Any direct properties/fields of the object.
+
+### Resources abiut LoD
+
+* [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
+* [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
+
 
 # Inversion of Control (IC)
 
