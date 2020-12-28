@@ -6,7 +6,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
 >* [Coupling and Cohesion](#coupling_and_Cohesion )
->* [ - Coupling or Dependency](#coupling_or_dependency)
+>* [ - Coupling or Dependency (Coupling or Dependency)](#coupling_or_dependency)
 >* [ - Cohesion]()
 >* [ - Maximize Cohesion]()
 >* [ - Minimize Coupling]()
