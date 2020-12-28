@@ -96,6 +96,35 @@ Which classes belong in which components? This is an important decision, and req
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
 - ***SAP - Stable Abstraction Principle*** - A package should be as abstract as it is stable.
 
+# Open/Closed Principle
+
+Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
+
+### Why Apply OCP Principle
+
+Improve maintainability and stability by minimizing changes to existing code.
+
+### How to Apply OCP Principle
+
+>* Write classes that can be extended (as opposed to classes that can be modified).
+>* Expose only the moving parts that need to change, hide everything else.
+
+##$ Resources Aboiut OCP Principle
+
+>* {link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
+>* {Link to Article Explaining The  Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
+
+# Liskov Substitution Principle
+
+The LSP is all about expected behavior of objects:
+
+  -- Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+
+### Resources About LSP Principle
+
+>* [link to Article of Liskov substitution principle in Wikipedia](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
+>* [Link to Article Explaining The Liskov Substitution Principle](http://www.blackwasp.co.uk/lsp.aspx)
+
 # Inversion of Control
 
 Inversion of Control is also known as the Hollywood Principle, "Don't call us, we'll call you". It is a design principle in which custom-written portions of a computer program receive the flow of control from a generic framework. Inversion of control carries the strong connotation that the reusable code and the problem-specific code are developed independently even though they operate together in an application.
