@@ -16,21 +16,21 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 >* [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
 >* [SOLID Principles](#solid-principles)
->* [SRP (Single Responsability Principle)](#single-responsability-principle)
->* [OCP (Open-Closed Principle)](#open-closed-principle)
->* [LSP (Liskov Substitution Principle)](#liskov-substitution-principle)
->* [ISP (Interface Segregation Principle)](#interface-segregation-principle)
+>* [SRP Single Responsability Principle](#single-responsability-principle)
+>* [OCP Open-Closed Principle](#ocp-open-closed-principle)
+>* [LSP Liskov Substitution Principle](#lsp-liskov-substitution-principle)
+>* [ISP Interface Segregation Principle](#isp-interface-segregation-principle)
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
->* [Separation of Concerns](#separation-of-concerns)
->* [KISS (Keep It Simple Principle)](#keep-it-simple-principle)
+>* [SoC Separation of Concerns](#soc-separation-of-concerns)
+>* [KISS Keep It Simple Principle](#kiss-keep-it-simple-principle)
 >* [Keep things DRY](#keep-things-dry)
 >* [YAGNI Principle](#yagni-principle)
->* [LoD (Law of Demeter Principle)](#law-of-demeter-principle)
->* [DIP (Dependency Inversion Principle)](#dip-dependency-inversion-principle)
+>* [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
+>* [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
 >* [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
 >* [Orthogonality Principle](#orthogonality-principle)
 >* [Robustness Principle](#robustness-principle)
->* [IC (Inversion of Control))](#inversion-of-control)
+>* [IC Inversion of Control](#ic-inversion-of-control)
 >* [Command Query Separation Principle](#Command-query-separation-principle)
 >* [Classification of Programming Languages](#classification-of-programming-languages)
 >* [Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)]
@@ -266,7 +266,7 @@ The text in this Wiki is writeen based on the following Books:
 - Book Agile Software Development: Principles, Patterns, and Practices by Uncle Bob C. Martin and published in 2002
 - Book Clean Architecture - A Handbook of Agile Software Craftsmanship by Uncle Bob C. Marting and published in 2017
 
-# SRP - Single Responsability Principle
+# SRP Single Responsability Principle
 
 A classe should have one, and only one, reason to change. In the context of the SRP, a responsability is "a reason to change". If there are more than one motive for changing a class, then that class has more than one responsability, in this case is violating the SRP Principle.
 
@@ -298,7 +298,7 @@ Curly's Law - Curly's Law is about choosing a single, clearly defined goal for a
 [link to Single responsibility principle in Wikipedia](https://en.wikipedia.org/wiki/Single_responsibility_principle)
 
 
-# OCP - Open-Closed Principle
+# OCP Open-Closed Principle
 
 Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
 
@@ -324,7 +324,7 @@ Improve maintainability and stability by minimizing changes to existing code.
 >* [link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
 >* [Link to Article Explaining The Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
 
-# LSP - Liskov Substitution Principle
+# LSP Liskov Substitution Principle
 
 To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
 
@@ -351,7 +351,7 @@ The LSP is all about expected behavior of objects:
 >* [link to Article of Liskov substitution principle in Wikipedia](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 >* [Link to Article Explaining The Liskov Substitution Principle](http://www.blackwasp.co.uk/lsp.aspx)
 
-### ISP - Interface Segregation Principle
+### ISP Interface Segregation Principle
 
 The ISP states that no cliente should be forced to depend on methods it does not use.
 
@@ -384,7 +384,7 @@ Reduce fat interfaces into multiple smaller and more specific client specific in
 - **YAGNI** - You aren´t gonna need it
 
 
-# SoC - Separation of Concerns
+# SoC Separation of Concerns
 
 ## What is SoC?
 
@@ -450,7 +450,7 @@ Separation of concerns is an important design principle in many other areas as w
 
 Common examples include separating a space into rooms, so that activity in one room does not affect people in other rooms, and keeping the stove on one circuit and the lights on another, so that overload by the stove does not turn the lights off. The example with rooms shows encapsulation, where information inside one room, such as how messy it is, is not available to the other rooms, except through the interface, which is the door. The example with circuits demonstrates that activity inside one module, which is a circuit with consumers of electricity attached, does not affect activity in a different module, so each module is not concerned with what happens in the other.
 
-# KISS - Keep It Simple Principle
+# KISS Keep It Simple Principle
 
 Most systems work best if they are kept simple rather than made complex.
 
@@ -516,7 +516,7 @@ Always implement things when you actually need them, never when you just foresee
 >* [You’re NOT gonna need it!](https://ronjeffries.com/xprog/articles/practices/pracnotneed/)(
 >* [You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
 
-#  (Lod) Law of Demeter Principle
+#  Lod Law of Demeter Principle
 
 Don't talk to strangers.
 
@@ -534,12 +534,12 @@ A method of an object may only call methods of:
 >* Any object created within the method.
 >* Any direct properties/fields of the object.
 
-### Resources abiut LoD
+### Resources about LoD
 
 * [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
 * [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
 
-# DIP - Dependency Inversion Principle
+# DIP Dependency Inversion Principle
 
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
 
@@ -590,8 +590,7 @@ Collaborating services depend on each others interfaces. Often the interfaces ne
 >* [Robustness Principle in Wikipedia](https://en.wikipedia.org/wiki/Robustness_principle)
 >* [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
 
-
-# Inversion of Control (IC)
+# IC Inversion of Control
 
 Inversion of Control is also known as the Hollywood Principle, "Don't call us, we'll call you". It is a design principle in which custom-written portions of a computer program receive the flow of control from a generic framework. Inversion of control carries the strong connotation that the reusable code and the problem-specific code are developed independently even though they operate together in an application.
 
@@ -694,11 +693,11 @@ A weakly-typed language on the other hand is a language in which variables are n
 
 # Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
 
-## (GoF) What is a Design Pattern?
+## GoF What is a Design Pattern?
 
 "Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice"  - Christopher Alexander
 
-## (GoF) Elements of a Pattern
+## GoF Elements of a Pattern
 
 In general, a pattern has four essential elements:
 
@@ -728,7 +727,7 @@ well. Since reuse is often a factor in object-oriented design, the consequences 
 impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
 helps you understand and evaluate them.
 
-## (GoF) Describing Design Patterns
+## GoF Describing Design Patterns
 
 How do we describe design patterns? Graphical notations, while important and useful, aren't sufficient. They simply capture the end product of the design process as relationships between classes and objects. To reuse the design, we must also record the decisions, alternatives, and trade-offs that led to it. Concrete examples are important too, because they help you see the design in action. The Gang of Four describe design patterns using a consistent format. Each pattern is divided into sections according to the following template. The template lends a uniform structure to the information, making design patterns easier to learn, compare, and use.
 
@@ -758,11 +757,11 @@ How do we describe design patterns? Graphical notations, while important and use
 
 - **Related Patterns** - What design patterns are closely related to this one? What are the important differences? With which other patterns should this one be used?
 
-## (GoF) Diagram of the Design Patterns Relationships
+## GoF Diagram of the Design Patterns Relationships
 
 ![design patterns relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
 
-## (GoF) The Catalog of  Gang of Four 23 Design Patterns
+## GoF The Catalog of  Gang of Four 23 Design Patterns
 
 The catalog beginning on page 79 contains 23 design patterns. Their names and intents are listed next to give you an overview. The number in parentheses after each pattern name gives the page number for the pattern (a convention we follow throughout the book).
 
@@ -813,7 +812,7 @@ interfaces: a restricted one that lets clients hold and copy mementos, and a pri
 
 - **Visitor (331)** - Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.  Yield objects whose only responsibilities are to implement a request on another object or group of objects. In Visitor, the operation that gets performed on each element of an object structure is always delegated to the Visitor object. Visitor uses delegation in its implementation.
 
-## Gang of Four - Design Patterns Space
+## GoF Design Patterns Space
 
 ![design pattern space](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/table-1-1-GOF_DesignPatternsSpace.jpg)
 
@@ -840,11 +839,11 @@ B) The second criterion, called scope, specifies whether the pattern applies pri
 - So the only patterns labeled "class patterns" are those that focus on class relationships. 
 - Note that most patterns are in the Object scope.
 
-# (GoF) How Design Patterns Solve Design Problems
+# GoF How Design Patterns Solve Design Problems
 
 Design patterns solve many of the day-to-day problems object-oriented designers face, and in many different ways. Here are several of these problems and how design patterns solve them. 
 
-# (GoF) P1 - Finding Appropriate Objects
+# GoF P1 - Finding Appropriate Objects
 
 Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client. **Requests** are the only way to get an object to execute an operation. **Operations** are the only way to change an object's internal data (state). Because of these restrictions, the **object's internal state** is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.  
 
@@ -865,7 +864,7 @@ Design patterns help you identify **less-obvious abstractions** and the objects 
 
 These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
 
-## (GoF) P2 - Determining Object Granularity
+## GoF P2 - Determining Object Granularity
 
 -  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
 
@@ -881,7 +880,7 @@ Other design patterns describe specific ways of decomposing an object into small
 - **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
 - **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
-## (GoF) P3 - Specifying Object Interfaces
+## GoF P3 - Specifying Object Interfaces
 
 Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
 
@@ -899,7 +898,7 @@ Design patterns also specify **relationships between interfaces**. In particular
 
 Design patterns help you define interfaces by identifying their key elements and the kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface. 
 
-# (GoF) P4 - Specifying Object Implementations
+# GoF P4 - Specifying Object Implementations
 
 So far we've said little about how we actually define an object. An object's implementation is defined by its **class**. The class specifies the object's internal data and representation and defines the operations the object can perform.
 
@@ -913,7 +912,7 @@ Subclasses can refine and redefine behaviors of their parent classes. More speci
 
 A **mixin class** is a class that's intended to provide an optional interface or functionality to other classes. It's similar to an abstract class in that it's not intended to be instantiated. Mixin classes require **multiple inheritance**.
 
-# (GoF) P5 - Class versus Interface Inheritance
+# GoF P5 - Class versus Interface Inheritance
 
 It's important to understand the difference between an object's **class** and its **type**.
 
@@ -933,7 +932,7 @@ Although most programming languages don't support the distinction between interf
 
 Many of the design patterns depend on this distinction. For example, objects in a Chain of Responsibility (223) must have a common type, but usually they don't share a common implementation. In the Composite (163) pattern, Component defines a common interface, but Composite often defines a common implementation. **Command (233)**, **Observer (293)**, **State (305)**, and **Strategy (315)** are often implemented with abstract classes that are pure interfaces.
 
-# (GoF) P5 - Programming to an Interface, not an Implementation
+# GoF P5 - Programming to an Interface, not an Implementation
 
 Class inheritance is basically just a mechanism for extending an application's functionality by reusing functionality in parent classes. It lets you define a new kind of object rapidly in terms of an old one. It lets you get new implementations almost for free, inheriting most of what you need from existing classes.
 
@@ -955,7 +954,7 @@ Don't declare variables to be instances of particular concrete classes. Instead,
 
 You have to instantiate concrete classes (that is, specify a particular implementation) somewhere in your system, of course, and the creational patterns (**Abstract Factory (87)**, **Builder (97)**, **Factory Method (107)**, **Prototype (117)**, and **Singleton (127)** let you do just that. By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation. Creational patterns ensure that your system is written in terms of interfaces, not implementations.
 
-# (GoF) P6 - Putting Reuse Mechanisms to Work
+# GoF P6 - Putting Reuse Mechanisms to Work
 
 Most people can understand concepts like objects, interfaces, classes, and inheritance. The challenge lies in applying them to build flexible, reusable software, and design patterns can show you how.
 
@@ -987,7 +986,7 @@ Nevertheless, our experience is that designers overuse inheritance as a reuse te
 
 ![composition_has_a_relationship](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/composition%20_has-a%20relationship%20image.png)
 
-## (GoF) Delegation
+# GoF Delegation
 
 Delegation is a way of making composition as powerful for reuse as inheritance [Lie86, JZ91]. In
 delegation, two objects are involved in handling a request: a receiving object delegates operations to its delegate. This is analogous to subclasses deferring requests to parent classes. But with inheritance, an inherited operation can always refer to the receiving object through the this member variable in C++ and self in Smalltalk. To achieve the same effect with delegation, the receiver passes itself to the delegate to let the delegated operation refer to the receiver.
@@ -1016,7 +1015,7 @@ Other patterns use delegation less heavily:
  
  Delegation is an extreme example of object composition. It shows that you can always replace inheritance with object composition as a mechanism for code reuse.
  
-# (GoF) P7 - Inheritance versus Parameterized (or Generic) Types
+# GoF P7 - Inheritance versus Parameterized (or Generic) Types
 
 Another (not strictly object-oriented) technique for reusing functionality is through parameterized types, also known as generics (Ada, Eiffel) and templates (C++). This technique lets you define a type without specifying all the other types it uses. The unspecified types are supplied as parameters at the point of use. For example, a List class can be parameterized by the type of elements it contains. To declare a list of integers, you supply the type "integer" as a parameter to the List parameterized type. To declare a list of String objects, you supply the "String" type as a parameter. The language implementation will create a customized version of the List class template for each type of element.
 
@@ -1094,7 +1093,7 @@ class UtilTest {
 }
 ```
 
-# (GoF) P8 - Relating Run-Time and Compile-Time Structures
+# GoF P8 - Relating Run-Time and Compile-Time Structures
 
 An object-oriented program's run-time structure often bears little resemblance to its code structure. The code structure is frozen at compile-time; it consists of classes in fixed inheritance relationships. A program's runtime structure consists of rapidly changing networks of communicating objects. In fact, the two structures are largely independent. Trying to understand one from the other is like trying to understand the dynamism of living ecosystems from the static taxonomy of plants and animals, and vice versa.
 
@@ -1115,7 +1114,7 @@ With such disparity between a program's run-time and compile-time structures, it
 
 Many design patterns (in particular those that have object scope) capture the distinction between compiletime and run-time structures explicitly. Composite (163) and Decorator (175) are especially useful for building complex run-time structures. Observer (293) involves run-time structures that are often hard to understand unless you know the pattern. Chain of Responsibility (223) also results in communication patterns that inheritance doesn't reveal. In general, the run-time structures aren't clear from the code until you understand the patterns.
 
-# (GoF) P9 - Designing for Change
+# GoF P9 - Designing for Change
 
 The key to maximizing reuse lies in anticipating new requirements and changes to existing requirements, and in designing your systems so that they can evolve accordingly.
 
@@ -1177,19 +1176,19 @@ Here are some common causes of redesign along with the design pattern(s) that ad
 
 These examples reflect the flexibility that design patterns can help you build into your software. How crucial such flexibility is depends on the kind of software you're building. Let's look at the role design patterns play in the development of three broad classes of software: application programs, toolkits, and frameworks.
 
-# (GoF) P10 - Application Programs
+# GoF P10 - Application Programs
 
 If you're building an application program such as a document editor or spreadsheet, then internal reuse, maintainability, and extension are high priorities. Internal reuse ensures that you don't design and implement any more than you have to. Design patterns that reduce dependencies can increase internal reuse. Looser coupling boosts the likelihood that one class of object can cooperate with several others. For example, when you eliminate dependencies on specific operations by isolating and encapsulating each operation, you make it easier to reuse an operation in different contexts. The same thing can happen when you remove algorithmic and representational dependencies too.
 
 Design patterns also make an application more maintainable when they're used to limit platform dependencies and to layer a system. They enhance extensibility by showing you how to extend class hierarchies and how to exploit object composition. Reduced coupling also enhances extensibility. Extending a class in isolation is easier if the class doesn't depend on lots of other classes.
 
-# (GoF) P11 - Toolkits
+# GoF P11 - Toolkits
 
 Often an application will incorporate classes from one or more libraries of predefined classes called toolkits. A toolkit is a set of related and reusable classes designed to provide useful, general-purpose functionality. An example of a toolkit is a set of collection classes for lists, associative tables, stacks, and the like. The C++ I/O stream library is another example. Toolkits don't impose a particular design on your application; they just provide functionality that can help your application do its job. They let you as an implementer avoid recoding common functionality. Toolkits emphasize code reuse. They are the object-oriented equivalent of subroutine libraries.
 
 Toolkit design is arguably harder than application design, because toolkits have to work in many applications to be useful. Moreover, the toolkit writer isn't in a position to know what those applications will be or their special needs. That makes it all the more important to avoid assumptions and dependencies that can limit the toolkit's flexibility and consequently its applicability and effectiveness.
 
-# (GoF) P12 - Frameworks
+# GoF P12 - Frameworks
 
 A framework is a set of cooperating classes that make up a reusable design for a specific class of software [Deu89, JF88]. For example, a framework can be geared toward building graphical editors for different domains like artistic drawing, music composition, and mechanical CAD [VL90, Joh92]. Another framework can help you build compilers for different programming languages and target machines [JML92]. Yet another might help you build financial modeling applications [BE93]. You customize a framework to a
 particular application by creating application-specific subclasses of abstract classes from the framework.
@@ -1253,9 +1252,7 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 - When a class wants that its sub-classes specify the objects to be created.
 - When the parent classes choose the creation of objects to its sub-classes.
 
-
-
-## UML Relationships among Classes
+# UML Relationships among Classes
 
 - **Association** - "is part of association" relationship
 - **Generalization (inheritance)** - “is-a” relationship
@@ -1633,7 +1630,7 @@ class Car {
 
 In UML modeling, the realization is a relationship between two objects, where the client (one model element) implements the responsibility specified by the supplier (another model element). The realization relationship can be employed in class diagrams and components diagrams.  The realization relationship does not have names. It is mostly found in the interfaces. It is represented by a dashed line with a hollow arrowhead at one end that points from the client to the server.
 
-## Interface Realization
+# Interface Realization
 
 Interface realization is a kind of specialized relation between the classifier and the interface. In interface realization relationship, realizing classifiers conforms to the contract defined by the interface.
 
@@ -1645,9 +1642,7 @@ The interface realization relationship is represented by a dashed line with a ho
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization.png)
 
-## 
-next →← prev
-UML-Realization
+# UML Realization
 In UML modeling, the realization is a relationship between two objects, where the client (one model element) implements the responsibility specified by the supplier (another model element). The realization relationship can be employed in class diagrams and components diagrams.
 
 The realization relationship does not have names. It is mostly found in the interfaces. It is represented by a dashed line with a hollow arrowhead at one end that points from the client to the server.
