@@ -96,11 +96,27 @@ Which classes belong in which components? This is an important decision, and req
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
 - ***SAP - Stable Abstraction Principle*** - A package should be as abstract as it is stable.
 
-# (SRP) Single Responsibility Principle
+# SOLID Principles
 
-A class should never have more than one reason to change.
+The text in this Wiki is writeen based on the following Books:
 
-Long version: Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. Responsibility can be defined as a reason to change, so a class or module should have one, and only one, reason to change.
+- Book Agile Software Development: Principles, Patterns, and Practices by Uncle Bob C. Martin and published in 2002
+- Book Clean Architecture - A Handbook of Agile Software Craftsmanship by Uncle Bob C. Marting and published in 2017
+
+# SRP - Single Responsability Principle
+
+A classe should have one, and only one, reason to change. In the context of the SRP, a responsability is "a reason to change". If there are more than one motive for changing a class, then that class has more than one responsability, in this case is violating the SRP Principle.
+
+- One class shoudl have one and only one responsability over the application´s functionality;
+- We should write, change and maintain a class only for one purpose;
+- A module should have one, and only one, reason to change;
+- A module should be responsible to one, only one, user or stakeholder;
+- A module should be responsible to one, and only one, actor;
+- Considre Module as just a source file in the above definitions;
+- The best way to understand this principle is by looking at the symptoms of vilating it;
+- Cohesion is the force thar binds together the code responsible to a single actor;
+- Single Responsability is about methods and classes. At the component level it becomes the COMMON CLOSURE PATTERN;
+- We should design each class to attend just only one actor - this way we can be sure that we are not violating the SRP Principle;
 
 ### Why to Apply SRP
 
@@ -119,7 +135,15 @@ Curly's Law - Curly's Law is about choosing a single, clearly defined goal for a
 [link to Single responsibility principle in Wikipedia](https://en.wikipedia.org/wiki/Single_responsibility_principle)
 
 
-# Open/Closed Principle
+# OCP - Open-Closed Principle
+
+Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
+
+- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin)
+- If a component A should be protected from changes in component B, then component B should depend on component A (
+- A software artifact should be open extension but closed for modification;
+- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change
+- This goal is accomplished by partitioning the system into compoenents, and arranging thos components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
 
 Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
 
@@ -137,7 +161,23 @@ Improve maintainability and stability by minimizing changes to existing code.
 >* [link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
 >* [Link to Article Explaining The Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
 
-# Liskov Substitution Principle
+# LSP - Liskov Substitution Principle
+
+To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
+
+- Derived classes must be substitutable for their base classes.
+- Subtypers must be substitutable for their base types.
+- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
+
+ -  Don’t change the behavior of the parent or base class in derived classes
+
+The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
+
+In dynamic languages like Ruby, the Liskov principle (LSP) works slightly differently because Ruby less rigidly enforces how types work (so-called “Duck Typing”) as opposed to a language like Java, where type safety is enforced by the compiler. This means that LSP winds up applying more to the messages an object responds to rather than its type.
+
+We should remember that inheritance should be used for specialization. Specialization means creating new subclasses from an existing class so the subclasses can share some behaviour. 
+
+The first consequence of not using LSP is that class hierarchies become a mess. If the class hierarchy grows, it will become more and more complicated to know about the behaviour of the child classes. Secondly, unit tests for the superclass would never succeed for the subclass. The code that uses your type will have to have explicit knowledge of the internal workings of derived types to treat them differently. This tightly couples your code and generally makes the implementation harder to use consistently, and also more difficult to change. In the worst case scenario, LSP violations will introduce bugs in your system because you can’t rely anymore in derived classes. LSP is very easy to break if we don’t pay attention to our derived classes, and this can cause a lot of trouble in the feature. As we can see, there are plenty of things that can go wrong when breaking the LSP, so pay attention to your derived classes and try to avoid breaking the LSP.
 
 The LSP is all about expected behavior of objects:
 
@@ -147,6 +187,37 @@ The LSP is all about expected behavior of objects:
 
 >* [link to Article of Liskov substitution principle in Wikipedia](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 >* [Link to Article Explaining The Liskov Substitution Principle](http://www.blackwasp.co.uk/lsp.aspx)
+
+### ISP - Interface Segregation Principle
+
+The ISP states that no cliente should be forced to depend on methods it does not use.
+
+- Avoid depending on things that you don´t use.
+- Make fine-grained interfaces that are client specific.
+
+- The ISP guides us to create many small interfaces with coherent functionalities instead of a few big interfaces with lots of different methods. When we apply the ISP, class and their dependencies communicate using focused interfaces, minimizing dependencies. Smaller interfaces are easier to implement, improving flexibility and the possibility of reuse.
+
+Reduce fat interfaces into multiple smaller and more specific client specific interfaces. An interface should be more dependent on the code that calls it than the code that implements it.
+
+### Why Apply ICP
+
+* If a class implements methods that are not needed the caller needs to know about the method implementation of that class. For example if a class implements a method but simply throws then the caller will need to know that this method shouldn't actually be called.
+
+### How to Apply ICP
+
+* Avoid fat interfaces. Classes should never have to implement methods that violate the Single responsibility principle.
+
+### Resources Abiut ICP
+
+>* [linto to Interface segregation principle in Wikipedia](https://en.wikipedia.org/wiki/Interface_segregation_principle)
+
+
+### DIP - Dependency Inversion Principle
+
+The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
+
+- Depend on abstraction, not on concretion.
+
 
 # Inversion of Control (IC)
 
@@ -174,22 +245,6 @@ To prevent side effects when replacing a module.
 >* [link to Inversion of Control in Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
 >* [link to Article of Martin Fowler about Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
 
-
-# (ICP) Interface Segregation Principle
-
-Reduce fat interfaces into multiple smaller and more specific client specific interfaces. An interface should be more dependent on the code that calls it than the code that implements it.
-
-### Why Apply ICP
-
-* If a class implements methods that are not needed the caller needs to know about the method implementation of that class. For example if a class implements a method but simply throws then the caller will need to know that this method shouldn't actually be called.
-
-### How to Apply ICP
-
-* Avoid fat interfaces. Classes should never have to implement methods that violate the Single responsibility principle.
-
-### Resources Abiut ICP
-
->* [linto to Interface segregation principle in Wikipedia](https://en.wikipedia.org/wiki/Interface_segregation_principle)
 
 # SoC - Separation of Concerns
 
@@ -256,72 +311,6 @@ The mechanisms for modular or object-oriented programming that are provided by a
 Separation of concerns is an important design principle in many other areas as well, such as urban planning, architecture and information design.[5] The goal is to more effectively understand, design, and manage complex interdependent systems, so that functions can be reused, optimized independently of other functions, and insulated from the potential failure of other functions.
 
 Common examples include separating a space into rooms, so that activity in one room does not affect people in other rooms, and keeping the stove on one circuit and the lights on another, so that overload by the stove does not turn the lights off. The example with rooms shows encapsulation, where information inside one room, such as how messy it is, is not available to the other rooms, except through the interface, which is the door. The example with circuits demonstrates that activity inside one module, which is a circuit with consumers of electricity attached, does not affect activity in a different module, so each module is not concerned with what happens in the other.
-
-# SOLID Principles
-
-The text in this Wiki is writeen based on the following Books:
-
-- Book Agile Software Development: Principles, Patterns, and Practices by Uncle Bob C. Martin and published in 2002
-- Book Clean Architecture - A Handbook of Agile Software Craftsmanship by Uncle Bob C. Marting and published in 2017
-
-## SRP - Single Responsability Principle
-
-A classe should have one, and only one, reason to change. In the context of the SRP, a responsability is "a reason to change". If there are more than one motive for changing a class, then that class has more than one responsability, in this case is violating the SRP Principle.
-
-- One class shoudl have one and only one responsability over the application´s functionality;
-- We should write, change and maintain a class only for one purpose;
-- A module should have one, and only one, reason to change;
-- A module should be responsible to one, only one, user or stakeholder;
-- A module should be responsible to one, and only one, actor;
-- Considre Module as just a source file in the above definitions;
-- The best way to understand this principle is by looking at the symptoms of vilating it;
-- Cohesion is the force thar binds together the code responsible to a single actor;
-- Single Responsability is about methods and classes. At the component level it becomes the COMMON CLOSURE PATTERN;
-- We should design each class to attend just only one actor - this way we can be sure that we are not violating the SRP Principle;
-
-## OCP - Open-Closed Principle
-
-Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
-
-- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin)
-- If a component A should be protected from changes in component B, then component B should depend on component A (
-- A software artifact should be open extension but closed for modification;
-- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change
-- This goal is accomplished by partitioning the system into compoenents, and arranging thos components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
-
-## LSP - Liskov Substitution Principle
-
-To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
-
-- Derived classes must be substitutable for their base classes.
-- Subtypers must be substitutable for their base types.
-- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
-
- -  Don’t change the behavior of the parent or base class in derived classes
-
-The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
-
-In dynamic languages like Ruby, the Liskov principle (LSP) works slightly differently because Ruby less rigidly enforces how types work (so-called “Duck Typing”) as opposed to a language like Java, where type safety is enforced by the compiler. This means that LSP winds up applying more to the messages an object responds to rather than its type.
-
-We should remember that inheritance should be used for specialization. Specialization means creating new subclasses from an existing class so the subclasses can share some behaviour. 
-
-The first consequence of not using LSP is that class hierarchies become a mess. If the class hierarchy grows, it will become more and more complicated to know about the behaviour of the child classes. Secondly, unit tests for the superclass would never succeed for the subclass. The code that uses your type will have to have explicit knowledge of the internal workings of derived types to treat them differently. This tightly couples your code and generally makes the implementation harder to use consistently, and also more difficult to change. In the worst case scenario, LSP violations will introduce bugs in your system because you can’t rely anymore in derived classes. LSP is very easy to break if we don’t pay attention to our derived classes, and this can cause a lot of trouble in the feature. As we can see, there are plenty of things that can go wrong when breaking the LSP, so pay attention to your derived classes and try to avoid breaking the LSP.
-
-
-### ISP - Interface Segregation Principle
-
-The ISP states that no cliente should be forced to depend on methods it does not use.
-
-- Avoid depending on things that you don´t use.
-- Make fine-grained interfaces that are client specific.
-
-- The ISP guides us to create many small interfaces with coherent functionalities instead of a few big interfaces with lots of different methods. When we apply the ISP, class and their dependencies communicate using focused interfaces, minimizing dependencies. Smaller interfaces are easier to implement, improving flexibility and the possibility of reuse.
-
-### DIP - Dependency Inversion Principle
-
-The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
-
-- Depend on abstraction, not on concretion.
 
 
 
