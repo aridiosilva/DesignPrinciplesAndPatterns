@@ -700,31 +700,13 @@ A weakly-typed language on the other hand is a language in which variables are n
 
 In general, a pattern has four essential elements:
 
-1. The **pattern name** is a handle we can use to describe a design problem, its solutions, and
-consequences in a word or two. Naming a pattern immediately increases our design vocabulary. It
-lets us design at a higher level of abstraction. Having a vocabulary for patterns lets us talk about them
-with our colleagues, in our documentation, and even to ourselves. It makes it easier to think about
-designs and to communicate them and their trade-offs to others. Finding good names has been one of
-the hardest parts of developing our catalog.
+1. The **pattern name** is a handle we can use to describe a design problem, its solutions, and  consequences in a word or two. Naming a pattern immediately increases our design vocabulary. It lets us design at a higher level of abstraction. Having a vocabulary for patterns lets us talk about them with our colleagues, in our documentation, and even to ourselves. It makes it easier to think about designs and to communicate them and their trade-offs to others. Finding good names has been one of the hardest parts of developing our catalog.
+ 
+1. The **problem** describes when to apply the pattern. It explains the problem and its context. It might describe specific design problems such as how to represent algorithms as objects. It might describe class or object structures that are symptomatic of an inflexible design. Sometimes the problem will include a list of conditions that must be met before it makes sense to apply the pattern.
 
-1. The **problem** describes when to apply the pattern. It explains the problem and its context. It might
-describe specific design problems such as how to represent algorithms as objects. It might describe
-class or object structures that are symptomatic of an inflexible design. Sometimes the problem will
-include a list of conditions that must be met before it makes sense to apply the pattern.
+1. The **solution** describes the elements that make up the design, their relationships, responsibilities, and collaborations. The solution doesn't describe a particular concrete design or implementation, because a pattern is like a template that can be applied in many different situations. Instead, the pattern provides an abstract description of a design problem and how a general arrangement of elements (classes and objects in our case) solves it.
 
-1. The **solution** describes the elements that make up the design, their relationships, responsibilities, and
-collaborations. The solution doesn't describe a particular concrete design or implementation, because
-a pattern is like a template that can be applied in many different situations. Instead, the pattern
-provides an abstract description of a design problem and how a general arrangement of elements
-(classes and objects in our case) solves it.
-
-1. The **consequences** are the results and trade-offs of applying the pattern. Though consequences are
-often unvoiced when we describe design decisions, they are critical for evaluating design alternatives
-and for understanding the costs and benefits of applying the pattern. The consequences for software
-often concern space and time trade-offs. They may address language and implementation issues as
-well. Since reuse is often a factor in object-oriented design, the consequences of a pattern include its
-impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly
-helps you understand and evaluate them.
+1. The **consequences** are the results and trade-offs of applying the pattern. Though consequences are often unvoiced when we describe design decisions, they are critical for evaluating design alternatives and for understanding the costs and benefits of applying the pattern. The consequences for software often concern space and time trade-offs. They may address language and implementation issues as well. Since reuse is often a factor in object-oriented design, the consequences of a pattern include its impact on a system's flexibility, extensibility, or portability. Listing these consequences explicitly helps you understand and evaluate them.
 
 ## GoF Describing Design Patterns
 
@@ -760,7 +742,7 @@ How do we describe design patterns? Graphical notations, while important and use
 
 ![design patterns relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Fig1-1-Gof-DesignPatternsRelationships-23Patterns.jpg)
 
-## GoF The Catalog of  Gang of Four 23 Design Patterns
+## GoF The Catalog of Gang of Four 23 Design Patterns
 
 The catalog beginning on page 79 contains 23 design patterns. Their names and intents are listed next to give you an overview. The number in parentheses after each pattern name gives the page number for the pattern (a convention we follow throughout the book).
 
