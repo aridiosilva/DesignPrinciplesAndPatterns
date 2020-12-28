@@ -73,7 +73,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [UML Generalization or Inheritance](#uml-generalization-or-inheritance)
 >* [Inheritance in Design Patterns](#inheritance-in-design-patterns)
 >* [UML Dependency or Composition](#uml-dependency-or-composition)
->* [UML Aggregation ou Dependency](#uml-aggregation-ou-dependency)
+>* [UML Aggregation or Dependency](#uml-aggregation-or-dependency)
 >* [UML Realization](#uml-realization)
 >* [Interface Realization](#interface-realization)
 
