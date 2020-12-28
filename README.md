@@ -108,11 +108,16 @@ Maintainability: changes should be necessary only in one module or class.
 
 ### How to Apply SRP
 
-[link to Article about Apply Curly's Law](https://java-design-patterns.com/principles/#curlys-law)
+Curly's Law - Curly's Law is about choosing a single, clearly defined goal for any particular bit of code: Do One Thing.
+
+>* [link to Article about Apply Curly's Law](https://java-design-patterns.com/principles/#curlys-law)
+>* [kinto to Article Curly's Law: Do One Thing](https://blog.codinghorror.com/curlys-law-do-one-thing/)
+>* [The Rule of One or Curly’s Law](http://grsmentor.com/blog/the-rule-of-one-or-curlys-law/)
 
 ### Resources About SRP 
 
 [link to Single responsibility principle in Wikipedia](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+
 
 # Open/Closed Principle
 
