@@ -40,9 +40,9 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [IC Inversion of Control](#ic-inversion-of-control)
 >* [Command Query Separation Principle](#Command-query-separation-principle)
 
->* [Classification of Programming Languages](#classification-of-programming-languages)
+* [Classification of Programming Languages](#classification-of-programming-languages)
 
- * [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
+* [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
 
 >* [GoF What is a Design Pattern](#gof-what-is-a-design-pattern)
 >* [GoF Elements of a Pattern](#gof-elements-of-a-pattern)
@@ -67,7 +67,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P12 Frameworks]
 >* [FACTORY DESIGN PATTERN]
 
- * [UML Relationships among Classes]
+* [UML Relationships among Classes]
 
 >* [UM Association]
 >* [UML Generalization (or Inheritance)]
