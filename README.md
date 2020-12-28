@@ -52,7 +52,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF How Design Patterns Solve Design Problems](#gof-how-design-patterns-solve-design-problems)
 >* [GoF P1 Finding Appropriate Objects](#gof-p1-finding-appropriate-objects)
 >* [GoF P2 Determining Object Granularity](#gof-p2-determining-object-granularity)
->* [GoF P3 Specifying Object Interfaces](gof-p3-specifying-object-interfaces)
+>* [GoF P3 Specifying Object Interfaces](#gof-p3-specifying-object-interfaces)
 >* [GoF P4 Specifying Object Implementations](#gof-p4-specifying-object-implementations)
 >* [GoF P5 Class versus Interface Inheritance](#gof-p5-class-versus-interface-inheritance)
 >* [GoF P6 Programming to an Interface, not an Implementation](#gof-p6-programming-to-an-interface-not-an-implementation)
