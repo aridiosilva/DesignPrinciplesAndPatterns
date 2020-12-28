@@ -558,6 +558,26 @@ To prevent side effects when replacing a module.
 >* [link to Inversion of Control in Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
 >* [link to Article of Martin Fowler about Inversion of Control Containers and the Dependency Injection pattern](https://www.martinfowler.com/articles/injection.html)
 
+# Command Query Separation Principle
+
+The Command Query Separation principle states that each method should be either a command that performs an action or a query that returns data to the caller but not both. Asking a question should not modify the answer.
+
+With this principle applied the programmer can code with much more confidence. The query methods can be used anywhere and in any order since they do not mutate the state. With commands one has to be more careful.
+
+### Why Command Query Separation Principle
+
+* By clearly separating methods into queries and commands the programmer can code with additional confidence without knowing each method's implementation details.
+
+### How to apply Command Query Separation Principle
+
+* Implement each method as either a query or a command
+* Apply naming convention to method names that implies whether the method is a query or a command
+
+### Resources about Command Query Separation Principle
+
+>* [Command Query Separation in Wikipedia](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) 
+>* [Command Query Separation by Martin Fowler/(https://martinfowler.com/bliki/CommandQuerySeparation.html)
+
 # Classification of Programming Languages
 
 ![classification](https://github.com/aridiosilva/TDD_ITA/blob/main/DynamicxStatic%20x%20Strng%20x%20Waek%20-%20classification%20of%20programming%20languages.png)
