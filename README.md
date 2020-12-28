@@ -57,7 +57,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P5 Class versus Interface Inheritance](#gof-p5-class-versus-interface-inheritance)
 >* [GoF P6 Programming to an Interface, not an Implementation](#gof-p6-programming-to-an-interface-not-an-implementation)
 >* [GoF P7 Putting Reuse Mechanisms to Work](#gof-p7-putting-reuse-mechanisms-to-work)
->* [GoF Inheritance versus Composition](#gog-inheritance-versus-composition)
+>* [GoF Inheritance versus Composition](#gof-inheritance-versus-composition)
 >* [GoF Delegation](#gof-delegation)
 >* [GoF P8 Inheritance versus Parameterized or Generic Types](#gof-p8-inheritance-versus-parameterized-or-generic-types)
 >* [GoF P9 Relating Run Time and Compile Time Structures](#gof-p9-relating-run-time-and-compile-time-structures)
@@ -65,7 +65,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P11 Application Programs](#gof-p11-application-programs)
 >* [GoF P12 Toolkits](#gof-p12-toolkits)
 >* [GoF P13 Frameworks](#gof-p13-frameworks)
->* [FACTORY DESIGN PATTERN](#facotry-design-pattern)
+>* [FACTORY DESIGN PATTERN](#factory-design-pattern)
 
 * [UML Relationships among Classes](#uml-relationships-among-classes)
 
