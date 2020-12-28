@@ -1220,7 +1220,7 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 - **Aggregation (Dependency)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 - **Realization** - one model element **implements** the responsibility specified by another model element
 
-## UM Association
+# UM Association
 
 **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
@@ -1388,7 +1388,7 @@ Example: As we know, the bank account can be of two types; Savings Account and C
 
 ![umlgeneratization_or_inheritance2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization2.png)
 
-## Inheritance in Design Patterns
+# Inheritance in Design Patterns
 
 While the consensus is that we should favor composition over inheritance whenever possible, there are a few typical use cases where inheritance has its place.
 
@@ -1440,7 +1440,7 @@ public class StandardComputerBuilder extends ComputerBuilder {
 }
 ```
 
-## UML Dependency (Composition)
+# UML Dependency (Composition)
 
 Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
 
