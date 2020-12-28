@@ -157,7 +157,7 @@ A good design identifies the hotspots that are most likely to change and encapsu
 >* [Code For The Maintainer]()
 >* [The Noble Art of Maintenance Programming/()
 
-## Component Cohesion Principles
+# Component Cohesion Principles
 
 Which classes belong in which components? This is an important decision, and requires guidamce from good software engineering principles. So, the three principle that helps this decision are:
 
@@ -167,7 +167,7 @@ Which classes belong in which components? This is an important decision, and req
 
 
 
-## Summary of Good Practices of Design
+# Summary of Good Practices of Design
 
 - **SoC**   - Separation of Concerns
 - **KISS**  - Keep it Simple
@@ -176,7 +176,7 @@ Which classes belong in which components? This is an important decision, and req
 - **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
 - **YAGNI** - You aren´t gonna need it
 
-## Summary of the Principles of Object-Oriented Design
+# Summary of the Principles of Object-Oriented Design
 
 "The Source Code is the Design" (Uncle Bob C. Martin)
 
