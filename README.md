@@ -96,6 +96,24 @@ Which classes belong in which components? This is an important decision, and req
 - ***SDP Stable Dependencies Principle*** - Depend in the direction of stability.
 - ***SAP - Stable Abstraction Principle*** - A package should be as abstract as it is stable.
 
+# (SRP) Single Responsibility Principle
+
+A class should never have more than one reason to change.
+
+Long version: Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. Responsibility can be defined as a reason to change, so a class or module should have one, and only one, reason to change.
+
+### Why to Apply SRP
+
+Maintainability: changes should be necessary only in one module or class.
+
+### How to Apply SRP
+
+[link to Article about Apply Curly's Law](https://java-design-patterns.com/principles/#curlys-law)
+
+### Resources About SRP 
+
+[link to Single responsibility principle in Wikipedia](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+
 # Open/Closed Principle
 
 Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
