@@ -8,13 +8,13 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [Coupling and Cohesion](#coupling-and-cohesion )
 >* [Coupling or Dependency](#coupling-or-dependency)
 >* [Cohesion](#cohesion)
-***
+
 >* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
 >* [Hide Implementation Details](#hide-implementation-details)
 >* [Encapsulate What Changes](#encapsulate-what-changes)
 >* [Code For The Maintainer](#code-for-the-maintainer)
 >* [Component Cohesion Principles](#component-cohesion-principles)
-***
+
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 >* [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
 >* [SOLID Principles](#solid-principles)
@@ -22,7 +22,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [OCP Open-Closed Principle](#ocp-open-closed-principle)
 >* [LSP Liskov Substitution Principle](#lsp-liskov-substitution-principle)
 >* [ISP Interface Segregation Principle](#isp-interface-segregation-principle)
-***
+
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
 >* [SoC Separation of Concerns](#soc-separation-of-concerns)
 >* [KISS Keep It Simple Principle](#kiss-keep-it-simple-principle)
@@ -30,15 +30,15 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [YAGNI Principle](#yagni-principle)
 >* [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
 >* [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
-***
+
 >* [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
 >* [Orthogonality Principle](#orthogonality-principle)
 >* [Robustness Principle](#robustness-principle)
 >* [IC Inversion of Control](#ic-inversion-of-control)
 >* [Command Query Separation Principle](#Command-query-separation-principle)
-***
+
 >* [Classification of Programming Languages](#classification-of-programming-languages)
-***
+
 >* [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
 >* [GoF What is a Design Pattern](#gof-what-is-a-design-pattern)
 >* [GoF Elements of a Pattern](#gof-elements-of-a-pattern)
@@ -62,7 +62,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P11 Toolkits]
 >* [GoF P12 Frameworks]
 >* [FACTORY DESIGN PATTERN]
-***
+
 >* [UML Relationships among Classes]
 >* [UM Association]
 >* [UML Generalization (or Inheritance)]
@@ -71,7 +71,6 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [UML Aggregation (Dependency)]
 >* [UML Realization]
 >* [Interface Realization]
-***
 
 # Coupling and Cohesion 
 
