@@ -55,27 +55,27 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P3 Specifying Object Interfaces](gof-p3-specifying-object-interfaces)
 >* [GoF P4 Specifying Object Implementations](#gof-p4-specifying-object-implementations)
 >* [GoF P5 Class versus Interface Inheritance](#gof-p5-class-versus-interface-inheritance)
->* [GoF P5 Programming to an Interface, not an Implementation](#gof-p5-programming-to-an-interface,-not-an-implementation)
->* [GoF P6 Putting Reuse Mechanisms to Work]
->* [GoF Inheritance versus Composition]
->* [GoF Delegation]
->* [GoF P7 Inheritance versus Parameterized (or Generic) Types]
->* [GoF P8 Relating Run-Time and Compile-Time Structures]
->* [GoF P9 Designing for Change]
->* [GoF P10 Application Programs]
->* [GoF P11 Toolkits]
->* [GoF P12 Frameworks]
->* [FACTORY DESIGN PATTERN]
+>* [GoF P6 Programming to an Interface, not an Implementation](#gof-p6-programming-to-an-interface-not-an-implementation)
+>* [GoF P7 Putting Reuse Mechanisms to Work](#gof-p7-putting-reuse-mechanisms-to-work)
+>* [GoF Inheritance versus Composition](#gog-inheritance-versus-composition)
+>* [GoF Delegation](#gof-delegation)
+>* [GoF P8 Inheritance versus Parameterized or Generic Types](#gof-p8-inheritance-versus-parameterized-or-generic-types)
+>* [GoF P9 Relating Run Time and Compile Time Structures](#gof-p9-relating-run-time-and-compile-time-structures)
+>* [GoF P10 Designing for Change](#gof-p10-designing-for-change)
+>* [GoF P11 Application Programs](#gof-p11-application-programs)
+>* [GoF P12 Toolkits](#gof-p12-toolkits)
+>* [GoF P13 Frameworks](#gof-p13-frameworks)
+>* [FACTORY DESIGN PATTERN](#facotry-design-pattern)
 
-* [UML Relationships among Classes]
+* [UML Relationships among Classes](#uml-relationships-among-classes)
 
->* [UM Association]
->* [UML Generalization (or Inheritance)]
->* [Inheritance in Design Patterns]
->* [UML Dependency (Composition)]
->* [UML Aggregation (Dependency)]
->* [UML Realization]
->* [Interface Realization]
+>* [UML Association](#uml-association)
+>* [UML Generalization or Inheritance](#uml-generalization-or-inheritance)
+>* [Inheritance in Design Patterns](#inheritance-in-design-patterns)
+>* [UML Dependency or Composition](#uml-dependency-or-composition)
+>* [UML Aggregation ou Dependency](#uml-aggregation-ou-dependency)
+>* [UML Realization](#uml-realization)
+>* [Interface Realization](#interface-realization)
 
 # Coupling and Cohesion 
 
@@ -836,7 +836,7 @@ B) The second criterion, called scope, specifies whether the pattern applies pri
 
 Design patterns solve many of the day-to-day problems object-oriented designers face, and in many different ways. Here are several of these problems and how design patterns solve them. 
 
-# GoF P1 - Finding Appropriate Objects
+# GoF P1 Finding Appropriate Objects
 
 Object-oriented programs are made up of objects. An **object** packages both data and the procedures that operate on that data. The procedures are typically called methods or **operations**. An object performs an operation when it receives a **request** (or message) from a client. **Requests** are the only way to get an object to execute an operation. **Operations** are the only way to change an object's internal data (state). Because of these restrictions, the **object's internal state** is said to be **encapsulated**; it cannot be accessed directly, and its representation is invisible from outside the object.  
 
@@ -857,7 +857,7 @@ Design patterns help you identify **less-obvious abstractions** and the objects 
 
 These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
 
-## GoF P2 - Determining Object Granularity
+## GoF P2 Determining Object Granularity
 
 -  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
 
@@ -873,7 +873,7 @@ Other design patterns describe specific ways of decomposing an object into small
 - **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
 - **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
-## GoF P3 - Specifying Object Interfaces
+## GoF P3 Specifying Object Interfaces
 
 Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
 
@@ -891,7 +891,7 @@ Design patterns also specify **relationships between interfaces**. In particular
 
 Design patterns help you define interfaces by identifying their key elements and the kinds of data that get sent across an interface. A design pattern might also tell you what not to put in the interface. 
 
-# GoF P4 - Specifying Object Implementations
+# GoF P4 Specifying Object Implementations
 
 So far we've said little about how we actually define an object. An object's implementation is defined by its **class**. The class specifies the object's internal data and representation and defines the operations the object can perform.
 
@@ -905,7 +905,7 @@ Subclasses can refine and redefine behaviors of their parent classes. More speci
 
 A **mixin class** is a class that's intended to provide an optional interface or functionality to other classes. It's similar to an abstract class in that it's not intended to be instantiated. Mixin classes require **multiple inheritance**.
 
-# GoF P5 - Class versus Interface Inheritance
+# GoF P5 Class versus Interface Inheritance
 
 It's important to understand the difference between an object's **class** and its **type**.
 
@@ -925,7 +925,7 @@ Although most programming languages don't support the distinction between interf
 
 Many of the design patterns depend on this distinction. For example, objects in a Chain of Responsibility (223) must have a common type, but usually they don't share a common implementation. In the Composite (163) pattern, Component defines a common interface, but Composite often defines a common implementation. **Command (233)**, **Observer (293)**, **State (305)**, and **Strategy (315)** are often implemented with abstract classes that are pure interfaces.
 
-# GoF P5 - Programming to an Interface, not an Implementation
+# GoF P6 Programming to an Interface not an Implementation
 
 Class inheritance is basically just a mechanism for extending an application's functionality by reusing functionality in parent classes. It lets you define a new kind of object rapidly in terms of an old one. It lets you get new implementations almost for free, inheriting most of what you need from existing classes.
 
@@ -947,11 +947,11 @@ Don't declare variables to be instances of particular concrete classes. Instead,
 
 You have to instantiate concrete classes (that is, specify a particular implementation) somewhere in your system, of course, and the creational patterns (**Abstract Factory (87)**, **Builder (97)**, **Factory Method (107)**, **Prototype (117)**, and **Singleton (127)** let you do just that. By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation. Creational patterns ensure that your system is written in terms of interfaces, not implementations.
 
-# GoF P6 - Putting Reuse Mechanisms to Work
+# GoF P7 Putting Reuse Mechanisms to Work
 
 Most people can understand concepts like objects, interfaces, classes, and inheritance. The challenge lies in applying them to build flexible, reusable software, and design patterns can show you how.
 
-## (GoF) Inheritance versus Composition
+## GoF Inheritance versus Composition
 
 The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition. As we've explained, class inheritance lets you define the implementation of one class in terms of another's. Reuse by subclassing is often referred to as white-box reuse. The term "whitebox" refers to visibility: With inheritance, the internals of parent classes are often visible to subclasses.
 
@@ -1008,7 +1008,7 @@ Other patterns use delegation less heavily:
  
  Delegation is an extreme example of object composition. It shows that you can always replace inheritance with object composition as a mechanism for code reuse.
  
-# GoF P7 - Inheritance versus Parameterized (or Generic) Types
+# GoF P8 Inheritance versus Parameterized (or Generic) Types
 
 Another (not strictly object-oriented) technique for reusing functionality is through parameterized types, also known as generics (Ada, Eiffel) and templates (C++). This technique lets you define a type without specifying all the other types it uses. The unspecified types are supplied as parameters at the point of use. For example, a List class can be parameterized by the type of elements it contains. To declare a list of integers, you supply the type "integer" as a parameter to the List parameterized type. To declare a list of String objects, you supply the "String" type as a parameter. The language implementation will create a customized version of the List class template for each type of element.
 
@@ -1086,7 +1086,7 @@ class UtilTest {
 }
 ```
 
-# GoF P8 - Relating Run-Time and Compile-Time Structures
+# GoF P9 Relating Run-Time and Compile-Time Structures
 
 An object-oriented program's run-time structure often bears little resemblance to its code structure. The code structure is frozen at compile-time; it consists of classes in fixed inheritance relationships. A program's runtime structure consists of rapidly changing networks of communicating objects. In fact, the two structures are largely independent. Trying to understand one from the other is like trying to understand the dynamism of living ecosystems from the static taxonomy of plants and animals, and vice versa.
 
@@ -1107,7 +1107,7 @@ With such disparity between a program's run-time and compile-time structures, it
 
 Many design patterns (in particular those that have object scope) capture the distinction between compiletime and run-time structures explicitly. Composite (163) and Decorator (175) are especially useful for building complex run-time structures. Observer (293) involves run-time structures that are often hard to understand unless you know the pattern. Chain of Responsibility (223) also results in communication patterns that inheritance doesn't reveal. In general, the run-time structures aren't clear from the code until you understand the patterns.
 
-# GoF P9 - Designing for Change
+# GoF P10 Designing for Change
 
 The key to maximizing reuse lies in anticipating new requirements and changes to existing requirements, and in designing your systems so that they can evolve accordingly.
 
@@ -1169,19 +1169,19 @@ Here are some common causes of redesign along with the design pattern(s) that ad
 
 These examples reflect the flexibility that design patterns can help you build into your software. How crucial such flexibility is depends on the kind of software you're building. Let's look at the role design patterns play in the development of three broad classes of software: application programs, toolkits, and frameworks.
 
-# GoF P10 - Application Programs
+# GoF P11 Application Programs
 
 If you're building an application program such as a document editor or spreadsheet, then internal reuse, maintainability, and extension are high priorities. Internal reuse ensures that you don't design and implement any more than you have to. Design patterns that reduce dependencies can increase internal reuse. Looser coupling boosts the likelihood that one class of object can cooperate with several others. For example, when you eliminate dependencies on specific operations by isolating and encapsulating each operation, you make it easier to reuse an operation in different contexts. The same thing can happen when you remove algorithmic and representational dependencies too.
 
 Design patterns also make an application more maintainable when they're used to limit platform dependencies and to layer a system. They enhance extensibility by showing you how to extend class hierarchies and how to exploit object composition. Reduced coupling also enhances extensibility. Extending a class in isolation is easier if the class doesn't depend on lots of other classes.
 
-# GoF P11 - Toolkits
+# GoF P12 Toolkits
 
 Often an application will incorporate classes from one or more libraries of predefined classes called toolkits. A toolkit is a set of related and reusable classes designed to provide useful, general-purpose functionality. An example of a toolkit is a set of collection classes for lists, associative tables, stacks, and the like. The C++ I/O stream library is another example. Toolkits don't impose a particular design on your application; they just provide functionality that can help your application do its job. They let you as an implementer avoid recoding common functionality. Toolkits emphasize code reuse. They are the object-oriented equivalent of subroutine libraries.
 
 Toolkit design is arguably harder than application design, because toolkits have to work in many applications to be useful. Moreover, the toolkit writer isn't in a position to know what those applications will be or their special needs. That makes it all the more important to avoid assumptions and dependencies that can limit the toolkit's flexibility and consequently its applicability and effectiveness.
 
-# GoF P12 - Frameworks
+# GoF P13 Frameworks
 
 A framework is a set of cooperating classes that make up a reusable design for a specific class of software [Deu89, JF88]. For example, a framework can be geared toward building graphical editors for different domains like artistic drawing, music composition, and mechanical CAD [VL90, Joh92]. Another framework can help you build compilers for different programming languages and target machines [JML92]. Yet another might help you build financial modeling applications [BE93]. You customize a framework to a
 particular application by creating application-specific subclasses of abstract classes from the framework.
