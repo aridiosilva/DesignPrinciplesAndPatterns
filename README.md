@@ -53,7 +53,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P1 Finding Appropriate Objects](#gof-p1-finding-appropriate-objects)
 >* [GoF P2 Determining Object Granularity](#gof-p2-determining-object-granularity)
 >* [GoF P3 Specifying Object Interfaces](gof-p3-specifying-object-interfaces)
->* [GoF P4 Specifying Object Implementations](#gog-p4-specifying-object-implementations)
+>* [GoF P4 Specifying Object Implementations](#gof-p4-specifying-object-implementations)
 >* [GoF P5 Class versus Interface Inheritance](#gof-p5-class-versus-interface-inheritance)
 >* [GoF P6 Programming to an Interface, not an Implementation](#gof-p6-programming-to-an-interface-not-an-implementation)
 >* [GoF P7 Putting Reuse Mechanisms to Work](#gof-p7-putting-reuse-mechanisms-to-work)
@@ -857,7 +857,7 @@ Design patterns help you identify **less-obvious abstractions** and the objects 
 
 These objects are seldom found during analysis or even the early stages of design; they're discovered later in the course of making a design more flexible and reusable.
 
-## GoF P2 Determining Object Granularity
+# GoF P2 Determining Object Granularity
 
 -  Note: Granularity = the scale or level of detail present in a set of data or other phenomenon.
 
@@ -873,7 +873,7 @@ Other design patterns describe specific ways of decomposing an object into small
 - **Abstract Factory (87)** and **Builder (97)** yield objects whose only responsibilities are creating other objects.
 - **Visitor (331)** and **Command (233)** yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
-## GoF P3 Specifying Object Interfaces
+# GoF P3 Specifying Object Interfaces
 
 Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the **operation's signature**. The set of all signatures defined by an object's operations is called the **interface to the object**. An object's interface characterizes the complete set of requests that can be sent to the object. Any request that matches a **signature** in the object's interface may be sent to the object.
 
