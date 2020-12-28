@@ -5,7 +5,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
->* [Coupling and Cohesion](#coupling_and_Cohesion )
+>* [Coupling and Cohesion](#coupling-and-cohesion )
 >* [Coupling or Dependency](#coupling-or-dependency)
 >* [Cohesion](#cohesion)
 >* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
@@ -35,10 +35,10 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [Classification of Programming Languages](#classification-of-programming-languages)
 >* [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
 >* [GoF What is a Design Pattern](#gof-what-is-a-design-pattern)
->* [GoF Elements of a Pattern]
->* [GoF Describing Design Patterns]
->* [GoF Diagram of the Design Patterns Relationships]
->* [GoF The Catalog of  Gang of Four 23 Design Patterns]
+>* [GoF Elements of a Pattern](#gof-elements-of-a-pattern)
+>* [GoF Describing Design Patterns](#gof-describing-design-patterns)
+>* [GoF Diagram of the Design Patterns Relationships](#gof-diagram-of-the-design-patterns-relationships)
+>* [GoF The Catalog of Gang of Four 23 Design Patterns](#gof-the-catalog-of-gang-of-four-23-design-patterns)
 >* [GoF How Design Patterns Solve Design Problems]
 >* [GoF P1 - Finding Appropriate Objects]
 >* [GoF P2 - Determining Object Granularity]
