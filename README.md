@@ -100,7 +100,24 @@ Coupling between modules/components is their degree of mutual interdependence; l
 
 >* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
 
+# Hide Implementation Details
 
+A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.
+
+### Why Hide Implementation Details
+
+* When the implementation changes, the interface clients are using does not have to change.
+
+### How to Hide Implementation Details
+
+* nMinimize accessibility of classes and members.
+* Don’t expose member data in public.
+* Avoid putting private implementation details into a class’s interface.
+* Decrease coupling to hide more implementation details.
+
+### Resources about Hide Implementation Details
+
+>* [Information hiding](https://en.wikipedia.org/wiki/Information_hiding)
 
 # Code For The Maintainer
 
