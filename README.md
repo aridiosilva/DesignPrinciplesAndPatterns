@@ -111,8 +111,8 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 ##$ Resources Aboiut OCP Principle
 
->* {link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
->* {Link to Article Explaining The  Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
+>* [link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
+>* [Link to Article Explaining The Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
 
 # Liskov Substitution Principle
 
