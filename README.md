@@ -9,12 +9,6 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [Coupling or Dependency](#coupling-or-dependency)
 >* [Cohesion](#cohesion)
 
->* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
->* [Hide Implementation Details](#hide-implementation-details)
->* [Encapsulate What Changes](#encapsulate-what-changes)
->* [Code For The Maintainer](#code-for-the-maintainer)
->* [Component Cohesion Principles](#component-cohesion-principles)
-
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 >* [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
 
@@ -34,6 +28,11 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
 >* [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
 
+>* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
+>* [Hide Implementation Details](#hide-implementation-details)
+>* [Encapsulate What Changes](#encapsulate-what-changes)
+>* [Code For The Maintainer](#code-for-the-maintainer)
+>* [Component Cohesion Principles](#component-cohesion-principles)
 >* [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
 >* [Orthogonality Principle](#orthogonality-principle)
 >* [Robustness Principle](#robustness-principle)
@@ -157,77 +156,6 @@ Coupling between modules/components is their degree of mutual interdependence; l
 * Eliminate, minimise, and reduce complexity of necessary relationships.
 * By hiding implementation details, coupling is reduced.
 * Apply the Law of Demeter.
-
-# Do The Simplest Thing That Could Possibly Work
-
-### Why Do The Simplest Thing That Could Possibly Work
-
-* Real progress against the real problem is maximized if we just work on what the problem really is.
-
-### How Do The Simplest Thing That Could Possibly Work
-
-* Ask yourself: "What is the simplest thing that could possibly work?"
-
-### Resources
-
->* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
-
-# Hide Implementation Details
-
-A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.
-
-### Why Hide Implementation Details
-
-* When the implementation changes, the interface clients are using does not have to change.
-
-### How to Hide Implementation Details
-
-* nMinimize accessibility of classes and members.
-* Don’t expose member data in public.
-* Avoid putting private implementation details into a class’s interface.
-* Decrease coupling to hide more implementation details.
-
-### Resources about Hide Implementation Details
-
->* [Information hiding](https://en.wikipedia.org/wiki/Information_hiding)
-
-# Encapsulate What Changes
-
-A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.
-
-### Why Encapsulate What Changes
-
-* To minimize required modifications when a change occurs
-
-### How to Encapsulate What Changes
-
-* Encapsulate the concept that varies behind an API
-* Possibly separate the varying concept into its own module
-
-### Resources about Encapsulate What Changes
-
->* [Encapsulate the Concept that Varies](http://principles-wiki.net/principles:encapsulate_the_concept_that_varies)
->* [Encapsulate What Varies](https://blogs.msdn.microsoft.com/steverowe/2007/12/26/encapsulate-what-varies/)
->* [Information hiding](https://en.wikipedia.org/wiki/Information_hiding)
-
-# Code For The Maintainer
-
-### Why 
-
-* Maintenance is by far the most expensive phase of any project.
-
-### How
-
-* Be the maintainer.
-* Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.
-* Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.
-* [Don't make me think.](http://www.sensible.com/dmmt.html)
-* Use the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
-
-### Resources
-
->* [Code For The Maintainer]()
->* [The Noble Art of Maintenance Programming/()
 
 # Component Cohesion Principles
 
@@ -555,6 +483,77 @@ A method of an object may only call methods of:
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
 
 - Depend on abstraction, not on concretion.
+
+# Do The Simplest Thing That Could Possibly Work
+
+### Why Do The Simplest Thing That Could Possibly Work
+
+* Real progress against the real problem is maximized if we just work on what the problem really is.
+
+### How Do The Simplest Thing That Could Possibly Work
+
+* Ask yourself: "What is the simplest thing that could possibly work?"
+
+### Resources
+
+>* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
+
+# Hide Implementation Details
+
+A software module hides information (i.e. implementation details) by providing an interface, and not leak any unnecessary information.
+
+### Why Hide Implementation Details
+
+* When the implementation changes, the interface clients are using does not have to change.
+
+### How to Hide Implementation Details
+
+* nMinimize accessibility of classes and members.
+* Don’t expose member data in public.
+* Avoid putting private implementation details into a class’s interface.
+* Decrease coupling to hide more implementation details.
+
+### Resources about Hide Implementation Details
+
+>* [Information hiding](https://en.wikipedia.org/wiki/Information_hiding)
+
+# Encapsulate What Changes
+
+A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.
+
+### Why Encapsulate What Changes
+
+* To minimize required modifications when a change occurs
+
+### How to Encapsulate What Changes
+
+* Encapsulate the concept that varies behind an API
+* Possibly separate the varying concept into its own module
+
+### Resources about Encapsulate What Changes
+
+>* [Encapsulate the Concept that Varies](http://principles-wiki.net/principles:encapsulate_the_concept_that_varies)
+>* [Encapsulate What Varies](https://blogs.msdn.microsoft.com/steverowe/2007/12/26/encapsulate-what-varies/)
+>* [Information hiding](https://en.wikipedia.org/wiki/Information_hiding)
+
+# Code For The Maintainer
+
+### Why 
+
+* Maintenance is by far the most expensive phase of any project.
+
+### How
+
+* Be the maintainer.
+* Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.
+* Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.
+* [Don't make me think.](http://www.sensible.com/dmmt.html)
+* Use the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+
+### Resources
+
+>* [Code For The Maintainer]()
+>* [The Noble Art of Maintenance Programming/()
 
 # Composition Over Inheritance Principle
 
