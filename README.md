@@ -1,4 +1,4 @@
-# Design Principles And Patterns wiki
+# Design Principles And Patterns in Object-Oriented Design (OOD)
 
 "Patterns are a cornerstone of object-oriented design, while test-first programming and merciless refactoring are cornerstones of evolutionary 
 design. To stop over- or under-engineering, it’s necessary to learn how patterns fit into the new, evolutionary rhythm of software development." - Joshua Kerievsky
@@ -14,7 +14,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [ - Code For The Maintainer (Code For The Maintainer)](#code-for-the-maintainer)
 >* [ - Component Cohesion Principles (Component Cohesion Principles)](#component-cohesion-principles)
 >* [ - Summary of Good Practices of Design (Summary of Good Practices of Design)](#summary-of-good-practices-of-design) 
->* [ - Summary of the Principles of Object-Oriented Design (Summary of the Principles of Object-Oriented Design)](#summary-of- the-principles-of-object-oriented-design)
+>* [ - Summary of the Principles of Object-Oriented Design (Summary of the Principles of Object-Oriented Design)](#summary-of-the-principles-of-object-oriented-design)
 >* [ - SOLID Principles (SOLID Principles)](#solid-principles)
 >* [    - SRP - Single Responsability Principle (SRP - Single Responsability Principle)](#srp-single-responsability-principle)
 >* [    - OCP - Open-Closed Principle (OCP - Open-Closed Principle)](#ocp---open-closed-principle)
