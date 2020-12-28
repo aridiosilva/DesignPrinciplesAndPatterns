@@ -62,20 +62,6 @@ Increased difficulty in reusing a module because most applications won’t need 
 
 * Group related functionalities sharing a single responsibility (e.g. in a class).
 
-# Do The Simplest Thing That Could Possibly Work
-
-### Why Do The Simplest Thing That Could Possibly Work
-
-* Real progress against the real problem is maximized if we just work on what the problem really is.
-
-### How Do The Simplest Thing That Could Possibly Work
-
-* Ask yourself: "What is the simplest thing that could possibly work?"
-
-### Resources
-
->* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
-
 ## Minimise Coupling
 
 Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit "B" will "break" after an unknown change to code unit "A".
@@ -92,6 +78,22 @@ Coupling between modules/components is their degree of mutual interdependence; l
 * Eliminate, minimise, and reduce complexity of necessary relationships.
 * By hiding implementation details, coupling is reduced.
 * Apply the Law of Demeter.
+
+# Do The Simplest Thing That Could Possibly Work
+
+### Why Do The Simplest Thing That Could Possibly Work
+
+* Real progress against the real problem is maximized if we just work on what the problem really is.
+
+### How Do The Simplest Thing That Could Possibly Work
+
+* Ask yourself: "What is the simplest thing that could possibly work?"
+
+### Resources
+
+>* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
+
+
 
 # Code For The Maintainer
 
