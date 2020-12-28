@@ -444,13 +444,57 @@ A method of an object may only call methods of:
 * [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
 * [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
 
-
-
 # DIP - Dependency Inversion Principle
 
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
 
 - Depend on abstraction, not on concretion.
+
+# Composition Over Inheritance Principle
+
+### Why Composition Over Inheritance
+
+* Less coupling between classes.
+* Using inheritance, subclasses easily make assumptions, and break LSP.
+
+### How Apply Composition instead of Inheritance
+
+* Test for LSP (substitutability) to decide when to inherit.
+* Compose when there is a "has a" (or "uses a") relationship, inherit when "is a".
+
+### Resources about Composition Over Inheritance
+
+>* [Favor Composition Over Inheritance](https://blogs.msdn.microsoft.com/thalesc/2012/09/05/favor-composition-over-inheritance/)
+
+# Orthogonality Principle
+
+The basic idea of orthogonality is that things that are not related conceptually should not be related in the system.
+
+Source: [Be Orthogonal](https://www.artima.com/intv/dry3.html)
+
+It is associated with simplicity; the more orthogonal the design, the fewer exceptions. This makes it easier to learn, read and write programs in a programming language. The meaning of an orthogonal feature is independent of context; the key parameters are symmetry and consistency.
+
+Source: [Orthogonality](https://en.wikipedia.org/wiki/Orthogonality_(programming))
+
+# Robustness Principle
+
+Be conservative in what you do, be liberal in what you accept from others
+
+Collaborating services depend on each others interfaces. Often the interfaces need to evolve causing the other end to receive unspecified data. A naive implementation refuses to collaborate if the received data does not strictly follow the specification. A more sophisticated implementation will still work ignoring the data it does not recognize.
+
+### Why Apply Robustness Principle
+
+* In order to be able to evolve services you need to ensure that a provider can make changes to support new demands while causing minimal breakage to their existing clients.
+
+### How to Apply Robustness Principle
+
+* Code that sends commands or data to other machines (or to other programs on the same machine) should conform completely to the specifications, but code that receives input should accept non-conformant input as long as the meaning is clear.
+
+### Resources about Robustness Principle
+
+>* [Robustness Principle in Wikipedia](https://en.wikipedia.org/wiki/Robustness_principle)
+>* [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
+
 
 # Inversion of Control (IC)
 
