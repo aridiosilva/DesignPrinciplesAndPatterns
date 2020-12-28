@@ -5,7 +5,23 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
-# Coupling anh Cohesion 
+>* [Coupling and Cohesion](#coupling_and_Cohesion )
+>* [ - Coupling or Dependency](#coupling_or_dependency)
+>* [ - Cohesion]()
+>* [ - Maximize Cohesion]()
+>* [ - Minimize Coupling]()
+>* [ - Hide Implementation Details]()
+>* [ - Encapsulate What Changes]()
+>* [ - Code For The Maintainer]()
+>* [ - ]()
+>* [ - ]()
+>* [ - ]()
+>* [ - ]()
+>* [ - ]()
+>* [ - ]()
+>* [ - ]()
+
+# Coupling and Cohesion 
 
 Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
 
@@ -65,7 +81,7 @@ Increased difficulty in understanding modules.
 Increased difficulty in maintaining a system, because logical changes in the domain affect multiple modules, and because changes in one module require changes in related modules.
 Increased difficulty in reusing a module because most applications won’t need the random set of operations provided by a module.
 
-### How Maximize Cohesion
+### How to Maximize Cohesion
 
 * Group related functionalities sharing a single responsibility (e.g. in a class).
 
@@ -123,16 +139,16 @@ A software module hides information (i.e. implementation details) by providing a
 
 A good design identifies the hotspots that are most likely to change and encapsulates them behind an API. When an anticipated change then occurs, the modifications are kept local.
 
-### Why ncapsulate What Changes
+### Why Encapsulate What Changes
 
 * To minimize required modifications when a change occurs
 
-### How to ncapsulate What Changes
+### How to Encapsulate What Changes
 
 * Encapsulate the concept that varies behind an API
 * Possibly separate the varying concept into its own module
 
-### Resources about ncapsulate What Changes
+### Resources about Encapsulate What Changes
 
 >* [Encapsulate the Concept that Varies](http://principles-wiki.net/principles:encapsulate_the_concept_that_varies)
 >* [Encapsulate What Varies](https://blogs.msdn.microsoft.com/steverowe/2007/12/26/encapsulate-what-varies/)
