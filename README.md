@@ -1253,7 +1253,7 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 - **Aggregation (Dependency)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 - **Realization** - one model element **implements** the responsibility specified by another model element
 
-# UM Association
+# UML Association
 
 **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
@@ -1344,7 +1344,7 @@ Since it connects the object of one class to the object of another class, it is 
 - **{addOnly}**: It specifies that any new connection can be added from an object located at the other end in an association.
 - **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
 
-# UML Generalization (or Inheritance)
+# UML Generalization or Inheritance
 
 In UML modeling, a generalization relationship is a relationship that implements the concept of object orientation called inheritance. The generalization relationship occurs between two entities or objects, such that one entity is the parent, and the other one is the child. The child inherits the functionality of its parent and can access as well as update it.
 
@@ -1473,7 +1473,7 @@ public class StandardComputerBuilder extends ComputerBuilder {
 }
 ```
 
-# UML Dependency (Composition)
+# UML Dependency or Composition
 
 Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
 
@@ -1571,7 +1571,7 @@ Following are the type of dependency relationships, keywords, or stereotypes giv
 - **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
 - **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
-# UML Aggregation (Dependency) 
+# UML Aggregation or Dependency 
 
 Aggregation is also a **“has-a” relationship**. What distinguishes it from **composition**, that **it doesn't involve owning**. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
 
