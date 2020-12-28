@@ -5,7 +5,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
-# Cohesion and Coupling 
+# Coupling 
 
 Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
 
