@@ -48,6 +48,20 @@ One can often estimate the **degree of cohesion** within a module by writing a b
 - High Cohesion is the goal in design of classes, modules and other software artifacts.
 - Low Cohesion is bad practice in design of classes, modules and other software artifacts.
 
+## Maximize Cohesion
+
+Cohesion of a single module/component is the degree to which its responsibilities form a meaningful unit; higher cohesion is better.
+
+### Why Maximize Cohesion
+
+Increased difficulty in understanding modules.
+Increased difficulty in maintaining a system, because logical changes in the domain affect multiple modules, and because changes in one module require changes in related modules.
+Increased difficulty in reusing a module because most applications won’t need the random set of operations provided by a module.
+
+### How Maximize Cohesion
+
+* Group related functionalities sharing a single responsibility (e.g. in a class).
+
 # Do The Simplest Thing That Could Possibly Work
 
 ### Why Do The Simplest Thing That Could Possibly Work
@@ -61,6 +75,23 @@ One can often estimate the **degree of cohesion** within a module by writing a b
 ### Resources
 
 >* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
+
+## Minimise Coupling
+
+Coupling between modules/components is their degree of mutual interdependence; lower coupling is better. In other words, coupling is the probability that code unit "B" will "break" after an unknown change to code unit "A".
+
+### Why Minimize Coupling
+
+* A change in one module usually forces a ripple effect of changes in other modules.
+* Assembly of modules might require more effort and/or time due to the increased inter-module dependency.
+* A particular module might be harder to reuse and/or test because dependent modules must be included.
+* Developers might be afraid to change code because they aren't sure what might be affected.
+
+### How Minmimize Coupling
+
+* Eliminate, minimise, and reduce complexity of necessary relationships.
+* By hiding implementation details, coupling is reduced.
+* Apply the Law of Demeter.
 
 # Code For The Maintainer
 
