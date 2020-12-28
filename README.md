@@ -5,40 +5,6 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
-# Do The Simplest Thing That Could Possibly Work
-
-### Why Do The Simplest Thing That Could Possibly Work
-
-* Real progress against the real problem is maximized if we just work on what the problem really is.
-
-### How Do The Simplest Thing That Could Possibly Work
-
-* Ask yourself: "What is the simplest thing that could possibly work?"
-
-### Resources
-
->* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
-
-# Code For The Maintainer
-
-### Why 
-
-* Maintenance is by far the most expensive phase of any project.
-
-### How
-
-* Be the maintainer.
-* Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.
-* Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.
-* [Don't make me think.](http://www.sensible.com/dmmt.html)
-* Use the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
-
-### Resources
-
->* [Code For The Maintainer]()
->* [The Noble Art of Maintenance Programming/()
-
-
 # Cohesion and Coupling 
 
 Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
@@ -81,6 +47,39 @@ One can often estimate the **degree of cohesion** within a module by writing a b
 - Is a measure of how strongly-related or focused the responsabilities of a single module are.
 - High Cohesion is the goal in design of classes, modules and other software artifacts.
 - Low Cohesion is bad practice in design of classes, modules and other software artifacts.
+
+# Do The Simplest Thing That Could Possibly Work
+
+### Why Do The Simplest Thing That Could Possibly Work
+
+* Real progress against the real problem is maximized if we just work on what the problem really is.
+
+### How Do The Simplest Thing That Could Possibly Work
+
+* Ask yourself: "What is the simplest thing that could possibly work?"
+
+### Resources
+
+>* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
+
+# Code For The Maintainer
+
+### Why 
+
+* Maintenance is by far the most expensive phase of any project.
+
+### How
+
+* Be the maintainer.
+* Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.
+* Always code and comment in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.
+* [Don't make me think.](http://www.sensible.com/dmmt.html)
+* Use the [Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+
+### Resources
+
+>* [Code For The Maintainer]()
+>* [The Noble Art of Maintenance Programming/()
 
 ## Component Cohesion Principles
 
