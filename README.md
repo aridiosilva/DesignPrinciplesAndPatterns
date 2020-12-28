@@ -5,7 +5,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
->* [Coupling and Cohesion](#coupling-and-cohesion )
+ * [Coupling and Cohesion](#coupling-and-cohesion )
 >* [Coupling or Dependency](#coupling-or-dependency)
 >* [Cohesion](#cohesion)
 
@@ -17,13 +17,16 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 >* [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 >* [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
->* [SOLID Principles](#solid-principles)
+
+ * [SOLID Principles](#solid-principles)
+
 >* [SRP Single Responsability Principle](#srp-single-responsability-principle)
 >* [OCP Open-Closed Principle](#ocp-open-closed-principle)
 >* [LSP Liskov Substitution Principle](#lsp-liskov-substitution-principle)
 >* [ISP Interface Segregation Principle](#isp-interface-segregation-principle)
 
->* [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
+ * [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
+
 >* [SoC Separation of Concerns](#soc-separation-of-concerns)
 >* [KISS Keep It Simple Principle](#kiss-keep-it-simple-principle)
 >* [Keep things DRY](#keep-things-dry)
@@ -39,7 +42,8 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 >* [Classification of Programming Languages](#classification-of-programming-languages)
 
->* [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
+ * [Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems](#gang-of-four-23-design-patterns-to-help-fix-design-object-oriented-problems)
+
 >* [GoF What is a Design Pattern](#gof-what-is-a-design-pattern)
 >* [GoF Elements of a Pattern](#gof-elements-of-a-pattern)
 >* [GoF Describing Design Patterns](#gof-describing-design-patterns)
@@ -63,7 +67,8 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 >* [GoF P12 Frameworks]
 >* [FACTORY DESIGN PATTERN]
 
->* [UML Relationships among Classes]
+ * [UML Relationships among Classes]
+
 >* [UM Association]
 >* [UML Generalization (or Inheritance)]
 >* [Inheritance in Design Patterns]
