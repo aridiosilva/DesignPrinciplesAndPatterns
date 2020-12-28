@@ -5,6 +5,20 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 "The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
 
+# Do The Simplest Thing That Could Possibly Work
+
+### Why Do The Simplest Thing That Could Possibly Work
+
+* Real progress against the real problem is maximized if we just work on what the problem really is.
+
+### How Do The Simplest Thing That Could Possibly Work
+
+* Ask yourself: "What is the simplest thing that could possibly work?"
+
+### Resources
+
+>* [Do The Simplest Thing That Could Possibly Work](http://c2.com/xp/DoTheSimplestThingThatCouldPossiblyWork.html)
+
 # Cohesion and Coupling 
 
 Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
