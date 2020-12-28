@@ -690,7 +690,7 @@ A strongly-typed language is one in which variables are bound to specific data t
 
 A weakly-typed language on the other hand is a language in which variables are not bound to a specific data type; they still have a type, but type safety constraints are lower compared to strongly-typed languages.  PHP is weakly-typed, and so is C.
 
-# Gang of Four - 23 Design Patterns (to help Fix Design Object-Oriented Problems)
+# Gang of Four 23 Design Patterns to help Fix Design Object-Oriented Problems
 
 ## GoF What is a Design Pattern?
 
