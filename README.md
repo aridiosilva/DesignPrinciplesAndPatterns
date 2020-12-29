@@ -343,7 +343,7 @@ The goal of the dependency inversion pattern is to avoid this highly coupled dis
 
 With the addition of an abstract layer, both high- and lower-level layers reduce the traditional dependencies from top to bottom. Nevertheless, the "inversion" concept does not mean that lower-level layers depend on higher-level layers. Both layers should depend on abstractions that draw the behavior needed by higher-level layers.
 
-![dip layers](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/DIPLayersPattern.png)
+![dip layers](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/DIPLayersPattern002.png)
 
 In a direct application of dependency inversion, the abstracts are owned by the upper/policy layers. This architecture groups the higher/policy components and the abstractions that define lower services together in the same package. The lower-level layers are created by inheritance/implementation of these abstract classes or interfaces.[1]
 
