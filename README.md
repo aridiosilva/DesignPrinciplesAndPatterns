@@ -380,6 +380,11 @@ Using inheritance-based mocking tools also introduces restrictions:
 >* Static externally visible members should systematically rely on dependency injection making them far harder to implement.
 >* All testable methods should become an interface implementation or an override of an abstract definition.
 
+### Example of DIP applyed using Abstract Class instead of Interface
+
+![DIPRealCase001](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/RealCaseOfDIPUUsingAbstractClassInteadOfInterface.jpg)
+
+
 
 # Summary of Good Practices of Design
 
