@@ -363,7 +363,7 @@ If the mocking tool used relies only on inheritance, it may become necessary to 
 >3. The interface generalization requires more plumbing code, in particular factories that generally rely on a dependency-injection framework.
 >4. Interface generalization also restricts the usage of the programming language.
 
-### Generalization restrictions
+### Generalization restrictions of Dependency Injection Principle 
 
 The presence of interfaces to accomplish the Dependency Inversion Pattern (DIP) has other design implications in an object-oriented program:
 
