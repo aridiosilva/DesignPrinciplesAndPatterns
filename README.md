@@ -384,7 +384,114 @@ Using inheritance-based mocking tools also introduces restrictions:
 
 ![DIPRealCase001](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/RealCaseOfDIPUUsingAbstractClassInteadOfInterface.jpg)
 
+```java
+public class Rental {
+	private Movie _movie;
+	private int _daysRented;
 
+	public Rental(Movie movie, int daysRented) {
+		_movie = movie;
+		_daysRented = daysRented;
+	}
+	public int getDaysRented() {
+		return _daysRented;
+	}
+	public Movie getMovie() {
+		return _movie;
+	}
+	public int getFrequentRenterPoints() {
+		
+		int daysRented = getDaysRented();
+		return _movie.getFrequentRenterPoints(daysRented);
+	}
+	public double getAmount() {
+		
+		int daysRented = getDaysRented();
+		return _movie.getAmount(daysRented);
+	}
+}
+```
+
+```java
+public abstract class Movie {
+	
+	public static final int CHILDRENS = 2;	
+	public static final int REGULAR = 0;
+	public static final int NEW_RELEASE = 1;
+	private String _title;
+
+        public static Movie factoryMovie(String title, int typeOfMovie) throws Exception {
+		
+		//  Factory Method Pattern 
+		if (typeOfMovie == REGULAR)
+			return new RegularMovie (title);
+		if (typeOfMovie == CHILDRENS)
+			return new ChildrensMovie (title);	
+		if (typeOfMovie == NEW_RELEASE)
+			return new NewReleaseMovie (title);	
+		
+		throw new Exception("Nao Existe Este tipo de Filme - Os tipos Atuais sao REGULAR, CHILDRENS e NEW-RELEASE");
+	}
+	public Movie(String title) {
+		_title = title;
+	}
+	public String getTitle() {
+		return _title;
+	}
+	public abstract double getAmount(int daysRented);
+
+	public abstract int getFrequentRenterPoints(int daysRented);
+}
+```
+
+```java
+public class RegularMovie extends Movie {
+	public RegularMovie(String title) {
+		super(title);
+	}
+	public double getAmount(int daysRented) {
+		double thisAmount = 2;
+		if (daysRented > 2)
+			thisAmount += (daysRented - 2) * 1.5;
+		return thisAmount;
+	}
+	public int getFrequentRenterPoints(int daysRented) {
+		return 1;
+	}
+}
+```
+```java
+public class ChildrensMovie extends Movie {
+	public ChildrensMovie(String title) {
+		super(title);
+	}
+	public double getAmount(int daysRented) {
+		double thisAmount = 1.5;
+		if (daysRented > 3)
+			thisAmount += (daysRented - 3) * 1.5;
+		return thisAmount;
+	}
+	public int getFrequentRenterPoints(int daysRented) {
+        return 1;
+	}
+}
+```
+```java
+public class NewReleaseMovie extends Movie {
+	public NewReleaseMovie(String title) {
+		super(title);
+	}
+	public double getAmount(int daysRented) {
+		double thisAmount = 0;
+		thisAmount += daysRented * 3;
+		return thisAmount;
+	}
+	public int getFrequentRenterPoints(int daysRented) {
+		if (daysRented > 1)
+			return 2;  else  return 1;
+	}
+}
+```
 
 # Summary of Good Practices of Design
 
