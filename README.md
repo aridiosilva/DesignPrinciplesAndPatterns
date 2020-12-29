@@ -1839,7 +1839,48 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization3.png)
 
 
+# Creational Design Patterns
 
+## Introduction to Creational Design Patterns
 
+These patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code. The Creational Patterns are the following:
+
+A - Creational Object Design Pattern:
+
+* Factory Method (107)
+
+B - Creational Class Design Patterns:
+
+* Abstract Factory (87)
+* Builder (97)
+* Prototype (117)
+* Singleton (127)
+
+## Description of Creational Design Patterns
+
+### DCP 1 - Factory Method (107)
+
+A factory method is a generalization of a simple factory:
+
+* There is a superclass or interface which has the factory or method declared
+* Subclasses or implementers specialize this factory to create the kinds of objects they need
+* Advantage over simple factory above is no switch statement is needed when the factory decides what kind of object to make: the choice of subclass already made the decision.
+-- recall switch is a smell, and we are removing a switch
+
+### GOF Description of Factory Method (107) 
+
+ - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+### Generic diagram of Factory Method (107) Pattern
+
+![generic_uml_class_diagram](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Factory%20Pattern%20-%20Page%20107%20GOF%20Book%20002.jpg)
+
+Pizza example in HFDPs and the code for it.
+
+##Use of the Dependency Inversion Principle in the Factory Design Pattern
+
+"High level code should not depend directly on low level code; instead, both should depend on an abstractions";  In other words, put an interface in the middle! Separate those concerns! We skipped this principle in the Design Principles lecture since Factory Method is a really good iillustration. The initial pizza-making code without a factory required the top-level PizzaStore class to itself choose the kind of pizza: see picture from book. Arrows in the above (read as "dependent-on") show high-level code directly dependent on details of low-level code (it needs their names to create them via new) This picture shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted - D-I-P!
+
+![pizza example of Factory Method pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Example%20of%20Factory%20Pattern%20page%20132%20Pizza%20Example%20001.jpg)
 
 
