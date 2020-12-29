@@ -1845,11 +1845,11 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 
 These patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code. The Creational Patterns are the following:
 
-A - Creational Object Design Pattern:
+**A - Creational Object Design Pattern:**
 
 * Factory Method (107)
 
-B - Creational Class Design Patterns:
+**B - Creational Class Design Patterns:**
 
 * Abstract Factory (87)
 * Builder (97)
