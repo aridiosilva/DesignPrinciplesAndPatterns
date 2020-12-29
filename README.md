@@ -335,7 +335,7 @@ When the discovered abstract interaction schema(s) between two modules is/are ge
 
 In conventional application architecture, lower-level components (e.g., Utility Layer) are designed to be consumed by higher-level components (e.g., Policy Layer) which enable increasingly complex systems to be built. In this composition, higher-level components depend directly upon lower-level components to achieve some task. This dependency upon lower-level components limits the reuse opportunities of the higher-level components.
 
-![traditional layers pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Traditional_Layers_Pattern.png)
+![traditional layers pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Traditional_Layers_Pattern001.png)
 
 ### How to Implement Dependency Injection Principle 
 
