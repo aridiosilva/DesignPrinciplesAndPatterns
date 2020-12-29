@@ -1873,7 +1873,7 @@ A factory method is a generalization of a simple factory:
 
 ### Generic diagram of Factory Method (107) Pattern
 
-![generic_uml_class_diagram](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Factory%20Pattern%20-%20Page%20107%20GOF%20Book%20002.jpg)
+![generic_uml_class_diagram](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
 
 Pizza example in HFDPs and the code for it.
 
