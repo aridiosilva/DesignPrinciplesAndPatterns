@@ -1,9 +1,9 @@
 # Design Principles And Patterns in Object-Oriented Design (OOD)
 
-"Patterns are a cornerstone of object-oriented design, while test-first programming and merciless refactoring are cornerstones of evolutionary 
-design. To stop over- or under-engineering, it’s necessary to learn how patterns fit into the new, evolutionary rhythm of software development." - Joshua Kerievsky
+*"Patterns are a cornerstone of object-oriented design, while test-first programming and merciless refactoring are cornerstones of evolutionary 
+design. To stop over- or under-engineering, it’s necessary to learn how patterns fit into the new, evolutionary rhythm of software development."* - Joshua Kerievsky
 
-"The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings" - Jack Reevis
+*"The only software documentation that actually seems to satisfy the criteria of an engeneering design is the source code listings"* - Jack Reevis
 
 * [Coupling and Cohesion](#coupling-and-cohesion )
 
