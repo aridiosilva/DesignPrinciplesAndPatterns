@@ -1961,7 +1961,7 @@ public class Product {
 	public float getPrice() {
 		return productPrice;
 	}	
-	public void getPrice(float price) {
+	public void setPrice(float price) {
 		productPrice = price;
 	}	
 	public int getInventory( ) {
