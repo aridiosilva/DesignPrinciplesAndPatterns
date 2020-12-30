@@ -1872,15 +1872,169 @@ A factory method is a generalization of a simple factory:
  - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 ### Generic diagram of Factory Method (107) Pattern
+https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UMLClassDiagramAppBeverageMAchineUSingFActoryMethodPatternAridioSilvaDEC2020Image002.jpghttps://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
 
-![generic_uml_class_diagram](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
+Beverage Machine Application Code Example:
 
-Pizza example in HFDPs and the code for it.
+```java
+public interface IBeverageMachine {
+    public Beverage createBeverage(int TypeOfBeverage);
+}
+```
+```java
+ublic abstract class Beverage {
+	Product _prod;	
+	public abstract Product getFullProduct();
+}
+```
+```java
+public class Coffee extends Beverage {	
+	private static Product _prod;	
+	public Coffee ( float price, int qty ) {		 
+		_prod = new Product ("Coffee",  price, qty);
+	}
+	@Override
+	public Product getFullProduct() {
+		return _prod;
+	}
+}
+```
+```java
+public class Soda extends Beverage {
+	private static Product _prod;	
+	public Soda ( float price, int qty ) {		 
+		_prod = new Product ("Soda",  price, qty);
+	}
+	@Override
+	public Product getFullProduct() {
+		return _prod;
+	}
+}
+```
+```java
+public class Chocolate extends Beverage {
+	private static Product _prod;	
+	public Chocolate ( float price, int qty ) {		 
+		_prod = new Product ("Chocolate",  price, qty);
+	}
+	@Override
+	public Product getFullProduct() {		
+		return _prod;
+	}
+}
+```
+```java 
+public class Product {		
+	private String productName;
+	private float productPrice;
+	private int inventory;	
+	public Product (String Name, float Price, int inventory) {
+		this.productName = Name;
+		this.productPrice = Price;
+		this.inventory = inventory;
+	}
+	public String getName() {
+		return productName;
+	}
+	public float getPrice() {
+		return productPrice;
+	}	
+	public void getPrice(float price) {
+		productPrice = price;
+	}	
+	public int getInventory( ) {
+		return inventory;
+	}
+	public void addInventory (int quantity) {
+		inventory += quantity;
+	}
+	public void subtractInventory (int quantity) {
+		inventory -= quantity;
+	}	
+}
+```
+```java
+public class SalesMachine implements IBeverageMachine {
+	private static final int _soda      = 111;
+	private static final int _coffee    = 222;
+	private static final int _chocolate = 333;	
+	private int _qtySold;
+	private float _valueSold;
+
+	public SalesMachine() {
+		this._qtySold = 0;
+		this._valueSold = 0f;	 
+	}
+	@Override
+	public Beverage createBeverage(int TypeOfBeverage) {
+		switch (TypeOfBeverage) {
+		case _soda  :      return new Soda (10.5f, 0);
+		case _coffee:      return new Coffee (4.5f, 0);
+		case _chocolate:   return new Chocolate (6.5f, 0);		
+		}
+		return null;	
+	}
+	public void recordSale (Product p, int qty ) {
+		Product _p = p;
+		_qtySold += qty;
+		_p.subtractInventory(qty);
+		_valueSold += (qty * _p.getPrice());
+	}
+	public void purchaseItemToSale (Product p, int qty, float priceSale ) {
+		Product _p = p;
+		_p.addInventory(qty);
+		_p.productPrice = priceSale;
+	}
+	public float getPriceTotalSold () {
+		return _valueSold;
+	}
+	public int getQtyTotalSold () {
+		return _qtySold;
+	}
+}
+```
+```java
+import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+class BeverageMachineTest {
+	@Test
+	void test() {
+		int _soda      = 111;
+		int _coffee    = 222;
+		int _chocolate = 333;
+		Product _prodSoda;
+		Product _prodChocolate;
+		Product _prodCoffee;
+		Beverage bg;
+		SalesMachine _sm = new SalesMachine();
+
+		bg = _sm.createBeverage(_soda);
+		_prodSoda = bg.getFullProduct();
+		_sm.purchaseItemToSale(_prodSoda, 121, 12.8f );
+		assertEquals ( "Soda", _prodSoda.productName);
+
+		bg = _sm.createBeverage(_coffee);
+		_prodCoffee = bg.getFullProduct();
+		_sm.purchaseItemToSale(_prodCoffee, 12, 8.5f );
+		assertEquals ( "Coffee", _prodCoffee.productName);
+
+		bg = _sm.createBeverage(_chocolate);
+		_prodChocolate = bg.getFullProduct();
+		_sm.purchaseItemToSale(_prodChocolate, 18, 6.2f);
+		assertEquals ( "Chocolate", _prodChocolate.productName);	
+
+		assertEquals (  18, _prodChocolate.getInventory());
+		assertEquals (  12, _prodCoffee.getInventory());
+		assertEquals ( 121, _prodSoda.getInventory());
+	}
+}
+```
 
 ##Use of the Dependency Inversion Principle in the Factory Design Pattern
 
 "High level code should not depend directly on low level code; instead, both should depend on an abstractions";  In other words, put an interface in the middle! Separate those concerns! We skipped this principle in the Design Principles lecture since Factory Method is a really good iillustration. The initial pizza-making code without a factory required the top-level PizzaStore class to itself choose the kind of pizza: see picture from book. Arrows in the above (read as "dependent-on") show high-level code directly dependent on details of low-level code (it needs their names to create them via new) This picture shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted - D-I-P!
 
-![pizza example of Factory Method pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Example%20of%20Factory%20Pattern%20page%20132%20Pizza%20Example%20001.jpg)
+
 
 
