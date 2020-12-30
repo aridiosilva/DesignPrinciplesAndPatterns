@@ -76,6 +76,10 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    - [UML Aggregation or Dependency](#uml-aggregation-or-dependency)
    - [UML Realization](#uml-realization)
    - [Interface Realization](#interface-realization)
+   
+* [# Creational Design Patterns](#creational-design-patterns)
+
+   - [DCP1 Factory Method](## dcp1-factory-method)
 
 # Coupling and Cohesion 
 
@@ -1838,7 +1842,6 @@ Here the interface Iruleagent is denoted by an elided form, which is realized by
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-realization3.png)
 
-
 # Creational Design Patterns
 
 ## Introduction to Creational Design Patterns
@@ -1856,9 +1859,9 @@ These patterns provide various object creation mechanisms, which increase flexib
 * Prototype (117)
 * Singleton (127)
 
-## Description of Creational Design Patterns
+# Description of Creational Design Patterns
 
-### DCP 1 - Factory Method (107)
+# DCP1 Factory Method
 
 A factory method is a generalization of a simple factory:
 
@@ -1891,12 +1894,14 @@ public interface IBeverageMachine {
 ```
 ```java
 ublic abstract class Beverage {
+
 	Product _prod;	
 	public abstract Product getFullProduct();
 }
 ```
 ```java
 public class Coffee extends Beverage {	
+
 	private static Product _prod;	
 	public Coffee ( float price, int qty ) {		 
 		_prod = new Product ("Coffee",  price, qty);
@@ -1909,6 +1914,7 @@ public class Coffee extends Beverage {
 ```
 ```java
 public class Soda extends Beverage {
+
 	private static Product _prod;	
 	public Soda ( float price, int qty ) {		 
 		_prod = new Product ("Soda",  price, qty);
@@ -1921,6 +1927,7 @@ public class Soda extends Beverage {
 ```
 ```java
 public class Chocolate extends Beverage {
+
 	private static Product _prod;	
 	public Chocolate ( float price, int qty ) {		 
 		_prod = new Product ("Chocolate",  price, qty);
@@ -1965,6 +1972,7 @@ public class Product {
 ```
 ```java
 public class SalesMachine implements IBeverageMachine {
+
 	private static final int _soda      = 111;
 	private static final int _coffee    = 222;
 	private static final int _chocolate = 333;	
@@ -2015,14 +2023,17 @@ import org.junit.jupiter.api.Test;
 class BeverageMachineTest {
 	@Test
 	void test() {
+	
 		int _soda      = 111;
 		int _coffee    = 222;
 		int _chocolate = 333;
+		
 		Product _prodSoda;
 		Product _prodChocolate;
 		Product _prodCoffee;
 		Beverage bg;
-		SalesMachine _sm = new SalesMachine();
+		
+		IBeverageMachine _sm = new SalesMachine();
 
 		bg = _sm.createBeverage(_soda);
 		_prodSoda = bg.getFullProduct();
