@@ -1886,8 +1886,11 @@ Beverage Machine Application Code Example:
 public interface IBeverageMachine {
 
     //Factory Method 
+    
     public Beverage createBeverage(int TypeOfBeverage);
+    
     // The Other Methods of the Application
+    
     public void recordSale (Product p, int qty);
     public void purchaseItemToSale (Product p, int qty, float priceSale);
     public float getPriceTotalSold();
@@ -1895,7 +1898,7 @@ public interface IBeverageMachine {
 }
 ```
 ```java
-ublic abstract class Beverage {
+public abstract class Beverage {
 
 	Product _prod;	
 	public abstract Product getFullProduct();
