@@ -1873,7 +1873,7 @@ A factory method is a generalization of a simple factory:
 
 ### Generic diagram of Factory Method (107) Pattern
 
-![UML Class Diagram Factory Method Pattern](ghttps://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
+![UML Class Diagram Factory Method Pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UMLClassDiagramAppBeverageMAchineUSingFActoryMethodPatternAridioSilvaDEC2020Image002.jpg)
 
 Beverage Machine Application Code Example:
 
