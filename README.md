@@ -71,11 +71,11 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 * [UML Relationships among Classes](#uml-relationships-among-classes)
 
-   - [UML Association](#uml-association)
+   - [UML Association or Using Relationship](#uml-association-or-using-relationship)
    - [UML Generalization or Inheritance](#uml-generalization-or-inheritance)
    - [Inheritance in Design Patterns](#inheritance-in-design-patterns)
    - [UML Dependency or Composition](#uml-dependency-or-composition)
-   - [UML Aggregation or Dependency](#uml-aggregation-or-dependency)
+   - [UML Aggregation or Has a Relationship or Dependency](#uml-aggregation-or-has-a-relationship-or-dependency)
    - [UML Realization](#uml-realization)
    - [Interface Realization](#interface-realization)
    
@@ -1427,13 +1427,13 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 
 # UML Relationships among Classes
 
-- **Association** - "is part of association" relationship
+- **Association or Using Relationship** - "is part of association" relationship
 - **Generalization (inheritance)** - “is-a” relationship
 - **Composition (Dependency)** - one element is dependent on another element -“has-a” relationship 
-- **Aggregation (Dependency)** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Aggregation (Dependency) or Has a Relationship** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
 - **Realization** - one model element **implements** the responsibility specified by another model element
 
-# UML Association
+# UML Association or Using Relationship
 
 **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
@@ -1751,7 +1751,7 @@ Following are the type of dependency relationships, keywords, or stereotypes giv
 - **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
 - **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
-# UML Aggregation or Dependency 
+# UML Aggregation or Has a Relationship or Dependency 
 
 Aggregation is also a **“has-a” relationship**. What distinguishes it from **composition**, that **it doesn't involve owning**. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
 
