@@ -72,8 +72,8 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 * [UML Relationships among Classes](#uml-relationships-among-classes)
 
    - [UML Association or Using Relationship](#uml-association-or-using-relationship)
-   - [UML Dependency or Composition](#uml-dependency-or-composition)
-   - [UML Aggregation or Has a Relationship or Dependency](#uml-aggregation-or-has-a-relationship-or-dependency)
+   - [UML Composition](#uml-composition)
+   - [UML Aggregation or Has a Relationship](#uml-aggregation-or-has-a-relationship)
    - [UML Generalization or Inheritance](#uml-generalization-or-inheritance)
    - [UML Realization](#uml-realization)
    - [Interface Realization](#interface-realization)
@@ -1502,7 +1502,7 @@ Since it connects the object of one class to the object of another class, it is 
 - **{addOnly}**: It specifies that any new connection can be added from an object located at the other end in an association.
 - **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
 
-# UML Dependency or Composition
+# UML Composition
 
 Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
 
@@ -1600,7 +1600,7 @@ Following are the type of dependency relationships, keywords, or stereotypes giv
 - **<< parameter >>** -It describes that the supplier is a parameter of the client's actions.
 - **<< send >>** -The client act as an operation, which sends some unspecified targets to the supplier.
 
-# UML Aggregation or Has a Relationship or Dependency 
+# UML Aggregation or Has a Relationship 
 
 Aggregation is also a **“has-a” relationship**. What distinguishes it from **composition**, that **it doesn't involve owning**. As a result, the lifecycles of the objects aren't tied: every one of them can exist independently of each other.
 
