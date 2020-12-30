@@ -2038,21 +2038,21 @@ class BeverageMachineTest {
 		Product _prodCoffee;
 		Beverage bg;
 		
-		IBeverageMachine _sm = new SalesMachine();
+		IBeverageMachine _bm = new SalesMachine();
 
-		bg = _sm.createBeverage(_soda);
+		bg = _bm.createBeverage(_soda);
 		_prodSoda = bg.getFullProduct();
-		_sm.purchaseItemToSale(_prodSoda, 121, 12.8f );
+		_bm.purchaseItemToSale(_prodSoda, 121, 12.8f );
 		assertEquals ( "Soda", _prodSoda.productName);
 
-		bg = _sm.createBeverage(_coffee);
+		bg = _bm.createBeverage(_coffee);
 		_prodCoffee = bg.getFullProduct();
-		_sm.purchaseItemToSale(_prodCoffee, 12, 8.5f );
+		_bm.purchaseItemToSale(_prodCoffee, 12, 8.5f );
 		assertEquals ( "Coffee", _prodCoffee.productName);
 
-		bg = _sm.createBeverage(_chocolate);
+		bg = _bm.createBeverage(_chocolate);
 		_prodChocolate = bg.getFullProduct();
-		_sm.purchaseItemToSale(_prodChocolate, 18, 6.2f);
+		_bm.purchaseItemToSale(_prodChocolate, 18, 6.2f);
 		assertEquals ( "Chocolate", _prodChocolate.productName);	
 
 		assertEquals (  18, _prodChocolate.getInventory());
