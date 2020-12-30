@@ -79,7 +79,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    
 * [# Creational Design Patterns](#creational-design-patterns)
 
-   - [DCP1 Factory Method](##dcp1-factory-method)
+   - [DCP1 Factory Method](#dcp1-factory-method)
 
 # Coupling and Cohesion 
 
