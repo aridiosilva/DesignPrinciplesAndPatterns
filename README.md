@@ -29,16 +29,18 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    - [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
    - [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
 
-* [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
-* [Hide Implementation Details](#hide-implementation-details)
-* [Encapsulate What Changes](#encapsulate-what-changes)
-* [Code For The Maintainer](#code-for-the-maintainer)
-* [Component Cohesion Principles](#component-cohesion-principles)
-* [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
-* [Orthogonality Principle](#orthogonality-principle)
-* [Robustness Principle](#robustness-principle)
-* [IC Inversion of Control](#ic-inversion-of-control)
-* [Command Query Separation Principle](#Command-query-separation-principle)
+* Other Good Practices in Design 
+
+   - [Do The Simplest Thing That Could Possibly Work](#do-the-simplest-thing-that-could-possibly-work)
+   - [Hide Implementation Details](#hide-implementation-details)
+   - [Encapsulate What Changes](#encapsulate-what-changes)
+   - [Code For The Maintainer](#code-for-the-maintainer)
+   - [Component Cohesion Principles](#component-cohesion-principles)
+   - [Composition Over Inheritance Principle](#composition-over-inheritance-principle)
+   - [Orthogonality Principle](#orthogonality-principle)
+   - [Robustness Principle](#robustness-principle)
+   - [IC Inversion of Control](#ic-inversion-of-control)
+   - [Command Query Separation Principle](#Command-query-separation-principle)
 
 * [Classification of Programming Languages](#classification-of-programming-languages)
 
