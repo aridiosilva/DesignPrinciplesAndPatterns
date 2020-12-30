@@ -1403,10 +1403,20 @@ Frameworks are becoming increasingly common and important. They are the way that
 
 ![umlassociations Relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/AssociationCompositionAggregationRelationshipsImage001.jpg)
 
-Association is relation between two separate classes which establishes through their Objects. Association can be one-to-one, one-to-many, many-to-one, many-to-many.
-In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association.
+* Association is relation between two separate classes which establishes through their Objects. 
 
-**Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes.  You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
+* Association can be:
+
+  - one-to-one, 
+  - one-to-many, 
+  - many-to-one, or 
+  - many-to-many.
+  
+* In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. 
+
+* Composition and Aggregation are the two forms of association.
+
+* **Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes.  You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
 Association is the weakest relationship between the three (Association, Generalization and Composition). It **isn't** a **“has-a” relationship**, *none of the objects are parts or members of another*.  Association is called a **"using relationship"**.
 
