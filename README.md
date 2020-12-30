@@ -1390,40 +1390,6 @@ Because patterns and frameworks have some similarities, people often wonder how 
 
 Frameworks are becoming increasingly common and important. They are the way that object-oriented systems achieve the most reuse. Larger object-oriented applications will end up consisting of layers of frameworks that cooperate with each other. Most of the design and code in the application will come from or be influenced by the frameworks it uses.
 
-# FACTORY DESIGN PATTERN
-
-The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
-
-## What is Factory Design Pattern ?
-
-A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
-
-The Factory Method Pattern is also known as Virtual Constructor.
-
-The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
-
-## What is the Factory Pattern used for?
-
-The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
-
-Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
-
-A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
-
-- when it applies, 
-- whether it can be applied in view of other design constraints, and 
-- the consequences and trade-offs of its use. 
-
-## Advantage of Factory Design Pattern
-
-- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
-- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
-
-## Usage of Factory Design Pattern
-
-- When a class doesn't know what sub-classes will be required to create
-- When a class wants that its sub-classes specify the objects to be created.
-- When the parent classes choose the creation of objects to its sub-classes.
 
 # UML Relationships among Classes
 
@@ -1435,15 +1401,18 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 
 # UML Association or Using Relationship
 
-**Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes. You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
+![umlassociations Relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Associatn_Relationships_UML_image001.png)
 
-![umlassocation](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-association2.png)
+Association is relation between two separate classes which establishes through their Objects. Association can be one-to-one, one-to-many, many-to-one, many-to-many.
+In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association.
 
-Association is the weakest relationship between the three (Association, Generalization and Composition). It isn't a “has-a” relationship, none of the objects are parts or members of another.
+**Association** - In UML diagrams, an association class is a class that is part of an association relationship between two other classes.  You can attach an association class to an association relationship to provide additional information about the relationship. Association is the semantic relationship between classes that shows how one instance is connected or merged with others in a system. The objects are combined either logically or physically.
 
-Association only means that the objects “know” each other. For example, a mother and her child.
+Association is the weakest relationship between the three (Association, Generalization and Composition). It **isn't** a **“has-a” relationship**, *none of the objects are parts or members of another*.  Association is called a **"using relationship"**.
 
-In UML, If the association is unidirectional we mark it with an arrow:
+Association only means that "the objects “know” each other*. For example, a mother and her child.
+
+In UML, If the **association is unidirectional** we mark it with an arrow:
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/association_symbol.png)
 
@@ -1872,6 +1841,39 @@ A factory method is a generalization of a simple factory:
 * Advantage over simple factory above is no switch statement is needed when the factory decides what kind of object to make: the choice of subclass already made the decision.
 -- recall switch is a smell, and we are removing a switch
 
+The only thing that we can be sure in software development is that the change in the requirements of applications will occur inevitably. So, the business requirements change over time. New product launches, new regulations, effect of competitors, new markets needs, economic factors, adn  so on: there are lots of potential causes for business software to need updating. From those observations we can infer that the code they write is going to change, but not what those changes will be or when they will happen. Writing code in such a way that it can be easily adapted is a skill that takes years to master. How you code your application has a big impact on how easy it is to adapt to meet new requirements. As weprogress through our career, we learn techniques that make adapting code easier. Once we've grasped fundamentals of object-oriented programming we wonder how we ever did without it!
+
+### What is Factory Design Pattern ?
+
+A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
+
+The Factory Method Pattern is also known as Virtual Constructor.
+
+The Factory Method pattern is useful when you need to abstract the creation of an object away from its actual implementation. Let’s say the factory will be building a “MobileDevice” product type. A mobile device could be made up of any number of components, some of which can and will change later, depending on advances in technology.
+
+### What is the Factory Pattern used for?
+
+The Factory Method pattern is a design pattern used to define a runtime interface for creating an object. It's called a factory because it creates various types of objects without necessarily knowing what kind of object it creates or how to create it.
+
+Design patterns are not about designs such as linked lists and hash tables that can be encoded in classes and reused as is. Nor are they complex, domain-specific designs for an entire application or subsystem. The design patterns in this book are descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
+
+A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design. The design pattern identifies the participating classes and instances, their roles and collaborations, and the distribution of responsibilities. Each design pattern focuses on a particular object-oriented design problem or issue. It describes :
+
+- when it applies, 
+- whether it can be applied in view of other design constraints, and 
+- the consequences and trade-offs of its use. 
+
+### Advantage of Factory Design Pattern
+
+- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+- It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+### Usage of Factory Design Pattern
+
+- When a class doesn't know what sub-classes will be required to create
+- When a class wants that its sub-classes specify the objects to be created.
+- When the parent classes choose the creation of objects to its sub-classes.
+
 ### GOF Description of Factory Method (107) 
 
  - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
@@ -2086,6 +2088,8 @@ Arrows in the above (read as "dependent-on") show high-level code directly depen
 
 The UML Class Diagram above shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted. 
 
+
+# FACTORY DESIGN PATTERN
 
 
 
