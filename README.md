@@ -2037,7 +2037,6 @@ class BeverageMachineTest {
 		Product _prodChocolate;
 		Product _prodCoffee;
 		Beverage bg;
-		
 		IBeverageMachine _bm = new SalesMachine();
 
 		bg = _bm.createBeverage(_soda);
@@ -2058,6 +2057,13 @@ class BeverageMachineTest {
 		assertEquals (  18, _prodChocolate.getInventory());
 		assertEquals (  12, _prodCoffee.getInventory());
 		assertEquals ( 121, _prodSoda.getInventory());
+		
+		_bm.recordSale (_prodChocolate, 5);
+		_bm.recordSale (_prodChocolate, 2);
+		assertEquals (  11, _prodChocolate.getInventory());
+		
+		assertEquals (  7,_bm.getQtyTotalSold());
+		Assert.assertEquals(43.40f, _bm.getPriceTotalSold(), 0.0002);
 	}
 }
 ```
