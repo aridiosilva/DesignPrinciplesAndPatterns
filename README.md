@@ -1879,7 +1879,14 @@ Beverage Machine Application Code Example:
 
 ```java
 public interface IBeverageMachine {
+
+    //Factory Method 
     public Beverage createBeverage(int TypeOfBeverage);
+    // The Other Methods of the Application
+    public void recordSale (Product p, int qty);
+    public void purchaseItemToSale (Product p, int qty, float priceSale);
+    public float getPriceTotalSold();
+    public int getQtyTotalSold();
 }
 ```
 ```java
@@ -1966,7 +1973,8 @@ public class SalesMachine implements IBeverageMachine {
 		this._qtySold = 0;
 		this._valueSold = 0f;	 
 	}
-	@Override
+	// Factory Method Pattern
+        @Override
 	public Beverage createBeverage(int TypeOfBeverage) {
 		switch (TypeOfBeverage) {
 		case _soda  :      return new Soda (10.5f, 0);
@@ -1975,20 +1983,24 @@ public class SalesMachine implements IBeverageMachine {
 		}
 		return null;	
 	}
+	@Override
 	public void recordSale (Product p, int qty ) {
 		Product _p = p;
 		_qtySold += qty;
 		_p.subtractInventory(qty);
 		_valueSold += (qty * _p.getPrice());
 	}
+	@Override
 	public void purchaseItemToSale (Product p, int qty, float priceSale ) {
 		Product _p = p;
 		_p.addInventory(qty);
 		_p.productPrice = priceSale;
 	}
+	@Override
 	public float getPriceTotalSold () {
 		return _valueSold;
 	}
+	@Override
 	public int getQtyTotalSold () {
 		return _qtySold;
 	}
@@ -2032,9 +2044,15 @@ class BeverageMachineTest {
 }
 ```
 
-##Use of the Dependency Inversion Principle in the Factory Design Pattern
+## Use of the Dependency Inversion Principle in the Factory Design Pattern
 
-"High level code should not depend directly on low level code; instead, both should depend on an abstractions";  In other words, put an interface in the middle! Separate those concerns! We skipped this principle in the Design Principles lecture since Factory Method is a really good iillustration. The initial pizza-making code without a factory required the top-level PizzaStore class to itself choose the kind of pizza: see picture from book. Arrows in the above (read as "dependent-on") show high-level code directly dependent on details of low-level code (it needs their names to create them via new) This picture shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted - D-I-P!
+"High level code should not depend directly on low level code; instead, both should depend on an abstractions". 
+
+Put an interface in the middle! Separate those concerns! Factory Method is a really good iillustration for applying the depedency inversion principle. T
+
+Arrows in the above (read as "dependent-on") show high-level code directly dependent on details of low-level code (it needs their names to create them via new) 
+
+The UML Class Diagram above shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted. 
 
 
 
