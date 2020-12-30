@@ -1394,9 +1394,9 @@ Frameworks are becoming increasingly common and important. They are the way that
 # UML Relationships among Classes
 
 - **Association or Using Relationship** - "is part of association" relationship
-- **Generalization (inheritance)** - “is-a” relationship
 - **Composition (Dependency)** - one element is dependent on another element -“has-a” relationship 
 - **Aggregation (Dependency) or Has a Relationship** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Generalization (inheritance)** - “is-a” relationship
 - **Realization** - one model element **implements** the responsibility specified by another model element
 
 # UML Association or Using Relationship
@@ -1502,135 +1502,6 @@ Since it connects the object of one class to the object of another class, it is 
 - **{changeable}**: The changeable constraint ensures that the connections between several objects within a system are added, improved, and detached, as and when required.
 - **{addOnly}**: It specifies that any new connection can be added from an object located at the other end in an association.
 - **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
-
-# UML Generalization or Inheritance
-
-In UML modeling, a generalization relationship is a relationship that implements the concept of object orientation called inheritance. The generalization relationship occurs between two entities or objects, such that one entity is the parent, and the other one is the child. The child inherits the functionality of its parent and can access as well as update it.
-
-Generalization relationship is utilized in class, component, deployment, and use case diagrams to specify that the child inherits actions, characteristics, and relationships from its parent.
-
-To meet UML's standard, it necessitates usage of the same types of model elements in the generalization relationship, i.e., generalization relation can either be used between actors or between use cases, but not between an actor and a use case.
-
-The generalization relationship is incorporated to record attributes, operations, and relationships in a parent model element so that it can be inherited in one or more child model elements.
-
-The parent model element can have as many children, and also, the child can have one or more parents. But most commonly, it can be seen that there is one parent model element and multiple child model elements. The generalization relationship does not consist of names. The generalization relationship is represented by a solid line with a hollow arrowhead pointing towards the parent model element from the child model element.
-
-![umlgeneralization_or_inheritance](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization.png)
-
-Let's create a naive example: a base class Person that defines the common fields and methods for a person, while the subclasses Waitress and Actress provide additional, fine-grained method implementations.
-
-Here's the Person class:
-
-```java
-public class Person {
-    private final String name;
-
-    // other fields, standard constructors, getters
-}
-```
-And these are the subclasses:
-
-```java
-public class Waitress extends Person {
-
-    public String serveStarter(String starter) {
-        return "Serving a " + starter;
-    }
-    
-    // additional methods/constructors
-}
-public class Actress extends Person {
-    
-    public String readScript(String movie) {
-        return "Reading the script of " + movie;
-    } 
-    
-    // additional methods/constructors
-}
-```
-In addition, let's create a unit test to verify that instances of the Waitress and Actress classes are also instances of Person, thus showing that the “is-a” condition is met at the type level:
-
-```java
-@Test
-public void givenWaitressInstance_whenCheckedType_thenIsInstanceOfPerson() {
-    assertThat(new Waitress("Mary", "mary@domain.com", 22))
-      .isInstanceOf(Person.class);
-}
-    
-@Test
-public void givenActressInstance_whenCheckedType_thenIsInstanceOfPerson() {
-    assertThat(new Actress("Susan", "susan@domain.com", 30))
-      .isInstanceOf(Person.class);
-}
-```
-
-It's important to stress here the semantic facet of inheritance. Aside from reusing the implementation of the Person class, we've created a well-defined “is-a” relationship between the base type Person and the subtypes Waitress and Actress. Waitresses and actresses are, effectively, persons.
-
-This may cause us to ask: in which use cases is inheritance the right approach to take?
-
-If subtypes fulfill the *“is-a”* condition and mainly provide additive functionality further down the classes hierarchy, then inheritance is the way to go.
-
-### Stereotypes and their constraints
-
-- **<< implementation >>** - It is used to show that the child is implemented by its parent, such that the child object inherits the structure and behavior of its parent object without disobeying the rules. The implementation of stereotype is mostly used in single inheritance.
-
-In the generalization stereotype, there are two types of constraints that are **complete** and **incomplete** to check if all the child objects are involved or not in the relationship.
-
-Example: As we know, the bank account can be of two types; Savings Account and Credit Card Account. Both the savings and the credit card account inherits the generalized properties from the Bank Account, which is Account Number, Account Balance, etc.
-
-![umlgeneratization_or_inheritance2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization2.png)
-
-# Inheritance in Design Patterns
-
-While the consensus is that we should favor composition over inheritance whenever possible, there are a few typical use cases where inheritance has its place.
-
-### A) The Layer Supertype Pattern
-
-In this case, we use inheritance to move common code to a base class (the supertype), on a per-layer basis. Here's a basic implementation of this pattern in the domain layer:
-
-```java
-public class Entity {
-    
-    protected long id;
-    
-    // setters
-}
-public class User extends Entity {
-    
-    // additional fields and methods   
-}
-```
-We can apply the same approach to the other layers in the system, such as the service and persistence layers.
-
-### B) The Template Method Pattern
-
-In the template method pattern, we can use a base class to define the invariant parts of an algorithm, and then implement the variant parts in the subclasses:
-
-```java
-public abstract class ComputerBuilder {
-    
-    public final Computer buildComputer() {
-        addProcessor();
-        addMemory();
-    }
-    
-    public abstract void addProcessor();
-    
-    public abstract void addMemory();
-}
-public class StandardComputerBuilder extends ComputerBuilder {
-
-    @Override
-    public void addProcessor() {
-        // method implementation
-    }
-    
-    @Override
-    public void addMemory() {
-        // method implementation
-    }
-}
-```
 
 # UML Dependency or Composition
 
@@ -1775,6 +1646,135 @@ class Wheel {
 
 class Car {
     List<Wheel> wheels;
+}
+```
+
+# UML Generalization or Inheritance
+
+In UML modeling, a generalization relationship is a relationship that implements the concept of object orientation called inheritance. The generalization relationship occurs between two entities or objects, such that one entity is the parent, and the other one is the child. The child inherits the functionality of its parent and can access as well as update it.
+
+Generalization relationship is utilized in class, component, deployment, and use case diagrams to specify that the child inherits actions, characteristics, and relationships from its parent.
+
+To meet UML's standard, it necessitates usage of the same types of model elements in the generalization relationship, i.e., generalization relation can either be used between actors or between use cases, but not between an actor and a use case.
+
+The generalization relationship is incorporated to record attributes, operations, and relationships in a parent model element so that it can be inherited in one or more child model elements.
+
+The parent model element can have as many children, and also, the child can have one or more parents. But most commonly, it can be seen that there is one parent model element and multiple child model elements. The generalization relationship does not consist of names. The generalization relationship is represented by a solid line with a hollow arrowhead pointing towards the parent model element from the child model element.
+
+![umlgeneralization_or_inheritance](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization.png)
+
+Let's create a naive example: a base class Person that defines the common fields and methods for a person, while the subclasses Waitress and Actress provide additional, fine-grained method implementations.
+
+Here's the Person class:
+
+```java
+public class Person {
+    private final String name;
+
+    // other fields, standard constructors, getters
+}
+```
+And these are the subclasses:
+
+```java
+public class Waitress extends Person {
+
+    public String serveStarter(String starter) {
+        return "Serving a " + starter;
+    }
+    
+    // additional methods/constructors
+}
+public class Actress extends Person {
+    
+    public String readScript(String movie) {
+        return "Reading the script of " + movie;
+    } 
+    
+    // additional methods/constructors
+}
+```
+In addition, let's create a unit test to verify that instances of the Waitress and Actress classes are also instances of Person, thus showing that the “is-a” condition is met at the type level:
+
+```java
+@Test
+public void givenWaitressInstance_whenCheckedType_thenIsInstanceOfPerson() {
+    assertThat(new Waitress("Mary", "mary@domain.com", 22))
+      .isInstanceOf(Person.class);
+}
+    
+@Test
+public void givenActressInstance_whenCheckedType_thenIsInstanceOfPerson() {
+    assertThat(new Actress("Susan", "susan@domain.com", 30))
+      .isInstanceOf(Person.class);
+}
+```
+
+It's important to stress here the semantic facet of inheritance. Aside from reusing the implementation of the Person class, we've created a well-defined “is-a” relationship between the base type Person and the subtypes Waitress and Actress. Waitresses and actresses are, effectively, persons.
+
+This may cause us to ask: in which use cases is inheritance the right approach to take?
+
+If subtypes fulfill the *“is-a”* condition and mainly provide additive functionality further down the classes hierarchy, then inheritance is the way to go.
+
+### Stereotypes and their constraints
+
+- **<< implementation >>** - It is used to show that the child is implemented by its parent, such that the child object inherits the structure and behavior of its parent object without disobeying the rules. The implementation of stereotype is mostly used in single inheritance.
+
+In the generalization stereotype, there are two types of constraints that are **complete** and **incomplete** to check if all the child objects are involved or not in the relationship.
+
+Example: As we know, the bank account can be of two types; Savings Account and Credit Card Account. Both the savings and the credit card account inherits the generalized properties from the Bank Account, which is Account Number, Account Balance, etc.
+
+![umlgeneratization_or_inheritance2](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/uml-generalization2.png)
+
+# Inheritance in Design Patterns
+
+While the consensus is that we should favor composition over inheritance whenever possible, there are a few typical use cases where inheritance has its place.
+
+### A) The Layer Supertype Pattern
+
+In this case, we use inheritance to move common code to a base class (the supertype), on a per-layer basis. Here's a basic implementation of this pattern in the domain layer:
+
+```java
+public class Entity {
+    
+    protected long id;
+    
+    // setters
+}
+public class User extends Entity {
+    
+    // additional fields and methods   
+}
+```
+We can apply the same approach to the other layers in the system, such as the service and persistence layers.
+
+### B) The Template Method Pattern
+
+In the template method pattern, we can use a base class to define the invariant parts of an algorithm, and then implement the variant parts in the subclasses:
+
+```java
+public abstract class ComputerBuilder {
+    
+    public final Computer buildComputer() {
+        addProcessor();
+        addMemory();
+    }
+    
+    public abstract void addProcessor();
+    
+    public abstract void addMemory();
+}
+public class StandardComputerBuilder extends ComputerBuilder {
+
+    @Override
+    public void addProcessor() {
+        // method implementation
+    }
+    
+    @Override
+    public void addMemory() {
+        // method implementation
+    }
 }
 ```
 
