@@ -1401,7 +1401,7 @@ Frameworks are becoming increasingly common and important. They are the way that
 
 # UML Association or Using Relationship
 
-![umlassociations Relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/Associatn_Relationships_UML_image001.png)
+![umlassociations Relationships](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/AssociationCompositionAggregationRelationshipsImage001.jpg)
 
 Association is relation between two separate classes which establishes through their Objects. Association can be one-to-one, one-to-many, many-to-one, many-to-many.
 In Object-Oriented programming, an Object communicates to other Object to use functionality and services provided by that object. Composition and Aggregation are the two forms of association.
