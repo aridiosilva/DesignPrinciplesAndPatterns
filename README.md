@@ -1932,10 +1932,12 @@ public class Chocolate extends Beverage {
 }
 ```
 ```java 
-public class Product {		
-	private String productName;
-	private float productPrice;
-	private int inventory;	
+public class Product {	
+
+	String productName;
+	float productPrice;
+	int inventory;	
+	
 	public Product (String Name, float Price, int inventory) {
 		this.productName = Name;
 		this.productPrice = Price;
