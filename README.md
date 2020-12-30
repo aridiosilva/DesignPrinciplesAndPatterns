@@ -1883,6 +1883,7 @@ A factory method is a generalization of a simple factory:
 Beverage Machine Application Code Example:
 
 ```java
+package designpatterns;
 public interface IBeverageMachine {
 
     //Factory Method 
@@ -1898,6 +1899,7 @@ public interface IBeverageMachine {
 }
 ```
 ```java
+package designpatterns;
 public abstract class Beverage {
 
 	Product _prod;	
@@ -1905,6 +1907,7 @@ public abstract class Beverage {
 }
 ```
 ```java
+package designpatterns;
 public class Coffee extends Beverage {	
 
 	private static Product _prod;	
@@ -1918,6 +1921,7 @@ public class Coffee extends Beverage {
 }
 ```
 ```java
+package designpatterns;
 public class Soda extends Beverage {
 
 	private static Product _prod;	
@@ -1931,6 +1935,7 @@ public class Soda extends Beverage {
 }
 ```
 ```java
+package designpatterns;
 public class Chocolate extends Beverage {
 
 	private static Product _prod;	
@@ -1944,6 +1949,7 @@ public class Chocolate extends Beverage {
 }
 ```
 ```java 
+package designpatterns;
 public class Product {	
 
 	String productName;
@@ -1976,6 +1982,7 @@ public class Product {
 }
 ```
 ```java
+package designpatterns;
 public class SalesMachine implements IBeverageMachine {
 
 	private static final int _soda      = 111;
@@ -2022,6 +2029,7 @@ public class SalesMachine implements IBeverageMachine {
 }
 ```
 ```java
+package designpatterns;
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
