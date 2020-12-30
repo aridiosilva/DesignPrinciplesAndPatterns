@@ -1872,7 +1872,8 @@ A factory method is a generalization of a simple factory:
  - Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 
 ### Generic diagram of Factory Method (107) Pattern
-https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UMLClassDiagramAppBeverageMAchineUSingFActoryMethodPatternAridioSilvaDEC2020Image002.jpghttps://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
+
+![UML Class Diagram Factory Method Pattern](ghttps://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/image001A-UMLClassDiagram_FactoryPattern-Method.jpg)
 
 Beverage Machine Application Code Example:
 
