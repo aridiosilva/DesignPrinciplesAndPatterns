@@ -1889,7 +1889,7 @@ A design pattern names, abstracts, and identifies the key aspects of a common de
 
 ### Generic diagram of Factory Method (107) Pattern
 
-![UML Class Diagram Factory Method Pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UMLClassDiagramAppBeverageMAchineUSingFActoryMethodPatternAridioSilvaDEC2020Image001.jpg)
+![UML Class Diagram Factory Method Pattern](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Class_Diagram_BeverageMachineApp001.jpg)
 
 Beverage Machine Application Code Example:
 
