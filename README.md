@@ -2098,7 +2098,4 @@ Arrows in the above (read as "dependent-on") show high-level code directly depen
 The UML Class Diagram above shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted. 
 
 
-# FACTORY DESIGN PATTERN
-
-
 
