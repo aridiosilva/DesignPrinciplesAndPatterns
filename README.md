@@ -12,7 +12,6 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 * [Summary of Good Practices of Design](#summary-of-good-practices-of-design) 
 * [Summary of the Principles of Object-Oriented Design](#summary-of-the-principles-of-object-oriented-design)
-
 * [SOLID Principles](#solid-principles)
 
    - [SRP Single Responsability Principle](#srp-single-responsability-principle)
@@ -84,7 +83,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 # Coupling and Cohesion 
 
-Extracted from Timothy Budd's An Introduction to Object-Oriented Programming  
+Note: the definitons below is based on the book Timothy Budd's An Introduction to Object-Oriented Programming  
 
 # Coupling or Dependency
 
