@@ -944,13 +944,14 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 
 - **Builder (97)** - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 
-- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it. This pattern use delegation less heavily. This pattern handles requests by forwarding them from one object to another along a chain of objects. Sometimes this request carries with it a reference to the original object receiving the request, in which case the pattern is using delegation.
+- **Chain of Responsibility (223)** - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it. This pattern use delegation less heavily. This pattern handles requests by forwarding them from one object to another along a chain of objects. Sometimes this request carries with it a reference to the original object receiving the request, in which case the pattern is using delegation. Chain of Responsibility (223) also results in communication patterns that inheritance doesn't reveal.
 
 - **Command (233)** - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.  Yield objects whose only responsibilities are to implement a request on another object or group of objects.
 
-- **Composite (163)**- Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly. introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart.
+- **Composite (163)**- Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly. introduces an abstraction for treating objects uniformly that doesn't have a physical counterpart. Composite (163) is especially useful for
+building complex run-time structures
 
-- **Decorator (175)** - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+- **Decorator (175)** - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. Decorator (175) is especially useful for building complex run-time structures.
 
 - **Facade (185)** - Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. It describes how to represent complete subsystems as objects.
 
@@ -967,7 +968,7 @@ The catalog beginning on page 79 contains 23 design patterns. Their names and in
 - **Memento (283)** - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later. It describes how to encapsulate and save the internal state of an object so that the object can be restored to that state later. The pattern stipulates that Memento objects must define two
 interfaces: a restricted one that lets clients hold and copy mementos, and a privileged one that only the original object can use to store and retrieve state in the memento.
 
-- **Observer (293)** - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+- **Observer (293)** - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. Observer (293) involves run-time structures that are often hard to understand unless you know the pattern.
 
 - **Prototype (117)** - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 
@@ -1516,6 +1517,15 @@ Since it connects the object of one class to the object of another class, it is 
 - **{frozen}**: The frozen constraint specifies that whenever a link is added between objects, it cannot be altered by the time it is activated over the connection or given link.
 
 # UML Composition
+
+Composition is known as "Whole-part" Relationship. Composition or Composite aggregation is a "strong" form of aggregation with the following characteristics:
+
+- it is binary association,
+- it is a whole/part relationship,
+- a part could be included in at most one composite (whole) at a time, and
+- if a composite (whole) is deleted, all of its composite parts are "normally" deleted with it.
+
+Note, that UML does not define how, when and specific order in which parts of the composite are created. Also, in some cases a part can be removed from a composite before the composite is deleted, and so is not necessarily deleted as part of the composite.
 
 Dependency depicts how various things within a system are dependent on each other. In UML, a dependency relationship is the kind of relationship in which a client (one element) is dependent on the supplier (another element). It is used in class diagrams, component diagrams, deployment diagrams, and use-case diagrams, which indicates that a change to the supplier necessitates a change to the client. An example is given below:
 
