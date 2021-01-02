@@ -1397,7 +1397,7 @@ Frameworks are becoming increasingly common and important. They are the way that
 - **Generalization (inheritance)** - “is-a” relationship
 - **Realization** - one model element **implements** the responsibility specified by another model element
 
-It´s easy to confuse aggregation and association, because they are often implemented in the same way - there´s no distinction in thew programming languages between agreggation and association.
+It´s easy to confuse **aggregation** and **association**, because they are often implemented in the same way - there´s no distinction in thew programming languages between **agreggation** and **association**. Ultimately, **association** and **aggregation** are determined more by intent than by explicit language mechanisms. The distinction may be hard to see in the compile-time structure, but it's significant. **Aggregation relationships** tend to be fewer and more permanent than **association**. **Association**, in contrast, are made and remade more frequently, sometimes existing only for the duration of an operation. **Associations** are more dynamic as well, making them more difficult to discern in the source code.
 
 # UML Association or Using Relationship
 
