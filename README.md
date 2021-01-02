@@ -1398,14 +1398,14 @@ Frameworks are becoming increasingly common and important. They are the way that
 
 ## Definitions Extracted from the "UML 2.0 Specifications"
 
-A) "An association specifies a semantic relationship that can occur between typed instances. An instance of an association is called a link.”. What They Mean: An association between two classes indicates that objects (instances) of one class may be related (linked) to objects of the other class. You specify an association at the class level; you specify a link at the object level;
+>1. "An association specifies a semantic relationship that can occur between typed instances. An instance of an association is called a link.”. What They Mean: An association between two classes indicates that objects (instances) of one class may be related (linked) to objects of the other class. You specify an association at the class level; you specify a link at the object level;
 
-B) “Aggregation: A special form of association that specifies a whole-part relationship between the aggregate (whole) and a component part." What They Mean: Formally, in the UML, aggregation is considered to be a specific type of association, where the class on one end of the association represents a whole and the class at the other end represents 
+>1. “Aggregation: A special form of association that specifies a whole-part relationship between the aggregate (whole) and a component part." What They Mean: Formally, in the UML, aggregation is considered to be a specific type of association, where the class on one end of the association represents a whole and the class at the other end represents 
 a part. Aggregation may be used by the BA as an alternative to modeling an association with the name “is a part of”;
 
-C) “Compostion (or Object Composition or Composite aggregation) is a strong form of aggregation that requires a part instance be included in at most one composite at a time. If a composite is deleted, all of its parts are normally deleted with it.” What They Mean: Formally, composition is a specific kind of aggregation. In aggregation, a part may belong to more than one whole at the same time; in composite aggregation, however, the object may belong to only one whole at a time. The parts are destroyed whenever the whole is destroyed—except for those parts that have been removed prior to the deletion of the whole.
+>1. “Compostion (or Object Composition or Composite aggregation) is a strong form of aggregation that requires a part instance be included in at most one composite at a time. If a composite is deleted, all of its parts are normally deleted with it.” What They Mean: Formally, composition is a specific kind of aggregation. In aggregation, a part may belong to more than one whole at the same time; in composite aggregation, however, the object may belong to only one whole at a time. The parts are destroyed whenever the whole is destroyed—except for those parts that have been removed prior to the deletion of the whole.
 
-D) “Inheritance: The mechanism by which more specific elements incorporate structure and behavior of more general elements.” What They Mean: Inheritance refers to the mechanism by which a specialized class adopts—that is, inherits—all the attributes, operations, and relationships5 of a generalized class.
+>1. “Inheritance: The mechanism by which more specific elements incorporate structure and behavior of more general elements.” What They Mean: Inheritance refers to the mechanism by which a specialized class adopts—that is, inherits—all the attributes, operations, and relationships5 of a generalized class.
 
 ## Aggregation versus Association
 
