@@ -1651,6 +1651,8 @@ class Car {
 
 # UML Generalization or Inheritance
 
+Generalization or Inheritance is name "a kind of" or  "is-a" relationship.
+
 In UML modeling, a generalization relationship is a relationship that implements the concept of object orientation called inheritance. The generalization relationship occurs between two entities or objects, such that one entity is the parent, and the other one is the child. The child inherits the functionality of its parent and can access as well as update it.
 
 Generalization relationship is utilized in class, component, deployment, and use case diagrams to specify that the child inherits actions, characteristics, and relationships from its parent.
