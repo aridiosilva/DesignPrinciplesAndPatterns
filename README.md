@@ -1391,11 +1391,13 @@ Frameworks are becoming increasingly common and important. They are the way that
 
 # UML Relationships among Classes
 
-- **Association or Using Relationship** - "is part of association" relationship
+- **Association** - "Using Relationship" or "is part of association" relationship
 - **Composition (Dependency)** - one element is dependent on another element -“has-a” relationship 
-- **Aggregation (Dependency) or Has a Relationship** - “has-a” relationship - what distinguishes it from **composition**, that **it doesn't involve owning**
+- **Aggregation (Dependency) or "Has-a" Relationship** - what distinguishes it from **composition**, that **it doesn't involve owning**
 - **Generalization (inheritance)** - “is-a” relationship
 - **Realization** - one model element **implements** the responsibility specified by another model element
+
+It´s easy to confuse aggregation and association, because they are often implemented in the same way - there´s no distinction in thew programming languages between agreggatin and association.
 
 # UML Association or Using Relationship
 
