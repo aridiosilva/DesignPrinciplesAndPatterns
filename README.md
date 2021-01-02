@@ -1388,7 +1388,6 @@ Because patterns and frameworks have some similarities, people often wonder how 
 
 Frameworks are becoming increasingly common and important. They are the way that object-oriented systems achieve the most reuse. Larger object-oriented applications will end up consisting of layers of frameworks that cooperate with each other. Most of the design and code in the application will come from or be influenced by the frameworks it uses.
 
-
 # UML Relationships among Classes
 
 - **Association** - "Using Relationship" or "is part of association" relationship
@@ -1396,6 +1395,19 @@ Frameworks are becoming increasingly common and important. They are the way that
 - **Aggregation (Dependency) or "Has-a" Relationship** - what distinguishes it from **composition**, that **it doesn't involve owning**
 - **Generalization (inheritance)** - “is-a” relationship
 - **Realization** - one model element **implements** the responsibility specified by another model element
+
+## Definitions Extracted from the "UML 2.0 Specifications"
+
+A) "An association specifies a semantic relationship that can occur between typed instances. An instance of an association is called a link.”. What They Mean: An association between two classes indicates that objects (instances) of one class may be related (linked) to objects of the other class. You specify an association at the class level; you specify a link at the object level;
+
+B) “Aggregation: A special form of association that specifies a whole-part relationship between the aggregate (whole) and a component part." What They Mean: Formally, in the UML, aggregation is considered to be a specific type of association, where the class on one end of the association represents a whole and the class at the other end represents 
+a part. Aggregation may be used by the BA as an alternative to modeling an association with the name “is a part of”;
+
+C) “Compostion (or Object Composition or Composite aggregation) is a strong form of aggregation that requires a part instance be included in at most one composite at a time. If a composite is deleted, all of its parts are normally deleted with it.” What They Mean: Formally, composition is a specific kind of aggregation. In aggregation, a part may belong to more than one whole at the same time; in composite aggregation, however, the object may belong to only one whole at a time. The parts are destroyed whenever the whole is destroyed—except for those parts that have been removed prior to the deletion of the whole.
+
+D) “Inheritance: The mechanism by which more specific elements incorporate structure and behavior of more general elements.” What They Mean: Inheritance refers to the mechanism by which a specialized class adopts—that is, inherits—all the attributes, operations, and relationships5 of a generalized class.
+
+## Aggregation versus Association
 
 It´s easy to confuse **aggregation** and **association**, because they are often implemented in the same way - there´s no distinction in thew programming languages between **agreggation** and **association**. Ultimately, **association** and **aggregation** are determined more by intent than by explicit language mechanisms. The distinction may be hard to see in the compile-time structure, but it's significant. **Aggregation relationships** tend to be fewer and more permanent than **association**. **Association**, in contrast, are made and remade more frequently, sometimes existing only for the duration of an operation. **Associations** are more dynamic as well, making them more difficult to discern in the source code.
 
