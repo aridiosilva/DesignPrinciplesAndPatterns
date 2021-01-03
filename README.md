@@ -2144,7 +2144,9 @@ Any representation of information such as a chart, diagram or table. Multiple vi
 
 Accepts input and converts it to commands for the model or view.In addition to dividing the application into these components, the model–view–controller design defines the interactions between them.
 
-The model is responsible for managing the data of the application. It receives user input from the controller.
-The view means presentation of the model in a particular format.
-The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
-As with other software patterns, MVC expresses the "core of the solution" to a problem while allowing it to be adapted for each system.[8] Particular MVC designs can vary significantly from the traditional description here.[9]
+### Interactions
+
+- In addition to dividing the application into three kinds of components, the model–view–controller design defines the interactions between them.
+- The model is responsible for managing the data of the application. It receives user input from the controller.
+- The view means the presentation of the model in a particular format.
+- The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
