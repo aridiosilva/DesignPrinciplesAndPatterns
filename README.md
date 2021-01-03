@@ -2166,7 +2166,7 @@ Accepts input and converts it to commands for the model or view.In addition to d
 
 The UML Class Diagram showing the architecture design using MVC Pattern:
 
-![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/MVC%20Model-View-Controller%20App%20Prof%20Jacques.png)
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/MVC%20Model-View-Controller%20App%20Prof%20Jacques_iamge002.jpg)
 
 ```java
 package enquete;
