@@ -2275,6 +2275,34 @@ public class EnqueteAdapterModel implements EnqueteListenerModel {
 ```
 ```java
 package enquete.model;
+import java.util.EventObject;
+
+public class EnqueteEventModel extends EventObject {
+
+	private static final long serialVersionUID = 1L;
+	private String _opcao = null;
+	private int _votos = 0;
+
+	public EnqueteEventModel(EnqueteSimplesModel source){
+		super(source);
+	}
+	public EnqueteEventModel(EnqueteSimplesModel source,String opcao){
+		this(source);
+		this._opcao = opcao;
+	}
+	 public String getOpcao() {
+		return _opcao;
+	}
+	 public int getVotos() {
+		return ((EnqueteSimplesModel)this.source).getVotos(_opcao);
+	}
+	 public int getTotalVotos() {
+		return ((EnqueteSimplesModel)this.source).getTotalVotos();
+	}
+}
+```
+```java
+package enquete.model;
 import java.util.EventListener;
 
 public interface EnqueteListenerModel extends EventListener {
