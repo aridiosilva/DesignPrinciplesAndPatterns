@@ -2284,10 +2284,89 @@ public void novoVoto(EnqueteEventModel event);
 }
 ```
 ```java
+package enquete.view;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import enquete.model.*;
 
+public class TelaVotacaoView extends Frame implements EnqueteListenerModel{
+
+	private static final long serialVersionUID = 1L;
+	private Collection <String> _botoes = new ArrayList();
+	private ActionListener _controller;
+
+	public TelaVotacaoView(ActionListener controller){		
+
+	        super("Tela de Votacao - Enquete");
+		this.setSize(100,120);
+		// Grid com qualquer numero de linhas e uma coluna
+		this.setLayout(new GridLayout(0,1)); 	
+		this._controller = controller;
+	    this.addWindowListener(new WindowAdapter() {
+	        public void windowClosing(WindowEvent e) {
+	        	e.getWindow().hide();
+	        	System.exit(0);
+	        }
+	    });
+	}
+	public void novaOpcao(EnqueteEventModel event) {
+		
+		String _opcao = event.getOpcao();
+		Button _botao;
+		if(!_botoes.contains(_opcao)){
+			_botoes.add(_opcao);
+			_botao = new Button(_opcao);
+			_botao.setActionCommand(_opcao);
+			_botao.addActionListener(_controller);
+			this.add(_botao);
+		}
+	}
+	public void novoVoto(EnqueteEventModel event) {
+	}
+}
 ```
 ```java
+package enquete.view;
+import java.awt.*;
+import java.util.*;
+import enquete.model.EnqueteEventModel;
+import enquete.model.EnqueteListenerModel;
 
+public class TelaResultadoView extends Window implements EnqueteListenerModel{
+
+	private static final long serialVersionUID = 1L;
+	private Map <String, Label> _labels = new HashMap();
+
+	public TelaResultadoView(Frame parent){
+
+		super(parent);
+		this.setSize(110,120);
+		this.setLayout(new GridLayout(0,2)); 
+		this.add(new Label("Votos"));
+		this.add(new Label());
+	}
+	public void novaOpcao(EnqueteEventModel event) {
+
+		String _opcao = event.getOpcao();
+		Label _label;
+		Label _votos;
+		if(!_labels.containsKey(_opcao)){
+			_label = new Label(_opcao+" - ");
+			_votos = new Label(""+event.getVotos());
+			_labels.put(_opcao,_votos);
+			this.add(_label);
+			this.add(_votos);
+		}
+	}
+	public void novoVoto(EnqueteEventModel event) {
+
+		String _opcao = event.getOpcao();
+		Label _votos;
+		_votos = _labels.get(_opcao);
+		_votos.setText(""+event.getVotos());
+	}
+}
 ```
 ```java
 
