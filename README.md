@@ -2265,10 +2265,23 @@ public class EnqueteSimplesModel {
 }
 ```
 ```java
+package enquete.model;
 
+public class EnqueteAdapterModel implements EnqueteListenerModel {
+
+	public void novaOpcao(EnqueteEventModel event) {}
+	public void novoVoto(EnqueteEventModel event) {}
+}
 ```
 ```java
+package enquete.model;
+import java.util.EventListener;
 
+public interface EnqueteListenerModel extends EventListener {
+
+public void novoVoto(EnqueteEventModel event);
+	public void novaOpcao(EnqueteEventModel event);
+}
 ```
 ```java
 
