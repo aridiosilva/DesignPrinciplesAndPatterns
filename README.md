@@ -2162,6 +2162,10 @@ Accepts input and converts it to commands for the model or view.In addition to d
 - Ease of modification — Because of the separation of responsibilities, future development or modification is easier
 - Multiple views for a model — Models can have multiple views
 
+## Java Application Example Implementing MVC Pattern
+
+![]()
+
 ```java
 package enquete;
 
