@@ -2439,12 +2439,22 @@ public class TelaResultadoPercentualView extends Window implements EnqueteListen
 }
 ```
 ```java
+package enquete.controller;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import enquete.model.EnqueteSimplesModel;
 
-```
-```java
+public class TelaVotacaoController implements ActionListener{
 
-```
-```java
-
+	private EnqueteSimplesModel _enquete;
+	public TelaVotacaoController(EnqueteSimplesModel enquete){
+		
+		this._enquete = enquete;
+	}
+	public void actionPerformed(ActionEvent event) {
+		
+		_enquete.votar(event.getActionCommand());
+	}
+}
 ```
 
