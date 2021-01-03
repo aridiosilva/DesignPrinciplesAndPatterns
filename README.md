@@ -2150,3 +2150,6 @@ Accepts input and converts it to commands for the model or view.In addition to d
 - The model is responsible for managing the data of the application. It receives user input from the controller.
 - The view means the presentation of the model in a particular format.
 - The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
+
+!{model-view-controller pattern}(https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/model-view-controller_pattern_iamge001.jpg)
+
