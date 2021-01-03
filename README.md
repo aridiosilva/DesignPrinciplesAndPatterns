@@ -2123,4 +2123,27 @@ Arrows in the above (read as "dependent-on") show high-level code directly depen
 The UML Class Diagram above shows how the depenencies get inverted whan a factory method is used, meaning PizzaStore only deals with Pizza abstraction, not all the low-level details. The dependencies were inverted. 
 
 
+# Model View Controller Pattern
 
+Model–view–controller (usually known as MVC) is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
+
+Traditionally used for desktop graphical user interfaces (GUIs), this pattern has become popular for designing web applications. Popular programming languages like JavaScript, Python, Object Pascal/Delphi, Ruby, PHP, Java, C#, and Swift have MVC frameworks that are used for web or mobile application development straight out of the box.
+
+## Components of MVC Pattern
+
+### Model
+
+The central component of the pattern. It is the application's dynamic data structure, independent of the user interface. It directly manages the data, logic and rules of the application.
+
+### View
+
+Any representation of information such as a chart, diagram or table. Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.
+
+### Controller
+
+Accepts input and converts it to commands for the model or view.In addition to dividing the application into these components, the model–view–controller design defines the interactions between them.
+
+The model is responsible for managing the data of the application. It receives user input from the controller.
+The view means presentation of the model in a particular format.
+The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
+As with other software patterns, MVC expresses the "core of the solution" to a problem while allowing it to be adapted for each system.[8] Particular MVC designs can vary significantly from the traditional description here.[9]
