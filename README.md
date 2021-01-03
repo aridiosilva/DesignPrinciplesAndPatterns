@@ -2369,7 +2369,46 @@ public class TelaResultadoView extends Window implements EnqueteListenerModel{
 }
 ```
 ```java
+package enquete.view;
+import java.awt.*;
+import java.util.*;
+import enquete.model.EnqueteEventModel;
+import enquete.model.EnqueteListenerModel;
 
+public class TelaResultadoPercentualView extends Window implements EnqueteListenerModel{
+
+	private static final long serialVersionUID = 1L;
+	private Map <String,Label> _labels = new HashMap();
+
+	public TelaResultadoPercentualView(Frame parent){
+
+		super(parent);
+		this.setSize(180,120);
+		this.setLayout(new GridLayout(0,2)); 
+		this.add(new Label("Percentual"));
+		this.add(new Label());
+	}
+	public void novaOpcao(EnqueteEventModel event) {
+
+		String _opcao = event.getOpcao();
+		Label _label;
+		Label _votos;
+		if(!_labels.containsKey(_opcao)){
+			_label = new Label(_opcao+" - ");
+			_votos = new Label(""+event.getVotos()+" %");
+			_labels.put(_opcao,_votos);
+			this.add(_label);
+			this.add(_votos);
+		}
+	}
+	public void novoVoto(EnqueteEventModel event) {
+
+		String _opcao = event.getOpcao();
+		Label _votos;
+		_votos = _labels.get(_opcao);
+		_votos.setText(""+(event.getVotos()*100/event.getTotalVotos())+" %");
+	}
+}
 ```
 ```java
 
