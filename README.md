@@ -80,7 +80,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 * [# Creational Design Patterns](#creational-design-patterns)
 
    - [DCP1 Factory Method](#dcp1-factory-method)
-   - [Model View Controller Pattern](#model--view-controller-pattern)
+   - [Model View Controller Pattern](#model-view-controller-pattern)
 
 # Coupling and Cohesion 
 
