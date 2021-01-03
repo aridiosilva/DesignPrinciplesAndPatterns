@@ -2164,7 +2164,9 @@ Accepts input and converts it to commands for the model or view.In addition to d
 
 ## Java Application Example Implementing MVC Pattern
 
-![]()
+The UML Class Diagram showing the architecture design using MVC Pattern:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/MVC%20Model-View-Controller%20App%20Prof%20Jacques.png)
 
 ```java
 package enquete;
