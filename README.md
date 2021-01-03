@@ -2153,3 +2153,96 @@ Accepts input and converts it to commands for the model or view.In addition to d
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/model-view-controller_pattern_iamge001.jpg)
 
+## Reasons to Use MVC Pattern
+
+- The following advantages of the MVC design pattern make it suitable to be used in software development:
+- Simultaneous development — Multiple developers can work simultaneously on the model, controller and views.
+- High cohesion — MVC enables logical grouping of related actions on a controller together. The views for a specific model are also grouped together.
+- Low coupling — The very nature of the MVC framework is such that there is low coupling among models, views or controllers
+- Ease of modification — Because of the separation of responsibilities, future development or modification is easier
+- Multiple views for a model — Models can have multiple views
+
+```java
+package enquete.model;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class EnqueteSimplesModel {
+
+	private Map <String, Integer> _opcoes;
+	private List <EnqueteListenerModel> _enqueteListeners; 
+ 
+	public EnqueteSimplesModel(){
+		this._opcoes = new HashMap<String, Integer>();
+		this._enqueteListeners = new LinkedList();
+	}
+	public void addOpcao(String opcao){
+		_opcoes.put(opcao,new Integer(0));
+		this.disparaNovaOpcao(opcao);
+	}
+	public Set <String> getOpcoes(){
+		return _opcoes.keySet();
+	}
+	public void votar(String opcao){
+		int _votoAtual = (_opcoes.get(opcao)).intValue();
+		_opcoes.put(opcao,new Integer(++_votoAtual));
+		this.disparaNovoVoto(opcao);
+	}
+	public int getTotalVotos(){
+		int _total = 0;
+		for(Integer _votos : _opcoes.values()){
+			_total+= _votos.intValue();
+		}
+		return _total;
+	}
+	public int getVotos(String opcao){
+		return (_opcoes.get(opcao)).intValue();
+	}
+	 public synchronized void addEnqueteListener(EnqueteListenerModel listener){
+		if(_enqueteListeners.contains(listener)){ return; }
+		this._enqueteListeners.add(listener);
+	}
+	 private synchronized void disparaNovoVoto(String opcao){		
+		for(EnqueteListenerModel listeners : this._enqueteListeners){
+			listeners.novoVoto(new EnqueteEventModel(this,opcao));
+		}
+	}
+	 private synchronized void disparaNovaOpcao(String opcao){		
+		for(EnqueteListenerModel listeners : this._enqueteListeners){
+			listeners.novaOpcao(new EnqueteEventModel(this,opcao));
+		}
+	}
+}
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+```java
+
+```
+
