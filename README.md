@@ -2163,6 +2163,52 @@ Accepts input and converts it to commands for the model or view.In addition to d
 - Multiple views for a model — Models can have multiple views
 
 ```java
+package enquete;
+
+import enquete.view.*;
+import enquete.controller.*;
+import enquete.model.*;
+
+@SuppressWarnings("deprecation")
+public class Enquete {
+
+	public static void main(String[] args) {
+		Enquete _e = new Enquete();
+		_e.start();
+	}
+	@SuppressWarnings("deprecation")
+	public void start() {
+
+		EnqueteSimplesModel _enquete= new EnqueteSimplesModel();
+
+		TelaVotacaoController _ctrl = new TelaVotacaoController(_enquete);
+
+		TelaVotacaoView _votacao = new TelaVotacaoView(_ctrl);
+		_votacao.setLocation(5,5);
+
+		TelaResultadoView _resultado = new TelaResultadoView(_votacao);
+		_resultado.setLocation(120,5);
+
+		TelaResultadoPercentualView _resultadoPerc = new TelaResultadoPercentualView(_votacao);
+		_resultadoPerc.setLocation(250,5);
+
+		_enquete.addEnqueteListener(_votacao);
+		_enquete.addEnqueteListener(_resultado);
+		_enquete.addEnqueteListener(_resultadoPerc);
+
+		_enquete.addOpcao("Opcao 1");
+		_enquete.addOpcao("Opcao 2");
+		_enquete.addOpcao("Opcao 3");
+		_enquete.addOpcao("Opcao 4");
+		
+		_votacao.show();
+		_resultado.show();
+		_resultadoPerc.show();
+	}
+}
+```
+
+```java
 package enquete.model;
 
 import java.util.HashMap;
@@ -2217,9 +2263,6 @@ public class EnqueteSimplesModel {
 		}
 	}
 }
-```
-```java
-
 ```
 ```java
 
