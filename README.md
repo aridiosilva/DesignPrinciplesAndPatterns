@@ -27,7 +27,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    - [Keep things DRY](#keep-things-dry)
    - [YAGNI Principle](#yagni-principle)
    - [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
-   - [TDA Tell Do not Ask](#tda-tell-do-not-ask]
+   - [TDA Tell Do not Ask](#tda-tell-do-not-ask)
 
 * Other Good Practices in Design 
 
