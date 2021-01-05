@@ -663,7 +663,7 @@ A method of an object may only call methods of:
 
 * [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
 * [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
-* [Lao of Demeter](http://wiki.c2.com/?LawOfDemeter)
+* [Law of Demeter](http://wiki.c2.com/?LawOfDemeter)
 
 # TDA Tell Do not Ask
 
@@ -723,8 +723,8 @@ In the code example above, we have, in the Monitor class, data plus getters meth
 
 - This is very close to the question answered by the Memento Pattern.
 
-[Link to Memento Pattern](http://wiki.c2.com/?MementoPattern)
-[Memento Pattern - Wikipedia](https://en.wikipedia.org/wiki/Memento_pattern)
+- [Link to Memento Pattern](http://wiki.c2.com/?MementoPattern)
+- [Memento Pattern - Wikipedia](https://en.wikipedia.org/wiki/Memento_pattern)
 
 ## References about the TDA and Problems Related 
 
