@@ -18,6 +18,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    - [OCP Open-Closed Principle](#ocp-open-closed-principle)
    - [LSP Liskov Substitution Principle](#lsp-liskov-substitution-principle)
    - [ISP Interface Segregation Principle](#isp-interface-segregation-principle)
+   - [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
 
 * [Summary of Good Practices of Design](#summary-of-good-practices-of-design)
 
@@ -26,7 +27,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
    - [Keep things DRY](#keep-things-dry)
    - [YAGNI Principle](#yagni-principle)
    - [LoD Law of Demeter Principle](#lod-law-of-demeter-principle)
-   - [DIP Dependency Inversion Principle](#dip-dependency-inversion-principle)
+   - [TDA Tell Do not Ask](#tda-tell-do-not-ask]
 
 * Other Good Practices in Design 
 
@@ -506,7 +507,7 @@ public class NewReleaseMovie extends Movie {
 - **TDA**   - Tell Don´t Ask
 - **LoD**   - Law of Demeter - Each Unit Should have only limited knowledge about other units 
 - **YAGNI** - You aren´t gonna need it
-
+- **TDA**   - Tell, Don´t Ask
 
 # SoC Separation of Concerns
 
@@ -663,6 +664,59 @@ A method of an object may only call methods of:
 * [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
 * [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
 
+# TDA Tell Do not Ask
+
+## What is TDA?
+
+Tell-Don't-Ask is a principle that helps people remember that object-orientation is about bundling data with the functions that operate on that data. It reminds us that rather than asking an object for data and acting on that data, we should instead tell an object what to do. This encourages to move behavior into an object to go with the data.
+
+Many people find tell-don't-ask to be a useful principle. One of the fundamental principles of object-oriented design is to combine data and behavior, so that the basic elements of our system (objects) combine both together. This is often a good thing because this data and the behavior that manipulates them are tightly coupled: changes in one cause changes in the other, understanding one helps you understand the other. Things that are tightly coupled should be in the same component. Thinking of tell-don't-ask is a way to help programmers to see how they can increase this co-location.
+
+## Should We Get Rid of all Accessors (the Getters and Setters) ?
+
+As stated by MArtin Fowler, he doesn´t use tell-dont-ask. He does looks to co-locate data and behavior, which often leads to similar results.  One thing he finds troubling about tell-dont-ask is that he've seen it encourage people to become GetterEradicators, seeking to get rid of all query methods.  But there are times when objects collaborate effectively by providing information. A good example are objects that take input information and transform it to simplify their clients, such as using EmbeddedDocument.  As stated by Martin Fowler, he've seen code get into convolutions of only telling where suitably responsible query methods would simplify matters . For him, tell-don't-ask is a stepping stone towards co-locating behavior and data, but he doesn't find it a point worth highlighting.
+
+## Example of a Code doesn´te follow the TDA Principle
+
+The example below doing just the opposite of enforced by TDA:
+
+```java
+public class Monitor {
+
+  private int value;
+  private int limit;
+  private boolean isTooHigh;
+  private String name;
+  private Alarm alarm;
+
+  public AskMonitor (String name, int limit, Alarm alarm) {
+    this.name = name;
+    this.limit = limit;
+    this.alarm = alarm;
+  }
+  public int getValue() {
+      return value;
+  }
+  public void setValue(int arg) {
+      value = arg; 
+  }
+  public int getLimit() {
+      return limit;
+  }
+  public String getName()  {
+      return name;
+  }
+  public Alarm getAlarm() {
+      return alarm;
+  }
+}
+```
+
+As we can see above, this approach violates the object-oriented principle of implementation hiding, due to the fact that, instead of tell what to do (the processing should be done inside the class MOnitor not outside). So, the classes can ask private data of Monitor Class, through the use of accessors methods (getters) - giving to external access to private data of the Monitor Class. To do that, the external classes must know the type of data that they are asking for. This approach creates tightly coupling between classes, making the maintenance hard, because when changing the classe that gives the private data, the change will propagate.
+
+One of the fundamental principles of object-oriented design is to combine data and behavior, so that the basic elements of our system (objects) combine both together. This is often a good thing because this data and the behavior that manipulates them are tightly coupled: changes in one cause changes in the other, understanding one helps you understand the other. Things that are tightly coupled should be in the same component. Thinking of tell-don't-ask is a way to help programmers to see how they can increase this co-location.
+
+In the code example above, ww have only data, e getters methods. So, the behavior that works over the data will be spread outside the class that contains the data. The bad approach for code reuse and no side-effects when maintaing the original class.
 
 # Do The Simplest Thing That Could Possibly Work
 
