@@ -723,16 +723,16 @@ In the code example above, we have, in the Monitor class, data plus getters meth
 
 - This is very close to the question answered by the Memento Pattern.
 
-![Link to Memento Pattern](http://wiki.c2.com/?MementoPattern)
-![Memento Pattern - Wikipedia](https://en.wikipedia.org/wiki/Memento_pattern)
+[Link to Memento Pattern](http://wiki.c2.com/?MementoPattern)
+[Memento Pattern - Wikipedia](https://en.wikipedia.org/wiki/Memento_pattern)
 
 ## References about the TDA and Problems Related 
 
-- ![Accessors Are Evil](http://wiki.c2.com/?AccessorsAreEvil)
-- ![Tell Don´t Ask - MArtin Fowler](https://martinfowler.com/bliki/TellDontAsk.html)
-- ![Getter Eradicator - Martin Fowler](https://martinfowler.com/bliki/GetterEradicator.html)
-- ![Why Getter and Setter Methods are Evil - Part 1](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=1)
-- ![Why Getter and Setter Methods are Evil - Part 2](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=2)
+- [Accessors Are Evil](http://wiki.c2.com/?AccessorsAreEvil)
+- [Tell Don´t Ask - MArtin Fowler](https://martinfowler.com/bliki/TellDontAsk.html)
+- [Getter Eradicator - Martin Fowler](https://martinfowler.com/bliki/GetterEradicator.html)
+- [Why Getter and Setter Methods are Evil - Part 1](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=1)
+- [Why Getter and Setter Methods are Evil - Part 2](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=2)
 - [Avoid getters and setters whenever possible](https://dev.to/scottshipp/avoid-getters-and-setters-whenever-possible-c8m)
 
 # Do The Simplest Thing That Could Possibly Work
