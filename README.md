@@ -674,11 +674,11 @@ Many people find tell-don't-ask to be a useful principle. One of the fundamental
 
 ## Should We Get Rid of all Accessors (the Getters and Setters) ?
 
-As stated by MArtin Fowler, he doesn´t use tell-dont-ask. He does looks to co-locate data and behavior, which often leads to similar results.  One thing he finds troubling about tell-dont-ask is that he've seen it encourage people to become GetterEradicators, seeking to get rid of all query methods.  But there are times when objects collaborate effectively by providing information. A good example are objects that take input information and transform it to simplify their clients, such as using EmbeddedDocument.  As stated by Martin Fowler, he've seen code get into convolutions of only telling where suitably responsible query methods would simplify matters . For him, tell-don't-ask is a stepping stone towards co-locating behavior and data, but he doesn't find it a point worth highlighting.
+As stated by Martin Fowler in his article about TDA in his blog site, he doesn´t use tell-dont-ask. He does looks to co-locate data and behavior, which often leads to similar results.  One thing he finds troubling about tell-dont-ask is that he've seen it encourage people to become GetterEradicators, seeking to get rid of all query methods.  But there are times when objects collaborate effectively by providing information. A good example are objects that take input information and transform it to simplify their clients, such as using EmbeddedDocument.  As stated by Martin Fowler, he've seen code get into convolutions of only telling where suitably responsible query methods would simplify matters . For him, tell-don't-ask is a stepping stone towards co-locating behavior and data, but he doesn't find it a point worth highlighting.
 
-## Example of a Code doesn´te follow the TDA Principle
+## Java Code Example that doesn´t follow the TDA Principle
 
-The example below doing just the opposite of enforced by TDA:
+The example below shows just the opposite of what is enforced by TDA principle:
 
 ```java
 public class Monitor {
@@ -712,11 +712,9 @@ public class Monitor {
 }
 ```
 
-As we can see above, this approach violates the object-oriented principle of implementation hiding, due to the fact that, instead of tell what to do (the processing should be done inside the class MOnitor not outside). So, the classes can ask private data of Monitor Class, through the use of accessors methods (getters) - giving to external access to private data of the Monitor Class. To do that, the external classes must know the type of data that they are asking for. This approach creates tightly coupling between classes, making the maintenance hard, because when changing the classe that gives the private data, the change will propagate.
+As we can see above, this approach violates the object-oriented principles of information and implementation hiding, due to the fact that, instead of tell what to do, the classes will ask private data from Monitor Class, through the use of its accessors methods (getters), This wide spread style of coding gives external access to private data of the Monitor Class. To do that, the external classes must know the types of data that they are asking for. This approach creates tightly coupling between classes, making the maintenance hard, because any minor change in the types of datas contained inside of the classe Monitor will propagate and spread those changes to all objects that instantiate and use the Monitor Class.
 
-One of the fundamental principles of object-oriented design is to combine data and behavior, so that the basic elements of our system (objects) combine both together. This is often a good thing because this data and the behavior that manipulates them are tightly coupled: changes in one cause changes in the other, understanding one helps you understand the other. Things that are tightly coupled should be in the same component. Thinking of tell-don't-ask is a way to help programmers to see how they can increase this co-location.
-
-In the code example above, ww have only data, e getters methods. So, the behavior that works over the data will be spread outside the class that contains the data. The bad approach for code reuse and no side-effects when maintaing the original class.
+In the code example above, we have, in the Monitor class, data plus getters methods and with no behavior working and transforming the data. So, the behavior that works over the data will be, instead, outside and spread over all objects that ask and use the private data of Monitor Class. This is bad approach generates side-effects when maintaingn the original class.
 
 # Do The Simplest Thing That Could Possibly Work
 
