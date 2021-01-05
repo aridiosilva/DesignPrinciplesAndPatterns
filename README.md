@@ -663,6 +663,7 @@ A method of an object may only call methods of:
 
 * [Link to Law of Demeter in Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
 * [Link to Articl About The Law of Demeter Is Not A Dot Counting Exercise](https://haacked.com/archive/2009/07/14/law-of-demeter-dot-counting.aspx/)
+* [Lao of Demeter](http://wiki.c2.com/?LawOfDemeter)
 
 # TDA Tell Do not Ask
 
@@ -672,7 +673,7 @@ Tell-Don't-Ask is a principle that helps people remember that object-orientation
 
 Many people find tell-don't-ask to be a useful principle. One of the fundamental principles of object-oriented design is to combine data and behavior, so that the basic elements of our system (objects) combine both together. This is often a good thing because this data and the behavior that manipulates them are tightly coupled: changes in one cause changes in the other, understanding one helps you understand the other. Things that are tightly coupled should be in the same component. Thinking of tell-don't-ask is a way to help programmers to see how they can increase this co-location.
 
-**Note:** *Accessors are methods that let you read and write the value of an instance variable of an object. They are also known as setters and getters. Public accessors indicate that the data and the behavior of a class are not kept together. This is seen as a an indication of higher coupling and lower coherence.* 
+**Note:** *Accessors are methods that let you read and write the value of an instance variable of an object. They are also known as setters and getters. Public accessors indicate that the data and the behavior of a class are not kept together. This is seen as a an indication of higher coupling and lower coherence. Are public accessors are considered CodeSmell*  
 
 ## Should We Get Rid of all Accessors (the Getters and Setters) ?
 
@@ -717,6 +718,22 @@ public class Monitor {
 As we can see above, this approach violates the object-oriented principles of information and implementation hiding, due to the fact that, instead of tell what to do, the classes will ask private data from Monitor Class, through the use of its accessors methods (getters), This wide spread style of coding gives external access to private data of the Monitor Class. To do that, the external classes must know the types of data that they are asking for. This approach creates tightly coupling between classes, making the maintenance hard, because any minor change in the types of datas contained inside of the classe Monitor will propagate and spread those changes to all objects that instantiate and use the Monitor Class.
 
 In the code example above, we have, in the Monitor class, data plus getters methods and with no behavior working and transforming the data. So, the behavior that works over the data will be, instead, outside and spread over all objects that ask and use the private data of Monitor Class. This is bad approach generates side-effects when maintaingn the original class.
+
+## How to Externalize Data Without Violating Encapsulation and Information Hiding
+
+- This is very close to the question answered by the Memento Pattern.
+
+![Link to Memento Pattern](http://wiki.c2.com/?MementoPattern)
+![Memento Pattern - Wikipedia](https://en.wikipedia.org/wiki/Memento_pattern)
+
+## References about the TDA and Problems Related 
+
+- ![Accessors Are Evil](http://wiki.c2.com/?AccessorsAreEvil)
+- ![Tell Don´t Ask - MArtin Fowler](https://martinfowler.com/bliki/TellDontAsk.html)
+- ![Getter Eradicator - Martin Fowler](https://martinfowler.com/bliki/GetterEradicator.html)
+- ![Why Getter and Setter Methods are Evil - Part 1](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=1)
+- ![Why Getter and Setter Methods are Evil - Part 2](https://www.infoworld.com/article/2073723/why-getter-and-setter-methods-are-evil.html?pag=2)
+- [Avoid getters and setters whenever possible](https://dev.to/scottshipp/avoid-getters-and-setters-whenever-possible-c8m)
 
 # Do The Simplest Thing That Could Possibly Work
 
