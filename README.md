@@ -570,10 +570,8 @@ method.
 
 ```java
 public Class Base {
-...
 }
 public class Derived extends Base {
-...
 }
 public class App {
   private Derived d;
@@ -616,7 +614,7 @@ public class Circle extends Ellipse {
 }
 ```
 
-**Clients Ruin Everything**. 
+## Clients Ruin Everything
 
 Certainly the *model* we have created is *self consistent*. An *instance of Circle* will obeys all the *rules of a circle*. There is nothing you can do to it to make it violate those rules. So too for *Ellipse*. The *two classes* form a nicely consistent *model*, even if *Circle has one too many data elements*.
 
@@ -631,16 +629,48 @@ public void f (Ellipse e) {
    Point a(-1,0);
    Point b(1,0);
    
-   e.SetFoci(a,b);
-   e.SetMajorAxis(3);
+   e.setFoci(a,b);
+   e.setMajorAxis(3);
    
-   assert(e.GetFocusA() == a);
-   assert(e.GetFocusB() == b);
+   assert(e.getFocusA() == a);
+   assert(e.getFocusB() == b);
    
-   assert(e.GetMajorAxis() == 3);
+   assert(e.getMajorAxis() == 3);
 }
 
 ```
+
+In this case the method expects to be working with an *Ellipse*. As such, it expects to be able to set the *foci*, and *major axis*, and then verify that they have been properly set. If we pass an *instance of Ellipse* into this method, it will be quite happy. However, if we pass an *instance of Circle* into the method, it will fail rather badly.
+
+If we were to make the *contract of Ellipse explicit*, we would see a *postcondition* on the *setFoci method* that guaranteed that the input values got copied to the *member variables*, and that the *major axis variable was left unchanged*. Clearly *Circle violates this guarantee* because it ignores the *second input variable of setFoci*.
+
+## Design by Contract
+
+Restating the *LSP (Liskov Substitution Principle)*, we can say that, *in order to be substitutable, the contract of the base class must be honored by the derived class*. Since *Circle* does not honor the implied *contract of Ellipse*, it is *not substitutable and violates the LSP*.
+
+Making the *contract explicit* is an avenue of research followed by *Bertrand Meyer*. He has invented a language named *Eiffel* in which *contracts are explicitly stated for each method, and explicitly checked at each invocation*. Those of us who are not using *Eiffel*, *have to make do with simple assertions and comments*.
+
+**To state the contract of a method**, we *declare what must be true before the method is called*. This is called the **precondition**. If the *precondition fails*, the *results of the method are undefined*, and the *method ought not be called*. We also declare what the *method guarantees will be true once it has completed*. This is called the *postcondition*. A *method that fails its postcondition should not return*. 
+
+Restating the LSP once again, this time in *terms of the contracts*, a *derived class is substitutable for its base class if*:
+
+> 1. Its *preconditions* are **no stronger** than the *base class method*.
+> 2. Its *postconditions* are **no weaker** than the *base class method*.
+
+Or, in other words, *derived methods* should *expect no more and provide no less*.
+
+## Repercussions of LSP Violation
+
+Unfortunately, LSP violations are difficult to detect until it is too late. In the Circle/Ellipse case, everything worked fine until some client came along and discovered that the implicit contract had been violated.
+
+If the design is heavily used, the cost of repairing the LSP violation may be too great to bear. It might not be economical to go back and change the design, and then rebuild
+and retest all the existing clients. Therefore the solution will likely be to put into an if/else statement in the client that discovered the violation. This if/else statement checks to be  sure that the Ellipse is actually an Ellipse and not a Circle. See the following source code fragment:
+
+
+
+
+
+
 
 
 
