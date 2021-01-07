@@ -605,7 +605,7 @@ Still, if we ignore the slight overhead in space, we can make *Circle* behave pr
 
 public class Circle extends Ellipse {
 
-   public void SetFoci(Point a, Point b)    {
+   public void setFoci(Point a, Point b)    {
        
        Point itsFocusA = a;
        Point itsFocusB = a;
@@ -669,67 +669,33 @@ and retest all the existing clients. Therefore the solution will likely be to pu
 **Ugly fix for LSP violation**
 
 ```java
-public void f (Ellipse e)
-{
-    if (typeid(e) == typeid(Ellipse))
+    public void f (Ellipse e)
     {
-        Point a(-1,0);
-        Point b(1,0);
-	
-        e.SetFoci(a,b);
-        e.SetMajorAxis(3);
+    	try {
+    	    if ( e instanceof Ellipse {
+    		
+               Point a = new Point(-1,0);
+               Point b = new Point( 1,0);
+    	
+               e.setFoci(a,b);
+               e.setMajorAxis(3);
 
-        assert(e.GetFocusA() == a);
-        assert(e.GetFocusB() == b);
-        assert(e.GetMajorAxis() == 3);
-     }
-     else
-        throw NotAnEllipse(e);
-     }
-...
-}
+               assert(e.GetFocusA() == a);
+               assert(e.GetFocusB() == b);
+               assert(e.GetMajorAxis() == 3);
+            
+         } catch (Exception e) {
+	 
+               throw Exception (" Not an Ellipse(e) ");
+         }
+  
+    }
 ```
 
+Careful examination of Listing 2-6 will show it to be a violation of the OCP. Now, whenever some new derivative of Ellipse is created, this function will have to be
+checked to see if it should be allowed to operate upon it. Thus, violations of LSP are latent violations of OCP.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Design By Contract
-
-To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
-
->- Derived classes must be substitutable for their base classes.
->- Subtypers must be substitutable for their base types.
->- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
-
-And we should never do the following:
-
->  -- Don’t change the behavior of the parent or base class in derived classes
-
-The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
-
-In dynamic languages like Ruby, the Liskov principle (LSP) works slightly differently because Ruby less rigidly enforces how types work (so-called “Duck Typing”) as opposed to a language like Java, where type safety is enforced by the compiler. This means that LSP winds up applying more to the messages an object responds to rather than its type.
-
-We should remember that inheritance should be used for specialization. Specialization means creating new subclasses from an existing class so the subclasses can share some behaviour. 
-
-The first consequence of not using LSP is that class hierarchies become a mess. If the class hierarchy grows, it will become more and more complicated to know about the behaviour of the child classes. Secondly, unit tests for the superclass would never succeed for the subclass. The code that uses your type will have to have explicit knowledge of the internal workings of derived types to treat them differently. This tightly couples your code and generally makes the implementation harder to use consistently, and also more difficult to change. In the worst case scenario, LSP violations will introduce bugs in your system because you can’t rely anymore in derived classes. LSP is very easy to break if we don’t pay attention to our derived classes, and this can cause a lot of trouble in the feature. As we can see, there are plenty of things that can go wrong when breaking the LSP, so pay attention to your derived classes and try to avoid breaking the LSP.
-
-The LSP is all about expected behavior of objects:
-
-  -- Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
-
-### Resources About LSP Principle
+## Resources About LSP Principle
 
 >* [link to Article of Liskov substitution principle in Wikipedia](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 >* [Link to Article Explaining The Liskov Substitution Principle](http://www.blackwasp.co.uk/lsp.aspx)
