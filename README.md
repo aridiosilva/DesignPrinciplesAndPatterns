@@ -505,31 +505,29 @@ void LogOn(MODEM& m, string& pno, string& user, string& pw) {
 
 ````
 
-In the Java source code below shows how this is done. The logOn method can be extended with many different types of modems without requiring modification.
-
-In Java Generic Methods you can write a single generic method declaration that can be called with arguments of different types. Based on the types of the arguments passed to the generic method, the compiler handles each method call appropriately. Following are the rules to define Generic Methods −
-
-- All generic method declarations have a type parameter section delimited by angle brackets (< and >) that precedes the method's return type ( < E > in the next example).
-- Each type parameter section contains one or more type parameters separated by commas. A type parameter, also known as a type variable, is an identifier that specifies a generic type name.
-- The type parameters can be used to declare the return type and act as placeholders for the types of the arguments passed to the generic method, which are known as actual type arguments.
-- A generic method's body is declared like that of any other method. Note that type parameters can represent only reference types, not primitive types (like int, double and char).
-
-Lets see how we can do it:
+Using in the Java source code the Generic Types or Parameterized Tyoes shown below we can achieve that the logOn method can be extended with many different types of modems without requiring modification:
 
 ```java
 public class Modem< M > {
 
-    private  M  modemType;
-    
-    public void Dial(String pno);
-    public void Send(String s);
-    public String Recv();
-    public void Hangup();
-
-    public void logOn(M modemType, String pno, String user, String pw) {
-         modeType.Dial(pno, user, pw);
+    private  M  modemType;    
+    public void Dial(String pno, String user, String pw) {
+       ... 	
     }
-    ...
+    public void Send(String s){
+    	...
+    }
+    public String Recv(){
+    	...
+    }
+    public void Hangup(){
+    	...
+    }
+    public void logOn(M m, String pno, String user, String pw) {
+    	
+         m.Dial(pno, user, pw);
+         ...
+    }
 }
 ```
 
