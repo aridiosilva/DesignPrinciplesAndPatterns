@@ -312,10 +312,90 @@ As an example of the OCP, consider code shown in the UML Diagram below. Here the
 
 ![OCP_Principle_UML_Diagram_Example013_CleanCodeBook](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/OCP_Principle_UML_Diagram_Example013_CleanCodeBook.jpg)
 
+In this case thye method logOn has been closed for modification:
+
 ```java
+public abstrac class Modem {
 
+    public abstract void Dial(String pno);
+    public void abstract Send(String s);
+    public String abstract Recv();
+    public void abstract Hangup();
 
+    public void logOn(ModemType m, String& pno, String user, String pw) {
+         m.Dial(pno);
+         // you get the idea ...
+         ...
+    }
+    ...
+}
 ```
+
+````java
+
+public class ModemHayes extends Modem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
+```
+
+```java
+public class ModemErnie extends Modem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
+```
+
+```java
+public class ModemCourrier extends Modem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
 
 
 
