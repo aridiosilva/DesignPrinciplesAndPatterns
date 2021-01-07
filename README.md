@@ -570,15 +570,31 @@ method.
 
 ```java
 
-public void User(Base b) {
-
-}
-...
-
+void User(Base b);
 Derived d;
 User(d);
 
-...
+```
+
+This may seem obvious, but there are subtleties that need to be considered. The canonical example is the Circle/Ellipse dilemma.
+
+### The Circle/Ellipse Dilemma. 
+
+Most of us learn, in high school math, that a circle is just a degenerate form of an ellipse. All circles are ellipses with coincident foci.  This is-a relationship tempts us to model circles and ellipses using inheritance as shown in the following UML Diagram:
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Circle_Elipse_Dillema_LCP_Principle_001.jpg)
+
+While this satisfies our *conceptual model*, there are certain difficulties. A closer look at the *declaration of Ellipse in Figure above* begins to expose them. Notice that
+Ellipse has three data elements. The first two are the *foci*, and the last is the *length of the major axis*. If *Circle inherits from Ellipse*, then it will *inherit these data variables*. This is unfortunate since *Circle* really only needs *two data elements*, a *center point* and a *radius*.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Declaration_Of_Elipse_Classe_Dillema_LCP_Principle_001.jpg)
+
+
+
+
+
+
+
 
 
 
