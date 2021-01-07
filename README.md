@@ -510,7 +510,8 @@ The following *Java source code* example below shows how we can use *Generic Typ
 ```java
 public class Modem< M > {
 
-    private  M  modemType;    
+    private  M  modemType;  
+    
     public void dial(String pno, String user, String pw) {
        ... 	
     }
@@ -523,7 +524,7 @@ public class Modem< M > {
     public void hangUp(){
     	...
     }
-    public void logOn(M m, String pno, String user, String pw) {
+    public void logOn(Modem<M> m, String pno, String user, String pw) {
     	
          m.dial(pno, user, pw);
          ...
