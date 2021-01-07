@@ -598,10 +598,14 @@ Still, if we ignore the slight overhead in space, we can make *Circle* behave pr
 ```java
 // Keeping the Circle Foci coincident
 
-public void Circle::SetFoci(Point a, Point b)
-{
-   Point itsFocusA = a;
-   Point itsFocusB = a;
+public class Circle extends Ellipse {
+
+   public void SetFoci(Point a, Point b)    {
+       
+       Point itsFocusA = a;
+       Point itsFocusB = a;
+   }
+   ...
 }
 ```
 
