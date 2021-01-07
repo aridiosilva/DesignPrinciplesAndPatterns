@@ -554,13 +554,39 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 # LSP Liskov Substitution Principle
 
+## Introduction 
+
+Subclasses should be substitutable for their base classes.
+
+This principle was coined by Barbar Liskov in her work regarding *data abstraction* and *type theory*. It also derives from the concept of *Design by Contract (DBC)* by
+Bertrand Meyer. 
+
+The concept, as stated above, is depicted in Figure below, where Derived classes should be substitutable for their base classes. That is, a user of a *base class* should continue to function properly if a *derivative* of that *base class* is passed to it.
+
+![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Liskov_Substitution_Principle_LSP_001.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+## Design By Contract
+
 To build software systems from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted one for another.
 
-- Derived classes must be substitutable for their base classes.
-- Subtypers must be substitutable for their base types.
-- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
+>- Derived classes must be substitutable for their base classes.
+>- Subtypers must be substitutable for their base types.
+>- Supposing object S is a subtype of object T, then objects of type T may be replaced with objects of type S without altering any of the desirable properties of T.
 
- -  Don’t change the behavior of the parent or base class in derived classes
+And we should never do the following:
+
+>  -- Don’t change the behavior of the parent or base class in derived classes
 
 The Liskov Substitution Principle (LSP) is a concept in Object Oriented Programming and one of the SOLID principles that was initially introduced by Barbara Liskov in a 1987. This principle states that if a class inherits from a Base class, then the reference to the Base class should be able to be replaced by a Derived class without affecting the functionality of the program. If we inherit from a class, creating a child class, we must make sure that the new derived class only extends functionality without replacing or modifying any of the functionality of the base class. Otherwise the new class could produce undesired effects. In other words you should never modify the behavior of the parent or base class from within derived classes.
 
