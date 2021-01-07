@@ -662,9 +662,9 @@ There are well-known *abstract concepts* in *Object-Oriented programming*, like 
 
 The same can be said for other concepts like the *Single Responsibility Principle*, or the *Open/Closed Principle*, etc. These allow a very wide margin for interpretation, so the practicality, the direct usefulness, is therefore diminished.
 
-The beauty of the *Law of Demeter* comes from the succinct and exact definition, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these *abstract concepts* and distil the essence of them into a clear *set of rules* that are universally applicable to Object-Oriented coding.
+The beauty of the *Law of Demeter* comes from the *succinct and exact definition*, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these *abstract concepts* and distil the essence of them into a clear *set of rules* that are universally applicable to Object-Oriented coding.
 
-## What does The Law of Demeter stat?
+## What does The Law of Demeter state?
 
 The Law, in its *original form*, is stated in the following way:
 
@@ -757,7 +757,7 @@ This is a **violation of the Law of Demeter**. The *method* received the *parame
 
 **Example 4 - Chain Calls:**  
 
-Some explanations of the Law concentrate on so-called “chain calls”, that is, expressions which contain multiple dereferencings. Or stated plainly, multiple “dots”, like this:
+Some explanations of the Law concentrate on so-called “chain calls”, that is, expressions which contain multiple dereferencings. Or stated plainly, multiple “dots”, like the following example:
 
 ```java
     car.getOwner().getAddress().getStreet();
@@ -775,7 +775,7 @@ As above, the objects in *owner* , *ownerAddress* , and *ownerStreet* are still 
 
 **Example 4 - Fluent APIs**
 
-Some interpretations of the Law argue that since chain-calls are not allowed, fluent APIs are also forbidden. Fluent APIs are created to allow syntactically easy usage of a library or set of classes. They look like this:
+Some interpretations of the Law argue that since chain-calls are not allowed, fluent APIs are also forbidden. Fluent APIs are created to allow syntactically easy usage of a library or set of classes. They look like the following example:
 
 ```java
 Report report = new ReportBuilder()
@@ -790,13 +790,107 @@ To determine whether such a construct is allowed, we just *have to check each me
 
 All the following *method calls*, including the last *build() call* are all using the *returned objects* from the *previous call*. What is the *return value* of all these *methods*? Well, most of the *fluent APIs* just return the *same object* over and over again. That is still covered by **Rule #4** because the *builder* is an *object* that was created in this code. Some *fluent PIs* use *immutable objects* and return a *new object* every time. But even if this is the case, **Rule #4** still applies to *indirectly created objects too*. So the *Law of Demeter* **does not prohibited** *fluent APIs*.
 
-Ecample 5 - 
+Ecample 5 - “Wrapper” Methods**
 
+Some, including the ![Wikipedia Article on the Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter), argue that the Law implies the usage of *“Wrapper” methods* to get around *calling methods* on *foreign objects*, like the following example:
 
+```java
 
+  car.getOwner().getAddress().getStreet(); // This is a violation
 
+  car.getOwnerAddressStreet();             // This is a proposed "solution
 
+```
 
+There are a couple of problems with this approach. For example: How is *getOwnerAddressStreet()* implemented? Presumably like the following:
+
+```java
+public final class Car {
+	
+	private final Owner owner;
+	
+	public Street getOwnerAddressStreet() {
+		
+		return owner.getAddressStreet();
+	}
+	...
+}
+```
+So two new methods are introduced, but there was no real structural or design change. One could argue that while the Law was technically followed, the spirit of the Law was still violated. 
+
+The structure is still visible in the method name, and we all know that the caller wants to get the street of the address of the owner of the car. 
+
+The question is: Why does the caller want that, and how does he/she even know that this information exists at this point? This is when applying the Law blends together with Object-Oriented Design. Obviously, the purpose of the Law is not to roll additional hurdles in our way and make our lives more difficult. The same way that our job is not to make sure that we technically follow all the rules without thinkinh about our overall design.
+
+What the Law is quite clearing saying is that you shouldn’t access the Street in this structure. As in, you shouldn’t even know it’s there. Don’t trick the definition by introducing wrapper methods! There is a deeper design isseu here that needs to be addressed (no pun intended)!
+
+**Example 6 - Pure "Data Strcutures"**
+
+In his book Clean Code, Robert C. Martin has a short section on the Law of Demeter, where he makes two interesting points. One is that perhaps by using direct access to variables, the Law could be circumvented. So instead of this...
+ 
+```java
+   car.getOwner().getAddress().getStreet();
+ ```
+ 
+...which is not acceptable, it could be transformed into the following, which complies with the Law,
+since it doesn’t involve method calls:
+
+```java
+  .owner.address.street; // Using direct access to fields
+  ```
+  
+  There are two arguments against this line of reasoning. One is that it still just tries to work around the
+Law instead of heeding its advice. And the second is that direct access to fields arguably still qualifies as "sending a message", since it is still just communicating between two objects.
+
+There is a more nuanced point made by Uncle Bob regarding the aboce - that the Law of Demeter should not apply to pure data structures anyway.
+
+Pure data structures ("objects" that gave no behavior, just data) are integral building blocks of a procedural, functional or a mixed paradigm approach. As such, they are of course exempt from having to comply with the Law of Demeter, which is a Law for Object-Oriented development.
+
+**Example 7 - Getters**
+
+Most, if not all of the *negative examples* for the *Law of Demeter* given involve *“getter” methods*. These
+are *methods* like the following:
+
+```java
+public final class Car {
+	
+	private final Owner owner;
+	
+	public Owner getOwner() {
+		
+		return owner;
+	}
+}
+```
+It is not a coincidence that this is the case. Let’s imagine another *method*, which uses this *getter*:
+
+```java
+public final class Garage {
+	
+	public void isAllowed(Car car) {
+		
+		Owner owner = car.getOwner(); // Allowed?
+		...
+	}
+}
+```
+
+Is the above call even allowed? Well, technically yes. The car object is a direct parameter to the method, so I may call methods on this object.
+
+However, let’s think about what can be done with the result of this call. The method returns an owner object, which is neither a parameter nor an object that the Garage has direct access to. Therefore there can be no further method calls on this object. Not toString() , not hashCode() , nothing!
+ 
+This might be considered unexpected. So that means while calling the getter itself might be technically legal, we can’t actually use the result. It seems getter methods violate the Law of Demeter almost by design.
+
+As previously said, this is neither a coincidence nor is it unintentional. In the Object-Oriented paradigm, objects are supposed to tell other objects what to do — delegate, instead of querying data from others and doing everything themselves.
+
+## When To Apply the Law of Demeter
+
+There are some opinions in blog posts and other articles expressing that the Law of Demeter is less
+of a “law” and only a “suggestion” or a “guideline.” Or that it is 
+
+## Notes about Law of Demeter
+
+The Law of Demeter is a very well-de
 
 
 
