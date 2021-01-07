@@ -263,7 +263,7 @@ is the key to the OCP. Some of these techniques are, for example:
 - A) Dynamic Polymorphism;
 - B) Static Polymorphism;
 
-## Dynamic Polymorphism Technique 
+## Dynamic Polymorphism Technique to Implement Open-Closed Principle (OCP)
 
 Dynamic Polymorphism. Consider the source code below. the logOn method must be changed every time a new kind of modem is added to the software. Worse, since each
 different type of modem depends upon the ModemType enumeration, each modem must be recompiled every time a new kind of modem is added:
@@ -324,7 +324,7 @@ public abstrac class Modem {
     public abstract String Recv();
     public abstract void Hangup();
 
-    public void logOn(ModemType m, String& pno, String user, String pw) {
+    public void logOn(ModemType m, String pno, String user, String pw) {
          m.Dial(pno);
          // you get the idea ...
          ...
@@ -411,7 +411,7 @@ public interface IModem {
     public String Recv();
     public void Hangup();
 
-    public void logOn(ModemType m, String& pno, String user, String pw) {
+    public void logOn(ModemType m, String pno, String user, String pw) {
          m.Dial(pno);
          // you get the idea ...
          ...
@@ -488,10 +488,23 @@ public class ModemCourrier implements IModem {
 
 ```
 
+## Static Polymorphism Technique to Implement Open-Closed Principle (OCP)
 
+Another technique for conforming to the OCP is through the use of **generics** or **parametric classes** in *Java* and **templates** in *C++*. 
 
+IN the source code below shows how this is done. The logOn method can be extended with many different types of modems without requiring modification.
 
+```c++
 
+template <typename MODEM>
+void LogOn(MODEM& m,
+string& pno, string& user, string& pw)
+{
+m.Dial(pno);
+// you get the idea.
+}
+
+````
 
 
 
