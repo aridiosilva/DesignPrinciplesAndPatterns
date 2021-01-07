@@ -666,10 +666,29 @@ Unfortunately, LSP violations are difficult to detect until it is too late. In t
 If the design is heavily used, the cost of repairing the LSP violation may be too great to bear. It might not be economical to go back and change the design, and then rebuild
 and retest all the existing clients. Therefore the solution will likely be to put into an if/else statement in the client that discovered the violation. This if/else statement checks to be  sure that the Ellipse is actually an Ellipse and not a Circle. See the following source code fragment:
 
+**Ugly fix for LSP violation**
 
+```java
+public void f (Ellipse e)
+{
+    if (typeid(e) == typeid(Ellipse))
+    {
+        Point a(-1,0);
+        Point b(1,0);
+	
+        e.SetFoci(a,b);
+        e.SetMajorAxis(3);
 
-
-
+        assert(e.GetFocusA() == a);
+        assert(e.GetFocusB() == b);
+        assert(e.GetMajorAxis() == 3);
+     }
+     else
+        throw NotAnEllipse(e);
+     }
+...
+}
+```
 
 
 
@@ -715,7 +734,7 @@ The LSP is all about expected behavior of objects:
 >* [link to Article of Liskov substitution principle in Wikipedia](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 >* [Link to Article Explaining The Liskov Substitution Principle](http://www.blackwasp.co.uk/lsp.aspx)
 
-### ISP Interface Segregation Principle
+# ISP Interface Segregation Principle
 
 The ISP states that no cliente should be forced to depend on methods it does not use.
 
