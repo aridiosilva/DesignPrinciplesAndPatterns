@@ -643,7 +643,115 @@ Always implement things when you actually need them, never when you just foresee
 
 #  Lod Law of Demeter Principle
 
-Don't talk to strangers.
+### Introduction
+
+This a simple, programming language independent rule (known in-house as the Law of DcmeterTM) which encodes the ideas of encapsulation and modularity in an easy to follow form for the object-oriented programmer. You tend to get the following related benefits when you follow the Law of Demeter while minimizing simultaneously code duplication, the number of method arguments and the number of methods per class: 
+
+- Easier software maintenance, 
+- less coupling between your methods, 
+- better information hiding, 
+- narrower interfaces, 
+- methods which are easier to reuse, and 
+- easier correct.ness proofs using structural induction. 
+
+The point is how any object-oriented program can be transformed to satisfy the Law ?
+
+### Why Should We Obey the Law of Demeter?
+
+There are well-known *abstract concepts* in *Object-Oriented programming*, like **encapsulation**, **cohesion**, and **coupling**, that could be theoretically used to generate *clear designs and good code*. While these are all very important concepts, they are just not pragmatic enough to be directly useful for development. One has to interpret these concepts, and with that, they become somewhat subjective and start to depend on people’s experience and knowledge.
+
+The same can be said for other concepts like the *Single Responsibility Principle*, or the *Open/Closed Principle*, etc. These allow a very wide margin for interpretation, so the practicality, the direct usefulness, is therefore diminished.
+
+The genius of the *Law of Demeter* comes from the succinct and exact definition, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these abstract concepts and distil the essence of them into a clear set of rules that are universally applicable to Object-Oriented code.
+
+### The Law of Demeter
+
+The Law, in its original form, is stated in the following way:
+
+> For all classes C, and for all methods M attached to C, all objects to which M sends a message must be instances of classes associated with the following classes:
+>
+> 1, The argument classes of M (including C). 
+> 2. The instance variable classes of C. 
+> 
+> (Objects created by M, or by functions or methods which M calls, and objects in global variables are considered as arguments of M.)
+
+This Law has two primary purposes: 
+
+> 1. **Simplifies modifications in the code**. It simplifies the updating of a program when the class dictionary is changed.
+> 2. **Simplifies complexity of programming design**. It restricts the number of types the programmer has to be aware of when writing a method. 
+ 
+The Law of Demeter, when used in coordination with three key constraints, enforces good programming style. These constraints require minimizing code duplication, minimizing the number of arguments passed to methods and minimizing the number of methods per class.
+
+### Considerations about Law of Demeter
+
+In the early days of Object-Orientation, *objects* were supposed to *“send messages” to each other*. That is how they communicated. So the term *“objects to which M sends a message”* roughly translates to *“objects used by M,”* or in a more practical definition *“objects on which M calls a method on.”*
+
+You might have noticed that there are some very important additional points made in parentheses after the two rules. They seem like clarifications mentioned just in passing, but they are actually additional rules. So let’s reformulate the whole Law so all points stand independently:
+
+For all *classes C*, and for all *methods M* attached to *C*, all *objects* to which *M* sends a message must be:
+
+* Rule 1. self (this in Java)
+* Rule 2. M’s argument objects
+* Rule 3. Instance variable objects of C
+* Rule 4. Objects created by M, or by functions or methods which M calls
+* Rule 5. Objects in global variables (static fields in Java)
+
+### What Does It Mean?
+
+The law formulates what we are allowed to do in any given method M. So, let’s work backward and find out what it is exactly what this law prohibits.
+
+Rule #4 states, that all objects created during the call to M, either directly or indirectly, are allowed. So the prohibition must be among objects that already existed when the call began.
+
+These already existing objects must have a reference to them, otherwise, nobody would be able to access them. Therefore these objects must be referenced from fields (variables) of other objects. Rule #5 allows global objects, so that leaves us with objects in instance variables.
+
+Rules #1, #2, and #3 further allows “self”, M’s parameters and all objects in instance variables of C.
+
+That means that the Law prohibits “sending a message” to any already existing object that is held in instance variables of other classes, unless it is also held by our class or passed to us as method parameters.
+
+Let’s look at some examples of the Law in action:
+
+
+
+
+### The Motivation and Explanation
+
+The motivation behind this Law is to ensure that the software is as modular as possible. Any method written to obey this Law will only know about the immediate structure of the class to which it is attached. The structure of the arguments and the sub-structure of C are hidden from M. Therefore, should a change to the structure of the class C be necessary we need only to look at those methods attached to C and its subclasses for possible conflicts. The Law effectively reduces the occurrences of certain nested message sendings (generic method calls) and simplifies the methods. The Law prohibits the nesting of generic accessor method calls, which return objects that are not instance variable objects. It allows the nesting of constructor function calls. An accessor method is a method which returns an object which did exist before the method is called. A constructor method returns an object which did not exist before the method is called.
+
+The Law of Demeter has many implications regarding widely known software engineering principles. Below there are many of the proven principles of software design into a single statement which can easily be used by the object-oriented programmer and which can be easily checked at compile-time. 
+
+Some of the inter-related principles covered by the Law are the following:
+
+### Coupling control
+
+It is a well-known principle of software design to have minimal coupling between abstractions (e.g. procedures, modules, methods) [3]. The coupling can be along several links. An important link for methods is the “uses” link (or call/return link) which is established when one method calls another method. The Law of Demeter effectively reduces the methods we can call inside a given. a method and therefore limits the coupling of methods with respect to the “uses” relation. The Law therefore facilitates reusability of methods and the abstraction level of the software.
+
+### Information hiding
+
+The Law of Demeter enforces one kind of information hiding: structure hiding. In general, the Law prevents a method from directly retrieving  a subpart of an object which lies deep in that object’s “part-of” hierarchy. Instead, intermediate methods must be used to traverse the “part-of” hierarchy in controlled small steps. In some object-oriented systems, the user can protect some of the instance variables or methods of a class from outside access by making them private. This important feature complements the Law to increase modularity but is orthogonal to it. Our Law promotes the idea that the instance variables and methods which are public should be used in a restricted way.
+
+###  Information restriction
+
+Our work is related to the work by Parnas et al. on the modular structure of complex systems. To reduce the cost of software changes in their operational flight program for the A-7E aircraft, the use of modules that provide information that is subject to change is restricted. We take this point of view seriously in our objectoriented programming and assume that any class could change. Therefore we restrict the use of message seendings (generic function calls) by the Law of Demeter. Information restriction complements
+information hiding. Instead of hiding certain methods, we make them public but we restrict their use. 
+
+### Localization of information
+
+The importance of localizing information is stressed in many software engineering texts. The Law of Demeter focusses on localizing type information When we study a method we only have to be aware of types which are very closely related to the class to which the method is attached. We can effectively be ignorant (and independent) of the rest of the system and as the old proverb goes: “Ignorance is bliss”. This is an important aspect which helps to reduce the complexity of programming. Prom another point of view related to localization, the Law controls the visibility of message names. In a given method we can only use message names which are in the signatures of the instance variable types and argument types.
+
+### Narrow interfaces
+
+The maintenance of narrow interfaces between interacting entities is also important. A method ihould have access to only as much information as it needs to do its job. ,If a method gets too much information, it has to destructure this information (via many nested sends) which the Law of Demeter discourages. Therefore The Law promotes narrow interfaces between methods. 
+
+### Structural induction
+
+The Law of Demeter is related to the fundamental thesis of Denotational Semantics. That is, “The meaning of a phrase is a function of the meanings of its immediate constituents”. This goes back to Prege’s work on the principle of compositionality in his Begriffsschrift [S]. The main motivation behind the compositionality principle
+is that it facilitates structural induction proofs.
+
+### The Trade-off 
+
+Writing programs which follow the the Law of Demeter decreases the occurrences of nested message sending and decreases the complexity of the methods, but it increases the number of methods. The latter is related to the problem outlined in [12] which is that there can be too many operations in a type. In this case the abstraction may be less comprehensible, and implementation and maintenance are more difficult. There might also be an increase in the number of arguments passed to some methods.
+
+One way of correcting this problem is to organize all the methods associated with a particular functional (or algorithmic) task into “Modula-2 like” module structures as outlined in [ll]. So the functional abstraction is no longer a method but a module which will hide the lower-level methods which caused the original confusion.
 
 ### Why Apply the LoD
 
