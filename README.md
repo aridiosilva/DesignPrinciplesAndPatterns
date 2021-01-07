@@ -270,11 +270,11 @@ different type of modem depends upon the ModemType enumeration, each modem must 
 
 ```java
 public class Modem {
-	private int ModemStatus;
-	public enum ModemType {
+	private int modemStatus;
+	public enum modemType {
 		HAYES, COURRIER, ERNIE;
 	}
-	public void logOn (ModemType m, String pno, String user, String pw) {
+	public void logOn (modemType m, String pno, String user, String pw) {
 		switch (m) {
 		case HAYES:
 			dialHayes( m.HAYES, pno);
@@ -319,13 +319,13 @@ We have two options in Java Programming Language to implement the model shown in
 ```java
 public abstrac class Modem {
 
-    public abstract void Dial(String pno);
-    public abstract void Send(String s);
-    public abstract String Recv();
-    public abstract void Hangup();
+    public abstract void dial(String pno);
+    public abstract void send(String s);
+    public abstract String recv();
+    public abstract void hangUp();
 
-    public void logOn(ModemType m, String pno, String user, String pw) {
-         m.Dial(pno);
+    public void logOn(modemType m, String pno, String user, String pw) {
+         m.dial(pno);
          // you get the idea ...
          ...
     }
@@ -338,19 +338,19 @@ public abstrac class Modem {
 public class ModemHayes extends Modem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -360,19 +360,19 @@ public class ModemHayes extends Modem {
 public class ModemErnie extends Modem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -382,19 +382,19 @@ public class ModemErnie extends Modem {
 public class ModemCourrier extends Modem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -406,10 +406,10 @@ public class ModemCourrier extends Modem {
 ```java
 public interface IModem {
 
-    public void Dial(String pno);
-    public void Send(String s);
-    public String Recv();
-    public void Hangup();
+    public void dial(String pno);
+    public void send(String s);
+    public String recv();
+    public void hangUp();
 
     public void logOn(ModemType m, String pno, String user, String pw) {
          m.Dial(pno);
@@ -425,19 +425,19 @@ public interface IModem {
 public class ModemHayes implements IModem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -447,19 +447,19 @@ public class ModemHayes implements IModem {
 public class ModemErnie implements IModem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -469,19 +469,19 @@ public class ModemErnie implements IModem {
 public class ModemCourrier implements IModem {
 
     @Overrides
-    public void Dial(String pno) {
+    public void dial(String pno) {
        ...    
     }
     @Overrides
-    public void Send(String s);
+    public void send(String s);
        ...    
     }
     @Overrides
-    public String Recv();
+    public String recv();
        ...    
     }
     @Overrides
-    public void Hangup();
+    public void hangUp();
        ...    
     }
 }
@@ -498,9 +498,9 @@ The following *C++ source code* example shows how this is done. The logOn method
 
 template <typename MODEM>
 
-void LogOn(MODEM& m, string& pno, string& user, string& pw) {
+void logOn(MODEM& m, string& pno, string& user, string& pw) {
 
-    m.Dial(pno);
+    m.dial(pno);
 }
 
 ````
@@ -511,21 +511,21 @@ The following *Java source code* example below shows how we can use *Generic Typ
 public class Modem< M > {
 
     private  M  modemType;    
-    public void Dial(String pno, String user, String pw) {
+    public void sial(String pno, String user, String pw) {
        ... 	
     }
-    public void Send(String s){
+    public void send(String s){
     	...
     }
-    public String Recv(){
+    public String recv(){
     	...
     }
-    public void Hangup(){
+    public void hangUp(){
     	...
     }
     public void logOn(M m, String pno, String user, String pw) {
     	
-         m.Dial(pno, user, pw);
+         m.dial(pno, user, pw);
          ...
     }
 }
