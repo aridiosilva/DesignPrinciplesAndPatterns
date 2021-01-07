@@ -556,15 +556,29 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 ## Introduction 
 
-Subclasses should be substitutable for their base classes.
+> - *Subclasses should be substitutable for their base classes.*
 
-This principle was coined by Barbar Liskov in her work regarding *data abstraction* and *type theory*. It also derives from the concept of *Design by Contract (DBC)* by
+This principle was coined by *Barbar Liskov* in her work regarding *data abstraction* and *type theory*. It also derives from the concept of *Design by Contract (DBC)* by
 Bertrand Meyer. 
 
-The concept, as stated above, is depicted in Figure below, where Derived classes should be substitutable for their base classes. That is, a user of a *base class* should continue to function properly if a *derivative* of that *base class* is passed to it.
+The concept, as stated above, is depicted in Figure below, where *Derived classes should be substitutable for their base classes*. That is, a user of a *base class* should continue to function properly if a *derivative* of that *base class* is passed to it.
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Liskov_Substitution_Principle_LSP_001.jpg)
 
+In other words, if some method User takes an argument ot type Base, then as shown in Listing below, it should be legal to pass in an instance of Derived to that
+method.
+
+```java
+
+public void User(Base b) {
+
+}
+...
+
+Derived d;
+User(d);
+
+...
 
 
 
