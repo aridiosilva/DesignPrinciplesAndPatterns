@@ -643,7 +643,9 @@ Always implement things when you actually need them, never when you just foresee
 
 #  Lod Law of Demeter Principle
 
-The present description is bases on Robert Brautigam article mixed qith other sources. The original article of Robert Brautigam is located at [](https://javadevguy.wordpress.com/2017/05/14/the-genius-of-the-law-of-demeter/)
+The present description is bases on Robert Brautigam article mixed qith other sources. The original article of Robert Brautigam is:
+
+- [original article of Robert Brautigam ](https://javadevguy.wordpress.com/2017/05/14/the-genius-of-the-law-of-demeter/)
 
 ## Introduction
 
