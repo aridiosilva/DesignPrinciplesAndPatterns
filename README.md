@@ -570,8 +570,12 @@ method.
 
 ```java
 
-void User(Base b);
+public void User(Base b) {
+   ...
+}
+...
 Derived d;
+...
 User(d);
 
 ```
@@ -589,8 +593,43 @@ Ellipse has three data elements. The first two are the *foci*, and the last is t
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Declaration_Of_Elipse_Classe_Dillema_LCP_Principle_001.jpg)
 
+Still, if we ignore the slight overhead in space, we can make *Circle* behave properly by *overriding its SetFoci method* to ensure that both *foci* are kept at the *same value*. See Listing shown below. Thus, either *focus* will act as the *center of the circle*, and the *major axis* will be its *diameter*.
 
+```java
+// Keeping the Circle Foci coincident
 
+public void Circle::SetFoci(Point a, Point b)
+{
+   Point itsFocusA = a;
+   Point itsFocusB = a;
+}
+```
+
+**Clients Ruin Everything**. 
+
+Certainly the *model* we have created is *self consistent*. An *instance of Circle* will obeys all the *rules of a circle*. There is nothing you can do to it to make it violate those rules. So too for *Ellipse*. The *two classes* form a nicely consistent *model*, even if *Circle has one too many data elements*.
+
+However, *Circle* and *Ellipse* do not live alone in a universe by themselves. They cohabit that universe with many *other entities*, and provide their *public interfaces*
+to those *entities*. Those *interfaces* imply a *contract*. The *contract may not be explicitly stated*, but *it is there nonetheless*. For example, users of *Ellipse* have the
+right to expect the following *code fragment* to succeed: 
+
+```java
+
+public void f (Ellipse e) {
+
+   Point a(-1,0);
+   Point b(1,0);
+   
+   e.SetFoci(a,b);
+   e.SetMajorAxis(3);
+   
+   assert(e.GetFocusA() == a);
+   assert(e.GetFocusB() == b);
+   
+   assert(e.GetMajorAxis() == 3);
+}
+
+```
 
 
 
