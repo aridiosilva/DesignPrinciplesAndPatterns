@@ -664,25 +664,18 @@ The same can be said for other concepts like the *Single Responsibility Principl
 
 The beauty of the *Law of Demeter* comes from the succinct and exact definition, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these *abstract concepts* and distil the essence of them into a clear *set of rules* that are universally applicable to Object-Oriented coding.
 
-### The Law of Demeter
+## What does The Law of Demeter stat?
 
 The Law, in its *original form*, is stated in the following way:
 
 > **For all classes C, and for all methods M attached to C, all objects to which M sends a message must be instances of classes associated with the following classes:**
 >
-> **1. The argument classes of M (including C). **
+> **1. The argument classes of M (including C).**
 > **2. The instance variable classes of C.**
 > 
 > **(Objects created by M, or by functions or methods which M calls, and objects in global variables are considered as arguments of M.)**
 
-This Law has two primary purposes: 
-
-> 1. **Simplifies modifications in the code**. It simplifies the maintenance of a code when the class responsabilities needs to be changed.
-> 2. **Simplifies complexity of programming design**. It restricts the number of types the programmer has to be aware of when writing a method. 
- 
-The Law of Demeter minimizes code duplication, minimizes the number of arguments passed to methods and minimizes he number of methods per class.
-
-### Considerations about Law of Demeter
+## Considerations about Law of Demeter
 
 In the early days of Object-Orientation, *objects* were supposed to *“send messages” to each other*. That is how they communicated. So the term *“objects to which M sends a message”* roughly translates to *“objects used by M,”* or in a more practical definition *“objects on which M calls a method on.”*
 
@@ -690,13 +683,13 @@ You might have noticed that there are some very important additional points made
 
 For all *classes C*, and for all *methods M* attached to *C*, all *objects* to which *M* sends a message must be:
 
-* Rule 1. self (this in Java)
+* Rule 1. **self** (**this** in *Java*)
 * Rule 2. M’s argument objects
 * Rule 3. Instance variable objects of C
 * Rule 4. Objects created by M, or by functions or methods which M calls
-* Rule 5. Objects in global variables (static fields in Java)
+* Rule 5. Objects in global variables (**static** fields in Java)
 
-### What Does It Mean?
+## What Does It Mean?
 
 The law formulates what we are allowed to do in any given *ethod M* So, let’s work backward and find out *hat it is exactly what this law prohibits*
 
@@ -709,6 +702,63 @@ These already existing objects must have a *reference* to them, otherwise, nobod
 That means that *the Law prohibits “sending a message” to any already existing object that is held in instance variables of other classes*, unless it is also held by our *class* or passed to us as *method parameters*.
 
 Let’s look at some examples of the Law in action:
+
+**Example 1:*
+```java
+public final class NetworkConnection {
+
+	public void close() {
+	
+		sendShutdownMessage(); // Allowed?
+	}
+	private void sendShutdownMessage() {
+		...
+	}
+}
+```
+
+The *method call sendShutdownMessage()* is obviously allowed, because it is covered by **Rule #1 ( The argument classes of M (including C)**.  Any method can be called on the current object.
+
+**Example 2:**
+
+```java
+
+public final class NetworkConnection {
+	
+	private Socket socket;
+	
+	public void close() {
+		
+		socket.close(); // Allowed?
+	}
+}
+```
+
+That is also allowed, because of **Rule #3 -  Instance variable objects of C** (as *socket* is an *instance variable* of this *class*).
+
+**Example 3:**
+
+```java
+public final class NetworkConnection {
+	
+	public void send(Person person) {
+		
+		sendBytes(person.getName().getBytes());
+		
+		sendBytes(person.getPhoto().getBytes();
+		
+		...
+	}
+}
+```
+
+This is a **violation of the Law of Demeter**. The *method* received the *parameter person*, so all *method calls* on this *object* are allowed. However, calling any *methods* (in this case *getBytes()*) on the *object returned* by either *getName()* or *getPhoto()* is **not allowed**. Assuming *standard getters*, these *objects* are already *existing objects* in *other objects’ instance variables*, therefore they are exactly the *kind of objects* this *method* **should not have access to**.
+
+
+
+
+
+
 
 
 
