@@ -703,7 +703,8 @@ That means that *the Law prohibits “sending a message” to any already existi
 
 Let’s look at some examples of the Law in action:
 
-**Example 1:*
+**Example 1:**
+
 ```java
 public final class NetworkConnection {
 
@@ -754,6 +755,42 @@ public final class NetworkConnection {
 
 This is a **violation of the Law of Demeter**. The *method* received the *parameter person*, so all *method calls* on this *object* are allowed. However, calling any *methods* (in this case *getBytes()*) on the *object returned* by either *getName()* or *getPhoto()* is **not allowed**. Assuming *standard getters*, these *objects* are already *existing objects* in *other objects’ instance variables*, therefore they are exactly the *kind of objects* this *method* **should not have access to**.
 
+**Example 4 - Chain Calls:**  
+
+Some explanations of the Law concentrate on so-called “chain calls”, that is, expressions which contain multiple dereferencings. Or stated plainly, multiple “dots”, like this:
+
+```java
+    car.getOwner().getAddress().getStreet();
+```
+
+This is almost certainly a **violation of the Law**, since *all those objects (owner, address) are presumably already-existing instance variable values, to which the Law prohibits access.*  However, **it is not* the *chain-calling* that makes the above a **violation**, but the *access to certain objects*. The following “refactored” code still violates the Law:
+
+```java
+   Owner owner = car.getOwner();
+   Address ownerAddress = owner.getAddress();
+   Street ownerStreet = ownerAddress.getStreet();
+```
+
+As above, the objects in *owner* , *ownerAddress* , and *ownerStreet* are still **not covered by any of the rules*, therefore *no methods should be called on them*. 
+
+**Example 4 - Fluent APIs**
+
+Some interpretations of the Law argue that since chain-calls are not allowed, fluent APIs are also forbidden. Fluent APIs are created to allow syntactically easy usage of a library or set of classes. They look like this:
+
+```java
+Report report = new ReportBuilder()
+                .withBorder(1)
+                .withBorderColor(Color.black)
+                .withMargin(3)
+                .withTitle("Law of Demeter Report")
+                .build();
+```
+
+To determine whether such a construct is allowed, we just *have to check each method call to see whether it is specifically allowed*. The *ReportBuilder object* is created in this *method* right now, so the first *method* call *withBorder(1)* is on a *freshly created object*. This is *explicitly allowed by* **Rule #4**.
+
+All the following *method calls*, including the last *build() call* are all using the *returned objects* from the *previous call*. What is the *return value* of all these *methods*? Well, most of the *fluent APIs* just return the *same object* over and over again. That is still covered by **Rule #4** because the *builder* is an *object* that was created in this code. Some *fluent PIs* use *immutable objects* and return a *new object* every time. But even if this is the case, **Rule #4** still applies to *indirectly created objects too*. So the *Law of Demeter* **does not prohibited** *fluent APIs*.
+
+Ecample 5 - 
 
 
 
