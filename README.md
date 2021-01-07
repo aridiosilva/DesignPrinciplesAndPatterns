@@ -320,9 +320,9 @@ We have two options in Java Programming Language to implement the model shown in
 public abstrac class Modem {
 
     public abstract void Dial(String pno);
-    public void abstract Send(String s);
-    public String abstract Recv();
-    public void abstract Hangup();
+    public abstract void Send(String s);
+    public abstract String Recv();
+    public abstract void Hangup();
 
     public void logOn(ModemType m, String& pno, String user, String pw) {
          m.Dial(pno);
@@ -406,10 +406,10 @@ public class ModemCourrier extends Modem {
 ```java
 public interface IModem {
 
-    public abstract void Dial(String pno);
-    public void abstract Send(String s);
-    public String abstract Recv();
-    public void abstract Hangup();
+    public void Dial(String pno);
+    public void Send(String s);
+    public String Recv();
+    public void Hangup();
 
     public void logOn(ModemType m, String& pno, String user, String pw) {
          m.Dial(pno);
