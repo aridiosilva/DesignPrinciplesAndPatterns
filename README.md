@@ -643,6 +643,8 @@ Always implement things when you actually need them, never when you just foresee
 
 #  Lod Law of Demeter Principle
 
+The present description is bases on Robert Brautigam article mixed qith other sources. The original article of Robert Brautigam is located at [](https://javadevguy.wordpress.com/2017/05/14/the-genius-of-the-law-of-demeter/)
+
 ## Introduction
 
 This a simple programming language rule, named as the Law of Demeter, which encodes the ideas of encapsulation and modularity in an easy to follow form for the object-oriented programming. Can be get the following benefits when we follow the Law of Demeter while minimizing simultaneously *code duplication*, the *number of method arguments* and the *number of methods per class*: 
@@ -792,7 +794,7 @@ All the following *method calls*, including the last *build() call* are all usin
 
 Ecample 5 - “Wrapper” Methods**
 
-Some, including the ![Wikipedia Article on the Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter), argue that the Law implies the usage of *“Wrapper” methods* to get around *calling methods* on *foreign objects*, like the following example:
+Some, including the [Wikipedia Article on the Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter), argue that the Law implies the usage of *“Wrapper” methods* to get around *calling methods* on *foreign objects*, like the following example:
 
 ```java
 
@@ -883,23 +885,25 @@ This might be considered unexpected. So that means while calling the getter itse
 
 As previously said, this is neither a coincidence nor is it unintentional. In the Object-Oriented paradigm, objects are supposed to tell other objects what to do — delegate, instead of querying data from others and doing everything themselves.
 
-## When To Apply the Law of Demeter
+## When to Apply
 
 There are some opinions in blog posts and other articles expressing that the Law of Demeter is less
-of a “law” and only a “suggestion” or a “guideline.” Or that it is 
+of a “law” and only a “suggestion” or a “guideline.” Or that it is fine in theory, but *the Law od Demeter does not apply to* 
+certains objects, like:
 
-## Notes about Law of Demeter
+- *data structures,*
+- *Java Beans,* 
+- *entities,*
+- *business objects,* 
+- *value objects,*
+- *data transfer objects,* or
+- *objects for presentation or persistence.*
 
-The Law of Demeter is a very well-de
+An Object-Oriented developer should be aware that more often than not, these opinions come from a background of different programming paradigms, in which the Law of Demeter might very well have a different weight or even interpretation than in Object-Orientation.
 
+The Law of Demeter is the law of the land in Object-Oriented development. As the original paper itself calls it, it is the Law of Good Style. Complying with the Law technically and in spirit everywhere is the minimum required to produce proper, well designed Object-Oriented code.
 
-
-
-
-
-
-
-### The Motivation and Explanation
+## The Motivation and Explanation
 
 The motivation behind this Law is to ensure that the software is as modular as possible. Any method written to obey this Law will only know about the immediate structure of the class to which it is attached. The structure of the arguments and the sub-structure of C are hidden from M. Therefore, should a change to the structure of the class C be necessary we need only to look at those methods attached to C and its subclasses for possible conflicts. The Law effectively reduces the occurrences of certain nested message sendings (generic method calls) and simplifies the methods. The Law prohibits the nesting of generic accessor method calls, which return objects that are not instance variable objects. It allows the nesting of constructor function calls. An accessor method is a method which returns an object which did exist before the method is called. A constructor method returns an object which did not exist before the method is called.
 
@@ -917,8 +921,7 @@ The Law of Demeter enforces one kind of information hiding: structure hiding. In
 
 ###  Information restriction
 
-Our work is related to the work by Parnas et al. on the modular structure of complex systems. To reduce the cost of software changes in their operational flight program for the A-7E aircraft, the use of modules that provide information that is subject to change is restricted. We take this point of view seriously in our objectoriented programming and assume that any class could change. Therefore we restrict the use of message seendings (generic function calls) by the Law of Demeter. Information restriction complements
-information hiding. Instead of hiding certain methods, we make them public but we restrict their use. 
+Our work is related to the work by Parnas et al. on the modular structure of complex systems. To reduce the cost of software changes in their operational flight program for the A-7E aircraft, the use of modules that provide information that is subject to change is restricted. We take this point of view seriously in our objectoriented programming and assume that any class could change. Therefore we restrict the use of message seendings (generic function calls) by the Law of Demeter. Information restriction complements information hiding. Instead of hiding certain methods, we make them public but we restrict their use. 
 
 ### Localization of information
 
@@ -926,25 +929,20 @@ The importance of localizing information is stressed in many software engineerin
 
 ### Narrow interfaces
 
-The maintenance of narrow interfaces between interacting entities is also important. A method ihould have access to only as much information as it needs to do its job. ,If a method gets too much information, it has to destructure this information (via many nested sends) which the Law of Demeter discourages. Therefore The Law promotes narrow interfaces between methods. 
+The maintenance of narrow interfaces between interacting entities is also important. A method ihould have access to only as much information as it needs to do its job. If a method gets too much information, it has to destructure this information (via many nested sends) which the Law of Demeter discourages. Therefore The Law promotes narrow interfaces between methods. 
 
 ### Structural induction
 
 The Law of Demeter is related to the fundamental thesis of Denotational Semantics. That is, “The meaning of a phrase is a function of the meanings of its immediate constituents”. This goes back to Prege’s work on the principle of compositionality in his Begriffsschrift [S]. The main motivation behind the compositionality principle
 is that it facilitates structural induction proofs.
 
-### The Trade-off 
+## The Trade-off 
 
 Writing programs which follow the the Law of Demeter decreases the occurrences of nested message sending and decreases the complexity of the methods, but it increases the number of methods. The latter is related to the problem outlined in [12] which is that there can be too many operations in a type. In this case the abstraction may be less comprehensible, and implementation and maintenance are more difficult. There might also be an increase in the number of arguments passed to some methods.
 
-One way of correcting this problem is to organize all the methods associated with a particular functional (or algorithmic) task into “Modula-2 like” module structures as outlined in [ll]. So the functional abstraction is no longer a method but a module which will hide the lower-level methods which caused the original confusion.
+One way of correcting this problem is to organize all the methods associated with a particular functional (or algorithmic) task sSo the functional abstraction is no longer a method but a module which will hide the lower-level methods which caused the original confusion.
 
-### Why Apply the LoD
-
-* It usually tightens coupling
-* It might reveal too much implementation details
-
-### How to Apply LoD
+## Summary of How to Apply LoD
 
 A method of an object may only call methods of:
 
@@ -952,6 +950,12 @@ A method of an object may only call methods of:
 >* An argument of the method.
 >* Any object created within the method.
 >* Any direct properties/fields of the object.
+
+## Final Considerations about Law of Demeter
+
+The Law of Demeter is a very well-defined set of rules for Object-Oriented development. Following these rules in letter a
+
+Furthermore, it produces clear signals if the code is deviating from the Object-Oriented path, therefore it is an invaluable tool to keep our designs and code style on the right track.
 
 ### Resources about LoD
 
