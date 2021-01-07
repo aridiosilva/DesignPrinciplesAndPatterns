@@ -511,7 +511,7 @@ The following *Java source code* example below shows how we can use *Generic Typ
 public class Modem< M > {
 
     private  M  modemType;    
-    public void sial(String pno, String user, String pw) {
+    public void dial(String pno, String user, String pw) {
        ... 	
     }
     public void send(String s){
