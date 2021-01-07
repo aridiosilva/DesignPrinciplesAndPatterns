@@ -569,15 +569,24 @@ In other words, if some method User takes an argument ot type Base, then as show
 method.
 
 ```java
-
-public void User(Base b) {
-   ...
+public Class Base {
+...
+}
+public class Derived extends Base {
+...
 }
 ...
-Derived d;
-...
-User(d);
-
+public class App {
+  private Derived d;
+  
+  public void User(Base b) {
+      ...
+  }
+   
+  ...
+  User(d);
+  ...
+}
 ```
 
 This may seem obvious, but there are subtleties that need to be considered. The canonical example is the Circle/Ellipse dilemma.
