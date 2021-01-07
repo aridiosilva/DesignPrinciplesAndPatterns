@@ -643,9 +643,9 @@ Always implement things when you actually need them, never when you just foresee
 
 #  Lod Law of Demeter Principle
 
-### Introduction
+## Introduction
 
-This a simple, programming language independent rule (known in-house as the Law of DcmeterTM) which encodes the ideas of encapsulation and modularity in an easy to follow form for the object-oriented programmer. You tend to get the following related benefits when you follow the Law of Demeter while minimizing simultaneously code duplication, the number of method arguments and the number of methods per class: 
+This a simple programming language rule, named as the Law of Demeter, which encodes the ideas of encapsulation and modularity in an easy to follow form for the object-oriented programming. Can be get the following benefits when we follow the Law of Demeter while minimizing simultaneously *code duplication*, the *number of method arguments* and the *number of methods per class*: 
 
 - Easier software maintenance, 
 - less coupling between your methods, 
@@ -654,33 +654,33 @@ This a simple, programming language independent rule (known in-house as the Law 
 - methods which are easier to reuse, and 
 - easier correct.ness proofs using structural induction. 
 
-The point is how any object-oriented program can be transformed to satisfy the Law ?
+The point is *how any object-oriented program can be transformed to satisfy the Law fo Demeter.*
 
-### Why Should We Obey the Law of Demeter?
+## Why Should We Obey the Law of Demeter?
 
 There are well-known *abstract concepts* in *Object-Oriented programming*, like **encapsulation**, **cohesion**, and **coupling**, that could be theoretically used to generate *clear designs and good code*. While these are all very important concepts, they are just not pragmatic enough to be directly useful for development. One has to interpret these concepts, and with that, they become somewhat subjective and start to depend on people’s experience and knowledge.
 
 The same can be said for other concepts like the *Single Responsibility Principle*, or the *Open/Closed Principle*, etc. These allow a very wide margin for interpretation, so the practicality, the direct usefulness, is therefore diminished.
 
-The genius of the *Law of Demeter* comes from the succinct and exact definition, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these abstract concepts and distil the essence of them into a clear set of rules that are universally applicable to Object-Oriented code.
+The beauty of the *Law of Demeter* comes from the succinct and exact definition, which allows for a direct application when writing code, while at the same time almost automatically guaranteeing proper *encapsulation, cohesion, and loose coupling*. The authors of the Law managed to take these *abstract concepts* and distil the essence of them into a clear *set of rules* that are universally applicable to Object-Oriented coding.
 
 ### The Law of Demeter
 
-The Law, in its original form, is stated in the following way:
+The Law, in its *original form*, is stated in the following way:
 
-> For all classes C, and for all methods M attached to C, all objects to which M sends a message must be instances of classes associated with the following classes:
+> **For all classes C, and for all methods M attached to C, all objects to which M sends a message must be instances of classes associated with the following classes:**
 >
-> 1, The argument classes of M (including C). 
-> 2. The instance variable classes of C. 
+> **1. The argument classes of M (including C). **
+> **2. The instance variable classes of C.**
 > 
-> (Objects created by M, or by functions or methods which M calls, and objects in global variables are considered as arguments of M.)
+> **(Objects created by M, or by functions or methods which M calls, and objects in global variables are considered as arguments of M.)**
 
 This Law has two primary purposes: 
 
-> 1. **Simplifies modifications in the code**. It simplifies the updating of a program when the class dictionary is changed.
+> 1. **Simplifies modifications in the code**. It simplifies the maintenance of a code when the class responsabilities needs to be changed.
 > 2. **Simplifies complexity of programming design**. It restricts the number of types the programmer has to be aware of when writing a method. 
  
-The Law of Demeter, when used in coordination with three key constraints, enforces good programming style. These constraints require minimizing code duplication, minimizing the number of arguments passed to methods and minimizing the number of methods per class.
+The Law of Demeter minimizes code duplication, minimizes the number of arguments passed to methods and minimizes he number of methods per class.
 
 ### Considerations about Law of Demeter
 
@@ -698,17 +698,22 @@ For all *classes C*, and for all *methods M* attached to *C*, all *objects* to w
 
 ### What Does It Mean?
 
-The law formulates what we are allowed to do in any given method M. So, let’s work backward and find out what it is exactly what this law prohibits.
+The law formulates what we are allowed to do in any given *ethod M* So, let’s work backward and find out *hat it is exactly what this law prohibits*
 
-Rule #4 states, that all objects created during the call to M, either directly or indirectly, are allowed. So the prohibition must be among objects that already existed when the call began.
+**Rule #4** states, that all *objects* created during the *call to M*, either directly or indirectly, are allowed. So the prohibition must be among objects that already existed when the call began.
 
-These already existing objects must have a reference to them, otherwise, nobody would be able to access them. Therefore these objects must be referenced from fields (variables) of other objects. Rule #5 allows global objects, so that leaves us with objects in instance variables.
+These already existing objects must have a *reference* to them, otherwise, nobody would be able to access them. Therefore these *objects* must be *referenced* from fields (variables) of other *objects*. **Rule #5** allows *global objects*, so that leaves us with *objects* in *instance variables*.
 
-Rules #1, #2, and #3 further allows “self”, M’s parameters and all objects in instance variables of C.
+**Rules #1, #2, and #3** further allows “self”, *M’s parameters* and all *objects* in *instance variables of C*.
 
-That means that the Law prohibits “sending a message” to any already existing object that is held in instance variables of other classes, unless it is also held by our class or passed to us as method parameters.
+That means that *the Law prohibits “sending a message” to any already existing object that is held in instance variables of other classes*, unless it is also held by our *class* or passed to us as *method parameters*.
 
 Let’s look at some examples of the Law in action:
+
+
+
+
+
 
 
 
