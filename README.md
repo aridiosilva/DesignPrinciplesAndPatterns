@@ -490,9 +490,9 @@ public class ModemCourrier implements IModem {
 
 ## Static Polymorphism Technique to Implement Open-Closed Principle (OCP)
 
-Another technique for conforming to the OCP is through the use of **generics** or **parametric classes** in *Java* and **templates** in *C++*. 
+Another technique for conforming to the OCP is through the use of **generics** or **parametric classes** in *Java* and **templates** in *C++*, that let us implement static polymorphims to implement the Open-Close Principle.
 
-In the C++ source code below shows how this is done. The logOn method can be extended with many different types of modems without requiring modification.
+The following *C++ source code* example shows how this is done. The logOn method can be extended in this way with many different types of modems without requiring modification.
 
 ```c++
 
@@ -505,7 +505,7 @@ void LogOn(MODEM& m, string& pno, string& user, string& pw) {
 
 ````
 
-Using in the Java source code the Generic Types or Parameterized Tyoes shown below we can achieve that the logOn method can be extended with many different types of modems without requiring modification:
+The following *Java source code* example below shows how we can use *Generic Type* or *Parameterized Type* to get the way where the *logOn method* can be extended with many different types of modems without requiring modification:
 
 ```java
 public class Modem< M > {
@@ -531,19 +531,11 @@ public class Modem< M > {
 }
 ```
 
+## Architectural Goals of the OCP Principle
 
+By using these techniques to conform to the OCP, we can create modules that are extensible, without being changed. This means that, with a little forethought, we can add new features to existing code, without changing the existing code and by only adding new code. This is an ideal that can be difficult to achieve, but you will see it achieved, several times, in the case studies later on in this book.
 
-
-
-
-
-
-
-
-
-
-
-
+Even if the OCP cannot be fully achieved, even partial OCP compliance can make dramatic improvements in the structure of an application. It is always better if changes do not propogate into existing code that already works. If you don’t have to change working code, you aren’t likely to break it.
 
 ### Why Apply OCP Principle
 
