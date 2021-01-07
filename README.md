@@ -243,18 +243,104 @@ Curly's Law - Curly's Law is about choosing a single, clearly defined goal for a
 
 [link to Single responsibility principle in Wikipedia](https://en.wikipedia.org/wiki/Single_responsibility_principle)
 
-
 # OCP Open-Closed Principle
 
-Software systems to be easy to change, hey must be designed to allow the behavior of those systems to be changing by adding new code, rather than changinh existing one.
+Software systems to be easy to change, they must be designed to allow the behavior of those systems to be changed by adding new code, rather than changing existing one.
 
-- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin)
-- If a component A should be protected from changes in component B, then component B should depend on component A (
+- The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin);
+- If a component A should be protected from changes in component B, then component B should depend on component A;
 - A software artifact should be open extension but closed for modification;
-- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change
-- This goal is accomplished by partitioning the system into compoenents, and arranging thos components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
+- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change - This goal is accomplished by partitioning the system into components, and arranging those components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
 
-Software entities (e.g. classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
+A software entities (classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
+
+Of all the principles of object oriented design, this is the most important. It originated from the work of Bertrand Meyer2. It means simply this: We should write our modules
+so that they can be extended, without requiring them to be modified. In other words, we want to be able to change what the modules do, without changing the source code of the modules.
+
+This may sound contradictory, but there are several techniques for achieving the OCP on a large scale. All of these techniques are based upon abstraction. Indeed, abstraction
+is the key to the OCP. Some of these techniques are, for example:
+
+- A) Dynamic Polymorphism;
+- B) Static Polymorphism;
+
+## Dynamic Polymorphism Technique 
+
+Dynamic Polymorphism. Consider the source code below. the logOn method must be changed every time a new kind of modem is added to the software. Worse, since each
+different type of modem depends upon the ModemType enumeration, each modem must be recompiled every time a new kind of modem is added:
+
+```java
+public class Modem {
+	private int ModemStatus;
+	public enum ModemType {
+		HAYES, COURRIER, ERNIE;
+	}
+	public void logOn (ModemType m, String pno, String user, String pw) {
+		switch (m) {
+		case HAYES:
+			dialHayes( m.HAYES, pno);
+			break;
+		case COURRIER:
+			dialCourrier( m.COURRIER, pno);
+			break;
+		case ERNIE:
+			dialErnie (m.HAYES, pno);
+			break;
+		default:
+			break;
+		}
+		// ...you get the idea
+	}
+}
+```
+Of course this is not the worst attribute of this kind of design. Programs that are designed this way tend to be littered with similar if/else or switch statement. Every
+time anything needs to be done to the Modem, a switch statement if/else chain will need to select the proper functions to use. When new modems are added, or modem policy changes, the code must be scanned for all these selection statements, and each must be appropriately modified.
+
+Worse, programmers may use local optimizations that hide the structure of the selection statements. For example, it might be that the method is exactly the same for
+HAYES and COURRIER modems. Thus we might see code like this:
+
+```java
+
+if (m.ERNIES)
+    sendErnie(m.ERNIES, c);
+else
+    dendHayes(m.HAYERS, c);
+
+```
+Clearly, such structures make the system much harder to maintain, and are very prone to error. 
+
+As an example of the OCP, consider code shown in the UML Diagram below. Here the LogOn function depends only upon the Modem interface. Additional modems will not cause the logOn method to change. Thus, we have created a module that can be extended, with new modems, without requiring modification. See the source below:
+
+![OCP_Principle_UML_Diagram_Example013_CleanCodeBook](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/OCP_Principle_UML_Diagram_Example013_CleanCodeBook.jpg)
+
+```java
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Why Apply OCP Principle
 
