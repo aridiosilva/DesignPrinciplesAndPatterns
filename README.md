@@ -342,15 +342,15 @@ public class ModemHayes extends Modem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
@@ -364,15 +364,15 @@ public class ModemErnie extends Modem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
@@ -386,15 +386,15 @@ public class ModemCourrier extends Modem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
@@ -429,15 +429,15 @@ public class ModemHayes implements IModem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
@@ -451,15 +451,15 @@ public class ModemErnie implements IModem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
@@ -473,15 +473,15 @@ public class ModemCourrier implements IModem {
        ...    
     }
     @Overrides
-    public void abstract Send(String s);
+    public void Send(String s);
        ...    
     }
     @Overrides
-    public String abstract Recv();
+    public String Recv();
        ...    
     }
     @Overrides
-    public void abstract Hangup();
+    public void Hangup();
        ...    
     }
 }
