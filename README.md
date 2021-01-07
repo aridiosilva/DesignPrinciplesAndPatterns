@@ -692,8 +692,7 @@ and retest all the existing clients. Therefore the solution will likely be to pu
     }
 ```
 
-Careful examination of Listing 2-6 will show it to be a violation of the OCP. Now, whenever some new derivative of Ellipse is created, this function will have to be
-checked to see if it should be allowed to operate upon it. Thus, violations of LSP are latent violations of OCP.
+Careful examination of source code fragment above will show **it to be a violation of the OCP**. Now, whenever some new derivative of Ellipse is created, this function will have to be checked to see if it should be allowed to operate upon it. Thus, **violations of LSP are latent violations of OCP.**
 
 ## Resources About LSP Principle
 
