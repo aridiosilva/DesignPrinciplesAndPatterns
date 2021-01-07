@@ -312,7 +312,9 @@ As an example of the OCP, consider code shown in the UML Diagram below. Here the
 
 ![OCP_Principle_UML_Diagram_Example013_CleanCodeBook](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/OCP_Principle_UML_Diagram_Example013_CleanCodeBook.jpg)
 
-In this case thye method logOn has been closed for modification:
+We have two options in Java Programming Language to implement the model shown in the UML diagram. The first optin is through abstract classe via inheritance mechanism, and the second optin is through the us e of an interface and its implementation by concrete classes. In both cases the method logOn will be  closed for modification:
+
+## Dynamic Polymorphism Technique via Abstract Classes
 
 ```java
 public abstrac class Modem {
@@ -399,6 +401,92 @@ public class ModemCourrier extends Modem {
 
 ```
 
+## Dynamic Polymorphism Technique via Interface´s Implementation
+
+```java
+public interface IModem {
+
+    public abstract void Dial(String pno);
+    public void abstract Send(String s);
+    public String abstract Recv();
+    public void abstract Hangup();
+
+    public void logOn(ModemType m, String& pno, String user, String pw) {
+         m.Dial(pno);
+         // you get the idea ...
+         ...
+    }
+    ...
+}
+```
+
+```java
+
+public class ModemHayes implements IModem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
+```
+
+```java
+public class ModemErnie implements IModem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
+```
+
+```java
+public class ModemCourrier implements IModem {
+
+    @Overrides
+    public void Dial(String& pno) {
+       ...    
+    }
+    @Overrides
+    public void abstract Send(String s);
+       ...    
+    }
+    @Overrides
+    public String abstract Recv();
+       ...    
+    }
+    @Overrides
+    public void abstract Hangup();
+       ...    
+    }
+}
+
+```
 
 
 
