@@ -486,9 +486,9 @@ Improve maintainability and stability by minimizing changes to existing code.
 ## Introduction 
 
 >
-> *Subclasses should be substitutable for their base classes.*
->
->  or If type X extends type Y then an object of type X can always be used wherever an object of type Y is expected.
+>    *Subclasses should be substitutable for their base classes.*
+>  or
+>    *If type X extends type Y then an object of type X can always be used wherever an object of type Y is expected.*
 >
 
 This principle was coined by *Barbar Liskov* in her work regarding *data abstraction* and *type theory*. It also derives from the concept of *Design by Contract (DBC)* by
