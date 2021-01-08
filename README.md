@@ -638,21 +638,17 @@ and retest all the existing clients. Therefore the solution will likely be to pu
 
 ```java
 	public void f (Ellipse e) throws Exception {
-		try {
-			if ( e instanceof Ellipse ) {    		
-				double a = -1; 
-				double b = 1;  
-				
-				e.setFoci(a,b);
-				e.setMajorAxis(3);
-
-				assert(e.getFocusA() == a);
-				assert(e.getFocusB() == b);
-				assert(e.getMajorAxis() == 3);    	    
-			}            
-		} catch (Exception e1) {	 
-			throw new Exception (" Not an Ellipse(e) ");
-		}
+	   if ( e instanceof Ellipse ) 
+		 throw new Exception (" Not an Ellipse(e) ");	
+           else {    		
+		double a = -1; 
+		double b = 1;  
+		e.setFoci(a,b);
+		e.setMajorAxis(3);
+		assert(e.getFocusA() == a);
+		assert(e.getFocusB() == b);
+		assert(e.getMajorAxis() == 3);    	    
+	  }
 	}
 ```
 
