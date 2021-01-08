@@ -597,25 +597,23 @@ and retest all the existing clients. Therefore the solution will likely be to pu
 **Ugly fix for LSP violation**
 
 ```java
-    public void f (Ellipse e)
-    {
-    	try {
-    	    if ( e instanceof Ellipse ) {
-    		
-               Point a = new Point(-1,0);
-               Point b = new Point( 1,0);
-    	
-               e.setFoci(a,b);
-               e.setMajorAxis(3);
+	public void f (Ellipse e) throws Exception {
+		try {
+			if ( e instanceof Ellipse ) {    		
+				double a = -1; 
+				double b = 1;  
+				
+				e.setFoci(a,b);
+				e.setMajorAxis(3);
 
-               assert(e.GetFocusA() == a);
-               assert(e.GetFocusB() == b);
-               assert(e.GetMajorAxis() == 3);    	    
-    	    }            
-         } catch (Exception e1) {	 
-               throw new Exception (" Not an Ellipse(e) ");
-         }
-    }
+				assert(e.getFocusA() == a);
+				assert(e.getFocusB() == b);
+				assert(e.getMajorAxis() == 3);    	    
+			}            
+		} catch (Exception e1) {	 
+			throw new Exception (" Not an Ellipse(e) ");
+		}
+	}
 ```
 
 Careful examination of source code fragment above will show **it to be a violation of the OCP**. Now, whenever some new derivative of Ellipse is created, this function will have to be checked to see if it should be allowed to operate upon it. Thus, **violations of LSP are latent violations of OCP.**
