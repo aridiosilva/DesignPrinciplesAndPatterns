@@ -526,6 +526,61 @@ Ellipse has three data elements. The first two are the *foci*, and the last is t
 
 ![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Declaration_Of_Elipse_Classe_Dillema_LCP_Principle_001.jpg)
 
+```java
+package designpatterns;
+
+public class Ellipse {
+
+	private double _itsFocusA;    // x axis
+	private double _itsFocusB;    // y axis
+	private double _itsMajorAxis;
+	
+	public double circumference() {
+      double a = _itsFocusA, b = _itsFocusB;
+	  return 2*3.14*Math.sqrt((Math.pow(a,2)+Math.pow(b,2))/2);	
+	}
+	public double area(){
+      return 3.142 * _itsFocusA * _itsFocusB;
+	}
+	public double getFocusA() {
+	    return _itsFocusA;
+	}
+	public double getFocusB() {
+		return _itsFocusB;
+	}
+	public double getMajorAxis() {
+	   return _itsMajorAxis;
+	}
+	public double getMinorAxis () {
+	   return _itsMajorAxis;
+	}
+	public void setFoci ( double a, double b) {
+		_itsFocusA = a;
+		_itsFocusB = b;
+	}
+	public void setMajorAxis (double a) {
+		_itsMajorAxis = a; 
+	}
+	public void f (Ellipse e) throws Exception {
+		try {
+			if ( e instanceof Ellipse ) {    		
+				double a = -1; 
+				double b = 1;  
+				
+				e.setFoci(a,b);
+				e.setMajorAxis(3);
+
+				assert(e.getFocusA() == a);
+				assert(e.getFocusB() == b);
+				assert(e.getMajorAxis() == 3);    	    
+			}            
+		} catch (Exception e1) {	 
+			throw new Exception (" Not an Ellipse(e) ");
+		}
+	}
+}
+```
+
 Still, if we ignore the slight overhead in space, we can make *Circle* behave properly by *overriding its SetFoci method* to ensure that both *foci* are kept at the *same value*. See Listing shown below. Thus, either *focus* will act as the *center of the circle*, and the *major axis* will be its *diameter*.
 
 ```java
@@ -533,10 +588,10 @@ Still, if we ignore the slight overhead in space, we can make *Circle* behave pr
 
 public class Circle extends Ellipse {
 
-   public void setFoci(Point a, Point b)    {
+   public void setFoci(double a, double b)    {
        
-       Point itsFocusA = a;
-       Point itsFocusB = a;
+       double itsFocusA = a;
+       double itsFocusB = a;
    }
    ...
 }
@@ -553,16 +608,11 @@ right to expect the following *code fragment* to succeed:
 ```java
 
 public void f (Ellipse e) {
-
-   Point a(-1,0);
-   Point b(1,0);
-   
+   double a = -1, b = 1;
    e.setFoci(a,b);
    e.setMajorAxis(3);
-   
    assert(e.getFocusA() == a);
    assert(e.getFocusB() == b);
-   
    assert(e.getMajorAxis() == 3);
 }
 
