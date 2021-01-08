@@ -331,45 +331,27 @@ public abstrac class Modem {
 ```java
 
 public class ModemHayes extends Modem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
 ```
 
 ```java
 public class ModemErnie extends Modem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
 ```
 
@@ -417,69 +399,41 @@ public interface IModem {
 ```java
 
 public class ModemHayes implements IModem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
 ```
 
 ```java
 public class ModemErnie implements IModem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
 ```
 
 ```java
 public class ModemCourrier implements IModem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
-
 ```
 
 ## Static Polymorphism Technique to Implement Open-Closed Principle (OCP)
@@ -506,20 +460,11 @@ public class Modem< M > {
 
     private  M  modemType;  
     
-    public void dial(String pno, String user, String pw) {
-       ... 	
-    }
-    public void send(String s){
-    	...
-    }
-    public String recv(){
-    	...
-    }
-    public void hangUp(){
-    	...
-    }
-    public void logOn(Modem<M> m, String pno, String user, String pw) {
-    	
+    public void dial(String pno, String user, String pw) { ... }
+    public void send(String s) { ... }
+    public String recv() { ... }
+    public void hangUp() { ... }
+    public void logOn(Modem<M> m, String pno, String user, String pw) {    	
          m.dial(pno, user, pw);
          ...
     }
@@ -550,7 +495,11 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 ## Introduction 
 
-> - *Subclasses should be substitutable for their base classes.*
+>
+> *Subclasses should be substitutable for their base classes.*
+>
+>  or If type X extends type Y then an object of type X can always be used wherever an object of type Y is expected.
+>
 
 This principle was coined by *Barbar Liskov* in her work regarding *data abstraction* and *type theory*. It also derives from the concept of *Design by Contract (DBC)* by
 Bertrand Meyer. 
@@ -563,16 +512,11 @@ In other words, if some method User takes an argument ot type Base, then as show
 method.
 
 ```java
-public Class Base {
-}
-public class Derived extends Base {
-}
+public Class Base { ... }
+public class Derived extends Base { ... }
 public class App {
   private Derived d;
-  
-  public void User(Base b) {
-      ...
-  } 
+  public void User(Base b) { ... } 
   ...
   User(d);
   ...
