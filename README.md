@@ -487,7 +487,7 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 >
 >    *Subclasses should be substitutable for their base classes.*
->  or
+>    *or*  
 >    *If type X extends type Y then an object of type X can always be used wherever an object of type Y is expected.*
 >
 
