@@ -534,17 +534,17 @@ public class Ellipse {
 	private double _itsMajorAxis;
 	
 	public double circumference() {
-      double a = _itsFocusA, b = _itsFocusB;
+          double a = _itsFocusA, b = _itsFocusB;
 	  return 2*3.14*Math.sqrt((Math.pow(a,2)+Math.pow(b,2))/2);	
 	}
 	public double area(){
-      return 3.142 * _itsFocusA * _itsFocusB;
+           return 3.142 * _itsFocusA * _itsFocusB;
 	}
 	public double getFocusA() {
-	    return _itsFocusA;
+	   return _itsFocusA;
 	}
 	public double getFocusB() {
-		return _itsFocusB;
+	   return _itsFocusB;
 	}
 	public double getMajorAxis() {
 	   return _itsMajorAxis;
@@ -553,11 +553,11 @@ public class Ellipse {
 	   return _itsMajorAxis;
 	}
 	public void setFoci ( double a, double b) {
-		_itsFocusA = a;
-		_itsFocusB = b;
+	   _itsFocusA = a;
+	   _itsFocusB = b;
 	}
 	public void setMajorAxis (double a) {
-		_itsMajorAxis = a; 
+	   _itsMajorAxis = a; 
 	}
 	public void f (Ellipse e) {
 	    double a = -1; 
