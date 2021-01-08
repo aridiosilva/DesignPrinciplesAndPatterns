@@ -248,25 +248,22 @@ Curly's Law - Curly's Law is about choosing a single, clearly defined goal for a
 Software systems to be easy to change, they must be designed to allow the behavior of those systems to be changed by adding new code, rather than changing existing one.
 
 - The OCP is the driving forces behind the architecture of systems" (Uncle Bob C. Martin);
-- If a component A should be protected from changes in component B, then component B should depend on component A;
-- A software artifact should be open extension but closed for modification;
-- the goal of OCP is to mmake the system easy ti extend without incurring a high impact of change - This goal is accomplished by partitioning the system into components, and arranging those components into a dependency hierarchy that protects higher-level components from changes in lower-level components;
+- If a *component A* should be protected from changes in *component B*, then *component B should depend on component A*;
+- A software artifact should be *open extension but closed for modification*;
+- the *goal of OCP* is to *make the system easy to extend without incurring an high impact of change* - This goal is accomplished by *partitioning the system into components, and arranging those components into a dependency hierarchy that protects higher-level components from changes in lower-level components*;
 
-A software entities (classes) should be open for extension, but closed for modification. I.e. such an entity can allow its behavior to be modified without altering its source code.
+A software entities (classes) should be open for extension, but closed for modification. I.e. such an entity can allow *its behavior to be modified without altering its source code*.
 
-Of all the principles of object oriented design, this is the most important. It originated from the work of Bertrand Meyer2. It means simply this: We should write our modules
-so that they can be extended, without requiring them to be modified. In other words, we want to be able to change what the modules do, without changing the source code of the modules.
+Of all the *principles of object oriented design (OOD)*, this is the most important. It originated from the work of *Bertrand Meyer*. It means simply this: *We should write our modules so that they can be extended, without requiring them to be modified*. In other words, *we want to be able to change what the modules do, without changing the source code of the modules*.
 
-This may sound contradictory, but there are several techniques for achieving the OCP on a large scale. All of these techniques are based upon abstraction. Indeed, abstraction
-is the key to the OCP. Some of these techniques are, for example:
+This may sound contradictory, but there are *several techniques* for achieving the OCP on a large scale. All of these techniques are based upon *abstraction*. Indeed, *abstraction is the key to the OCP*. Some of these techniques are, for example:
 
-- A) Dynamic Polymorphism;
-- B) Static Polymorphism;
+> **A) Dynamic Polymorphism**
+> **B) Static Polymorphism**
 
-## Dynamic Polymorphism Technique to Implement Open-Closed Principle (OCP)
+## Dynamic Polymorphism Technique Used to Implement Open-Closed Principle (OCP)
 
-Dynamic Polymorphism. Consider the source code below. the logOn method must be changed every time a new kind of modem is added to the software. Worse, since each
-different type of modem depends upon the ModemType enumeration, each modem must be recompiled every time a new kind of modem is added:
+Consider the source code below. the *logOn method* must be changed every time a *new kind of modem is added to the software*. Worse, since each *different type of modem* depends upon the *modemType enumeration*, each modem must be recompiled every time a new kind of modem is added:
 
 ```java
 public class Modem {
@@ -274,7 +271,7 @@ public class Modem {
 	public enum modemType {
 		HAYES, COURRIER, ERNIE;
 	}
-	public void logOn (modemType m, String pno, String user, String pw) {
+	public voi logOn (modemType m, String pno, String user, String pw) {
 		switch (m) {
 		case HAYES:
 			dialHayes( m.HAYES, pno);
@@ -292,11 +289,9 @@ public class Modem {
 	}
 }
 ```
-Of course this is not the worst attribute of this kind of design. Programs that are designed this way tend to be littered with similar if/else or switch statement. Every
-time anything needs to be done to the Modem, a switch statement if/else chain will need to select the proper functions to use. When new modems are added, or modem policy changes, the code must be scanned for all these selection statements, and each must be appropriately modified.
+Of course this is not the worst attribute of this kind of design. Programs that are designed this way tend to be littered with similar *if/else* or *switch statement*. Every time anything needs to be done to the *Modem Class*, a *switch statement* or *if/else chain* will need to select the proper methods to use. When *new modems* are added, or *modem policy changes*, the code must be scanned for all these *selection statements*, and each must be appropriately *modified*.
 
-Worse, programmers may use local optimizations that hide the structure of the selection statements. For example, it might be that the method is exactly the same for
-HAYES and COURRIER modems. Thus we might see code like this:
+Worse, programmers may use *local optimizations that hide the structure of the selection statements*. For example, it might be that the method is exactly the same for *HAYES* and *COURRIER* modems. Thus we might see code like this:
 
 ```java
 
@@ -306,15 +301,16 @@ else
     dendHayes(m.HAYERS, c);
 
 ```
-Clearly, such structures make the system much harder to maintain, and are very prone to error. 
 
-As an example of the OCP, consider code shown in the UML Diagram below. Here the LogOn function depends only upon the Modem interface. Additional modems will not cause the logOn method to change. Thus, we have created a module that can be extended, with new modems, without requiring modification. See the source below:
+Clearly, *such structures make the system much harder to maintain*, and are *very prone to error*. 
+
+As an example of the OCP, consider code shown in the following *UML Diagram*. Here the *logOn method* depends only upon the *Modem interface*. Additional modems will not cause the *logOn method* to change. Thus, we have created a module that *can be extended, with new modems, without requiring modification*. See the the following *UML Diagram* showing such design:
 
 ![OCP_Principle_UML_Diagram_Example013_CleanCodeBook](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/OCP_Principle_UML_Diagram_Example013_CleanCodeBook.jpg)
 
-We have two options in Java Programming Language to implement the model shown in the UML diagram. The first optin is through abstract classe via inheritance mechanism, and the second optin is through the us e of an interface and its implementation by concrete classes. In both cases the method logOn will be  closed for modification:
+We have *two options* in *Java Programming Language* to implement the *model* shown in the *UML diagram* above. The **first optin** is through *abstract class* via use of *inheritance mechanism*, and the **second option** is through the use of *interface and its implementation by concrete classes*. In both cases the *method LogOn* will be *open for extension and closed for modification* as states the *OCP Principle*:
 
-## Dynamic Polymorphism Technique via Abstract Classes
+## Dynamic Polymorphism Technique Applied Through Abstract Classes and Inheritance
 
 ```java
 public abstrac class Modem {
@@ -326,7 +322,6 @@ public abstrac class Modem {
 
     public void logOn(modemType m, String pno, String user, String pw) {
          m.dial(pno);
-         // you get the idea ...
          ...
     }
     ...
@@ -401,7 +396,7 @@ public class ModemCourrier extends Modem {
 
 ```
 
-## Dynamic Polymorphism Technique via Interface´s Implementation
+## Dynamic Polymorphism Technique Applied Through Interface´s Implementation
 
 ```java
 public interface IModem {
@@ -413,7 +408,6 @@ public interface IModem {
 
     public void logOn(ModemType m, String pno, String user, String pw) {
          m.Dial(pno);
-         // you get the idea ...
          ...
     }
     ...
@@ -490,9 +484,9 @@ public class ModemCourrier implements IModem {
 
 ## Static Polymorphism Technique to Implement Open-Closed Principle (OCP)
 
-Another technique for conforming to the OCP is through the use of **generics** or **parametric classes** in *Java* and **templates** in *C++*, that let us implement static polymorphims to implement the Open-Close Principle.
+Another technique for conforming to the OCP is through the use of **generics** or **parametric classes** in *Java* and **templates** in *C++*, that let us implement static polymorphims to conform the Open-Close Principle requirements.
 
-The following *C++ source code* example shows how this is done. The logOn method can be extended in this way with many different types of modems without requiring modification.
+The following *C++ source code* example shows how this is done. The *logOn method* can be extended in the future in this way with many different types of modems without requiring modification.
 
 ```c++
 
@@ -505,7 +499,7 @@ void logOn(MODEM& m, string& pno, string& user, string& pw) {
 
 ````
 
-The following *Java source code* example below shows how we can use *Generic Type* or *Parameterized Type* to get the way where the *logOn method* can be extended with many different types of modems without requiring modification:
+The following *Java source code* example below shows how we can use *Generic Type* (named also *Parameterized Type*) to get the way where the *logOn method* can be extended with many different types of modems without requiring modification:
 
 ```java
 public class Modem< M > {
@@ -534,9 +528,9 @@ public class Modem< M > {
 
 ## Architectural Goals of the OCP Principle
 
-By using these techniques to conform to the OCP, we can create modules that are extensible, without being changed. This means that, with a little forethought, we can add new features to existing code, without changing the existing code and by only adding new code. This is an ideal that can be difficult to achieve, but you will see it achieved, several times, in the case studies later on in this book.
+By using these techniques to conform to the OCP, we can create modules that are extensible, without being changed. This means that, with a little forethought, we can add new features to existing code, without changing the existing code and by only adding new code. This is an ideal that can be difficult to achieve, but you will see it achieved, several times, using those techniques described in th previous sections.
 
-Even if the OCP cannot be fully achieved, even partial OCP compliance can make dramatic improvements in the structure of an application. It is always better if changes do not propogate into existing code that already works. If you don’t have to change working code, you aren’t likely to break it.
+Even if the OCP cannot be fully achieved, even *partial OCP compliance* can make dramatic improvements in the structure of an application. It is always better if changes *do not propogate into existing code that already works*. If you *don’t have to change working code*, you *aren’t likely to break it*.
 
 ### Why Apply OCP Principle
 
@@ -544,13 +538,15 @@ Improve maintainability and stability by minimizing changes to existing code.
 
 ### How to Apply OCP Principle
 
-* Write classes that can be extended (as opposed to classes that can be modified).
-* Expose only the moving parts that need to change, hide everything else.
+* Write classes that can be extended (as opposed to classes that can be modified) through the us of the dynamic and static polimorphysm;
+* Expose only the moving parts that need to change, hide everything else;
 
 ### Resources Aboiut OCP Principle
 
 >* [link to Open Closed Principle in Wikipedia](https://en.wikipedia.org/wiki/Open/closed_principle)
 >* [Link to Article Explaining The Open Closed Principle](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html)
+>* [link to Principles Wiki ](http://principles-wiki.net/collections:robert_c._martin_s_principle_collection#dokuwiki__top)
+>* [link to Robert C. Martin Open-Closed Principle](http://principles-wiki.net/principles:open-closed_principle)
 
 # LSP Liskov Substitution Principle
 
