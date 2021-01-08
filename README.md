@@ -357,25 +357,15 @@ public class ModemErnie extends Modem {
 
 ```java
 public class ModemCourrier extends Modem {
-
     @Overrides
-    public void dial(String pno) {
-       ...    
-    }
+    public void dial(String pno) { ... }
     @Overrides
-    public void send(String s);
-       ...    
-    }
+    public void send(String s) { ... }
     @Overrides
-    public String recv();
-       ...    
-    }
+    public String recv()  { ... }
     @Overrides
-    public void hangUp();
-       ...    
-    }
+    public void hangUp() { ... }
 }
-
 ```
 
 ## Dynamic Polymorphism Technique Applied Through Interface´s Implementation
