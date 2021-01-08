@@ -600,7 +600,7 @@ and retest all the existing clients. Therefore the solution will likely be to pu
     public void f (Ellipse e)
     {
     	try {
-    	    if ( e instanceof Ellipse {
+    	    if ( e instanceof Ellipse ) {
     		
                Point a = new Point(-1,0);
                Point b = new Point( 1,0);
@@ -610,13 +610,11 @@ and retest all the existing clients. Therefore the solution will likely be to pu
 
                assert(e.GetFocusA() == a);
                assert(e.GetFocusB() == b);
-               assert(e.GetMajorAxis() == 3);
-            
-         } catch (Exception e) {
-	 
-               throw Exception (" Not an Ellipse(e) ");
+               assert(e.GetMajorAxis() == 3);    	    
+    	    }            
+         } catch (Exception e1) {	 
+               throw new Exception (" Not an Ellipse(e) ");
          }
-  
     }
 ```
 
