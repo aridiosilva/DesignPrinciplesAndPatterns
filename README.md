@@ -524,8 +524,6 @@ Most of us learn, in high school math, that a circle is just a degenerate form o
 While this satisfies our *conceptual model*, there are certain difficulties. A closer look at the *declaration of Ellipse in Figure above* begins to expose them. Notice that
 Ellipse has three data elements. The first two are the *foci*, and the last is the *length of the major axis*. If *Circle inherits from Ellipse*, then it will *inherit these data variables*. This is unfortunate since *Circle* really only needs *two data elements*, a *center point* and a *radius*.
 
-![](https://github.com/aridiosilva/DesignPrinciplesAndPatterns/blob/main/UML_Diagram_Declaration_Of_Elipse_Classe_Dillema_LCP_Principle_001.jpg)
-
 ```java
 package designpatterns;
 
@@ -561,22 +559,14 @@ public class Ellipse {
 	public void setMajorAxis (double a) {
 		_itsMajorAxis = a; 
 	}
-	public void f (Ellipse e) throws Exception {
-		try {
-			if ( e instanceof Ellipse ) {    		
-				double a = -1; 
-				double b = 1;  
-				
-				e.setFoci(a,b);
-				e.setMajorAxis(3);
-
-				assert(e.getFocusA() == a);
-				assert(e.getFocusB() == b);
-				assert(e.getMajorAxis() == 3);    	    
-			}            
-		} catch (Exception e1) {	 
-			throw new Exception (" Not an Ellipse(e) ");
-		}
+	public void f (Ellipse e) {
+	    double a = -1; 
+	    double b = 1;  
+	    e.setFoci(a,b);
+	    e.setMajorAxis(3);
+            assert(e.getFocusA() == a);
+	    assert(e.getFocusB() == b);
+	    assert(e.getMajorAxis() == 3);    	    
 	}
 }
 ```
