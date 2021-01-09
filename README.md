@@ -692,6 +692,10 @@ In a *statically typed language*, like *Java*, this means that the *use*, *impor
 
 The same *rule* applies for *dynamically type languages*, like *Python* and *Ruby*. Source *code dependencies* **should not refer to** *concrete modules*. However, in these languages it is a bit harder to define what a concrete module is. In particular, it is any module in which the functions being called are implemented.
 
+Clearly, treating this idea as a rule is unrealistic, because software systems must depend on many concrte facilities. For example, the *String* class in Java is concrete, and it would be unrealistic to try to force it to be abstract. The source code dependency on the concrete *java.lang.string* cannot, and should not, be avoided.
+
+By comparison, the *String* class is very stable. Changes to that class are very rare and and tightly controlled. Programmers and Architects do not have to worry about frequent chances to *String* 
+
 ## The Rule of DIP
 
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
