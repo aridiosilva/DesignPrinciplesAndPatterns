@@ -684,16 +684,26 @@ Reduce fat interfaces into multiple smaller and more specific client specific in
 
 # DIP Dependency Inversion Principle
 
+## Introduction
+
+The *Dependency Inversion Principke (DIP)* tell us that the most flexible applications are those in which source *code dependenciesrefer only to abstraction, not to concretions*. 
+
+In a *statically typed language*, like *Java*, this means that the *use*, *import*, and *include* statements should refere only to source modules constaining *interfaces*, *abstract classes*, or *some kind of abstractions*.  Nothing concrete shoul be depended on.
+
+The same *rule* applies for *dynamically type languages*, like *Python* and *Ruby*. Source *code dependencies* **should not refer to** *concrete modules*. However, in these languages it is a bit harder to define what a concrete module is. In particular, it is any module in which the functions being called are implemented.
+
+## The Rule of DIP
+
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
 
 - Depend on abstraction, not on concretion.
 
 In object-oriented design, the dependency inversion principle is a specific form of decoupling software modules. When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed, thus rendering high-level modules independent of the low-level module implementation details. The principle states:[1]
 
->1.  High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).
->1.  Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+> *1.  High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).*
+> *1.  Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.*
 
-By dictating that both high-level and low-level objects must depend on the same abstraction, this design principle inverts the way some people may think about object-oriented programming.
+By dictating that both *high-level* and *low-level objects* must depend on the *same abstraction*, this design principle inverts the way some people may think about object-oriented programming.
 
 The idea behind points "1" and "2" above of this principle is that when designing the interaction between a high-level module and a low-level one, the interaction should be thought of as an abstract interaction between them. This not only has implications on the design of the high-level module, but also on the low-level one: the low-level one should be designed with the interaction in mind and it may be necessary to change its usage interface.
 
