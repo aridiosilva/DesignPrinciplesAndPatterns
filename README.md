@@ -686,23 +686,21 @@ Reduce fat interfaces into multiple smaller and more specific client specific in
 
 ## Introduction
 
-The *Dependency Inversion Principke (DIP)* tell us that the most flexible applications are those in which source *code dependenciesrefer only to abstraction, not to concretions*. 
+The *Dependency Inversion Principke (DIP)* tell us that the most flexible applications are those in which source *code dependencies refer only to abstraction, not to concretions*. 
 
 In a *statically typed language*, like *Java*, this means that the *use*, *import*, and *include* statements should refere only to source modules constaining *interfaces*, *abstract classes*, or *some kind of abstractions*.  Nothing concrete shoul be depended on.
 
 The same *rule* applies for *dynamically type languages*, like *Python* and *Ruby*. Source *code dependencies* **should not refer to** *concrete modules*. However, in these languages it is a bit harder to define what a concrete module is. In particular, it is any module in which the functions being called are implemented.
 
-Clearly, treating this idea as a rule is unrealistic, because software systems must depend on many concrte facilities. For example, the *String* class in Java is concrete, and it would be unrealistic to try to force it to be abstract. The source code dependency on the concrete *java.lang.string* cannot, and should not, be avoided.
+Clearly, treating this idea as a rule is unrealistic, because software systems must depend on many concrete facilities. For example, the *String* class in Java is concrete, and it would be unrealistic to try to force it to be abstract. The source code dependency on the concrete *java.lang.string* cannot, and should not, be avoided. By comparison, the *String* class is very stable. Changes to that class are very rare and and tightly controlled. We do not have to worry about frequent chances to *String* 
 
-By comparison, the *String* class is very stable. Changes to that class are very rare and and tightly controlled. Programmers and Architects do not have to worry about frequent chances to *String* 
-
-## The Rule of DIP
+## The Rules of DIP
 
 The code that implement high-level policy should not depend on the code that implements low-level details. Rather, details should depend on policies.
 
 - Depend on abstraction, not on concretion.
 
-In object-oriented design, the dependency inversion principle is a specific form of decoupling software modules. When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed, thus rendering high-level modules independent of the low-level module implementation details. The principle states:[1]
+In object-oriented design, the *dependency inversion principle* is a specific form of *decoupling software modules*. When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed, thus rendering high-level modules independent of the low-level module implementation details. The principle states:[1]
 
 > *1.  High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).*
 > *1.  Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.*
