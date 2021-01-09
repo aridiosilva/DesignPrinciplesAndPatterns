@@ -702,8 +702,8 @@ The code that implement high-level policy should not depend on the code that imp
 
 In object-oriented design, the *dependency inversion principle* is a specific form of *decoupling software modules*. When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed, thus rendering high-level modules independent of the low-level module implementation details. The principle states:[1]
 
-> *1.  High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).*
-> *1.  Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.*
+> * 1.  High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g., interfaces).*
+> * 2.  Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions. *
 
 By dictating that both *high-level* and *low-level objects* must depend on the *same abstraction*, this design principle inverts the way some people may think about object-oriented programming.
 
