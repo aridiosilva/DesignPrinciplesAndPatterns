@@ -1,5 +1,3 @@
-
-
 # Design Principles And Patterns in Object-Oriented Design (OOD)
 
 *"Patterns are a cornerstone of object-oriented design, while test-first programming and merciless refactoring are cornerstones of evolutionary 
@@ -3210,6 +3208,4 @@ public class TelaVotacaoController implements ActionListener{
 	}
 }
 ```
-
-
 
