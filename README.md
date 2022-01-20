@@ -87,6 +87,7 @@ design. To stop over- or under-engineering, it’s necessary to learn how patter
 
 Note: the definitons below is based on the book Timothy Budd's An Introduction to Object-Oriented Programming  
 
+
 # Coupling or Dependency
 
 - Refers to the interdependencies between software artifacts
